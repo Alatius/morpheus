@@ -12,7 +12,7 @@
 #define FUTP_PPART	010	
 #define IRREG_INDECL	011
 #define IRREG_VERB	012
-#define INDECL		(04000)
+#define INDECL		(020000)  /* was 04000, collided with ADJSTEM */
 
 
 typedef unsigned int Stemtype;
