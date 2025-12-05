@@ -17,7 +17,7 @@ CFLAGS= -O2 -I${INCLUDE}   -Wno-implicit-int   -Wno-implicit-function-declaratio
 LINTFLAGS= -I${INCLUDE} -DDEBUG
 RM=/bin/rm -f
 
-LOADLIBES= -ll
+LOADLIBES= -lfl
 
 ALL=gkdict.a indexcomps indexnoms indexvbs  newlems newlems2 setquant splitlems splitlat latvb conj1 combitype latnom fixhesc fixgend
 
