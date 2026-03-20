@@ -498,7 +498,7 @@ getprvbform(char *word, char *prevb, MorphFlags *oddpb)
 	 *
 	 * cope with forms such as pera/ptwn
 	 */
-		if( (! strcmp(lastn(prevb,4),"peri") || ! strcmp(lastn(prevb,5),"proti"))
+		if( ((Xstrlen(prevb)>=4 && ! strcmp(lastn(prevb,4),"peri")) || (Xstrlen(prevb)>=5 && ! strcmp(lastn(prevb,5),"proti")))
 			&& has_morphflag(oddpb,ELIDE_PREVERB)) {
 			*lastn(prevb,1) = 0;
 		} else 
@@ -508,7 +508,7 @@ getprvbform(char *word, char *prevb, MorphFlags *oddpb)
 		 * a)mfi-exw --> a)mp-exw
 		 * a)mfi-isxw --> a)mp-isxw
 		 */
-		if( !strcmp(lastn(prevb,3), "mfi")) {
+		if( Xstrlen(prevb)>=3 && !strcmp(lastn(prevb,3), "mfi")) {
 			if( /*First_K_aspirate(word)  && */has_dissimilation(oddpb) ) {
 				*(lastn(prevb,2)) = 'p'; /* dissimilate */
 				if( Is_vowel(*word) ) strsqz(lastn(prevb,1),1);
@@ -538,7 +538,7 @@ getprvbform(char *word, char *prevb, MorphFlags *oddpb)
 				if( *word == 'i' || elide_preverb(oddpb) )  strsqz(lastn(prevb,1),1);
 		} 
 		/* a)nti+oxeu/omai --> a)ntioxeu/omai, not a)ntoxeu/omai */
-		else if( !strcmp(lastn(prevb,3), "nti") && Is_vowel(*word) )  {
+		else if( Xstrlen(prevb)>=3 && !strcmp(lastn(prevb,3), "nti") && Is_vowel(*word) )  {
 			if( *word != 'o'  ) {
 				*lastn(prevb,1) = 0;
 			} else if( *word == 'o' &&  elide_preverb(oddpb) ) {
@@ -553,8 +553,8 @@ getprvbform(char *word, char *prevb, MorphFlags *oddpb)
 			  ! has_morphflag(oddpb,UNASP_PREVERB) )
 				*lastn(prevb,1)  = 'q';
 		} else if (Is_vowel(*word) ) {
-			  if( strcmp(lastn(prevb,3),"pro")&&strcmp(lastn(prevb,4),"peri")&&
-			  	 strcmp(lastn(prevb,5),"proti")){
+			  if( (Xstrlen(prevb)<3 || strcmp(lastn(prevb,3),"pro"))&&(Xstrlen(prevb)<4 || strcmp(lastn(prevb,4),"peri"))&&
+			  	 (Xstrlen(prevb)<5 || strcmp(lastn(prevb,5),"proti"))){
 				if (Is_vowel(*lastn(prevb,1))) {
 					if (*lastn(prevb,1) != 'i') {	/* dia + vowel --> di */
 						strsqz(lastn(prevb,1),1);

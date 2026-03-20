@@ -18,6 +18,7 @@ CheckGenWords(gk_word *Gkword, gk_word *gkforms)
 	char accword[MAXWORDSIZE+1];
 	char wordnoacute[MAXWORDSIZE+1];
 	char curform[MAXWORDSIZE+1];
+	char wordnoacc[MAXWORDSIZE];
 	char * checks;
 	char * preverb = preverb_of(gkforms);
 	char * lemma = lemma_of(gkforms);
@@ -84,8 +85,6 @@ printf("\nin checkgenword accword [%s]\n", accword );
  * "ti/" would match "ti"! 
  */
 	if( (prntflags_of(Gkword) & IGNORE_ACCENTS) ) {
-		char wordnoacc[MAXWORDSIZE];
-
 		strcpy(wordnoacc,wordnoacute);
 		stripacc(wordnoacc);
 		checks = wordnoacc;

@@ -645,7 +645,7 @@ checkstring3(gk_word *Gkword)
        * don't look for "cupjo"
        * but DO look for "ajo"
        */
-      if( *a == 'i' && ( *(a+2) || *(a-1) && strchr("aeiou",*(a-1)) && *(a+1) ) && strchr("aeiou",*(a+1)) ) {
+      if( *a == 'i' && ( *(a+2) || (a > workword && *(a-1) && strchr("aeiou",*(a-1)) && *(a+1)) ) && strchr("aeiou",*(a+1)) ) {
 	*a = 'j';
 
 	set_workword(Gkword,workword);
