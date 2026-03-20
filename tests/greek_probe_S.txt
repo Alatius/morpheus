@@ -1,0 +1,6 @@
+*lo/gos
+<NL>N lo/gos,lo/gos  masc nom sg			os_ou</NL>
+*ai)/as
+<NL>N *ai)/a_s,*ai)/as  masc nom sg			as_antos</NL><NL>N *ai)/a_s,*ai)=a  fem acc pl			a_hs</NL><NL>N *ai)/a_s,*ai)=a  fem gen sg	attic doric aeolic		a_hs</NL><NL>N ai)_/a_s,ai)=a  fem gen sg	attic doric aeolic		a_hs</NL>
+*eu)ripi/dhs
+<NL>N *eu)ripi/dhs  masc nom sg			hs_ou</NL><NL>N eu)ripi/dhs,eu)ripi/dhs  masc nom sg			hs_ou</NL>

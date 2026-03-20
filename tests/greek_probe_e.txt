@@ -1,0 +1,30 @@
+lo/gos
+<NL>N lo/gos 	33701888</NL>
+timh/
+<NL>N ti_mh/,timh/ 	69353472</NL>
+pai=s
+<NL>N pa=s 	35799040</NL><NL>N pai=s 	100810752</NL>
+lu/w
+<NL>V lu^/w,lu/w 	18577</NL><NL>V lu^/w,lu/w 	18569</NL><NL>V lu_/w,lu/w 	18577</NL><NL>V lu_/w,lu/w 	18569</NL>
+e)/lusa
+<NL>V e)lu/w 	19977</NL><NL>V e)/lu_sa,lu/w 	19977</NL>
+lu/wn
+<NL>P lu^/wn,lu/w 	33702065</NL><NL>P lu_/wn,lu/w 	33702065</NL><NL>V lua/w 	75017</NL><NL>V lua/w 	19721</NL>
+ti/qhmi
+<NL>V ti^/qhmi,ti/qhmi 	18569</NL>
+ei)mi/
+<NL>V ei)mi,ei)mi/ 	18569</NL>
+a)gaqo/s
+<NL>N a)gaqo/s 	33701888</NL>
+me/gas
+<NL>N me/ga^s,me/gas 	33701888</NL>
+e)gw/
+<NL>N e)gw/ 	102909952</NL>
+ou(=tos
+<NL>N ou(=tos 	35799040</NL>
+kai/
+<NL>N kai/ 	0</NL>
+e)n
+<NL>N e)n 	0</NL><NL>N ei)s 	0</NL>
+a)pole/gw
+<NL>V a)pole/gw1 	18577</NL><NL>V a)pole/gw1 	18569</NL><NL>V a)pole/gw2 	18577</NL><NL>V a)pole/gw2 	18569</NL>

@@ -1,0 +1,320 @@
+
+:raw rosa
+
+:workw ro_sa
+:lem rodo
+:prvb 				
+:aug1 				
+:stem ro_s				pp4
+:suff 				
+:end a	 perf part pass neut nom/voc/acc pl			pp4
+
+:raw rosa
+
+:workw ro_sa_
+:lem rodo
+:prvb 				
+:aug1 				
+:stem ro_s				pp4
+:suff 				
+:end a_	 perf part pass fem abl sg			pp4
+
+:raw rosa
+
+:workw ro_sa
+:lem rodo
+:prvb 				
+:aug1 				
+:stem ro_s				pp4
+:suff 				
+:end a	 perf part pass fem nom/voc sg			pp4
+
+:raw rosa
+
+:workw ro^sa_
+:lem rosa
+:prvb 				
+:aug1 				
+:stem ro^s	 fem			a_ae
+:suff 				
+:end a_	 fem abl sg			a_ae
+
+:raw rosa
+
+:workw ro^sa
+:lem rosa
+:prvb 				
+:aug1 				
+:stem ro^s	 fem			a_ae
+:suff 				
+:end a	 fem nom/voc sg			a_ae
+
+:raw dominus
+
+:workw do^mi^nus
+:lem dominus
+:prvb 				
+:aug1 				
+:stem do^mi^n	 masc			us_i
+:suff 				
+:end us	 masc nom sg			us_i
+
+:raw rex
+
+:workw re_x
+:lem rex
+:prvb 				
+:aug1 				
+:stem re_	 masc			x_gis
+:suff 				
+:end x	 masc nom/voc sg			x_gis
+
+:raw amo
+
+:workw a^mo_
+:lem amo
+:prvb 				
+:aug1 				
+:stem a^m				conj1,are_vb
+:suff 				
+:end o_	 pres ind act 1st sg			conj1
+
+:raw amavi
+
+:workw a^ma_vi_
+:lem amo
+:prvb 				
+:aug1 				
+:stem a^m				avperf,are_vb
+:suff 				
+:end a_vi_	 perf ind act 1st sg			avperf
+
+:raw amans
+
+:workw a^ma_ns
+:lem amo
+:prvb 				
+:aug1 				
+:stem a^m				conj1,are_vb
+:suff 				
+:end a_ns	 pres part neut acc sg			conj1
+
+:raw amans
+
+:workw a^ma_ns
+:lem amo
+:prvb 				
+:aug1 				
+:stem a^m				conj1,are_vb
+:suff 				
+:end a_ns	 pres part masc/fem/neut nom/voc sg			conj1
+
+:raw sum
+
+:workw sum
+:lem sum#1
+:prvb 				
+:aug1 				
+:stem sum				
+:suff 				
+:end 	 pres ind act 1st sg			irreg_pp1
+
+:raw bonus
+
+:workw bonus
+:lem bonus
+:prvb 				
+:aug1 				
+:stem bon				us_a_um
+:suff 				
+:end us	 masc nom sg			us_a_um
+
+:raw bonus
+
+:workw bo^nus
+:lem bonus
+:prvb 				
+:aug1 				
+:stem bo^n				us_a_um
+:suff 				
+:end us	 masc nom sg			us_a_um
+
+:raw fortis
+
+:workw forti_s
+:lem fors
+:prvb 				
+:aug1 				
+:stem for	 fem			s_tis
+:suff 				
+:end ti_s	 fem acc pl			s_tis
+
+:raw fortis
+
+:workw fortis
+:lem fors
+:prvb 				
+:aug1 				
+:stem for	 fem			s_tis
+:suff 				
+:end tis	 fem gen sg			s_tis
+
+:raw fortis
+
+:workw forti_s
+:lem fortis
+:prvb 				
+:aug1 				
+:stem fort				is_e
+:suff 				
+:end i_s	 masc/fem acc pl			is_e
+
+:raw fortis
+
+:workw fortis
+:lem fortis
+:prvb 				
+:aug1 				
+:stem fort				is_e
+:suff 				
+:end is	 masc/fem/neut gen sg			is_e
+
+:raw fortis
+
+:workw fortis
+:lem fortis
+:prvb 				
+:aug1 				
+:stem fort				is_e
+:suff 				
+:end is	 masc/fem nom/voc sg			is_e
+
+:raw ego
+
+:workw ego
+:lem ego
+:prvb 				
+:aug1 				
+:stem ego			indeclform	
+:suff 				
+:end 	 masc/fem nom sg		indeclform	pron1
+
+:raw hic
+
+:workw hic
+:lem hic
+:prvb 				
+:aug1 				
+:stem hic			indeclform	
+:suff 				
+:end 	 masc nom sg		indeclform	demonstr
+
+:raw hic
+
+:workw hi_c
+:lem hic
+:prvb 				
+:aug1 				
+:stem hi_c			indeclform	
+:suff 				
+:end 			indeclform	adverb
+
+:raw et
+
+:workw et
+:lem et
+:prvb 				
+:aug1 				
+:stem et			indeclform	
+:suff 				
+:end 			indeclform	conj
+
+:raw in
+
+:workw in
+:lem in
+:prvb 				
+:aug1 				
+:stem in			indeclform	
+:suff 				
+:end 			indeclform	prep
+
+:raw abeo
+
+:workw abeo_
+:lem ab-eo#1
+:prvb ab				
+:aug1 				
+:stem eo_				
+:suff 				
+:end 	 pres ind act 1st sg			irreg_pp1
+
+:raw fero
+
+:workw fe^ro_
+:lem fero
+:prvb 				
+:aug1 				
+:stem fe^ro_				
+:suff 				
+:end 	 pres ind act 1st sg			irreg_pp1
+
+:raw fero
+
+:workw fe^ro_
+:lem ferus
+:prvb 				
+:aug1 				
+:stem fe^r				us_a_um
+:suff 				
+:end o_	 neut abl sg			us_a_um
+
+:raw fero
+
+:workw fe^ro_
+:lem ferus
+:prvb 				
+:aug1 				
+:stem fe^r				us_a_um
+:suff 				
+:end o_	 masc abl sg			us_a_um
+
+:raw fero
+
+:workw fe^ro_
+:lem ferus
+:prvb 				
+:aug1 				
+:stem fe^r				us_a_um
+:suff 				
+:end o_	 neut dat sg			us_a_um
+
+:raw fero
+
+:workw fe^ro_
+:lem ferus
+:prvb 				
+:aug1 				
+:stem fe^r				us_a_um
+:suff 				
+:end o_	 masc dat sg			us_a_um
+
+:raw fero
+
+:workw fe^ro_
+:lem ferus
+:prvb 				
+:aug1 				
+:stem fe^r	 masc			us_i
+:suff 				
+:end o_	 masc abl sg			us_i
+
+:raw fero
+
+:workw fe^ro_
+:lem ferus
+:prvb 				
+:aug1 				
+:stem fe^r	 masc			us_i
+:suff 				
+:end o_	 masc dat sg			us_i

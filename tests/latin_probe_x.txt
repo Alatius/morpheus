@@ -1,0 +1,32 @@
+rosa ro_sa rodo	 pp4 perf part pass neut nom/voc/acc pl		
+rosa ro_sa_ rodo	 pp4 perf part pass fem abl sg		
+rosa ro_sa rodo	 pp4 perf part pass fem nom/voc sg		
+rosa ro^sa_ rosa	 a_ae fem abl sg		
+rosa ro^sa rosa	 a_ae fem nom/voc sg		
+dominus do^mi^nus dominus	 us_i masc nom sg		
+rex re_x rex	 x_gis masc nom/voc sg		
+amo a^mo_ amo	 conj1 are_vb pres ind act 1st sg		
+amavi a^ma_vi_ amo	 avperf are_vb perf ind act 1st sg		
+amans a^ma_ns amo	 conj1 are_vb pres part neut acc sg		
+amans a^ma_ns amo	 conj1 are_vb pres part masc/fem/neut nom/voc sg		
+sum sum#1	 irreg_pp1 pres ind act 1st sg		
+bonus bonus	 us_a_um masc nom sg		
+bonus bo^nus bonus	 us_a_um masc nom sg		
+fortis forti_s fors	 s_tis fem acc pl		
+fortis fors	 s_tis fem gen sg		
+fortis forti_s fortis	 is_e masc/fem acc pl		
+fortis fortis	 is_e masc/fem/neut gen sg		
+fortis fortis	 is_e masc/fem nom/voc sg		
+ego ego	 pron1 masc/fem nom sg indeclform		
+hic hic	 demonstr masc nom sg indeclform		
+hic hi_c hic	 adverb indeclform		
+et et	 conj indeclform		
+in in	 prep indeclform		
+abeo abeo_ ab-ab-eo#1	 irreg_pp1 pres ind act 1st sg		
+fero fe^ro_ fero	 irreg_pp1 pres ind act 1st sg		
+fero fe^ro_ ferus	 us_a_um neut abl sg		
+fero fe^ro_ ferus	 us_a_um masc abl sg		
+fero fe^ro_ ferus	 us_a_um neut dat sg		
+fero fe^ro_ ferus	 us_a_um masc dat sg		
+fero fe^ro_ ferus	 us_i masc abl sg		
+fero fe^ro_ ferus	 us_i masc dat sg		

@@ -1,0 +1,290 @@
+
+:raw lo/gos
+
+:workw lo/gos
+:lem lo/gos
+:prvb 				
+:aug1 				
+:stem log	 masc			os_ou
+:suff 				
+:end os	 masc nom sg			os_ou
+
+:raw timh/
+
+:workw ti_mh/
+:lem timh/
+:prvb 				
+:aug1 				
+:stem ti_m	 fem			h_hs
+:suff 				
+:end h	 fem nom/voc sg	attic epic ionic		h_hs
+
+:raw pai=s
+
+:workw pai=s
+:lem pa=s
+:prvb 				
+:aug1 				
+:stem pai=s			contr indeclform	
+:suff 				
+:end 	 masc nom/voc sg	doric aeolic	contr indeclform	irreg_adj3
+
+:raw pai=s
+
+:workw pai=s
+:lem pai=s
+:prvb 				
+:aug1 				
+:stem pai=s			indeclform	
+:suff 				
+:end 	 masc/fem nom sg		indeclform	irreg_decl3
+
+:raw lu/w
+
+:workw lu^/w
+:lem lu/w
+:prvb 				
+:aug1 				
+:stem lu^		epic		w_stem,reg_conj
+:suff 				
+:end w	 pres subj act 1st sg			w_stem
+
+:raw lu/w
+
+:workw lu^/w
+:lem lu/w
+:prvb 				
+:aug1 				
+:stem lu^		epic		w_stem,reg_conj
+:suff 				
+:end w	 pres ind act 1st sg			w_stem
+
+:raw lu/w
+
+:workw lu_/w
+:lem lu/w
+:prvb 				
+:aug1 				
+:stem lu_				w_stem,reg_conj
+:suff 				
+:end w	 pres subj act 1st sg			w_stem
+
+:raw lu/w
+
+:workw lu_/w
+:lem lu/w
+:prvb 				
+:aug1 				
+:stem lu_				w_stem,reg_conj
+:suff 				
+:end w	 pres ind act 1st sg			w_stem
+
+:raw e)/lusa
+
+:workw e)/lusa
+:lem e)lu/w
+:prvb 				
+:aug1 				
+:stem e)lus			unaugmented	aor1,reg_conj
+:suff 				
+:end a	 aor ind act 1st sg			aor1
+
+:raw e)/lusa
+
+:workw e)/lu_sa
+:lem lu/w
+:prvb 				
+:aug1 e)				
+:stem lu_s	 ind			aor1,reg_conj
+:suff 				
+:end a	 aor ind act 1st sg			aor1
+
+:raw lu/wn
+
+:workw lu^/wn
+:lem lu/w
+:prvb 				
+:aug1 				
+:stem lu^		epic		w_stem,reg_conj
+:suff 				
+:end wn	 pres part act masc nom sg			w_stem
+
+:raw lu/wn
+
+:workw lu_/wn
+:lem lu/w
+:prvb 				
+:aug1 				
+:stem lu_				w_stem,reg_conj
+:suff 				
+:end wn	 pres part act masc nom sg			w_stem
+
+:raw lu/wn
+
+:workw lu/wn
+:lem lua/w
+:prvb 				
+:aug1 				
+:stem lu			unaugmented	aw_pr,aw_denom
+:suff 				
+:end wn	 imperf ind act 3rd pl		contr	aw_pr
+
+:raw lu/wn
+
+:workw lu/wn
+:lem lua/w
+:prvb 				
+:aug1 				
+:stem lu			unaugmented	aw_pr,aw_denom
+:suff 				
+:end wn	 imperf ind act 1st sg		contr	aw_pr
+
+:raw ti/qhmi
+
+:workw ti^/qhmi
+:lem ti/qhmi
+:prvb 				
+:aug1 				
+:stem ti^q				emi_pr
+:suff 				
+:end hmi	 pres ind act 1st sg			emi_pr
+
+:raw ei)mi/
+
+:workw ei)mi
+:lem ei)mi/
+:prvb 				
+:aug1 				
+:stem ei)mi			enclitic	
+:suff 				
+:end 	 pres ind act 1st sg			irreg_mi
+
+:raw a)gaqo/s
+
+:workw a)gaqo/s
+:lem a)gaqo/s
+:prvb 				
+:aug1 				
+:stem a)gaq				os_h_on
+:suff 				
+:end os	 masc nom sg			os_h_on
+
+:raw me/gas
+
+:workw me/ga^s
+:lem me/gas
+:prvb 				
+:aug1 				
+:stem me/ga^s			indeclform	
+:suff 				
+:end 	 masc nom sg		indeclform	irreg_adj3
+
+:raw e)gw/
+
+:workw e)gw/
+:lem e)gw/
+:prvb 				
+:aug1 				
+:stem e)gw/			indeclform	
+:suff 				
+:end 	 masc/fem nom/voc 1st sg		indeclform	pron1
+
+:raw ou(=tos
+
+:workw ou(=tos
+:lem ou(=tos
+:prvb 				
+:aug1 				
+:stem ou(=tos			indeclform	
+:suff 				
+:end 	 masc nom/voc sg		indeclform	pron_adj1
+
+:raw kai/
+
+:workw kai/
+:lem kai/
+:prvb 				
+:aug1 				
+:stem kai/			indeclform	
+:suff 				
+:end 			indeclform	conj
+
+:raw e)n
+
+:workw e)n
+:lem e)n
+:prvb 				
+:aug1 				
+:stem e)n			proclitic indeclform	
+:suff 				
+:end 			proclitic indeclform	prep
+
+:raw e)n
+
+:workw e)n
+:lem ei)s
+:prvb 				
+:aug1 				
+:stem e)n			proclitic indeclform	
+:suff 				
+:end 		doric aeolic	proclitic indeclform	prep
+
+:raw a)pole/gw
+
+:workw a)pole/gw
+:lem a)po/-le/gw1
+:prvb a)po/				
+:aug1 				
+:stem leg				w_stem,reg_conj
+:suff 				
+:end w	 pres subj act 1st sg			w_stem
+
+:raw a)pole/gw
+
+:workw a)pole/gw
+:lem a)po/-le/gw1
+:prvb a)po/				
+:aug1 				
+:stem leg				w_stem,reg_conj
+:suff 				
+:end w	 pres ind act 1st sg			w_stem
+
+:raw a)pole/gw
+
+:workw a)pole/gw
+:lem a)pole/gw1
+:prvb a)po/				
+:aug1 				
+:stem leg				w_stem,reg_conj
+:suff 				
+:end w	 pres subj act 1st sg			w_stem
+
+:raw a)pole/gw
+
+:workw a)pole/gw
+:lem a)pole/gw1
+:prvb a)po/				
+:aug1 				
+:stem leg				w_stem,reg_conj
+:suff 				
+:end w	 pres ind act 1st sg			w_stem
+
+:raw a)pole/gw
+
+:workw a)pole/gw
+:lem a)pole/gw2
+:prvb a)po/				
+:aug1 				
+:stem leg				w_stem,reg_conj
+:suff 				
+:end w	 pres subj act 1st sg			w_stem
+
+:raw a)pole/gw
+
+:workw a)pole/gw
+:lem a)pole/gw2
+:prvb a)po/				
+:aug1 				
+:stem leg				w_stem,reg_conj
+:suff 				
+:end w	 pres ind act 1st sg			w_stem

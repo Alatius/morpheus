@@ -1,0 +1,16 @@
+logos
+<NL>N lo/gos,lo/gos  masc nom sg			os_ou</NL>
+a)nqrwpos
+<NL>N a)/nqrwpos,a)/nqrwpos  masc nom sg			os_ou</NL>
+timh
+<NL>V ti_/mh,tima/w  pres imperat act 2nd sg	doric	contr	aw_pr,aw_denom</NL><NL>V ti_/mh,tima/w  pres imperat act 2nd sg	epic doric ionic aeolic	contr	ew_pr,aw_denom</NL><NL>V ti_/mh,tima/w  imperf ind act 3rd sg	homeric ionic	unaugmented	ath_primary,aw_denom</NL><NL>V ti/mh,time/w  pres imperat act 2nd sg	doric aeolic	contr	ew_pr,ew_denom</NL><NL>N ti_mh/,timh/  fem nom/voc sg	attic epic ionic		h_hs</NL>
+legw
+<NL>N le/gw,le/gos  masc/neut gen sg	doric aeolic		os_h_on</NL><NL>N le/gw,le/gos  masc/neut nom/voc/acc dual			os_h_on</NL><NL>V le/gw,le/gw1  pres subj act 1st sg			w_stem,reg_conj</NL><NL>V le/gw,le/gw1  pres ind act 1st sg			w_stem,reg_conj</NL><NL>V legw=,le/gw1  aor subj pass 1st sg	attic epic doric	contr	aor2_pass</NL><NL>V le/gw,le/gw2  pres subj act 1st sg			w_stem,reg_conj</NL><NL>V le/gw,le/gw2  pres ind act 1st sg			w_stem,reg_conj</NL><NL>V le/gw,le/gw3  pres subj act 1st sg			w_stem,reg_conj</NL><NL>V le/gw,le/gw3  pres ind act 1st sg			w_stem,reg_conj</NL>
+luw
+<NL>V lu_/w,lu/w  pres ind act 1st sg			w_stem,reg_conj</NL><NL>V lu^/w,lu/w  pres subj act 1st sg	epic		w_stem,reg_conj</NL><NL>V lu^/w,lu/w  pres ind act 1st sg	epic		w_stem,reg_conj</NL><NL>V lu_/w,lu/w  pres subj act 1st sg			w_stem,reg_conj</NL><NL>V luw=,lua/w  pres ind act 1st sg	attic epic doric ionic	contr	ew_pr,aw_denom</NL><NL>V luw=,lua/w  pres imperat mp 2nd sg		contr	aw_pr,aw_denom</NL><NL>V luw=,lua/w  imperf ind mp 2nd sg	homeric ionic	contr unaugmented	aw_pr,aw_denom</NL><NL>V luw=,lua/w  pres subj act 1st sg	attic epic ionic	contr	aw_pr,aw_denom</NL><NL>V luw=,lua/w  pres ind act 1st sg	attic epic ionic	contr	aw_pr,aw_denom</NL><NL>V luw=,lua/w  pres subj act 1st sg	attic epic doric ionic	contr	ew_pr,aw_denom</NL>
+pais
+<NL>N pai=s,pa=s  masc nom/voc sg	doric aeolic	contr indeclform	irreg_adj3</NL><NL>N pa/is,pai=s  masc/fem nom sg	epic	poetic indeclform	irreg_decl3</NL><NL>N pai=s,pai=s  masc/fem nom sg		indeclform	irreg_decl3</NL>
+o(s
+<NL>N o(/s,o(/s  masc nom sg		indeclform	relative</NL>
+h(donh
+<NL>N h(donh/,h(dona/  fem nom/voc sg	attic epic ionic		h_hs</NL><NL>N h(donh/,h(donh/  fem nom/voc sg	attic epic ionic		h_hs</NL>
