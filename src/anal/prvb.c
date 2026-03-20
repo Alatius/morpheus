@@ -70,7 +70,7 @@ fprintf(stderr,"start with ending [%s]\n", endstring_of(Gkword) );
 				if( (dialect_of(&WorkGkword) & PROSE) ) 
 					continue;
 					
-				memmove(stem_of(&WorkGkword),stem_of(&WorkGkword)+1,strlen(stem_of(&WorkGkword)));
+				memmove(stem_of(&WorkGkword),stem_of(&WorkGkword)+1,strlen(stem_of(&WorkGkword)+1)+1);
 				add_morphflag(morphflags_of(prvb_gstr_of(&WorkGkword)),DOUBLED_CONS);
 				add_dialect(stem_gstr_of(&WorkGkword),(EPIC|POETIC));
 			}

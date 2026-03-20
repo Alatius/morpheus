@@ -1,3 +1,5 @@
+.DS_Store
+.claude/
 bin
 src/anal/cruncher
 src/anal/deverbal
