@@ -1,4 +1,4 @@
-LEXLIB = -lfl
+LEXLIB =
 
 INCLUDE=../includes
 #CFLAGS= -O2 -I${INCLUDE} 

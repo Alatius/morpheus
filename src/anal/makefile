@@ -1,5 +1,5 @@
 
-LEXLIB = -lfl
+LEXLIB =
 
 INCLUDE=../includes
 CFLAGS= -O2 -I${INCLUDE} -fcommon  -Wno-implicit-int   -Wno-implicit-function-declaration

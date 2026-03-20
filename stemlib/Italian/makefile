@@ -1,7 +1,7 @@
 SGMLPATH= $(dir $(SGML_CATALOG_FILES))/..
 VPATH=.:$(SGMLPATH)/texts/MPI/baretti:$(SGMLPATH)/texts/MPI/florio
 LSDIR=/local/text/ls
-LOADLIBES= -lfl
+LOADLIBES=
 
 all: ends noms vbs deriv
 
