@@ -1,14 +1,16 @@
 LSDIR=/local/text/ls
 
-all: ends noms vbs deriv
+all: ends deriv noms vbs
 
 ends: nends vends
 
 nends:
+	mkdir -p endtables/ascii endtables/indices endtables/out
 	buildend -L nom
 	indendtables -L nom
 
 vends:
+	mkdir -p endtables/ascii endtables/indices endtables/out
 	buildend -L verb
 	indendtables -L verb
 
@@ -21,14 +23,19 @@ deriv:
 	buildderiv -L all
 	indderivtables -L
 
-noms:	stemsrc/nom.irreg stemind/nomind 
+NOMFILES=stemsrc/nom.01 stemsrc/nom.02 stemsrc/nom.03 stemsrc/nom.04 \
+	stemsrc/nom.cic.pname stemsrc/nom.irreg stemsrc/nom.latin.bas \
+	stemsrc/nom.livy stemsrc/nom.smithbio.latin stemsrc/nom.smithgeo \
+	stemsrc/ls.nom
 
-vbs:	stemsrc/vbs.irreg stemind/vbind
+noms:	stemsrc/nom.irreg steminds/nomind
+
+vbs:	stemsrc/vbs.irreg steminds/vbind
 
 VBFILES=stemsrc/vbs.latin.bas stemsrc/vbs.latin.irreg stemsrc/vbs.latin \
-	stemsrc/vbs.irreg stemsrc/vbs.mpi
+	stemsrc/vbs.irreg
 
-stemind/vbind:	stemsrc/vbs.latin
+steminds/vbind:	${VBFILES}
 	mkdir -p steminds
 	cat ${VBFILES} | \
 	    perl -pe 's/([a-z])([aei])_v[ \t]+perfstem/$$1\t$$2vperf/g;' > \
@@ -48,9 +55,9 @@ stemsrc/lemlist:
 	    stemsrc/vbs.simp.ml stemsrc/vbs.simp.02.new | fgrep ":le:" | \
 	    cut -d":" -f 3 | sort | awk '{print $$1 " "}' > stemsrc/lemlist
 
-stemind/nomind:	stemsrc/ls.nom ../Greek/getentities.pl
+steminds/nomind:	${NOMFILES} ../Greek/getentities.pl
 	mkdir -p steminds
-	cat stemsrc/nom.* stemsrc/ls.nom > /tmp/nommorph
+	cat ${NOMFILES} > /tmp/nommorph
 	../Greek/getentities.pl /tmp/nommorph  > steminds/entitylist.txt
 	indexnoms -L
 

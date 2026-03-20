@@ -1,22 +1,26 @@
 CC= gcc
-CFLAGS= -O2
+CFLAGS= -O2 -Wno-implicit-int -Wno-implicit-function-declaration
 LSJDIR=/local/text/lsj
 
 STEMPROG= stemsrc/stripref stemsrc/zapfirstf stemsrc/headnolen \
 	stemsrc/goodstem stemsrc/flatlems
 
-# Get all noms files, but without emacs backups
-nomsrc= $(filter-out %~,$(wildcard stemsrc/nom.* stemsrc/nom[0-9]*))
+# Get all noms files, but without emacs backups or generated nom.irreg
+# (nom.irreg is added explicitly where needed since the wildcard is
+# evaluated at parse time, before buildword has created it)
+nomsrc= $(filter-out %~ stemsrc/nom.irreg,$(wildcard stemsrc/nom.* stemsrc/nom[0-9]*))
 
-all: $(STEMPROG) ends noms vbs deriv 
+all: $(STEMPROG) ends deriv noms vbs
 
 ends: nends vends
 
 nends:
+	mkdir -p endtables/ascii endtables/indices endtables/out
 	buildend nom
 	indendtables nom
 
 vends:
+	mkdir -p endtables/ascii endtables/indices endtables/out
 	buildend verb
 	indendtables verb
 
@@ -25,20 +29,22 @@ compnoms:
 	indexcomps < /tmp/nommorph | sort | compcomps > /tmp/nom.heads
 
 deriv:
+	mkdir -p derivs/ascii derivs/indices derivs/out
 	buildderiv all
 	indderivtables
 
-noms:	stemsrc/nom.irreg stemind/nomind 
+noms:	stemsrc/nom.irreg steminds/nomind
 
-vbs:	stemsrc/lsj.vbs stemsrc/vbs.irreg stemind/vbind
+vbs:	stemsrc/lsj.vbs stemsrc/vbs.irreg steminds/vbind
 
 enclitics:  
 	cat stemsrc/vbs.irreg stemsrc/nom* | fgrep enclitic > enclitics
 
-stemind/vbind:
+steminds/vbind:
+	mkdir -p steminds
 	cat stemsrc/vbs.irreg stemsrc/vbs.simp.ml stemsrc/vbs.simp.02.new stemsrc/lsj.vbs \
 	    > conjfile
-	do_conj 
+	do_conj
 	mv conjfile.short /tmp/vbmorph
 	indexvbs
 
@@ -53,8 +59,9 @@ stemsrc/lemlist:
 	    stemsrc/vbs.simp.ml stemsrc/vbs.simp.02.new | fgrep ":le:" | \
 	    cut -d":" -f 3 | sort | awk '{print $$1 " "}' > stemsrc/lemlist
 
-stemind/nomind:	stemsrc/lsj.nom getentities.pl
-	./addconstraints.pl $(nomsrc) stemsrc/lsj.nom \
+steminds/nomind:	stemsrc/nom.irreg stemsrc/lsj.nom getentities.pl
+	mkdir -p steminds
+	./addconstraints.pl $(nomsrc) stemsrc/nom.irreg stemsrc/lsj.nom \
 	    stemsrc/lsj.byhand > /tmp/nommorph
 	./getentities.pl /tmp/nommorph  > steminds/entitylist.txt
 	indexnoms
@@ -72,13 +79,14 @@ ia.noms:
 	fgrep 0 /tmp/ia.base | awk '{print $$1}' | rev | sort -d | \
 	    rev > /tmp/ia.failed
 
-stemsrc/lsj.nom stemsrc/lsj.vbs:
-	[ -f ${LSJDIR}/lemmata ] && ${MAKE} lsj.morph
-
-lsj.morph:	${LSJDIR}/lemmata
-	sed -e 's/\-//' ${LSJDIR}/lemmata | setquant | splitlems | newlems | \
-	    fgrep -v "1 " | fgrep -v ": " | newlems2 > /tmp/lsj.morph
-	cp /tmp/lsj.vbs stemsrc
-	fgrep -v "0:" /tmp/lsj.morph > stemsrc/lsj.nom
-	cp /tmp/lsj.morph .
+# stemsrc/lsj.nom and stemsrc/lsj.vbs are now stable (hand-edited source files)
+#stemsrc/lsj.nom stemsrc/lsj.vbs:
+#	[ -f ${LSJDIR}/lemmata ] && ${MAKE} lsj.morph
+#
+#lsj.morph:	${LSJDIR}/lemmata
+#	sed -e 's/\-//' ${LSJDIR}/lemmata | setquant | splitlems | newlems | \
+#	    fgrep -v "1 " | fgrep -v ": " | newlems2 > /tmp/lsj.morph
+#	cp /tmp/lsj.vbs stemsrc
+#	fgrep -v "0:" /tmp/lsj.morph > stemsrc/lsj.nom
+#	cp /tmp/lsj.morph .
 

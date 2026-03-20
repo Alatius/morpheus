@@ -37,7 +37,11 @@ stemlib/Latin/endtables/indices
 stemlib/Latin/steminds/
 stemlib/Latin/stemsrc/nom.irreg
 stemlib/Latin/stemsrc/vbs.irreg
+stemlib/Greek/stemsrc/nom.irreg
+stemlib/Greek/stemsrc/vbs.irreg
 stemlib/Greek/conjfile
+stemlib/Greek/conjfile.short
+stemlib/Greek/oddfile
 stemlib/Greek/derivs/ascii
 stemlib/Greek/derivs/indices
 stemlib/Greek/endtables/ascii
