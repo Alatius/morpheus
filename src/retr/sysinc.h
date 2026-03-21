@@ -1,3 +1,6 @@
+#ifndef SYSINC_H
+#define SYSINC_H
+
 /*
  * Copyright Gregory Crane
  * April 1987
@@ -9,3 +12,4 @@
  void *malloc( size_t size);
  void *calloc( size_t size, size_t nelems);
 
+#endif /* SYSINC_H */

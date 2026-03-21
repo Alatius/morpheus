@@ -1,3 +1,6 @@
+#ifndef SRCHSTATE_H
+#define SRCHSTATE_H
+
 /* srchstate.h	2.1  9/26/87 */
 /*
  * Copyright Gregory Crane
@@ -94,4 +97,4 @@ typedef struct {
         long highlight_offs[3]; /* offsets to highlight */
         } srch_state ;
 
-
+#endif /* SRCHSTATE_H */

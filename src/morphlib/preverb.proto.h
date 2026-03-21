@@ -1,3 +1,6 @@
+#ifndef PREVERB_PROTO_H
+#define PREVERB_PROTO_H
+
 
 /* preverb.c */
 bool checkprevb(char *, char *, bool *);
@@ -15,3 +18,5 @@ int shift_para_to_parai(char *);
 int shift_meta_to_peda(char *);
 int shift_en_to_eni(char *);
 int set_odd_prvb(MorphFlags *, char *);
+
+#endif /* PREVERB_PROTO_H */

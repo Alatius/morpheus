@@ -1,3 +1,6 @@
+#ifndef RETR_VT100_H
+#define RETR_VT100_H
+
 
 /*
  * this is a list of Ascii-Roman type chars, for terminal this list
@@ -350,4 +353,4 @@ comb vt100odco[] = {
 	ANYACC,	UPPER,	num( 'y'),	"[Y]",	/* close single quote */
 	};
 
-
+#endif /* RETR_VT100_H */

@@ -1,3 +1,6 @@
+#ifndef CONTRACT_H
+#define CONTRACT_H
+
 /*
  * Greg Crane 
  * June 1987
@@ -16,3 +19,4 @@ char * is_substring();
 
 static gk_string Blnk;
 
+#endif /* CONTRACT_H */

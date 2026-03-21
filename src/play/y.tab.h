@@ -1,3 +1,6 @@
+#ifndef Y_TAB_H
+#define Y_TAB_H
+
 
 typedef union  {
         char *string;
@@ -7,3 +10,5 @@ extern YYSTYPE yylval;
 # define NOUN 258
 # define ADJECTIVE 259
 # define PREP 260
+
+#endif /* Y_TAB_H */

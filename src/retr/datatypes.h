@@ -1,3 +1,6 @@
+#ifndef RETR_DATATYPES_H
+#define RETR_DATATYPES_H
+
 /*	datatypes.h 1.7 8/23/85	*/
 
 #define  CHAR    0
@@ -56,3 +59,5 @@ typedef struct{
 } Rstack;
 
 Rstack  *rscreate();
+
+#endif /* RETR_DATATYPES_H */

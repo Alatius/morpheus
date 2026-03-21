@@ -1,3 +1,6 @@
+#ifndef GKCOMP_H
+#define GKCOMP_H
+
 /*
  * Copyright Gregory Crane
  * April 1987
@@ -40,3 +43,5 @@
  */
 #define ACCGREATER       010    /* accent of string a is greater */
 #define ACCLESS         -010    /* accent of string b is greater */
+
+#endif /* GKCOMP_H */

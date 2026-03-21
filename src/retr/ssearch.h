@@ -1,3 +1,6 @@
+#ifndef RETR_SSEARCH_H
+#define RETR_SSEARCH_H
+
 /*  ssearch.h 1.5 8/25/85  */
 
 #include  "usual.h"
@@ -132,3 +135,5 @@ short    ssctxt();
 long     ssbuffer();
 long     ssonebuf();
 off_t    ssbuftell();
+
+#endif /* RETR_SSEARCH_H */

@@ -1,3 +1,6 @@
+#ifndef STEMTYPE_H
+#define STEMTYPE_H
+
 
 #define LEMMA 		01
 #define PRES_PPART 	02
@@ -63,3 +66,5 @@ typedef unsigned int Stemtype;
 
 #define has_passive_stype(stype) ((stype & PPARTMASK ) == PP_AP)
 #define has_middle_stype(stype) (((stype & PPARTMASK ) == PP_FU) || ((stype & PPARTMASK ) == PP_AO))
+
+#endif /* STEMTYPE_H */

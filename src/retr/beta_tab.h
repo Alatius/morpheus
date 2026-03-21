@@ -1,3 +1,6 @@
+#ifndef RETR_BETA_TAB_H
+#define RETR_BETA_TAB_H
+
 #include "filttab.h"
 
 
@@ -259,3 +262,5 @@ filt_tab beta_tab[] =  {
 	"w)=|", new_ch, ">~|a",
 
 };
+
+#endif /* RETR_BETA_TAB_H */

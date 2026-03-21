@@ -1,3 +1,6 @@
+#ifndef BETA2SMARTA_PROTO_H
+#define BETA2SMARTA_PROTO_H
+
 
 /* beta2smarta.c */
 int beta2smarta(char *, char *);
@@ -9,3 +12,5 @@ int accnum(int);
 char *romanfont(char *);
 char *greekfont(char *);
 int smk_char_xlit(int, char *, int);
+
+#endif /* BETA2SMARTA_PROTO_H */

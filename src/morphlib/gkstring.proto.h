@@ -1,3 +1,6 @@
+#ifndef GKSTRING_PROTO_H
+#define GKSTRING_PROTO_H
+
 
 /* gkstring.c */
 gk_string *CreatGkString(int);
@@ -35,3 +38,5 @@ int GetTableLine(char *, int, FILE *);
 int eq_forminfo(word_form, word_form);
 int SprintGkFlags(gk_string *, char *, char *, int);
 int DbaseFormat(gk_string *, char *, char *, int);
+
+#endif /* GKSTRING_PROTO_H */

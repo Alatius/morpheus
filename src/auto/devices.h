@@ -1,3 +1,6 @@
+#ifndef AUTO_DEVICES_H
+#define AUTO_DEVICES_H
+
 /* devices.h	2.1  9/26/87 */
 
 #define	C108	0
@@ -19,3 +22,5 @@
 #define	NOTA_BENE	010000
 #define MS_RTF		020000
 #define SIGNIFIER 	040000
+
+#endif /* AUTO_DEVICES_H */

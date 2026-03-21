@@ -1,3 +1,6 @@
+#ifndef DEFCONS_H
+#define DEFCONS_H
+
 /*
  * Copyright Gregory Crane
  * April 1987
@@ -103,3 +106,5 @@
 #endif
 
 typedef unsigned int int32;
+
+#endif /* DEFCONS_H */

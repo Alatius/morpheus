@@ -1,3 +1,6 @@
+#ifndef AUTO_DATATYPES_H
+#define AUTO_DATATYPES_H
+
 /*	datatypes.h 1.7 8/23/85	*/
 
 #define  CHAR    0
@@ -56,3 +59,5 @@ typedef struct{
 } Rstack;
 
 Rstack  *rscreate();
+
+#endif /* AUTO_DATATYPES_H */

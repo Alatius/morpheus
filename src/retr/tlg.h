@@ -1,3 +1,6 @@
+#ifndef TLG_H
+#define TLG_H
+
 /*
  * Copyright Gregory Crane
  * April 1987
@@ -149,3 +152,5 @@ typedef struct {
         gkfield z_field;
         int refwknum;
         } reference;
+
+#endif /* TLG_H */

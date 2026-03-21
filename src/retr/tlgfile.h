@@ -1,3 +1,6 @@
+#ifndef TLGFILE_H
+#define TLGFILE_H
+
 /*
  * Copyright Gregory Crane
  * April 1987
@@ -14,4 +17,4 @@ typedef struct {
 	long	tlgflags;
 } tlgauthor;
 
-
+#endif /* TLGFILE_H */

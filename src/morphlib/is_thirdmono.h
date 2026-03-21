@@ -1,3 +1,6 @@
+#ifndef IS_THIRDMONO_H
+#define IS_THIRDMONO_H
+
 /*
  * monosyllabic third declension form that don't put
  * the accent on the ultima in the genitive or dative
@@ -22,3 +25,5 @@ static  char thirdexceptions[][MAXWORDSIZE] = {
 	"w)twn",
 	"w)toin",
 };
+
+#endif /* IS_THIRDMONO_H */

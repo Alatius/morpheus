@@ -1,3 +1,6 @@
+#ifndef RETR_FILTTAB_H
+#define RETR_FILTTAB_H
+
 /* filttab.h	2.3  9/26/87 */
 
 #include <stdio.h>
@@ -264,3 +267,5 @@ typedef struct {
 #define tsigma			236
 #define lsigma			237
 #define LSIGMA			238
+
+#endif /* RETR_FILTTAB_H */

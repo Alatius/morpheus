@@ -1,3 +1,6 @@
+#ifndef DICTIO_PROTO_H
+#define DICTIO_PROTO_H
+
 
 /* dictio.c */
 endtags *init_dict(char *fname, int *ntags);
@@ -11,3 +14,5 @@ int add_stemcache(Stemcache *cache, char *stem, char *keys);
 int prntlemmentry(char *lemma, char *preverb, FILE *f);
 FILE *getlemmstart(char *lemma, char *lemmfile, long *lemmoff);
 int lemma_exists(char *lemma);
+
+#endif /* DICTIO_PROTO_H */

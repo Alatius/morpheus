@@ -1,3 +1,6 @@
+#ifndef MORPHWIND_PROTO_H
+#define MORPHWIND_PROTO_H
+
 
 /* MorphWind.c */
 int UncheckMenu(MenuHandle);
@@ -30,3 +33,5 @@ int DoAbout(void);
 int CheckFront(void);
 int main(void);
 int SKErrMess(void);
+
+#endif /* MORPHWIND_PROTO_H */

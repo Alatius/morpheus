@@ -1,3 +1,6 @@
+#ifndef PRNTFLAGS_H
+#define PRNTFLAGS_H
+
 #define SHOW_ANAL	01
 #define SHOW_LEMMA	02
 #define SHOW_MISSES	04
@@ -29,3 +32,4 @@ typedef int PrntFlags;
 #define set_prntflags( X , Flags ) prntflags_of(X) = Flags
 #define Should_check_preverb(X) (prntflags_of(X) & CHECK_PREVERB)
 
+#endif /* PRNTFLAGS_H */

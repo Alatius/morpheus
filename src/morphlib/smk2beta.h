@@ -1,3 +1,6 @@
+#ifndef SMK2BETA_H
+#define SMK2BETA_H
+
 typedef struct {
 	char keystring[12];
 	int  keycode;
@@ -252,3 +255,5 @@ static Xlit Beta_Smarta[] = {
 #define SYNIZESIS 'X'
 #define SMK_LONGMARK '^'
 #define SMK_SHORTMARK 0255
+
+#endif /* SMK2BETA_H */

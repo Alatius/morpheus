@@ -1,3 +1,6 @@
+#ifndef GREEK_H
+#define GREEK_H
+
 /*	Univ. of Calif. Greek Project	*/
 /*	1985-86				*/
 /*	Joshua Kosman			*/
@@ -613,3 +616,5 @@ ext_type calc_vbext(),calc_adjext(),findhyp();
 /* addaccent.c */
 int addaccent(char *, int, char *);
 int cinsert(int, char *);
+
+#endif /* GREEK_H */

@@ -1,3 +1,6 @@
+#ifndef NEW_VAL_PROTO_H
+#define NEW_VAL_PROTO_H
+
 
 /* new_val.c */
 void new_person(gk_string *, unsigned long);
@@ -14,3 +17,5 @@ void new_morphflags(gk_string *, unsigned long);
 void new_stemtype(gk_string *, unsigned long);
 void new_domain(gk_string *, unsigned long);
 void new_derivtype(gk_string *, unsigned long);
+
+#endif /* NEW_VAL_PROTO_H */

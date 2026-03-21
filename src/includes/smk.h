@@ -1,3 +1,6 @@
+#ifndef SMK_H
+#define SMK_H
+
 #define SMK_ALPHA(X) (X=='a'||X=='A'||(X>=0213&&X<=0225))
 #define SMK_AISUB(X) (X==046||(X>=0226&&X<=0240))
 #define SMK_EPSILON(X) (X=='e'||X=='E'||(X>=0241&&X<=0250))
@@ -31,3 +34,5 @@
 #define SMK_LONGMARK '*'
 #define SMK_SHORTMARK 0255
 #define SMK_DAGGER '~'
+
+#endif /* SMK_H */

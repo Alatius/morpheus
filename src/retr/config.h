@@ -1,3 +1,6 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
 /*
  * Copyright Gregory Crane
  * April 1987
@@ -23,3 +26,5 @@
 /* should be defined in command line
 #define CDFS 1 
 */
+
+#endif /* CONFIG_H */

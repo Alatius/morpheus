@@ -1,3 +1,6 @@
+#ifndef RETR_BETA_SMK_H
+#define RETR_BETA_SMK_H
+
 typedef struct {
 	char keystring[12];
 	int  keycode;
@@ -147,3 +150,5 @@ Xlit Beta_SMK[] = {
 	"w",	'v',
 	"s",	'w',
 };
+
+#endif /* RETR_BETA_SMK_H */

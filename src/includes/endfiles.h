@@ -1,3 +1,6 @@
+#ifndef ENDFILES_H
+#define ENDFILES_H
+
 
 #define VENDLIST "endtables/indices/vbendind"
 #define NENDLIST "endtables/indices/nendind"
@@ -7,3 +10,5 @@
 
 #define ENDTABLEDIR "endtables"
 #define DERIVTABLEDIR "derivs"
+
+#endif /* ENDFILES_H */

@@ -1,3 +1,6 @@
+#ifndef MORPHFLAGS_PROTO_H
+#define MORPHFLAGS_PROTO_H
+
 
 /* morphflags.c */
 int add_morphflags(gk_string *, MorphFlags *);
@@ -21,3 +24,5 @@ int is_prvb_morphflag(long);
 int init_prvb_tab(void);
 int xfer_prvbflags(MorphFlags *, MorphFlags *);
 int MorphNames(MorphFlags *, char *, char *, int);
+
+#endif /* MORPHFLAGS_PROTO_H */

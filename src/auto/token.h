@@ -1,3 +1,6 @@
+#ifndef AUTO_TOKEN_H
+#define AUTO_TOKEN_H
+
 /* token.h	2.1  8/31/87 */
 /*
  * Copyright Jud Harward
@@ -64,3 +67,5 @@ short  tkpnext();
 short  tkflush();
 
 extern short  TKfail;
+
+#endif /* AUTO_TOKEN_H */

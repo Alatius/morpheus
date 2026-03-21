@@ -1,3 +1,6 @@
+#ifndef DIALECT_H
+#define DIALECT_H
+
 /* dialects */
 /* #define ALL_DIAL	01 */
 
@@ -65,3 +68,5 @@
 
 typedef short Dialect;
 typedef int32 GeogRegion;
+
+#endif /* DIALECT_H */

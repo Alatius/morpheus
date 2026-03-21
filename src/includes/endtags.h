@@ -1,3 +1,6 @@
+#ifndef ENDTAGS_H
+#define ENDTAGS_H
+
 #define MODULUS	10
 #define KEYLEN 8
 #define MAXTAG (KEYLEN + 1)
@@ -11,3 +14,5 @@ typedef struct {
 #define tagoffset_of(X) (X)->tagoffset
 
 endtags * init_preind();
+
+#endif /* ENDTAGS_H */

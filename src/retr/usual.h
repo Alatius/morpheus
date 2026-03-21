@@ -1,3 +1,6 @@
+#ifndef RETR_USUAL_H
+#define RETR_USUAL_H
+
 /*	usual.h 1.2 8/17/85	*/
 
 #include  <stdio.h>
@@ -13,3 +16,5 @@
 typedef  unsigned char  uchar;
 */
 typedef char uchar;
+
+#endif /* RETR_USUAL_H */

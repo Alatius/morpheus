@@ -1,3 +1,6 @@
+#ifndef PREVERB_H
+#define PREVERB_H
+
 
 /*	Univ. of Calif. Greek Project	*/
 /*	1985-86				*/
@@ -42,3 +45,5 @@ char	prevbs [][MAXPRVBSIZE] = {
 	};
 
 #define NUMPREVBS ( sizeof prevbs / sizeof prevbs[0] )
+
+#endif /* PREVERB_H */

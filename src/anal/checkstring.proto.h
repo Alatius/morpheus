@@ -1,3 +1,6 @@
+#ifndef CHECKSTRING_PROTO_H
+#define CHECKSTRING_PROTO_H
+
 
 /* checkstring.c */
 int checkstring(char *, PrntFlags, FILE *);
@@ -12,3 +15,5 @@ int AddWantDialect(Dialect);
 int ZapWantDialect(Dialect);
 Dialect GetWantDialect(void);
 int updateDialect(Dialect);
+
+#endif /* CHECKSTRING_PROTO_H */

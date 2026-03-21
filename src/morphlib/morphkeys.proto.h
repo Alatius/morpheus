@@ -1,3 +1,6 @@
+#ifndef MORPHKEYS_PROTO_H
+#define MORPHKEYS_PROTO_H
+
 
 /* morphkeys.c */
 int ScanAsciiKeys(char *, gk_word *, gk_string *, gk_string *);
@@ -27,3 +30,5 @@ int has_octal(char *);
 int init_keys(void);
 Stemtype GetStemClass(char *);
 Stemtype GetIsProse(char *);
+
+#endif /* MORPHKEYS_PROTO_H */

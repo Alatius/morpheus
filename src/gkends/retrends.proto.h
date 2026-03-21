@@ -1,3 +1,6 @@
+#ifndef RETRENDS_PROTO_H
+#define RETRENDS_PROTO_H
+
 
 /* retrends.c */
 gk_string *chckendings(char *, char *, char *, char *, Dialect, int *);
@@ -10,3 +13,5 @@ int endstrcmp(char *, char *);
 int noaccstrcmp(char *, char *);
 int has_quantacc(char *);
 int stripquantacc(char *);
+
+#endif /* RETRENDS_PROTO_H */

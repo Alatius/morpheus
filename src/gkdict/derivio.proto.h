@@ -1,3 +1,6 @@
+#ifndef DERIVIO_PROTO_H
+#define DERIVIO_PROTO_H
+
 
 /* derivio.c */
 int checkforderiv(char *stemstr, char *stemkeys);
@@ -12,3 +15,5 @@ int need_rei_alpha(char *dsuffkeys);
 int stemstr_in_cache(char *s, char *stemkeys);
 int add_deriv_cache(char *s, char *keys);
 int ends_in_vowel(char *s);
+
+#endif /* DERIVIO_PROTO_H */

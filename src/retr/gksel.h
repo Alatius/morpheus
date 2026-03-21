@@ -1,3 +1,6 @@
+#ifndef GKSEL_H
+#define GKSEL_H
+
 /*
  * Copyright Gregory Crane
  * April 1987
@@ -16,3 +19,5 @@ typedef struct {
     int     gkselnunits;/* number of units */
     char *  gkselbufp;  /* pointer to a buffer containing selection */
 } GkSelection;
+
+#endif /* GKSEL_H */

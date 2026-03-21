@@ -1,3 +1,6 @@
+#ifndef INDEXSTEMS_PROTO_H
+#define INDEXSTEMS_PROTO_H
+
 
 /* indexstems.c */
 int xstrcmp(char **p1, char **p2);
@@ -13,3 +16,5 @@ int clear_globs(char *s);
 int is_presredupl(char *s);
 int huh(void);
 void *zogalloc(size_t count, size_t size);
+
+#endif /* INDEXSTEMS_PROTO_H */

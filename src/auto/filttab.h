@@ -1,3 +1,6 @@
+#ifndef AUTO_FILTTAB_H
+#define AUTO_FILTTAB_H
+
 /* filttab.h	2.3  9/26/87 */
 
 #include <stdio.h>
@@ -264,3 +267,5 @@ typedef struct {
 #define tsigma			236
 #define lsigma			237
 #define LSIGMA			238
+
+#endif /* AUTO_FILTTAB_H */

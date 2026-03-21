@@ -1,3 +1,6 @@
+#ifndef PROPNAME_PROTO_H
+#define PROPNAME_PROTO_H
+
 
 /* propname.c */
 int main(void);
@@ -10,3 +13,5 @@ int stem_can_work(char *, char *, char *, char *, char *, char *);
 int reliterate(char *);
 int is_propname(char *);
 int AlphStrcmp(char *, char *);
+
+#endif /* PROPNAME_PROTO_H */

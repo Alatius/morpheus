@@ -1,3 +1,6 @@
+#ifndef GKDICT_H
+#define GKDICT_H
+
 /*
 #define WORDLIST "gkdict/gkdict"
 #define INDECLIST "gkdict/indices/indecl"
@@ -21,3 +24,5 @@ typedef struct {
 	char **citem;
 	int curindex;
 } Stemcache;
+
+#endif /* GKDICT_H */

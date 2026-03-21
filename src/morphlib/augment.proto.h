@@ -1,3 +1,6 @@
+#ifndef AUGMENT_PROTO_H
+#define AUGMENT_PROTO_H
+
 
 /* augment.c */
 int do_syllaug(gk_word *, int);
@@ -12,3 +15,5 @@ int simpleredupit(char *, int, int);
 int redupit2(gk_word *, int, int, int);
 int un_redupl(char *, char *, int);
 int add_double_augment(char *, MorphFlags *);
+
+#endif /* AUGMENT_PROTO_H */

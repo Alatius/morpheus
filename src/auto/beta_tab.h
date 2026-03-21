@@ -1,3 +1,6 @@
+#ifndef AUTO_BETA_TAB_H
+#define AUTO_BETA_TAB_H
+
 #include "filttab.h"
 
 
@@ -259,3 +262,5 @@ filt_tab beta_tab[] =  {
 	"w)=|", new_ch, ">~|a",
 
 };
+
+#endif /* AUTO_BETA_TAB_H */

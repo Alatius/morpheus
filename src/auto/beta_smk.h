@@ -1,3 +1,6 @@
+#ifndef AUTO_BETA_SMK_H
+#define AUTO_BETA_SMK_H
+
 typedef struct {
 	char keystring[12];
 	int  keycode;
@@ -147,3 +150,5 @@ Xlit Beta_SMK[] = {
 	"w",	'v',
 	"s",	'w',
 };
+
+#endif /* AUTO_BETA_SMK_H */

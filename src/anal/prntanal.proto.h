@@ -1,3 +1,6 @@
+#ifndef PRNTANAL_PROTO_H
+#define PRNTANAL_PROTO_H
+
 
 /* prntanal.c */
 int PrntAnalyses(gk_word *, PrntFlags, FILE *);
@@ -14,3 +17,5 @@ int DumpEndingIndex(gk_word *, PrntFlags, gk_analysis *, FILE *, int);
 int DumpPerseusAnalysis(gk_word *, PrntFlags, gk_analysis *, FILE *, int);
 int DumpGstr(char *, gk_string *, FILE *, int);
 int DumpDbGkString(gk_string *, FILE *);
+
+#endif /* PRNTANAL_PROTO_H */

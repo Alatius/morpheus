@@ -1,3 +1,6 @@
+#ifndef MORPHARGS_H
+#define MORPHARGS_H
+
 typedef long Morph_flags;
 
 typedef struct {
@@ -6,3 +9,4 @@ typedef struct {
 	void 	(*add_val)();
 } Morph_args;
 
+#endif /* MORPHARGS_H */

@@ -1,3 +1,6 @@
+#ifndef TLGWIND_H
+#define TLGWIND_H
+
 /*
  * Copyright Gregory Crane
  * April 1987
@@ -47,3 +50,5 @@
 #define STAT_HEIGHT 5
 #define PROMPT( X ) w_lclear(WCOMLST); printf( X )
 #define BROWSEPROMPT "Browsing TLG Data Base"
+
+#endif /* TLGWIND_H */

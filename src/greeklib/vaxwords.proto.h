@@ -1,3 +1,6 @@
+#ifndef VAXWORDS_PROTO_H
+#define VAXWORDS_PROTO_H
+
 
 /* vaxwords.c */
 int get_int32(int32 *, FILE *);
@@ -8,3 +11,5 @@ int get_short(unsigned short *, FILE *);
 int put_short(short *, FILE *);
 int vax_fread(char *, size_t, int, FILE *);
 int vax_fwrite(char *, size_t, int, FILE *);
+
+#endif /* VAXWORDS_PROTO_H */

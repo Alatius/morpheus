@@ -1,3 +1,6 @@
+#ifndef ENDINDEX_H
+#define ENDINDEX_H
+
 #define MODULUS	10
 #define KEYLEN 6
 #define MAXTAG (KEYLEN + 1)
@@ -13,3 +16,5 @@ typedef struct {
 #define endlen_of(X) (X->nelems)
 
 endind * init_endind();
+
+#endif /* ENDINDEX_H */
