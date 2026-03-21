@@ -21,7 +21,7 @@ longbyposition(char *s)
 	
 	if(! Is_cons(*(s+1))) return(0);
 	
-	if( Is_labial(*(s+1) && Is_stop(*s))) return(2);
+	if( Is_labial(*(s+1)) && Is_stop(*s)) return(2);
 
 	if( Is_cons(*s) ) return(1);
 	return(0);

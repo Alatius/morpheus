@@ -25,7 +25,7 @@ dictstems(char *lemma, int *nstems, bool wantacc, char *orgstem, char *stemtype,
 	line = (char *)malloc((size_t)(BUFSIZ*4)+1);
 	lemmfile = (char *)malloc((size_t)LONGSTRING+1);
 	tmp = (char *)malloc((size_t)(BUFSIZ*4)+1);
-	line[(BUFSIZ*4)+1] = lemmfile[LONGSTRING+1] = tmp[(BUFSIZ*4)+1] = 0;
+	line[BUFSIZ*4] = lemmfile[LONGSTRING] = tmp[BUFSIZ*4] = 0;
 	
 	lemmfile[0] = 0;
 	startoff = 0;

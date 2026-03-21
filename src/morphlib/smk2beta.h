@@ -234,7 +234,7 @@ static Xlit Beta_Smarta[] = {
 #define SMK_WISUB(X) (X==0304 || (X>=0320&&X<=0332)) 
 #define SMK_IDIAER(X)  (X==0363 || X==0375 || X==0376)
 #define SMK_UDIAER(X)  (X==043 || X==0100 || X==0347)
-#define SMK_DIAER(X) (SMK_UDIAER(X) || SMK_IDAER(X))
+#define SMK_DIAER(X) (SMK_UDIAER(X) || SMK_IDIAER(X))
 
 #define SMK_VOWEL(X) (SMK_ALPHA(X)  || \
 	SMK_AISUB(X) || \

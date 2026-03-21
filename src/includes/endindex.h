@@ -1,6 +1,6 @@
 #define MODULUS	10
 #define KEYLEN 6
-#define MAXTAG KEYLEN + 1
+#define MAXTAG (KEYLEN + 1)
 
 typedef struct {
 	char *ebuf;
