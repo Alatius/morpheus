@@ -14,7 +14,8 @@ main()
 		fprintf(stderr,"could not open [%s]\n", WLIST );
 		exit(-1);
 	}
-	while(gets(line)) {
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = '\0';
 		checkfld(line);
 	}
 

@@ -10,7 +10,8 @@ main()
 	char line[BUFSIZ];
 	char curlem[BUFSIZ];
 
-	while(gets(line)) {
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = '\0';
 		if( ! line[0] || isspace(line[0]) ) continue;
 		
 		getlem(line,curlem);

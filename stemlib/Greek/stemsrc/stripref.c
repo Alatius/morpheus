@@ -1,12 +1,15 @@
 #include <stdio.h>
+#include <string.h>
 
-main()
+int main(void)
 {
 	char line[1000];
 	char curlemma[BUFSIZ];
 	char *s;
-	
-	while(gets(line)) {
+
+	while(fgets(line, sizeof line, stdin)) {
+		/* Remove trailing newline */
+		line[strcspn(line, "\n")] = 0;
 		if( ! strncmp(":le:",line,4)) {
 			strcpy(curlemma,line+4);
 			continue;
@@ -17,5 +20,5 @@ main()
 		if(*s=='-') { putchar(' '); s++;}
 		printf("%s\n", s );
 	}
+	return 0;
 }
-

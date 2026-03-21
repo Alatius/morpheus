@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <ctype.h>
 char * malloc();
 
@@ -10,7 +11,8 @@ _main()
 		char number[80], defstr[BUFSIZ*4];
 		curlemma[0] = 0;
 		
-		while(gets(line)) {
+		while(fgets(line, sizeof line, stdin)) {
+			line[strcspn(line, "\n")] = '\0';
 			if( !strncmp(line,":le:",4) ) {
 				strcpy(curlemma,line+4);
 				s = curlemma+strlen(curlemma)-1;

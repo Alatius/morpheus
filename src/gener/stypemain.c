@@ -8,7 +8,8 @@ main()
 	char curlemma[LONGSTRING];
 	char *s;
 
-	while(gets(line)) {
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = '\0';
 		if( !strncmp(":le:",line,4)) {
 			strcpy(curlemma,line+4);
 			continue;

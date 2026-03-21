@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <ctype.h>
 #include <prntflags.h>
 
@@ -13,7 +14,8 @@ char fname[BUFSIZ];
 fprintf(stdout,"hello world!\n");
 		while(1) {
 			fprintf(stderr,"fname? ");
-			if( ! gets(fname) ) break;
+			if( ! fgets(fname, sizeof fname, stdin) ) break;
+			fname[strcspn(fname, "\n")] = '\0';
 			crunchfile(fname);
 		}
 	

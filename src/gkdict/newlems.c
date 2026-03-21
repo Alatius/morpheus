@@ -10,7 +10,8 @@ main()
 	char curw[BUFSIZ];
 	char *hp;
 
-	while(gets(line)) {
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = '\0';
 		strcpy(savel,line);
 		hp = strtok(line," \t");
 		if( ! hp ) continue;

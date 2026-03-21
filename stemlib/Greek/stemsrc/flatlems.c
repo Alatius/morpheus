@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
 char curlem[BUFSIZ];
 
-main()
+int main(void)
 {
 	char line[BUFSIZ*10];
-	while(gets(line)) {
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = 0;
 		if( !strncmp(":le:",line,4)) {
 			strcpy(curlem,line+4);
 			continue;
@@ -15,4 +17,5 @@ main()
 			printf("%s\t%s\n", curlem, line );
 		}
 	}
+	return 0;
 }

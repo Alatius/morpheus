@@ -1,4 +1,5 @@
 #include  <usual.h>
+#include  <string.h>
 #include  "../../include/datatypes.h"
 
 #define  MAXLINE  80
@@ -14,7 +15,8 @@ main()
 
 	queue = qcreate( POINTER, 5 );
 	printf("ready\n");
-	while ( gets(cline) != NULL )  {
+	while ( fgets(cline, sizeof cline, stdin) != NULL )  {
+	    cline[strcspn(cline, "\n")] = '\0';
 	    if ( !strcmp( cline, "remove" ))  {
 		if ( qremove( &qline, queue ) == FAILURE )  {
 		    printf("queue empty\n");

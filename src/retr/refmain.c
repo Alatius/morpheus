@@ -13,7 +13,8 @@ main(argc,argv)
 int argc;
 char * argv[];
 {
-	while(gets(line)) {
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = '\0';
 		srch = (srch_state *) calloc(1, sizeof * srch );
 		parseref(srch,line);
 		gk_startup(BETAFORMAT);

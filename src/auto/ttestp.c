@@ -1,4 +1,5 @@
 #include  <usual.h>
+#include  <string.h>
 #include  <token.h>
 
 #define  MAXLINE  80
@@ -20,7 +21,8 @@ main()
 	    exit(1);
 	}
 	printf("Ready\n");
-	while ( gets(cline) != NULL )  {
+	while ( fgets(cline, sizeof cline, stdin) != NULL )  {
+	    cline[strcspn(cline, "\n")] = '\0';
 	    if ( !strcmp( cline, "compile" ))  {
 		if ( tkcompile( Tree ) == FAILURE )  {
 		    printf("Can't compile machine\n");

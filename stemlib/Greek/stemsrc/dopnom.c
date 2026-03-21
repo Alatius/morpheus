@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
-main()
+int main(void)
 {
 	char line[BUFSIZ];
 
-	while(gets(line)) {
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = 0;
 		char *s;
 		if(strncmp(line,":ns:",4)) continue;
 		s = line+4;
@@ -17,4 +19,5 @@ main()
 		printf("%s\n\n"	, s);
 
 	}
+	return 0;
 }

@@ -7,7 +7,8 @@ main()
 {
 	char line[2000];
 
-	while(gets(line)) {
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = '\0';
 		ScanAsciiKeys((char *)line,&GkWord,&Gstr,&AvoidGstr);
 		printf("stemtype Gkword %o Gstr %o\n", stemtype_of(&GkWord), stemtype_of(&Gstr) );
 		Gstr = AvoidGstr = BlnkGstr;

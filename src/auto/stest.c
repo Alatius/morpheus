@@ -1,4 +1,5 @@
 #include "usual.h"
+#include <string.h>
 #include "datatypes.h"
 
 #define MAXLINE 80
@@ -17,7 +18,8 @@ main()
 	printf("Type is LONG\n");
 	printf("To pop type 'pop' and to push just type one");
         printf(" number/line\n");
-	while( gets(cline) != NULL)  {
+	while( fgets(cline, sizeof cline, stdin) != NULL)  {
+	   cline[strcspn(cline, "\n")] = '\0';
 	   if ( !strcmp( cline, "pop")) {
 		if ( spop( &qline, stack) == FAILURE ) {
 		printf("stack empty\n");

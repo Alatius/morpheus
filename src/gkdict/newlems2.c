@@ -23,7 +23,8 @@ main()
 		exit(-1);
 	}
 
-	while(gets(line)) {
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = '\0';
 		if( ! line[0]) continue;
 		if( ! isdigit(line[0])) continue;
 		strcpy(savel,line);

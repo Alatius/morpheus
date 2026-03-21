@@ -8,8 +8,10 @@ char anals[10000];
 yylex()
 {
 
-	while(gets(line)) {
-		gets(anals);
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = '\0';
+		if(!fgets(anals, sizeof anals, stdin)) break;
+		anals[strcspn(anals, "\n")] = '\0';
 		passVal(line);
 		if(is_substring(" article",anals)) return ARTICLE;
 		if(is_substring("<NL>N",anals)) return(NOUN);

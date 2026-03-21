@@ -13,7 +13,8 @@ _main(void)
 	int nverbs = 0;
 	int rval;
 	
-	while(gets(line)) {
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = '\0';
 		if(  strncmp(line,":le:",4)) {
 			continue;
 		}

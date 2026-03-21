@@ -22,15 +22,17 @@ main(void)
 	fname[0] = 0;
 
 	fprintf(stderr,"use stdout? ");
-	gets(line);
-	
+	fgets(line, sizeof line, stdin);
+	line[strcspn(line, "\n")] = '\0';
+
 	if(line[0] == 'y' ) {
 		fprintf(stderr,"type in forms\n");
 		strcpy(outname,"out.morph");
 		finput = stdin;
 	} else {
 		fprintf(stderr,"word file? ");
-		gets(fname);
+		fgets(fname, sizeof fname, stdin);
+		fname[strcspn(fname, "\n")] = '\0';
 		
 		strcpy(inpname,fname);
 		strcat(inpname,".words");
@@ -59,7 +61,8 @@ main(void)
 			
 			if( ! fname[0] ) {
 				printf("basename? ");
-				gets(fname);
+				fgets(fname, sizeof fname, stdin);
+				fname[strcspn(fname, "\n")] = '\0';
 			}
 			strcpy(tmp,fname);
 			strcat(tmp,".enames");

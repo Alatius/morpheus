@@ -22,8 +22,9 @@ main(void)
 
 
 	fprintf(stderr,"use stdout? ");
-	gets(line);
-	
+	fgets(line, sizeof line, stdin);
+	line[strcspn(line, "\n")] = '\0';
+
 	if(line[0] == 'y' ) {
 		fprintf(stderr,"type in forms\n");
 		strcpy(outname,"out.morph");

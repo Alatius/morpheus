@@ -42,7 +42,8 @@ char * argv[];
 	strcpy(filename,"conjfile");
 	if( (f=fopen(filename,"r")) == NULL ) {
 		fprintf(stdout,"Filename?\n" );
-		gets(filename);
+		fgets(filename, sizeof filename, stdin);
+		filename[strcspn(filename, "\n")] = '\0';
 		if( (f=fopen(filename,"r")) == NULL ) {
 			fprintf(stderr,"Could not open [%s]\n", filename );
 			exit(-1);

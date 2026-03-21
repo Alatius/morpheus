@@ -23,7 +23,8 @@ main()
 	char reskeys[BUFSIZ];
 	int rval;
 
-	while(gets(line)) {
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = '\0';
 		transkeys[0] = keys[0] = reskeys[0] = 0;
 		strcpy(tmp,line);
 		s = line;

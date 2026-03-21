@@ -6,7 +6,8 @@ main()
 {
 	char line[BUFSIZ*10];
 
-	while(gets(line)) {
+	while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = '\0';
 		memmove(line,line+4,strlen(line+4)+1);
 		if( is_substring("ew_",line) || is_substring("aw_",line)) {
 			check_ew(line);

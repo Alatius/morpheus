@@ -1,4 +1,5 @@
 #include <usual.h>
+#include <string.h>
 #include <datatypes.h>
 
 #define MAXLINE 80
@@ -22,7 +23,8 @@ main()
 	printf("	4. reset\n");
 	printf("	5. clear\n");
         printf(" just type to 'push'\n");
-	while( gets(cline) != NULL)  {
+	while( fgets(cline, sizeof cline, stdin) != NULL)  {
+	   cline[strcspn(cline, "\n")] = '\0';
 	   if ( !strcmp( cline, "pop")) {
 		if ( rspop( &qline, rstack) == FAILURE ) {
 		printf("stack empty\n");

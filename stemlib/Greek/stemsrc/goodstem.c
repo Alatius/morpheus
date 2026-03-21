@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-main()
+int main(void)
 {
+	return 0;
 }

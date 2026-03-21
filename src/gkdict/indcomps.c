@@ -20,7 +20,8 @@ main()
 	char * s;
 	char * tailp;
 
-        while(gets(line)) {
+        while(fgets(line, sizeof line, stdin)) {
+		line[strcspn(line, "\n")] = '\0';
 		Gstr = Blnk;
 		if( !strncmp(":le:",line,4) ) strcpy(curlemma,line+4);
 		if( strncmp(":aj:",line,4) &&  strncmp(":no:",line,4) ) {
