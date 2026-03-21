@@ -923,81 +923,81 @@ do_regnom(char*stem,char*key1,char*key2,char * key3)
 	    (!strcmp(stem+strlen(stem)-1,"s")) ) {
 		char skeys[BUFSIZ];
 
-		if( !strcmp(key2,"<gen>o(</gen>") && !strcmp(key2,"<gen>h(</gen>"))
-			strcpy(skeys,"s_qos masc fem");	
+		if( !strcmp(key2,"<gen>o(</gen>") && !strcmp(key3,"<gen>h(</gen>"))
+			strcpy(skeys,"s_qos masc fem");
 		else if( !strcmp(key2,"<gen>o(</gen>") )
-			strcpy(skeys,"s_qos masc");	
+			strcpy(skeys,"s_qos masc");
 		else if( !strcmp(key2,"<gen>h(</gen>") )
-			strcpy(skeys,"s_qos fem");	
+			strcpy(skeys,"s_qos fem");
 		else
-			strcpy(skeys,"s_qos fem");	
-		dump_nom(stem,1,skeys);	
+			strcpy(skeys,"s_qos fem");
+		dump_nom(stem,1,skeys);
 		return(1);
 	}
 
-	if( !strcmp("ggos</itype>",key1+strlen(key1)-12) && 
+	if( !strcmp("ggos</itype>",key1+strlen(key1)-12) &&
 	    (!strcmp(stem+strlen(stem)-2,"gc")) ) {
 		char skeys[BUFSIZ];
 		int syllno = 0;
 		int curacc = 0;
 
-		if( !strcmp(key2,"<gen>o(</gen>") && !strcmp(key2,"<gen>h(</gen>"))
-			strcpy(skeys,"gc_ggos masc fem");	
+		if( !strcmp(key2,"<gen>o(</gen>") && !strcmp(key3,"<gen>h(</gen>"))
+			strcpy(skeys,"gc_ggos masc fem");
 		else if( !strcmp(key2,"<gen>o(</gen>") )
-			strcpy(skeys,"gc_ggos masc");	
+			strcpy(skeys,"gc_ggos masc");
 		else if( !strcmp(key2,"<gen>h(</gen>") )
-			strcpy(skeys,"gc_ggos fem");	
+			strcpy(skeys,"gc_ggos fem");
 		else
-			strcpy(skeys,"gc_ggos fem");	
+			strcpy(skeys,"gc_ggos fem");
 
 		if(nsylls(stem) > 2 ) {
-			if(syllno = PENULT ) strcat(skeys," ant_acc"  );
+			if(syllno == PENULT ) strcat(skeys," ant_acc"  );
 			checkaccent(stem,&syllno,&curacc);
 		}
 		dump_nom(stem,2,skeys);
 		return(1);
 	}
 
-	if( !strcmp("aktos</itype>",key1+strlen(key1)-13) && 
+	if( !strcmp("aktos</itype>",key1+strlen(key1)-13) &&
 	    (!strcmp(stem+strlen(stem)-2,"ac")|| !strcmp(stem+strlen(stem)-2,"la")) ) {
 		char skeys[BUFSIZ];
 		int syllno = 0;
 		int curacc = 0;
 
-		if( !strcmp(key2,"<gen>o(</gen>") && !strcmp(key2,"<gen>h(</gen>"))
-			strcpy(skeys,"c_ktos masc fem");	
+		if( !strcmp(key2,"<gen>o(</gen>") && !strcmp(key3,"<gen>h(</gen>"))
+			strcpy(skeys,"c_ktos masc fem");
 		else if( !strcmp(key2,"<gen>o(</gen>") )
-			strcpy(skeys,"c_ktos masc");	
+			strcpy(skeys,"c_ktos masc");
 		else if( !strcmp(key2,"<gen>h(</gen>") )
-			strcpy(skeys,"c_ktos fem");	
+			strcpy(skeys,"c_ktos fem");
 		else
-			strcpy(skeys,"c_ktos fem");	
+			strcpy(skeys,"c_ktos fem");
 
 		if(nsylls(stem) > 2 ) {
-			if(syllno = PENULT ) strcat(skeys," ant_acc"  );
+			if(syllno == PENULT ) strcat(skeys," ant_acc"  );
 			checkaccent(stem,&syllno,&curacc);
 		}
 		dump_nom(stem,(strcmp(stem+strlen(stem)-2,"ac")? 1 : 2),skeys);
 		return(1);
 	}
 
-	if( !strcmp("gos</itype>",key1+strlen(key1)-11) && 
+	if( !strcmp("gos</itype>",key1+strlen(key1)-11) &&
 	    (!strcmp(stem+strlen(stem)-1,"c")) ) {
 		char skeys[BUFSIZ];
 		int syllno = 0;
 		int curacc = 0;
 
-		if( !strcmp(key2,"<gen>o(</gen>") && !strcmp(key2,"<gen>h(</gen>"))
-			strcpy(skeys,"c_gos masc fem");	
+		if( !strcmp(key2,"<gen>o(</gen>") && !strcmp(key3,"<gen>h(</gen>"))
+			strcpy(skeys,"c_gos masc fem");
 		else if( !strcmp(key2,"<gen>o(</gen>") )
-			strcpy(skeys,"c_gos masc");	
+			strcpy(skeys,"c_gos masc");
 		else if( !strcmp(key2,"<gen>h(</gen>") )
-			strcpy(skeys,"c_gos fem");	
+			strcpy(skeys,"c_gos fem");
 		else
-			strcpy(skeys,"c_gos fem");	
+			strcpy(skeys,"c_gos fem");
 
 		if(nsylls(stem) > 2 ) {
-			if(syllno = PENULT ) strcat(skeys," ant_acc"  );
+			if(syllno == PENULT ) strcat(skeys," ant_acc"  );
 			checkaccent(stem,&syllno,&curacc);
 		}
 		dump_nom(stem,1,skeys);
