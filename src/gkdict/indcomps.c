@@ -13,7 +13,7 @@ gk_string Blnk;
 char ** stems;
 char curlemma[BUFSIZ];
 
-main()
+int main(void)
 {
 	char line[5000];
 	char tmp[5000];
@@ -27,7 +27,7 @@ main()
 		if( strncmp(":aj:",line,4) &&  strncmp(":no:",line,4) ) {
 			continue;
 		}
-		
+
 		s = line;
 		while(*s) {
 			if(*s==',') *s = ' ';
@@ -43,7 +43,7 @@ main()
 
 		s = line;
 		while(*s&&!isspace(*s)) s++;
-		
+
 		ScanAsciiKeys((char *)s,&GkWord,&Gstr,&AvoidGstr);
 		tmp[0] = 0;
 		SprintGkFlags(&Gstr,tmp," ",0);
@@ -56,5 +56,5 @@ main()
 		putchar('\t');
 		printf("%s\t%s\t%s %s\n", tailp+1, tmp, curlemma, gkstring_of(&Gstr)+4 );
 	}
-	
+	return 0;
 }

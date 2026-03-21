@@ -3,17 +3,17 @@
 
 #include "checkstem.proto.h"
 int comstemtypes(char *, char *, char *);
-static wantcurstemtype(char *, char *);
-extern verbose;
+static int wantcurstemtype(char *, char *);
+extern int verbose;
 static int digstem = 0;
 
 char * is_substring();
 
 /*
  * this routine takes a possible verb stem (poss_stem) and tries
- * to figure out whether any such stem exists. 
+ * to figure out whether any such stem exists.
  *
- * it is smart enough to de-augment a stem, and stores up a 
+ * it is smart enough to de-augment a stem, and stores up a
  * a variety of possible stems in *stemtab[].
  *
  * it also uses the stem types listed in endkeys to get rid of
@@ -22,16 +22,17 @@ char * is_substring();
  * make sure that a stem falls into one of these three categories, and
  * then get rid of extraneous possibilities. thus if the stem is
  * only "ew_fut", we don't have to worry about "ew_pr" or "ow_pr" forms.
- * 
+ *
  * the resulting keys for each possible stem are stored in *keytab[]
  */
 
 static	gk_string * tstemtab[MAXAUGSTEMS];
 static	gk_string * tqstemtab[MAXAUGSTEMS];
 static	char * tkeytab[MAXAUGSTEMS];
-static init_stor = 0;
+static int init_stor = 0;
+static void longeststem(char *s);
 
- checkstem(char *poss_stem, char *endkeys, gk_string *stemtab[], char *keytab[], int maxstems)
+int checkstem(char *poss_stem, char *endkeys, gk_string *stemtab[], char *keytab[], int maxstems)
 {
 	char *curstemkeys;
 	int i;
@@ -120,7 +121,7 @@ fprintf(stderr,"%d) %s\n", i , gkstring_of(tstemtab[i]) );
 	return(hits);
 }
 
-stemexists(char *s, char *endkeys, char *stemkeys, int is_nom)
+int stemexists(char *s, char *endkeys, char *stemkeys, int is_nom)
 {
 	int rval  = 0;
 	
@@ -153,8 +154,7 @@ if( rval ) printf("rval %d for [%s] with keys [%s]\n", rval , s , stemkeys );
  * return with only "ew_fut:ba/llw" in the above example.
  */
 
-int
-comstemtypes(char *stem, char *stemkeys, char *endkeys)
+int comstemtypes(char *stem, char *stemkeys, char *endkeys)
 {
 	register char * s, *p;
 	char tmp[LONGSTRING];
@@ -193,8 +193,7 @@ comstemtypes(char *stem, char *stemkeys, char *endkeys)
 		return(0);
 }
 
-static
-wantcurstemtype(char *curst, char *stlist)
+static int wantcurstemtype(char *curst, char *stlist)
 {
 	char * is_substring(), *s;
 	int rval = 0;
@@ -206,11 +205,11 @@ wantcurstemtype(char *curst, char *stlist)
 }
 
 
-setstemvars(char *s, char *cstem, char *clemma, char *cstemtype, char *cstemkeys)
+void setstemvars(char *s, char *cstem, char *clemma, char *cstemtype, char *cstemkeys)
 {
 	char * parsefield();
 	*cstemkeys = *cstem = *clemma = *cstemtype = 0;
-	
+
 	s = parsefield(s,cstem,':',MAXWORDSIZE);
 	s = parsefield(s,clemma,':',MAXWORDSIZE);
 	s = parsefield(s,cstemtype,':',MAXWORDSIZE);
@@ -242,8 +241,7 @@ parsefield(char *s, char *buf, int c, int len)
 	return(s);
 }
 
-longeststem(s)
-char * s;
+void longeststem(char *s)
 {
 	char * p = s;
 	char tmp[256],tmp2[256];

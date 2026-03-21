@@ -10,14 +10,14 @@
 
 #include "stripquant.proto.h"
 
-stripquant(char *word)
+void stripquant(char *word)
 {
 	stripshortmark(word);
 	striplongmark(word);
 }
 
 
-stripshortmark(char *word)
+void stripshortmark(char *word)
 {
 	register char *p;
 	for (p=lastn(word,1);p>=word;p--)
@@ -25,7 +25,7 @@ stripshortmark(char *word)
 			strsqz(p,1);
 }
 
-striplongmark(char *word)
+void striplongmark(char *word)
 {
 	register char *p;
 	for (p=lastn(word,1);p>=word;p--)

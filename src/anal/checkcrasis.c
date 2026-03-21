@@ -209,7 +209,7 @@ typedef struct {
 
 int nocrasis = 0;
 
-checkcrasis(gk_word *Gkword)
+int checkcrasis(gk_word *Gkword)
 {
 	int i;
 	char saveword[MAXWORDSIZE];
@@ -251,12 +251,12 @@ checkcrasis(gk_word *Gkword)
 	return(rval);
 }
 
-set_nocrasis()
+void set_nocrasis(void)
 {
 	nocrasis = 1;
 }
 
-testcrasis(gk_word *Gkword, char *mungedword, char *wordstart, char *preword,Dialect possdial)
+int testcrasis(gk_word *Gkword, char *mungedword, char *wordstart, char *preword,Dialect possdial)
 {
 	char saveword[MAXWORDSIZE];
 	char word1[MAXWORDSIZE];
@@ -301,7 +301,7 @@ testcrasis(gk_word *Gkword, char *mungedword, char *wordstart, char *preword,Dia
 }
 	
 
-do_crasis(gk_string *gstring, char *crasis)
+int do_crasis(gk_string *gstring, char *crasis)
 {
 	int gend, num, wcase;
 	int saw_this_crasis = 0;

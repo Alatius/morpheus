@@ -3,6 +3,6 @@
 
 
 /* stripzeroend.c */
-int stripzeroend(char *);
+void stripzeroend(char *);
 
 #endif /* STRIPZEROEND_PROTO_H */

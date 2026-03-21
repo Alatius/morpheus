@@ -10,10 +10,10 @@ int unaugfromlemma(char *, char *);
 int add_augment(gk_word *, MorphFlags *, int);
 int needs_augment(gk_string *);
 int needs_augment2(gk_word *, char *);
-int simpleaugment(char *, bool);
-int simpleredupit(char *, int, int);
+void simpleaugment(char *, bool);
+void simpleredupit(char *, int, int);
 int redupit2(gk_word *, int, int, int);
 int un_redupl(char *, char *, int);
-int add_double_augment(char *, MorphFlags *);
+void add_double_augment(char *, MorphFlags *);
 
 #endif /* AUGMENT_PROTO_H */

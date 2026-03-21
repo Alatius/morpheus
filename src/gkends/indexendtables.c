@@ -7,12 +7,10 @@ static char ** endlines;
 static int endcount = 0;
 static gk_string Gstr;
 static gk_string Blnk;
-static int xstrcmp();
+static int xstrcmp(char **, char **);
 #define DELIMITER " "
 
-indexendtables(stype,is_deriv)
-Stemtype stype;
-int is_deriv;
+void indexendtables(Stemtype stype, int is_deriv)
 {
 
 	int index = 0;
@@ -113,7 +111,7 @@ if(  ! *sp ) {
 			*(endlines+endcount) = (char *)calloc(strlen(tmp)+1,sizeof ** endlines );
 			if( ! *(endlines+endcount) ) {
 				fprintf(stderr,"ran out of memory at %d endings!\n", endcount );
-				return(-1);
+				return;
 			}
 			strcpy(*(endlines+endcount),tmp);
 			endcount++;
@@ -127,7 +125,7 @@ NameOfDerivtype(derivtype_of(&Gstr)) );
 		fclose(finput);
 	}
 
-	qsort(endlines,endcount,sizeof * endlines, xstrcmp );
+	qsort(endlines,endcount,sizeof * endlines, (int (*)(const void *, const void *))xstrcmp );
 	
 printf("stype [%o]\n", stype );
 	if( is_deriv ) 
@@ -142,7 +140,7 @@ printf("stype [%o]\n", stype );
 printf("output file:%s\n", shortname );
 	if(! (foutput=MorphFopen(shortname,"w"))) {
 		ErrorMess("Could not open nendind!");
-		return(-1);
+		return;
 	}
 	
 	prevtag[0] = 0;
@@ -174,9 +172,7 @@ printf("output file:%s\n", shortname );
 
 }
 
-xstrcmp(p1,p2)
-  char ** p1;
-  char ** p2;
+static int xstrcmp(char **p1, char **p2)
 {
 	int rval;
 	

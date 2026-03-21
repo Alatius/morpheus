@@ -49,8 +49,8 @@ static char	prevbs [][MAXPRVBSIZE] = {
 };
 
 #define NUMPREVBS ( sizeof prevbs / sizeof prevbs[0] )
-static comp_preverb(char *, int, MorphFlags *);
-static getprvbform(char *, char *, MorphFlags *);
+static void comp_preverb(char *, int, MorphFlags *);
+static void getprvbform(char *, char *, MorphFlags *);
 static int verbose = 0;
 
 bool checkprevb(char *word, char *prevb, bool *brflg)
@@ -198,7 +198,7 @@ bool prvbcmp(char *prevb, char *word, bool *brflg)
 	return (NO);
 }
 
-getrest(char *workrest, char *word, char *workw, char *workp)
+void getrest(char *workrest, char *word, char *workw, char *workp)
 /* put non-preverb part of word into workrest */
 /* workw and workp are unaccented word and preverb, respectively */
 {
@@ -213,7 +213,7 @@ getrest(char *workrest, char *word, char *workw, char *workp)
 /* nb this assumes no more than one accent in word; what if there's more? */
 }
 
-rstprevb(char *word, char *prevb, gk_string *gstr)
+void rstprevb(char *word, char *prevb, gk_string *gstr)
 /* word <- prevb+word */
 /* prevb should be fully accented (i.e.,from the array) */
 {
@@ -225,7 +225,7 @@ rstprevb(char *word, char *prevb, gk_string *gstr)
 	MorphFlags * oddpb = morphflags_of(gstr);
 
 	fullpb[0] = 0;
-	if( Is_indeclform(oddpb) ) return(0);
+	if( Is_indeclform(oddpb) ) return;
 
 	if( cur_lang() == LATIN || cur_lang() == ITALIAN ) {
 	   if( !has_morphflag(oddpb,RAW_PREVERB) ) {
@@ -386,7 +386,7 @@ rstprevb(char *word, char *prevb, gk_string *gstr)
 		
 		strcat(work,word);
 		strcpy(word,work);
-		return(0);
+		return;
 	   }
 	}
 	
@@ -418,9 +418,9 @@ rstprevb(char *word, char *prevb, gk_string *gstr)
 		stripbreath(tmpword); /* avoid forms such as a)na-oi)/gw */
 		Xstrncat(work,tmpword,MAXWORDSIZE);
 		Xstrncpy(word,work,MAXWORDSIZE);
-		return(0);
+		return;
 	}
-	
+
 	set_morphflag(morphflags_of(&TmpGstr),0);
 	exp_preverb(prevb,fullpb,&TmpGstr);
 
@@ -474,8 +474,7 @@ rstprevb(char *word, char *prevb, gk_string *gstr)
 	Xstrncpy(word,work,MAXWORDSIZE);
 }
 
-static
-comp_preverb(char *pb, int unasp, MorphFlags *oddpb)
+static void comp_preverb(char *pb, int unasp, MorphFlags *oddpb)
 {
 	char *s;
 	gk_string  Gstr;
@@ -521,8 +520,7 @@ comp_preverb(char *pb, int unasp, MorphFlags *oddpb)
 	}
 }
 
-static
-getprvbform(char *word, char *prevb, MorphFlags *oddpb)
+static void getprvbform(char *word, char *prevb, MorphFlags *oddpb)
 {
 	
 	stripacc(prevb); /* accents on the word stem take priority */
@@ -690,7 +688,7 @@ getprvbform(char *word, char *prevb, MorphFlags *oddpb)
 		Xstrncat(prevb," + ",MAXWORDSIZE);
 }
 
-First_K_aspirate(char *word)
+int First_K_aspirate(char *word)
 {
 	while(*word&&!Is_cons(*word)) word++;
 	if( ! *word ) return(0);
@@ -698,7 +696,7 @@ First_K_aspirate(char *word)
 	return(0); 
 }
 
-shift_su_to_cu(char *s)
+void shift_su_to_cu(char *s)
 {
 	while(*s) {
 		if(*s=='s'&&*(s+1)=='u') *s = 'c';
@@ -706,132 +704,132 @@ shift_su_to_cu(char *s)
 	}
 }
 
-shift_eis_to_es(char *s)
+void shift_eis_to_es(char *s)
 {
 	while(*s) {
 		if(!Xstrncmp(s,"eis",3) || !Xstrncmp(s,"ei)s",4) ) {
 			memmove(s+1,s+2,strlen(s+2)+1);
-			return(0);
+			return;
 		}
 		s++;
 	}
 }
-shift_pros_to_poti(char *s)
+void shift_pros_to_poti(char *s)
 {
 	char tmp[MAXWORDSIZE];
-	
+
 	while(*s) {
 		if(!Xstrncmp(s,"pros",4) ) {
 			strcpy(tmp,s+4);
 			strcpy(s,"poti");
 			strcat(s,tmp);
-			return(0);
+			return;
 		}
 		s++;
 	}
 }
-shift_pros_to_proti(char *s)
+void shift_pros_to_proti(char *s)
 {
 	char tmp[MAXWORDSIZE];
-	
+
 	while(*s) {
 		if(!Xstrncmp(s,"pros",4) ) {
 			strcpy(tmp,s+4);
 			strcpy(s,"proti");
 			strcat(s,tmp);
-			return(0);
+			return;
 		}
 		s++;
 	}
 }
-shift_upo_to_upai(char *s)
+void shift_upo_to_upai(char *s)
 {
 	char tmp[MAXWORDSIZE];
-	
+
 	while(*s) {
 		if(!Xstrncmp(s,"upo",3) ) {
 			strcpy(tmp,s+3);
 			strcpy(s,"upai");
 			strcat(s,tmp);
-			return(0);
+			return;
 		} else if(!Xstrncmp(s,"u(po",4) ) {
 			strcpy(tmp,s+4);
 			strcpy(s,"u(pai");
 			strcat(s,tmp);
-			return(0);
+			return;
 		}
 		s++;
 	}
 }
-shift_uper_to_upeir(char *s)
+void shift_uper_to_upeir(char *s)
 {
 	char tmp[MAXWORDSIZE];
-	
+
 	while(*s) {
 		if(!Xstrncmp(s,"uper",4) ) {
 			strcpy(tmp,s+4);
 			strcpy(s,"upeir");
 			strcat(s,tmp);
-			return(0);
+			return;
 		} else if(!Xstrncmp(s,"u(per",5) ) {
 			strcpy(tmp,s+5);
 			strcpy(s,"u(peir");
 			strcat(s,tmp);
-			return(0);
+			return;
 		}
 		s++;
 	}
 }
-shift_para_to_parai(char *s)
+void shift_para_to_parai(char *s)
 {
 	char tmp[MAXWORDSIZE];
-	
+
 	while(*s) {
 		if(!Xstrncmp(s,"para",4) ) {
 			strcpy(tmp,s+4);
 			strcpy(s,"parai");
 			strcat(s,tmp);
-			return(0);
-		} 
+			return;
+		}
 		s++;
 	}
 }
-shift_meta_to_peda(char *s)
+void shift_meta_to_peda(char *s)
 {
 	char tmp[MAXWORDSIZE];
-	
+
 	while(*s) {
 		if(!Xstrncmp(s,"meta",4) ) {
 			strcpy(tmp,s+4);
 			strcpy(s,"peda");
 			strcat(s,tmp);
-			return(0);
+			return;
 		}
 		s++;
 	}
 }
-shift_en_to_eni(char *s)
+void shift_en_to_eni(char *s)
 {
 	char tmp[MAXWORDSIZE];
-	
+
 	while(*s) {
 		if(!Xstrncmp(s,"e)n",3) && Xstrncmp(s,"e)ni",4)) {
 			strcpy(tmp,s+3);
 			strcpy(s,"e)ni");
 			strcat(s,tmp);
-			return(0);
+			return;
 		}
 		if(!Xstrncmp(s,"en",2) && Xstrncmp(s,"eni",3)) {
 			strcpy(tmp,s+2);
 			strcpy(s,"eni");
 			strcat(s,tmp);
-			return(0);
+			return;
 		}
 		s++;
 	}
 }
 
-set_odd_prvb(MorphFlags *oddpb, char *work)
+void set_odd_prvb(MorphFlags *oddpb, char *work)
 {	
 
 	if( has_morphflag(oddpb,SIG_TO_CI) ) {

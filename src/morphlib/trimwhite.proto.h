@@ -3,6 +3,6 @@
 
 
 /* trimwhite.c */
-int trimwhite(char *);
+void trimwhite(char *);
 
 #endif /* TRIMWHITE_PROTO_H */

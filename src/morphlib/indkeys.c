@@ -10,7 +10,7 @@ char curkey[LONGSTRING];
 char prevkey[LONGSTRING];
 int nkeys = MODULUS + 1;
 
-index_list(char *listname, char *tagstring, int modulus)
+void index_list(char *listname, char *tagstring, int modulus)
 {
 	FILE * finput;
 	FILE * foutput;
@@ -30,14 +30,14 @@ index_list(char *listname, char *tagstring, int modulus)
 	finput = MorphFopen(listname,"r");
 	if( ! finput ) {
 		fprintf(stderr,"Could not open input %s\n", listname );
-		return(-1);
+		return;
 	}
 	sprintf(outfile,"%s.lindex",listname);
 	
 	foutput = MorphFopen(outfile,"wb");
 	if( ! finput ) {
 		fprintf(stderr,"Could not open output  %s\n", outfile );
-		return(-1);
+		return;
 	}
 	if( tagstring ) taglen = Xstrlen(tagstring);
 	for(i=0;;i++) {
@@ -73,9 +73,9 @@ index_list(char *listname, char *tagstring, int modulus)
 static int count = 0;
 
 #ifdef DECALPHA
-prockeyline(char *s, int modulus, int curoff, FILE *f)
+void prockeyline(char *s, int modulus, int curoff, FILE *f)
 #else
-prockeyline(char *s, int modulus, long curoff, FILE *f)
+void prockeyline(char *s, int modulus, long curoff, FILE *f)
 #endif
 {
 	char curlemma[LONGSTRING];

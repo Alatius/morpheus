@@ -3,8 +3,8 @@
 
 
 /* mkend.c */
-int mk_end(char *, gk_string *, gk_string *);
-int CompStemEnd(gk_string *, char *, char *);
-int zap_extra_lmarks(char *);
+void mk_end(char *, gk_string *, gk_string *);
+void CompStemEnd(gk_string *, char *, char *);
+void zap_extra_lmarks(char *);
 
 #endif /* MKEND_PROTO_H */

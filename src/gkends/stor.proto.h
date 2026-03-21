@@ -4,10 +4,10 @@
 
 /* stor.c */
 int InitGstrMem(void);
-int AddNewGstr(gk_string *);
-int PrntNewGstrings(FILE *, int);
-int LPrntGstr(gk_string *, FILE *);
+void AddNewGstr(gk_string *);
+void PrntNewGstrings(FILE *, int);
+void LPrntGstr(gk_string *, FILE *);
 int new_parad(gk_string *, gk_string *);
-int hyphtodiaer(char *);
+void hyphtodiaer(char *);
 
 #endif /* STOR_PROTO_H */

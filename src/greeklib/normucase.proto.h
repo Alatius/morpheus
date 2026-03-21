@@ -3,6 +3,6 @@
 
 
 /* normucase.c */
-int normucase(char *);
+void normucase(char *);
 
 #endif /* NORMUCASE_PROTO_H */

@@ -9,7 +9,7 @@
 #include "hasquant.proto.h"
 
 
-has_quant(char *s)
+int has_quant(char *s)
  {
  	while(*s) {
  		if( *s == HARDLONG || *s == HARDSHORT)

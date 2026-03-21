@@ -2,7 +2,7 @@
 
 int BinLookPrnt = 0;
 
-binlook(char *table, char *tag, int nelems, int size, bool exact_match, int (*compare )())
+int binlook(char *table, char *tag, int nelems, int size, bool exact_match, int (*compare )())
 {
 	int high;
 	int low;

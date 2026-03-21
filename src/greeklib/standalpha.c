@@ -8,7 +8,7 @@
 
 #include <string.h>
 
-standalpha(char *s )
+void standalpha(char *s )
 {
 	while(*s) {
 		if(!strncmp("a_",s,2)) {

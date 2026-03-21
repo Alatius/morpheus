@@ -1,8 +1,9 @@
 #include <gkstring.h>
 int quickflag = 0;
+static void check_ew(char *p);
+static void check_ih(char *p);
 
-
-main()
+int main(void)
 {
 	char line[BUFSIZ*10];
 
@@ -18,8 +19,7 @@ main()
 }
 
 
-check_ew(p)
-char *p;
+void check_ew(char *p)
 {
 	char workstem[BUFSIZ];
 	char curbase[BUFSIZ];
@@ -48,8 +48,7 @@ char *p;
 	if(rval) printf("%s %s", curbase,stemkeys );
 }
 
-check_ih(p)
-char * p;
+void check_ih(char *p)
 {
 	char stemkeys[BUFSIZ*10];
 	char stembuf[BUFSIZ*10];

@@ -7,7 +7,7 @@
 
 #include "stripacc.proto.h"
 
-stripacc(char *word)
+int stripacc(char *word)
 {
 	register char *p;
 	int rval = 0;

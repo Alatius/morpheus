@@ -5,12 +5,12 @@ static char ** endlines;
 static int endcount = 0;
 static gk_string Gstr;
 static gk_string Blnk;
-static int xstrcmp();
+static int xstrcmp(char **, char **);
 #define DELIMITER " "
 
 #include "countendtables.proto.h"
 
-countendtables(Stemtype stype, int is_deriv)
+void countendtables(Stemtype stype, int is_deriv)
 {
 
 	int index = 0;
@@ -92,7 +92,7 @@ countendtables(Stemtype stype, int is_deriv)
 	printf("grand total: %d types %d endings\n",ntypes, totends );
 }
 
-xstrcmp(char **p1, char **p2)
+static int xstrcmp(char **p1, char **p2)
 {
 	int rval;
 	

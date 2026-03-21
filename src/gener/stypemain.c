@@ -2,7 +2,7 @@
 
 gk_word GkWord, BlankGkWord;
 gk_string Gstr, AvoidGstr, BlankGstr;
-main()
+int main(void)
 {
 	char line[2000];
 	char curlemma[LONGSTRING];

@@ -951,7 +951,7 @@ flog = fopen("logfile", "w");
 }
 
 /*
-	Handle selection of About… item from Apple menu
+	Handle selection of About... item from Apple menu
 */
 
 DoAbout (void)
@@ -1014,7 +1014,7 @@ _profile = 1;
 
 	SkelInit ();
 
-	SkelApple ("\pAbout Morpheus…", DoAbout);
+	SkelApple ("\pAbout Morpheus...", DoAbout);
 
 	fileMenu = NewMenu (1000, "\pFile");
 	AppendMenu (fileMenu, "\pNew/N;Open.../O;Close/K;(-;Save/S;Save As...");

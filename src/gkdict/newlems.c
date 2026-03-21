@@ -2,8 +2,9 @@
 
 
 char half1[BUFSIZ];
+static void buildw(char *targ, char *h1, char *h2);
 
-main()
+int main(void)
 {
 	char line[BUFSIZ];
 	char savel[BUFSIZ];
@@ -32,15 +33,16 @@ main()
 
 		/*printf("%d:%s\n", hp != NULL, line );*/
 	}
+	return 0;
 }
 
-buildw(char *targ,char *h1, char *h2)
+void buildw(char *targ,char *h1, char *h2)
 {
 	sprintf(targ,"%s%s", h1 , h2);
 	if( !hasaccent(targ)) putsimpleacc(targ);
 }
 
-checkcurw(char*curw)
+int checkcurw(char*curw)
 {
 	char tmp[BUFSIZ];
 	char keybuf[BUFSIZ];

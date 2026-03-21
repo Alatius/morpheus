@@ -1,5 +1,10 @@
 %option noyywrap main
 
+%{
+void newentr2(void);
+void newentr(void);
+%}
+
 %%
 
 "<pos>v. a.</pos>\t<orth>"[^<]+"</orth>"	newentr();
@@ -10,7 +15,7 @@
 
 %%
 
-newentr2()
+void newentr2()
 {
 	char * s = yytext;
 	
@@ -23,7 +28,7 @@ newentr2()
 	printf("%s", s);
 }
 
-newentr()
+void newentr()
 {
 	unsigned char * t;
 

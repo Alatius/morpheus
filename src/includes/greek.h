@@ -614,7 +614,7 @@ ext_type calc_vbext(),calc_adjext(),findhyp();
 /*#include "binlook.proto.h"*/
 
 /* addaccent.c */
-int addaccent(char *, int, char *);
-int cinsert(int, char *);
+void addaccent(char *, int, char *);
+void cinsert(int, char *);
 
 #endif /* GREEK_H */

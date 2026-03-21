@@ -6,7 +6,7 @@
 /*
  * s1 ends with s2?
  */
-ends_in(char *s1, char *s2)
+int ends_in(char *s1, char *s2)
  {
  	register char *p1;
  	register char * p2;

@@ -3,7 +3,7 @@
 
 #include "index dict.proto.h"
 
-main(void)
+int main(void)
 {
 	char line[256];
 	char stemkeys[256];

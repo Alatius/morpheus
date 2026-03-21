@@ -3,6 +3,6 @@
 
 
 /* shortanalog.c */
-int shortanalog(char *);
+void shortanalog(char *);
 
 #endif /* SHORTANALOG_PROTO_H */

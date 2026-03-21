@@ -2,7 +2,7 @@
 
 #include "trimwhite.proto.h"
 
-trimwhite(char *s)
+void trimwhite(char *s)
 {
 	char * starts;
 

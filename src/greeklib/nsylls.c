@@ -7,7 +7,7 @@
 
 #include "nsylls.proto.h"
 
-nsylls(char *word)
+int nsylls(char *word)
 {
 	register char *p;
 	register int syllcount;

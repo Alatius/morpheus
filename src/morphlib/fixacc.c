@@ -1,22 +1,22 @@
 #include <gkstring.h>
 
 #include "fixacc.proto.h"
-static fixnacc2(char *, gk_string *, word_form, int, bool);
+static void fixnacc2(char *, gk_string *, word_form, int, bool);
 
 
-putsimpleacc(char *s)
+void putsimpleacc(char *s)
 {
 	gk_word * gkword;
 	MorphFlags * mflags;
 	char tmpw[MAXWORDSIZE];
-	
-	if( cur_lang() == LATIN || cur_lang() == ITALIAN ) return(0);
+
+	if( cur_lang() == LATIN || cur_lang() == ITALIAN ) return;
 
 	gkword = (gk_word *) CreatGkword(1);
 
 	if( ! gkword ) {
 		fprintf(stderr,"no memory for gstring in putsimpleacc\n");
-		return(0);
+		return;
 	}
 	mflags = (MorphFlags *)calloc(1,sizeof * mflags);
 	
@@ -26,23 +26,23 @@ putsimpleacc(char *s)
 	FreeGkword(gkword);
 }
 
-FixRecAcc(gk_word *gkform, MorphFlags *mflags, char *word)
+void FixRecAcc(gk_word *gkform, MorphFlags *mflags, char *word)
   /* add recessive accent */
 {
 	register char *p;
 	word_form form_info;
 
 
-	if( cur_lang() == LATIN || cur_lang() == ITALIAN ) return(0);
+	if( cur_lang() == LATIN || cur_lang() == ITALIAN ) return;
 	form_info = forminfo_of(gkform);
 
 	/* if accent's already there, forget it */
 	for (p=word;*p;p++)
 		if (Is_accent(*p))
-			return(0);
+			return;
 
 	if (getsyll(word,ULTIMA,0) == P_ERR)
-		return(0);		/* avoid core dumps */
+		return;		/* avoid core dumps */
 
 /*
  * see if this word must be accented on the final syllable of the stem 
@@ -57,7 +57,7 @@ FixRecAcc(gk_word *gkform, MorphFlags *mflags, char *word)
 			p = getsyll(word,ULTIMA,0);
 
 			if( Accent_optional(mflags) )
-				return(0);
+				return;
 			if( ulttakescirc(ends_gstr_of(gkform),forminfo_of(ends_gstr_of(gkform))) ) {
 				addaccent(word,CIRCUMFLEX,p);
 			} else {
@@ -72,7 +72,7 @@ FixRecAcc(gk_word *gkform, MorphFlags *mflags, char *word)
 			addaccent(word,ACUTE,p);
 		else {		/* no antepenult */
 			if( Accent_optional(mflags) )
-				return(0);
+				return;
 			p = getsyll(word,PENULT,0);
 			if (p == P_ERR)
 				p = getsyll(word,ULTIMA,0);
@@ -98,14 +98,14 @@ FixRecAcc(gk_word *gkform, MorphFlags *mflags, char *word)
  *
  * Yes, this is a kludge, but reasonable way to catch this, I think.
  */
-FixPersAcc(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *endstring, char *word, word_form form_info, int is_ending)
+void FixPersAcc(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *endstring, char *word, word_form form_info, int is_ending)
 {
   FixPersAcc2(gstring, mflags, stemgstr, endstring, word, form_info, is_ending);
 
   if(*(word+strlen(word)-1) == '*' ) *(word+strlen(word)-1) = 0;
 }
 
-FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *endstring, char *word, word_form form_info, int is_ending)
+void FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *endstring, char *word, word_form form_info, int is_ending)
 {
 	register char *p;
 	char tmp[MAXWORDSIZE];
@@ -118,7 +118,7 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
 	if( cur_lang() == LATIN || cur_lang() == ITALIAN ) {
 		Xstrncpy(word,stem,MAXWORDSIZE);
 		Xstrncat(word,endstring,MAXWORDSIZE);
-		return(0);
+		return;
 	}
 
 /*
@@ -127,12 +127,12 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
 	if( ! nsylls(stem)  && ! nsylls(endstring) ) {
 		Xstrncpy(word,stem,MAXWORDSIZE);
 		Xstrncat(word,endstring,MAXWORDSIZE);
-		return(0);
+		return;
 	}
 
 	if( has_morphflag(mflags,PROCLITIC) ) {
 		Xstrncpy(word,stem,MAXWORDSIZE);
-		return(0);
+		return;
 	}
 	if( case_of(form_info) == GENITIVE || case_of(form_info) == DATIVE ) 
 		is_oblique = YES;
@@ -145,7 +145,7 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
 		if (Is_accent(*p)) {
 			Xstrncpy(word,stem,MAXWORDSIZE);
 			Xstrncat(word,endstring,MAXWORDSIZE);
-			return(0);
+			return;
 	}
 
 
@@ -153,7 +153,7 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
 		if (Is_accent(*p)) {
 			Xstrncpy(word,stem,MAXWORDSIZE);
 			Xstrncat(word,endstring,MAXWORDSIZE);
-			return(0);
+			return;
 	}
 /*
  * grc 7/15/89
@@ -161,10 +161,10 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
  * we were generating endings such as -podwn and accepting forms like
  * tri/podwn rather than tri-po/dwn
  */
- 	if( Accent_optional(mflags) && has_morphflag(mflags,ENCLITIC) ) {
+	if( Accent_optional(mflags) && has_morphflag(mflags,ENCLITIC) ) {
 			Xstrncpy(word,stem,MAXWORDSIZE);
 			Xstrncat(word,endstring,MAXWORDSIZE);
-			return(0);
+			return;
 	}
 	
  
@@ -185,7 +185,7 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
 		 	if( Accent_optional(mflags) ) {
 					Xstrncpy(word,stem,MAXWORDSIZE);
 					Xstrncat(word,endstring,MAXWORDSIZE);
-					return(0);
+					return;
 			}
 			ep = getsyll(endstring,ULTIMA,0);
 			if( is_diphth(ep,endstring)) {
@@ -196,7 +196,7 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
 			Xstrncat(tmp,endstring,MAXWORDSIZE);
 /*			stripmetachars(tmp);*/
 			Xstrncpy(word,tmp,MAXWORDSIZE);
-			return(0);
+			return;
 	} else if( has_morphflag(morphflags_of(stemgstr),SUFF_ACC) || 
 	   is_thirdmono(stemgstr,gstring, stem,endstring,form_info,is_ending) ||
 	   nsylls(stem) == 0 ) {
@@ -218,7 +218,7 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
 			Xstrncat(tmp,endstring,MAXWORDSIZE);
 /*			stripmetachars(tmp);*/
 			Xstrncpy(word,tmp,MAXWORDSIZE);
-			return(0);
+			return;
 		} else if(nsylls(endstring) == 0 ) {
 			char * p;
 			
@@ -229,10 +229,10 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
 			p = getsyll2(tmp,ULTIMA,0);
 
 			if( p != P_ERR ) {
-				fixnacc2(p,gstring,form_info,is_ending,is_oblique);			
+				fixnacc2(p,gstring,form_info,is_ending,is_oblique);
 				Xstrncpy(word,tmp,MAXWORDSIZE);
 			}
-			return(0);
+			return;
 		}
 	}
 
@@ -256,7 +256,7 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
 			 	if( Accent_optional(mflags) ) {
 						Xstrncpy(word,stem,MAXWORDSIZE);
 						Xstrncat(word,endstring,MAXWORDSIZE);
-						return(0);
+						return;
 				}
 				addaccent(workstem,CIRCUMFLEX,p);
 		} else if((quantprim(endstring,ULTIMA,YES,is_oblique)==LONG) ||
@@ -278,8 +278,8 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
 		Xstrncpy(tmp,workstem,MAXWORDSIZE);
 		Xstrncat(tmp,endstring,MAXWORDSIZE);
 		Xstrncpy(word,tmp,MAXWORDSIZE);
-		return(0);
-	} 
+		return;
+	}
 /*
  * this final, odd case is for words such as "diw=ruc, diw/ruxos", where we
  * create a stem "diwru". if we call this a "penult accent" then we end up
@@ -314,7 +314,7 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
 		Xstrncpy(tmp,workstem,MAXWORDSIZE);
 		Xstrncat(tmp,endstring,MAXWORDSIZE);
 		Xstrncpy(word,tmp,MAXWORDSIZE);
-		return(0);
+		return;
 	}
 
 	Xstrncpy(tmp,workstem,MAXWORDSIZE);
@@ -325,21 +325,20 @@ FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, char *e
 
 }
 
-static
-fixnacc2(char *targstring, gk_string *gstring, word_form form_info, int is_ending, bool is_oblique)
+static void fixnacc2(char *targstring, gk_string *gstring, word_form form_info, int is_ending, bool is_oblique)
 {
 	register char *p;
 	MorphFlags * mflags = morphflags_of(gstring);
 	bool is_contr;
-	
+
 	is_contr = has_morphflag(mflags,CONTRACTED);
 
 
-	if( cur_lang() == LATIN || cur_lang() == ITALIAN ) return(0);
+	if( cur_lang() == LATIN || cur_lang() == ITALIAN ) return;
 	/* if accent's already there, forget it */
 	for (p=targstring;*p;p++)
 		if (Is_accent(*p))
-			return(0);
+			return;
 /*
  * grc 7/27/89
  *
@@ -363,7 +362,7 @@ fixnacc2(char *targstring, gk_string *gstring, word_form form_info, int is_endin
 		p = getsyll(targstring,PENULT,is_ending);
 		if (p == P_ERR) {
 			if( Accent_optional(mflags) ) {
-				return(0);
+				return;
 			}
 			p = getsyll(targstring,ULTIMA,is_ending);
 			if( ulttakescirc(gstring,form_info) ) {
@@ -380,7 +379,7 @@ fixnacc2(char *targstring, gk_string *gstring, word_form form_info, int is_endin
 			addaccent(targstring,ACUTE,p);
 		else {		/* no antepenult */
 			if( Accent_optional(mflags) ) {
-				return(0);
+				return;
 			}
 			p = getsyll(targstring,PENULT,is_ending);
 			if (p == P_ERR)

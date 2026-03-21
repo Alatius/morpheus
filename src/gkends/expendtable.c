@@ -15,7 +15,7 @@
 gk_string * CreatGkString();
 static gk_string Blnk;
 
- expendtables(char *tabname, int maintable, int formcode)
+void expendtables(char *tabname, int maintable, int formcode)
 {
 	FILE * finput;
 	FILE * foutput;
@@ -62,7 +62,7 @@ static gk_string Blnk;
 				sprintf(shortname,"derivs%csource%c%s.deriv",  DIRCHAR, DIRCHAR, fname );
 				if(! (finput=MorphFopen(shortname,"r"))) {
 					printf("could not open [%s.deriv] or [%s]\n", fname,  shortname );
-					return(-1);
+					return;
 				}
 			sprintf(shortname,"%s%cout%c%s.out", DERIVTABLEDIR,DIRCHAR, DIRCHAR, fname );
 			}
@@ -80,7 +80,7 @@ static gk_string Blnk;
 				sprintf(shortname,"endtables%csource%c%s.end",  DIRCHAR, DIRCHAR, fname );
 				if(! (finput=MorphFopen(shortname,"r"))) {
 					printf("could not open [%s.end] or [%s]\n", fname,  shortname );
-					return(-1);
+					return;
 				}
 			}
 			sprintf(shortname,"%s%cout%c%s.out", ENDTABLEDIR,DIRCHAR, DIRCHAR, fname );
@@ -90,7 +90,7 @@ static gk_string Blnk;
 		if(! (foutput=MorphFopen(shortname,"wb"))) {
 	/*		fprintf(stderr,"could not open %s for writing\n", shortname );*/
 			fclose(finput);
-			return(-1);
+			return;
 		}
 	} else {
 		strcpy(fname,s);
@@ -98,7 +98,7 @@ static gk_string Blnk;
 		if(! (finput=fopen(fname,"r"))) {
 			fprintf(stderr,"could not open %s for reading\n", fname );
 			fclose(finput);
-			return(-1);
+			return;
 		}
 	}
 	if( formcode == DODERIV ) strcat(basename," is_deriv"); 
@@ -169,7 +169,7 @@ printf("%s\n", shortname );
 
 }
 
-AddEndLine(/*FILE *f,*/ char *el, char *basename, int maxstring)
+int AddEndLine(/*FILE *f,*/ char *el, char *basename, int maxstring)
 {
 	char havestr[MAXWORDSIZE];
 	gk_string * Have;

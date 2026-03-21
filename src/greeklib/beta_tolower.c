@@ -12,12 +12,12 @@
  * start with something like "*)/andra"
  * and end with "a)/ndra"
  */
-beta_tolower(char *word)
+void beta_tolower(char *word)
 {
 	register char * s;
 	register char * t;
 
-	if( *word != BETA_UCASE_MARKER ) return(0);
+	if( *word != BETA_UCASE_MARKER ) return;
 
 	s = word;
 	while(!isalpha(*s)&&*s) s++;

@@ -24,9 +24,7 @@ int timeit = 1;
 #define ARGS "ILalmnbckidsxSVpPeTo:"
 #define PATH_SEP '/'
 
-main(argc,argv)
-int argc;
-char *argv[];
+int main(int argc, char *argv[])
 {
   FILE * finput, *foutput, *ffailed, *fstats;
 
@@ -280,7 +278,7 @@ fprintf(stdout,"files: [%s] [%s]\n", outname, failedname);
   exit(0);
 }
 
-trimdigit(char *s)
+void trimdigit(char *s)
 {
   char * p = s;
   while(*s) s++;

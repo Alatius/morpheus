@@ -3,6 +3,6 @@
 
 
 /* strsqz.c */
-int strsqz(char *, int);
+void strsqz(char *, int);
 
 #endif /* STRSQZ_PROTO_H */

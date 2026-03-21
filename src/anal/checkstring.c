@@ -1,13 +1,13 @@
 #include <gkstring.h>
 #include "checkstring.proto.h"
-static checkstring4(gk_word *);
-static add_apostrvowel(char *, char *, char *);
+static int checkstring4(gk_word *);
+static void add_apostrvowel(char *, char *, char *);
 /*
  * a lot of dirty work goes on here. this is where we look for things like apostrophes,
  * crasis, odd preverb forms (e.g. "cun" for "sun"), dialectical things like "tt" vs "ss" etc.
  */
 gk_word * CreatGkword(int n);
-int 	checkstring1(gk_word * Gkword);
+void	checkstring1(gk_word * Gkword);
 int 	stand_phonetics(gk_word * Gkword);
 int 	standword(char * s);
 int 	is_blank(char * s);
@@ -15,13 +15,12 @@ Dialect WantDialects = ALL_DIAL;
 
 gk_word BlankWord, CheckWord;
 
-int
-teststring(char *string)
+int teststring(char *string)
 {
 	return(checkstring(string,(PrntFlags)0,stdout));
 }
 
-checkstring(char *string, PrntFlags prntflags, FILE *fout)
+int checkstring(char *string, PrntFlags prntflags, FILE *fout)
 {
 	gk_word * Gkword = NULL;
 	FILE * fcurout = fout;
@@ -56,7 +55,7 @@ checkstring(char *string, PrntFlags prntflags, FILE *fout)
 }
 
 
-cntlems(gk_word *Gkword ) 
+int cntlems(gk_word *Gkword )
 {
 	int i;
 	int cnt = 0;
@@ -76,7 +75,7 @@ cntlems(gk_word *Gkword )
 	return(cnt);
 }
 
-is_article(gk_word * Gkword)
+int is_article(gk_word * Gkword)
 {
 	int i;
 	gk_analysis * curanal = analysis_of(Gkword);
@@ -88,10 +87,10 @@ is_article(gk_word * Gkword)
 	return(0);
 }
 
-end_phrase(gk_word * checkw,gk_word * Gkword)
+void end_phrase(gk_word * checkw,gk_word * Gkword)
 {
 }
-checkstring1(gk_word *Gkword)
+void checkstring1(gk_word *Gkword)
 {
 
 	if( workword_of(Gkword)[0] == '\'' ) { /* check for prodelision */
@@ -134,7 +133,7 @@ checkstring1(gk_word *Gkword)
 		checkstring2(Gkword);
 }
 
-checkstring2(gk_word *Gkword)
+int checkstring2(gk_word *Gkword)
 {
 	int rval;
 	Dialect d;
@@ -271,7 +270,7 @@ enclitic_word ItalianSuff[] = {
 };
 
 
-checkstring3(gk_word *Gkword)
+int checkstring3(gk_word *Gkword)
 {
   char saveword[MAXWORDSIZE];
   char workword[MAXWORDSIZE];
@@ -700,8 +699,7 @@ checkstring3(gk_word *Gkword)
   return(rval);
 }
 
-static
-checkstring4(gk_word *Gkword)
+static int checkstring4(gk_word *Gkword)
 {
 	char saveword[MAXWORDSIZE];
 	char wordnoacc[MAXWORDSIZE];
@@ -800,7 +798,7 @@ checkstring4(gk_word *Gkword)
 	return(0);
 }
 
-has_cun(char *s)
+int has_cun(char *s)
 {
 	while(*s) {
 		if( *s == 'c' && *(s+1) == 'u' ) {
@@ -813,7 +811,7 @@ has_cun(char *s)
 }
 
 
-checkapostr(gk_word *Gkword)
+int checkapostr(gk_word *Gkword)
 {
 	char saveword[MAXWORDSIZE];
 	gk_string TmpGstr;
@@ -932,8 +930,7 @@ checkapostr(gk_word *Gkword)
 	return(rval);
 }
 
-static
-add_apostrvowel(char *word, char *end, char *vow)
+static void add_apostrvowel(char *word, char *end, char *vow)
 {
 /*
  * if it has no accents (like a)ll' from a)lla/) stick one on
@@ -948,7 +945,7 @@ add_apostrvowel(char *word, char *end, char *vow)
 
 }
 
-has_tt(char *s)
+int has_tt(char *s)
 {
 	while(*s) {
 		if( *s == 't' && *(s+1) == 't' ) {
@@ -960,29 +957,29 @@ has_tt(char *s)
 	return(0);
 }
 
-setepic()
+void setepic(void)
 {
 
-AddWantDialect((Dialect )( EPIC));	
-}	
+AddWantDialect((Dialect )( EPIC));
+}
 
-setatticprose()
+void setatticprose(void)
 {
-SetWantDialect((Dialect )( ATTIC|PROSE));	
+SetWantDialect((Dialect )( ATTIC|PROSE));
 }
 
 
-SetWantDialect(Dialect dial)
+void SetWantDialect(Dialect dial)
 {
 	WantDialects = dial;
 }
 
-AddWantDialect(Dialect dial)
+void AddWantDialect(Dialect dial)
 {
 	WantDialects |= dial;
 }
 
-ZapWantDialect(Dialect dial)
+void ZapWantDialect(Dialect dial)
 {
 	WantDialects &= (~dial);
 }
@@ -993,7 +990,7 @@ GetWantDialect(void)
 	return(WantDialects);
 }
 
-updateDialect(Dialect dial)
+int updateDialect(Dialect dial)
 {
 	Dialect GetWantDialect();
 	Dialect curdial;
@@ -1013,7 +1010,7 @@ updateDialect(Dialect dial)
 
 #define LatVow(X) (strchr("aeiouAEIOU",X))
 
-u2v(char *s) {
+int u2v(char *s) {
 	int nchanges = 0;
 	char half1[BUFSIZ], *t;
 

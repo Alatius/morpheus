@@ -3,6 +3,6 @@
 
 
 /* pres_redup.c */
-int pres_redupl(char *);
+void pres_redupl(char *);
 
 #endif /* PRES_REDUP_PROTO_H */

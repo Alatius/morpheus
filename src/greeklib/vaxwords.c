@@ -12,7 +12,7 @@
  * read in a 32 bit data word that has been written out to the disk on
  * a vax -- gets around different byte orders on different machines
  */
-get_int32(int32 *lword, FILE *f)
+void get_int32(int32 *lword, FILE *f)
 {
 	
 	int32 tmp;
@@ -29,7 +29,7 @@ get_int32(int32 *lword, FILE *f)
 	}
 }
 
-put_int32(int32 *lword, FILE *f)
+void put_int32(int32 *lword, FILE *f)
 {
 	
 	int32 tmp;
@@ -48,7 +48,7 @@ put_int32(int32 *lword, FILE *f)
 /*
  * read or write in a double -- note that doubles can be 8 or 10 bytes
  */ 
-get_double(double *lword, int dsize, FILE *f)
+void get_double(double *lword, int dsize, FILE *f)
 {
 	
 	int32 tmp;
@@ -64,7 +64,7 @@ get_double(double *lword, int dsize, FILE *f)
 	}
 }
 
-put_double(double *lword, int dsize, FILE *f)
+void put_double(double *lword, int dsize, FILE *f)
 {
 	
 	int32 tmp;
@@ -84,7 +84,7 @@ put_double(double *lword, int dsize, FILE *f)
  * read in a 16 bit data word that has been written out to the disk on
  * a vax -- gets around different byte orders on different machines
  */
-get_short(unsigned short *sword, FILE *f)
+void get_short(unsigned short *sword, FILE *f)
 {
 	unsigned short tmp;
 	unsigned short i;
@@ -99,7 +99,7 @@ get_short(unsigned short *sword, FILE *f)
 	}
 }
 
-put_short(short *sword, FILE *f)
+void put_short(short *sword, FILE *f)
 {
 	
 	unsigned short tmp;
@@ -122,7 +122,7 @@ put_short(short *sword, FILE *f)
  */
 
 
-vax_fread(char *Buffer, size_t size, int nswap, FILE *f)
+int vax_fread(char *Buffer, size_t size, int nswap, FILE *f)
 {
     register int i;
     register unsigned t;
@@ -194,7 +194,7 @@ vax_fread(char *Buffer, size_t size, int nswap, FILE *f)
 	}
 }
 
-vax_fwrite(char *Buffer, size_t size, int nswap, FILE *f)
+int vax_fwrite(char *Buffer, size_t size, int nswap, FILE *f)
 {
     register int i;
     register unsigned t;

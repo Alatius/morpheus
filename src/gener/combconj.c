@@ -2,18 +2,14 @@
 
 static	char origformula[LONGSTRING];
 static	char curlemma[LONGSTRING];
+static void add_oddstuff(char *s);
+static void DataBaseFormat(char *word, gk_string *gstr, char *endstring, char *preverb, char *oddptr);
+Stemtype ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *oddkeys, char *preverb);
 
-combine_conj(fout,lemma,origline,stemstr,derivstr,globalkeys,localkeys)
-FILE * fout;
-char * lemma;
-char * origline;
-char * stemstr;
-char * derivstr;
-char * globalkeys;
-char * localkeys;
+int combine_conj(FILE *fout, char *lemma, char *origline, char *stemstr, char *derivstr, char *globalkeys, char *localkeys)
 {
 	gk_string CurGstr;
-	Stemtype ppartflag, ConjGkstr();
+	Stemtype ppartflag;
 	char stembuf[MAXWORDSIZE];
 	char suffbuf[MAXWORDSIZE];
 	char oddkeys[LONGSTRING*2];
@@ -38,22 +34,13 @@ printf("ppartflag %o\n", ppartflag );
 	} return(1);
 }
 
-DoConjStem(fout,derivstr,gstr,suffstr,ppartflag,stemstr,oddptr,preverb)
-FILE * fout;
-char * derivstr;
-gk_string * gstr;
-char * suffstr;
-Stemtype ppartflag;
-char * stemstr;
-char * oddptr;
-char * preverb;
+int DoConjStem(FILE *fout, char *derivstr, gk_string *gstr, char *suffstr, Stemtype ppartflag, char *stemstr, char *oddptr, char *preverb)
 {
 	char derivfile[MAXPATHNAME];
 	FILE * fderiv, *MorphFopen();
 	int lno, maxend, i, rval;
 	gk_string CurGstr;
 	int gotstem = 0;
-	Stemtype ConjGkstr();
 
 	sprintf(derivfile,"derivs:out:%s.out", derivstr);
 
@@ -106,13 +93,7 @@ gk_word *  CreatGkword();
 gk_string blnk;
 
 Stemtype
-ConjGkstr(gstr,suffstr,globalkeys,keys,oddkeys,preverb)
-gk_string * gstr;
-char * suffstr;
-char * globalkeys;
-char * keys;
-char * oddkeys;
-char * preverb;
+ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *oddkeys, char *preverb)
 {
 	char keytmp[LONGSTRING];
 	gk_word * TmpGkword;
@@ -190,14 +171,7 @@ char * preverb;
 
 }
 
-CheckConjPpart(fout,derivstr,gstr1,gstr2,stemstr,oddptr,preverb)
-FILE * fout;
-char * derivstr;
-gk_string * gstr1;
-gk_string * gstr2;
-char * stemstr;
-char * oddptr;
-char * preverb;
+int CheckConjPpart(FILE *fout, char *derivstr, gk_string *gstr1, gk_string *gstr2, char *stemstr, char *oddptr, char *preverb)
 {
 	int rval, rpb_flag;
 	char word[MAXWORDSIZE];
@@ -388,42 +362,36 @@ static int firstfail = 1;
 static FILE * fdbaseform = NULL;
 static FILE * foddfile = NULL;
 
-add_oddstuff(s)
-char *s;
+void add_oddstuff(char *s)
 {
 	if( ! foddfile ) {
 		foddfile = fopen("oddfile","w");
-		if( ! foddfile)  return(0);
+		if( ! foddfile)  return;
 	}
 	fprintf(foddfile,"%s\t%s\n", curlemma , s );
 }
 
-DataBaseFormat(word,gstr,endstring,preverb,oddptr)
-char * word;
-gk_string * gstr;
-char * endstring;
-char * preverb;
-char * oddptr;
+void DataBaseFormat(char *word, gk_string *gstr, char *endstring, char *preverb, char *oddptr)
 {
 	char curbuf[BUFSIZ*4];
 	char curformula[BUFSIZ*4];
 	char * s;
-return(0);	
+return;
 	strcpy(curformula,origformula);
 	curbuf[0] = 0;
-	
+
 	s = curformula;
-	while(*s) { 
+	while(*s) {
 		if(*s=='\t') *s = ' ';
 		s++;
 	}
-	
+
 	if( ! fdbaseform ) {
 		fdbaseform = fopen("dbasefile","w");
 		if( ! fdbaseform ) {
 			if( firstfail ) fprintf(stderr,"could not open dbasefile\n");
 			firstfail = 0;
-			return(0);
+			return;
 		}
 	}
 	fprintf(fdbaseform,"%s\t%s\t%s\t%s\t%s\t", curlemma, curformula , word, endstring, preverb );
@@ -440,7 +408,7 @@ return(0);
 
  * if you just ask for an "a", you match either "a" or "a^"
  */
-MatchSuff(char * s1,char * s2)
+int MatchSuff(char *s1, char *s2)
 {
 	char tmp[BUFSIZ];
 
@@ -457,7 +425,7 @@ gk_string *
  do_euph(gk_string *, Dialect );
 
 gk_string BlnkGstr, Gstr;
-conjoinX(gk_string *gstr,char * s1,char * s2)
+int conjoinX(gk_string *gstr, char *s1, char *s2)
 {
 	int i;
 

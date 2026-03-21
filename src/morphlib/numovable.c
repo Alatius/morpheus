@@ -2,7 +2,7 @@
 
 #include "numovable.proto.h"
 
-takes_nu_movable(gk_string *gstr)
+int takes_nu_movable(gk_string *gstr)
 {
 	char tmp[MAXWORDSIZE];
 	char * s = tmp;
@@ -35,7 +35,7 @@ takes_nu_movable(gk_string *gstr)
 	return(0);
 }
 
-add_numovable(gk_string *gstr)
+void add_numovable(gk_string *gstr)
 {
 	Xstrncat(gkstring_of(gstr), "n",MAXWORDSIZE);
 	add_morphflag(morphflags_of(gstr),NU_MOVABLE);

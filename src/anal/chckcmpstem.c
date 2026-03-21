@@ -1,9 +1,6 @@
 #include <gkstring.h>
 
-checkcmpstem(s,t,f)
-char *s;
-char *t;
-FILE * f;
+int checkcmpstem(char *s, char *t, FILE *f)
 {
 	char * p;
 	char tmp[2056];

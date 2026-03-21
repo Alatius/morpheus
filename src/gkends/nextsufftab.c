@@ -1,6 +1,6 @@
 #include <gkstring.h>
 #include <libfiles.h>
-static OpenDerivFile(void);
+static int OpenDerivFile(void);
 
 static FILE * fsuff = NULL;
 static int noderivfile = 0;
@@ -24,8 +24,7 @@ NextSuffTable(char *entry)
 		return(entry);
 }
 
-static
-OpenDerivFile(void)
+static int OpenDerivFile(void)
 {
 	fsuff = MorphFopen(DERIVTYPES,"r");
 	if( ! fsuff ) 

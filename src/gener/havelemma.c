@@ -8,8 +8,7 @@ char ** lemmentries = NULL;
 static	int nlines = 0;
 int xstrcmp();
 
-checkforlemma(lemmastr)
-char * lemmastr;
+int checkforlemma(char *lemmastr)
 {
 	int rval;
 	char tmplemm[MAXWORDSIZE];
@@ -25,7 +24,7 @@ char * lemmastr;
 	return(rval);
 }
 
-init_lemmentries()
+int init_lemmentries()
 {
 	FILE * flemm;
 	char line[LONGSTRING], *p;
@@ -61,7 +60,7 @@ init_lemmentries()
 
 }
 
-xstrcmp(p1,p2)
+int xstrcmp(p1,p2)
   char * p1;
   char ** p2;
 {

@@ -3,6 +3,6 @@
 
 
 /* stripmeta.c */
-int stripmetachars(char *);
+void stripmetachars(char *);
 
 #endif /* STRIPMETA_PROTO_H */

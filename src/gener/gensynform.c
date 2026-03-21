@@ -8,8 +8,14 @@ gk_word * GenStemForms();
 gk_word * GenIrregForm();
 static gk_word Blnk;
 static gk_string BlnkGstr;
-static showdialect;
+static int showdialect;
 static char defbuf[8000];
+static void paradigm_keys(char *keys);
+static void PrntSynForms(gk_word *Gkword, gk_word *gkform, FILE *fout);
+static void zap_hyph(char *s);
+static void zap_rootmarker(char *s);
+static void proc_beta(char *buf, FILE *fout, int to_xlit);
+static void zap_tabs(char *s);
 static char curlemma[LONGSTRING];
 #define TO_SMARTA 1
 #define TO_SMK		02
@@ -18,9 +24,7 @@ static char curlemma[LONGSTRING];
 #define MORPH_INFO 3
 static int print_mode = FULL_DUMP;
 
- GenSynForms(f,fout)
-  FILE * f;
-  FILE * fout;
+int GenSynForms(FILE *f, FILE *fout)
 {
 	
 	int rval = 0;
@@ -263,36 +267,35 @@ if( i > 30 ) fprintf(stderr,"out of loop with i %d\n", i );
 		return(rval);
 }
 
-paradigm_keys(keys)
-char * keys;
+void paradigm_keys(char *keys)
 {
 	gk_string * gstr;
 	gk_string * avoidgstr;
 	Stemtype GetStemNum(), snum;
 	word_form  wf;
 	gk_word * dummyword;
-	
+
 	gstr = CreatGkString(1);
 	if( ! gstr ) {
 		fprintf(stderr,"no memory for gstr in paradigm keys\n");
-		return(0);
+		return;
 	}
-	
+
 	avoidgstr = CreatGkString(1);
 	if( ! avoidgstr ) {
 		FreeGkString(gstr);
 		gstr = NULL;
 		fprintf(stderr,"no memory for avoidgstr in paradigm keys\n");
-		return(0);
+		return;
 	}
-	
+
 	dummyword = CreatGkword(1);
 	if( ! dummyword ) {
 		FreeGkString(avoidgstr);
 		FreeGkString(gstr);
 		gstr = avoidgstr = NULL;
 		fprintf(stderr,"no memory for dummyword in paradigm keys\n");
-		return(0);
+		return;
 	}
 	
 
@@ -411,8 +414,7 @@ keys );
 /*fprintf(stderr,"keys:%s\n", keys );*/
 }
 
-is_pass_stem(stype)
-Stemtype stype;
+int is_pass_stem(Stemtype stype)
 {
 	
 /*
@@ -423,8 +425,7 @@ Stemtype stype;
 		return(0);
 }
 
-is_mp_stem(stype)
-Stemtype stype;
+int is_mp_stem(Stemtype stype)
 {
 /*
 		if( stype >= GetStemNum("perfp_g") && stype <= GetStemNum("perfp_r") )
@@ -435,10 +436,7 @@ Stemtype stype;
 		
 }
 		
-PrntSynForms(Gkword,gkform,fout)
- gk_word * Gkword;
- gk_word * gkform;
- FILE * fout;
+void PrntSynForms(gk_word *Gkword, gk_word *gkform, FILE *fout)
 {
 	int i;
 	char dialbuf[LONGSTRING];
@@ -453,7 +451,7 @@ PrntSynForms(Gkword,gkform,fout)
 printf("formcnt=%d\n", formcnt);
 */
 
-	if( ! gkform ) return(0);
+	if( ! gkform ) return;
 
 /*
 	fprintf(stderr,"formcnt:%d\n", formcnt );
@@ -481,7 +479,7 @@ printf("formcnt=%d\n", formcnt);
 			if( strcmp(tmp2,tmplem) && !is_exception(tmp2,tmplem) ) 
 				fprintf(fout,":st:%s %s\n", tmp, lemma_of(Gkword));
 		}
-		return(0);
+		return;
 	}
 	if( print_mode == FULL_DUMP ) {
 		for(i=0;i<formcnt;i++) {
@@ -493,7 +491,7 @@ printf("formcnt=%d\n", formcnt);
 			SprintGkFlags(ends_gstr_of(gkform+i),tmp," ",1);
 			fprintf(fout,"%s\n", tmp );
 		}
-		return(0);
+		return;
 	}
 	
 
@@ -636,8 +634,7 @@ dialect_of(ends_gstr_of(gkform+i) ));
 	proc_beta(linebuf,fout,TO_SMARTA);
 }
 
-zap_hyph(s)
-register char * s;
+void zap_hyph(char *s)
 {
 	while(*s) {
 		if( *s == '-' ) {
@@ -648,8 +645,7 @@ register char * s;
 	}
 }
 
-zap_rootmarker(s)
-register char * s;
+void zap_rootmarker(char *s)
 {
 	while(*s) {
 		if( *s == '!' ) {
@@ -660,16 +656,13 @@ register char * s;
 	}
 }
 
-proc_beta(buf,fout,to_xlit)
-char * buf;
-FILE * fout;
-int to_xlit;
+void proc_beta(char *buf, FILE *fout, int to_xlit)
 {
 	char res[8000];
-	
-return(0);
+
+return;
 	stripshortmark(buf);
-	
+
 	/* clear out white space and junk left at the start of lines
 	*/
 	while(isspace(*buf)) buf++;
@@ -682,7 +675,7 @@ return(0);
 		while(isspace(*buf)) buf++;
 	}
 fprintf(fout,"\t%s",buf );
-return(0);
+return;
 	if(to_xlit == TO_SMARTA )
 		beta2smarta(buf,res);
 	else if(to_xlit == TO_SMK ) 
@@ -690,8 +683,7 @@ return(0);
 	fprintf(fout,"%s", res);
 }
 
-zap_tabs(s)
-char * s;
+void zap_tabs(char *s)
 {
 	while(*s) {
 		if(*s == '\t' ) *s = ' ';
@@ -699,8 +691,7 @@ char * s;
 	}
 }
 
-int
-is_exception(char *s1, char * s2)
+int is_exception(char *s1, char * s2)
 {
 	char tmp1[BUFSIZ], tmp2[BUFSIZ];
 

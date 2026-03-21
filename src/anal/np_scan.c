@@ -16,9 +16,7 @@ double string_time = 0;
 char long_string[BUFSIZ];
 int timeit = 1;
 
-main(argc,argv)
-int argc;
-char *argv[];
+int main(int argc, char *argv[])
 {
 	FILE * finput, *foutput, *ffailed;
 	char line[BUFSIZ*4];

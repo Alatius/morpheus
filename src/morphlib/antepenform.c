@@ -2,7 +2,7 @@
 
 #include "antepenform.proto.h"
 
-antepen_form(gk_string *gstring, word_form form_info)
+int antepen_form(gk_string *gstring, word_form form_info)
 {
 
 	if( Is_antepen_accent(morphflags_of(gstring)) ) {

@@ -29,8 +29,7 @@ char gktoasc[]= {
 };
 
 
-set_gkorder( s )
-register char * s;
+void set_gkorder(register char *s)
 {
 	int i;
 

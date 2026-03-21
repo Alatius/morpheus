@@ -7,7 +7,7 @@
 
 #include "getbreath.proto.h"
 
-getbreath(char *p)
+int getbreath(char *p)
 {
 	while (*p) {
 		if  (Is_breath(*p)) {

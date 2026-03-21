@@ -3,6 +3,7 @@
 
 
 /* xsprintGKflags.c */
-int JakeSprintGkFlags(gk_string *, char *, char *, int, int);
+void JakeSprintGkFlags(gk_string *, char *, char *, int, int);
+void GregSprintGkFlags(gk_string *, char *, char *, int, int);
 
 #endif /* SPRNTGKFLAGS_H */

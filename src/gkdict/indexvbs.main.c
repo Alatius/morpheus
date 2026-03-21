@@ -4,9 +4,7 @@
 int verbose = 0;
 
 
-main(argc,argv)
-int argc;
-char * argv[];
+int main(int argc, char *argv[])
 {
         int c, errflg = 0;
 
@@ -25,4 +23,5 @@ char * argv[];
 
 	index_vbs(3,0,0,0);
 
+	return 0;
 }

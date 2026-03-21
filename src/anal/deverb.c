@@ -2,6 +2,8 @@
 int quickflag = 0;
 int comstemtypes1(char *,char *, char *, char *);
 int comstemtypes(char *, char *, char *);
+static void zaptabs(char *s);
+static void firstkey(char *s);
 #define VERBMATCH 1
 #define DERIVMATCH 2
 #define NOMMATCH 3
@@ -9,7 +11,7 @@ int comstemtypes(char *, char *, char *);
 #define NOMMATCH2 5
 #define MAMATCH 6
 
-main()
+int main(void)
 {
 	char line[BUFSIZ];
 	char tmp[BUFSIZ];
@@ -75,7 +77,7 @@ main()
 }
 
 gk_string Gstr, BlankGstr;
-testcmpstem(char *needlemma,char *stem,char * stemkeys,char* matchkeys,char * transkeys)
+int testcmpstem(char *needlemma,char *stem,char * stemkeys,char* matchkeys,char * transkeys)
 {
 	char rawprvb[BUFSIZ], fullprevb[BUFSIZ], half2[BUFSIZ];
 	char *s;
@@ -111,7 +113,7 @@ testcmpstem(char *needlemma,char *stem,char * stemkeys,char* matchkeys,char * tr
 	return(0);
 }
 
-testcmpstem2(char *needlemma,char *stem,char * stemkeys,char* matchkeys,char * transkeys)
+int testcmpstem2(char *needlemma,char *stem,char * stemkeys,char* matchkeys,char * transkeys)
 {
 	int rval;
 
@@ -146,7 +148,7 @@ testcmpstem2(char *needlemma,char *stem,char * stemkeys,char* matchkeys,char * t
 	return(rval);
 }
 
-testcmpstem3(char*needlemma,char *stem,char * stemkeys,char* matchkeys,char*transkeys)
+int testcmpstem3(char*needlemma,char *stem,char * stemkeys,char* matchkeys,char*transkeys)
 {
 	char savestem[BUFSIZ], tmp[BUFSIZ];
 	int rval = 0;
@@ -186,7 +188,7 @@ testcmpstem3(char*needlemma,char *stem,char * stemkeys,char* matchkeys,char*tran
 	return(rval);
 }
 
-checkvcomp(char * needlemma,char * stem,char * stemkeys,char * matchkeys)
+int checkvcomp(char * needlemma,char * stem,char * stemkeys,char * matchkeys)
 {
 	int rval = 0;
 	char mbuf[BUFSIZ];
@@ -217,7 +219,7 @@ checkvcomp(char * needlemma,char * stem,char * stemkeys,char * matchkeys)
 	return(0);
 }
 
-chcknstem(char * stem,char *stemkeys)
+int chcknstem(char * stem,char *stemkeys)
 {
 	int rval;
 	* stemkeys = 0;
@@ -226,7 +228,7 @@ chcknstem(char * stem,char *stemkeys)
 }
 
 
-comNomstemtypes(char * needlemma,char * stem,char * stemkeys,char * matchkeys)
+int comNomstemtypes(char * needlemma,char * stem,char * stemkeys,char * matchkeys)
 {
 	char tmpkeys[BUFSIZ], mbuf[BUFSIZ];
 	char tmpstem[BUFSIZ];
@@ -341,8 +343,7 @@ comNomstemtypes(char * needlemma,char * stem,char * stemkeys,char * matchkeys)
 	return(0);
 }
 
-zaptabs(s)
-char *s;
+void zaptabs(char *s)
 {
 	while(*s) {
 		if(*s=='\t') *s =' ';
@@ -350,7 +351,7 @@ char *s;
 	}
 }
 
-comstemtypes1(char *needlemma,char *stem,char *stemkeys,char *matchkeys)
+int comstemtypes1(char *needlemma,char *stem,char *stemkeys,char *matchkeys)
 {
 	char tmp[BUFSIZ];
 	int rval;
@@ -387,7 +388,7 @@ printf("needlemma [%s] stemkeys [%s] match [%s]\n", needlemma, stemkeys , matchk
 	return(rval);
 }
 
-firstkey(char *s)
+void firstkey(char *s)
 {
 	while(*s&&!isspace(*s)) s++;
 	if(isspace(*s)) *s=0;

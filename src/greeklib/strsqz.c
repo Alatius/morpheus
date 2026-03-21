@@ -7,7 +7,7 @@
 
 #include "strsqz.proto.h"
 
-strsqz(char *p, int n)
+void strsqz(char *p, int n)
 /* squeeze out n chars beginning with *p  */
 {
 	register char *enid;

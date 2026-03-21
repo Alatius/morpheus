@@ -8,7 +8,7 @@ int dump_entry(char *stem,int trunc, char * tags,char * etag,FILE *);
 FILE * fverbs;
 char numsuff[BUFSIZ];
 
-main()
+int main(void)
 {
 	char line[BUFSIZ];
 	char savel[BUFSIZ];
@@ -72,9 +72,10 @@ main()
 		printf("0:%s\n", savel );
 	}
 	fclose(fverbs);
+	return 0;
 }
 
-do_simpnom(char* stem,char* gend)
+int do_simpnom(char* stem,char* gend)
 {
 
 
@@ -399,7 +400,7 @@ int dump_entry(char *stem,int trunc, char * tags,char * etag, FILE * fout)
 
 
 char * getaccp(char *, int);
-probe_fem(char * stem)
+int probe_fem(char * stem)
 {
 	int syllno;
 	int curacc;
@@ -417,8 +418,7 @@ probe_fem(char * stem)
 		return(1);
 }
 
-int
-do_regnom(char*stem,char*key1,char*key2,char * key3)
+int do_regnom(char*stem,char*key1,char*key2,char * key3)
 {
 
 
@@ -1222,7 +1222,7 @@ do_regnom(char*stem,char*key1,char*key2,char * key3)
 	return(0);
 }
 
-is_verb(char *stem)
+int is_verb(char *stem)
 {
 
 	if( !strcmp(stem+strlen(stem)-4,"eu/w") ) {
@@ -1346,7 +1346,7 @@ int is_adverb(char *stem,char * key1)
 	return(0);
 }
 
-dump_acc_nom(char * stem,int trunc,char * tag) 
+void dump_acc_nom(char * stem,int trunc,char * tag)
 {
 	char tmptag[BUFSIZ];
 	char tmpstem[BUFSIZ];
@@ -1363,7 +1363,7 @@ dump_acc_nom(char * stem,int trunc,char * tag)
 		dump_nom(stem,trunc,tag);
 }
 
-is_teos(char *stem)
+int is_teos(char *stem)
 {
 	if( !strcmp(stem+strlen(stem)-5,"te/os") ) {
 		dump_adj(stem,4,"verb_adj2 suff_acc");

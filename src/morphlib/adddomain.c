@@ -2,7 +2,7 @@
 
 #include "adddomain.proto.h"
 
-add_domain(gk_string *gstr, int n)
+int add_domain(gk_string *gstr, int n)
 {
 	int len;
 	char * p = domains_of(gstr);

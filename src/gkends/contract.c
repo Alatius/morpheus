@@ -94,7 +94,7 @@ gk_string *
  *	the matching routine looking for "eoi" will exit as soon as it fails on
  *	"eou", and will *not* see the second "eoi".
  */
- sub_for_euph(gk_string *gstr, Dialect skipdial, gk_string *poss_subs, int possno, gk_string *sub_table, int len)
+int sub_for_euph(gk_string *gstr, Dialect skipdial, gk_string *poss_subs, int possno, gk_string *sub_table, int len)
 {
 
 	int i;
@@ -164,7 +164,7 @@ PrntGkStr(poss_subs+sofar,stdout);
 	return(0);
 }
 
-needs_sub(gk_string *gstr, Dialect skipdial, gk_string *matchgstr, char *haveseen, char *curstring, char *raw, char *cooked)
+int needs_sub(gk_string *gstr, Dialect skipdial, gk_string *matchgstr, char *haveseen, char *curstring, char *raw, char *cooked)
 {
 	char * getaccp();
 	register char * p1, *p2;

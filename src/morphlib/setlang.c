@@ -1,11 +1,11 @@
 static int curlanguage = 0;
 
-set_lang(int n)
+void set_lang(int n)
 {
 	curlanguage = n;
 }
 
-cur_lang()
+int cur_lang(void)
 {
 	return(curlanguage);
 }

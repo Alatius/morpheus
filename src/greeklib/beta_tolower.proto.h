@@ -3,6 +3,6 @@
 
 
 /* beta_tolower.c */
-int beta_tolower(char *);
+void beta_tolower(char *);
 
 #endif /* BETA_TOLOWER_PROTO_H */

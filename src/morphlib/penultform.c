@@ -2,7 +2,7 @@
 
 #include "penultform.proto.h"
 
-penult_form(gk_string *gstring, word_form form_info)
+int penult_form(gk_string *gstring, word_form form_info)
 {
 	Stemtype stemtype;
 

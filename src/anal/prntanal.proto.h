@@ -3,19 +3,19 @@
 
 
 /* prntanal.c */
-int PrntAnalyses(gk_word *, PrntFlags, FILE *);
+void PrntAnalyses(gk_word *, PrntFlags, FILE *);
 char *anal_buf(void);
-int PrntOneAnalysis(gk_analysis *, PrntFlags, FILE *);
-int near_miss(gk_string *, char *, int);
-int odd_morpheme(gk_analysis *, gk_string *, char *, char *, int);
-int dump_all_anals(gk_word *, PrntFlags, FILE *);
-int SortAnals(gk_analysis *, int);
-int DumpLemmaInfo(gk_word *, PrntFlags , FILE *);
+void PrntOneAnalysis(gk_analysis *, PrntFlags, FILE *);
+void near_miss(gk_string *, char *, int);
+void odd_morpheme(gk_analysis *, gk_string *, char *, char *, int);
+void dump_all_anals(gk_word *, PrntFlags, FILE *);
+void SortAnals(gk_analysis *, int);
+void DumpLemmaInfo(gk_word *, PrntFlags , FILE *);
 int CompAnals(const void*, const void*);
-int DumpOneAnalysis(gk_word *, PrntFlags, gk_analysis *, FILE *, int);
-int DumpEndingIndex(gk_word *, PrntFlags, gk_analysis *, FILE *, int);
-int DumpPerseusAnalysis(gk_word *, PrntFlags, gk_analysis *, FILE *, int);
-int DumpGstr(char *, gk_string *, FILE *, int);
-int DumpDbGkString(gk_string *, FILE *);
+void DumpOneAnalysis(gk_word *, PrntFlags, gk_analysis *, FILE *, int);
+void DumpEndingIndex(gk_word *, PrntFlags, gk_analysis *, FILE *, int);
+void DumpPerseusAnalysis(gk_word *, PrntFlags, gk_analysis *, FILE *, int);
+void DumpGstr(char *, gk_string *, FILE *, int);
+void DumpDbGkString(gk_string *, FILE *);
 
 #endif /* PRNTANAL_PROTO_H */

@@ -1,7 +1,7 @@
 #include <gkstring.h>
 
 #include "morphpath.proto.h"
-static filesopened = 0;
+static int filesopened = 0;
 
 FILE *
  MorphFopen(char *fname, char *mode)
@@ -24,7 +24,7 @@ FILE *
 	return(f);
 }
 
-NumFilesOpened(void)
+void NumFilesOpened(void)
 {
 	printf("filesopened [%d]\n", filesopened );
 }
@@ -35,12 +35,12 @@ NumFilesOpened(void)
  */
 static char volName[128];
 
-MorphPathName(char *shorts, char *full)
+void MorphPathName(char *shorts, char *full)
  {
  	char * s;
  	short vRefNum;
- 
- 	
+
+
 #ifdef MACINTOSH
  	if( ! volName[0] ) {
  		GetVol((StringPtr) volName, &vRefNum);
@@ -55,7 +55,7 @@ MorphPathName(char *shorts, char *full)
 
 	if( ! s ) {
 		printf("MORPHLIB not set in your environment!\n");
-		return(0);
+		return;
 	}
 	
 	if( cur_lang() == LATIN ) 
@@ -85,7 +85,7 @@ MorphPathName(char *shorts, char *full)
  }
  
  
-SysFolderFile(char *fullname, char *shorts)
+void SysFolderFile(char *fullname, char *shorts)
  {
  	char * s;
  	short vRefNum = 0;

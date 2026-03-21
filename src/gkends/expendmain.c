@@ -5,9 +5,7 @@ static gk_string Gstr;
 
 #include "expendmain.proto.h"
 
-main(argc,argv)
-int argc;
-char * argv[];
+int main(int argc, char *argv[])
 {
 	FILE * ffname;
 	char * curtable, * NextEndTable();

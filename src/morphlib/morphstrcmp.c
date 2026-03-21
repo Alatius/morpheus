@@ -10,7 +10,7 @@ static int betatabinited = 0;
 /*
  * Compare strings:  s1>s2: >0  s1==s2: 0  s1<s2: <0
  */
-morphstrcmp(char *s1, char *s2)
+int morphstrcmp(char *s1, char *s2)
 {
 	if( ! tabinited ) {
 		init_comptab();
@@ -28,7 +28,7 @@ fprintf(stderr,"looking at [%s] and [%s]\n", s1, s2 );
 	return(0);
 }
 
-betastrcmp(char *s1, char *s2)
+int betastrcmp(char *s1, char *s2)
 {
 	if( ! betatabinited ) {
 		init_betatab();
@@ -52,7 +52,7 @@ betastrcmp(char *s1, char *s2)
 
 }
 
-morphstrncmp(char *s1, char *s2, size_t n)
+int morphstrncmp(char *s1, char *s2, size_t n)
 {
 	if( ! tabinited ) {
 		init_comptab();
@@ -65,7 +65,7 @@ morphstrncmp(char *s1, char *s2, size_t n)
 	return ((int)(comptab[*s1] - comptab[*s2]));
 }
 
-dictstrcmp(char *s1, char *s2)
+int dictstrcmp(char *s1, char *s2)
 {
 	register char * t1, * t2;
 	t1 = s1; t2 = s2;
@@ -92,7 +92,7 @@ dictstrcmp(char *s1, char *s2)
 	}
 }
 
-dictstrncmp(char *s1, char *s2, size_t n)
+int dictstrncmp(char *s1, char *s2, size_t n)
 {
 	char b1[BUFSIZ/2];
 	char b2[BUFSIZ/2];
@@ -121,7 +121,7 @@ dictstrncmp(char *s1, char *s2, size_t n)
 	return(morphstrncmp(b1,b2,n));
 }
 
-init_comptab(void)
+void init_comptab(void)
 {
 	int i;
 	
@@ -131,7 +131,7 @@ init_comptab(void)
 	comptab['|'] = 'i'; /* iota subscript matches as an 'i' */
 }
 
-init_betatab(void)
+void init_betatab(void)
 {
 	int i;
 	

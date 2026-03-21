@@ -3,7 +3,8 @@
 #include <string.h>
 #include <modes.h>
 #define SKIPLINE  100
-static  AddWdEndings( gk_word * , gk_string * , gk_word * , int );
+static void AddWdEndings( gk_word * , gk_string * , gk_word * , int );
+static void MonoSyllVb(gk_word *CurForms, word_form winfo, char *preverb);
 
 #define NextStem(f,stem,stemkeys) NextDictLine(f,stem,stemkeys,":")
 #define NextLemma(f,lemma,lemmakeys) NextDictLine(f,lemma,lemmakeys,":le:")
@@ -18,7 +19,7 @@ int CompGkForms(const void *a, const void *b);
 gk_string BlankGstr;
 gk_word TmpGkword;
 
-GenDictEntry(Gkword,dentry)
+void GenDictEntry(Gkword,dentry)
  gk_word *Gkword;
  char * dentry;
 {
@@ -42,7 +43,7 @@ GenDictEntry(Gkword,dentry)
 /*printf("endstring: [%s] keys:%s\n", endstring_of(&TmpGkword), keys );*/
 
 	gkforms = GenStemForms(&TmpGkword,keys,0);
-	if( ! gkforms ) return(0);
+	if( ! gkforms ) return;
 
 	for(formcnt=0;workword_of((gkforms+formcnt))[0];formcnt++) ;
 
@@ -54,7 +55,7 @@ GenDictEntry(Gkword,dentry)
 	FreeGkword(gkforms);
 }
 
- GenNxtWord(f,mode,fout)
+int GenNxtWord(f,mode,fout)
   FILE * f;
   int mode;
   FILE * fout;
@@ -319,7 +320,7 @@ gk_word *
 	return(gkforms);
 }
 
- NextDictLine(f,word,wordkeys,starts)
+int NextDictLine(f,word,wordkeys,starts)
   FILE * f;
   char * word;
   char * wordkeys;
@@ -381,8 +382,7 @@ gk_word *
 }
 
 #define MAX_FORM_VARIANTS 12
-static 
- AddWdEndings(Gkword,Endings,Forms,maxforms)
+static void AddWdEndings(Gkword,Endings,Forms,maxforms)
   gk_word * Gkword;
   gk_string * Endings;
   gk_word * Forms;
@@ -398,7 +398,7 @@ static
 	CurBuf = CreatGkword(MAX_FORM_VARIANTS+1);
 	if( ! CurBuf) {
 		fprintf(stderr,"no memory for CurBuf in AddWdEndings: raww [%s]\n", rawword_of(Gkword) );
-		return(0);
+		return;
 	}
 
 	SaveGkWord = * Gkword;
@@ -480,7 +480,7 @@ static
 	CurBuf = NULL;
 }
 
- BuildAWord(Gkword,CurEnding,CurForms)
+int BuildAWord(Gkword,CurEnding,CurForms)
   gk_word * Gkword;
   gk_string * CurEnding;
   gk_word * CurForms;
@@ -507,7 +507,7 @@ printf("failing on stem [%s] end [%s] [%o] [%o]\n", stem_of(Gkword) ,gkstring_of
 	}
 }
 
- BuildANoun(Gkword,CurEnding,CurForms)
+int BuildANoun(Gkword,CurEnding,CurForms)
   gk_word * Gkword;
   gk_string * CurEnding;
   gk_word * CurForms;
@@ -546,7 +546,7 @@ printf("result [%s]\n", workword_of(CurForms) );
 }
 
 
- BuildAVerb(Gkword,CurEnding,CurForms)
+int BuildAVerb(Gkword,CurEnding,CurForms)
   gk_word * Gkword;
   gk_string * CurEnding;
   gk_word * CurForms;
@@ -741,10 +741,7 @@ printf("result [%s]\n", workword_of(CurForms) );
 }
 
 
-MonoSyllVb(CurForms,winfo,preverb)
-gk_word * CurForms;
-word_form winfo;
-char * preverb;
+void MonoSyllVb(gk_word *CurForms, word_form winfo, char *preverb)
 {
 	/*
 	 * Smyth 426 

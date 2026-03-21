@@ -1,9 +1,7 @@
 #include <stdio.h>
 int quickflag = 0;
 
-main(argc,argv)
-int argc;
-char * argv[];
+int main(int argc, char *argv[])
 {
 	char filename[80];
 	char outfile[80];

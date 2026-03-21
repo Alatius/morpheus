@@ -25,7 +25,7 @@
  *    e.g., delete '[', ']', '<', '>' etc.
  */
  
-standword(char *word)
+void standword(char *word)
 {
 	register char * a;
 	register char * b;
@@ -91,8 +91,7 @@ standword(char *word)
 	strcpy(word,tmp);
 }
 
-zap2acc(s)
-char *s;
+void zap2acc(char *s)
 {
 	int haveacc = 0;
 	
@@ -108,7 +107,7 @@ char *s;
 	}
 }
 
-striphyph(char *s)
+void striphyph(char *s)
 {
 	while(*s) {
 		if(*s=='-' ) {

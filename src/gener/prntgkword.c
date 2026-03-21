@@ -1,6 +1,6 @@
 #include <gkstring.h>
 
-PrntGkWord(Gkword,gstring,fout)
+void PrntGkWord(Gkword,gstring,fout)
 gk_word * Gkword;
 gk_string * gstring;
 FILE * fout;
@@ -29,7 +29,7 @@ printf("crasis [%s]\n", crasis_of(Gkword) );
 	}
 }
 
-PrntAWord(gkform,Gkword,lemma,fout)
+void PrntAWord(gkform,Gkword,lemma,fout)
 gk_word * gkform;
 gk_word * Gkword;
 char * lemma;
@@ -60,7 +60,7 @@ printf("geog [%o]\n", geogregion_of(gkform) );
 
 }
 
-PrntAGstr(gstr,fout)
+void PrntAGstr(gstr,fout)
 gk_string * gstr;
 FILE * fout;
 {

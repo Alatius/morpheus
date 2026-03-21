@@ -1,17 +1,17 @@
 #include <gkstring.h>
 
 #include "derivio.proto.h"
-static checkforderiv2(char *stemstr, char *stemkeys, char *had_redupl, char *redupstem);
-static checkforderiv2(char * stemstr,char * stemkeys,char * had_redupl,char * redupstem);
+static int checkforderiv2(char *stemstr, char *stemkeys, char *had_redupl, char *redupstem);
 int checkcomderivs(char * derivs,char * defstem,char * suffix,char * lemmkeys,char * nkeys,char * had_redupl,char * redupstem);
 int checkcomderiv(char * derivs,char * defstem,char * suffix,char * lemmkeys,char * nkeys,char * had_redupl,char * redupstem);
 int checkcomderiv2(char * asuffkeys,char * dstem,char * dstemkeys,char * suffix,char * lemma,char * lkeys,char * rkeys,char * had_redupl,int markedstem);
 
 static gk_string BlnkGstr;
+void add_deriv_cache(char *s, char *keys);
 int checkedsuffs = 0;
 int checkedderivs = 0;
 int realderivs = 0;
-checkforderiv(char *stemstr, char *stemkeys)
+int checkforderiv(char *stemstr, char *stemkeys)
 {
 	int rval = 0;
 	int rval2 = 0;
@@ -48,7 +48,7 @@ rval+rval2 ,stemstr , checkedsuffs, checkedsuffs - oldsuffs );
 
 }
 
-checkforredupderiv(char *stemstr, char *stemkeys)
+int checkforredupderiv(char *stemstr, char *stemkeys)
 {
 	char noredup[MAXWORDSIZE];
 		
@@ -63,7 +63,7 @@ checkforredupderiv(char *stemstr, char *stemkeys)
 }
 
 #define MAXREDUPLS 	04
-static init_stor = 0;
+static int init_stor = 0;
 static 	gk_string * tstemtab[MAXREDUPLS];
 /*
  * store stems that would have a quantity marked
@@ -73,7 +73,7 @@ static 	gk_string * tstemtab[MAXREDUPLS];
  */
 static 	gk_string * tqstemtab[MAXREDUPLS];
 
-checkaugredup(char *stemstr, char *stemkeys)
+int checkaugredup(char *stemstr, char *stemkeys)
 {
 	int hits = 0;
 	int i;
@@ -148,8 +148,7 @@ printf("checking [%s] [%s] [%s]\n", stemstr , gkstring_of(tstemtab[i]) , tmpkeys
 	return(hits);
 }
 
-static
-checkforderiv2(char *stemstr, char *stemkeys, char *had_redupl, char *redupstem)
+static int checkforderiv2(char *stemstr, char *stemkeys, char *had_redupl, char *redupstem)
 {
 	char * ep;
 	char derivstr[LONGSTRING];
@@ -200,7 +199,7 @@ printf("sofar [%d] stemkeys [%s] stemstr [%s]\n", sofar , stemkeys, stemstr );
 	return(sofar);
 }
 
-checkcomderivs(char *derivs, char *defstem, char *suffix, char *lemmkeys, char *nkeys, char *had_redupl, char *redupstem)
+int checkcomderivs(char *derivs, char *defstem, char *suffix, char *lemmkeys, char *nkeys, char *had_redupl, char *redupstem)
 {
 	int rval = 0;
 /*
@@ -228,7 +227,7 @@ checkcomderivs(char *derivs, char *defstem, char *suffix, char *lemmkeys, char *
 #define Is_perfect(STYPE) (((STYPE&PPARTMASK)== PP_PP)||\
 							((STYPE&PPARTMASK)== PP_PF)||((STYPE&PPARTMASK)== PP_FP))
 
-checkcomderiv(char *derivstr, char *defstem, char *suffix, char *lkeys, char *rkeys, char *had_redupl, char *redupstem)
+int checkcomderiv(char *derivstr, char *defstem, char *suffix, char *lkeys, char *rkeys, char *had_redupl, char *redupstem)
 {
 	char *asuffkeys;
 	char *dstemkeys;
@@ -310,7 +309,7 @@ checkcomderiv(char *derivstr, char *defstem, char *suffix, char *lkeys, char *rk
 	return(rval);
 }
 
-checkmultredups(char *asuffkeys, char *dstem, char *dstemkeys, char *suffix, char *lemma, char *lkeys, char *rkeys, char *had_redupl, int markedstem)
+int checkmultredups(char *asuffkeys, char *dstem, char *dstemkeys, char *suffix, char *lemma, char *lkeys, char *rkeys, char *had_redupl, int markedstem)
 {
 	int rval = 0;
 	int gotredups = 0;
@@ -349,8 +348,8 @@ checkmultredups(char *asuffkeys, char *dstem, char *dstemkeys, char *suffix, cha
 	return(rval);
 }
 
-checkcomderiv2(char *asuffkeys, char *dstem, char *dstemkeys, char *suffix, char *lemma, char *lkeys, char *rkeys, char *had_redupl, int markedstem)
-{	
+int checkcomderiv2(char *asuffkeys, char *dstem, char *dstemkeys, char *suffix, char *lemma, char *lkeys, char *rkeys, char *had_redupl, int markedstem)
+{
 	char * derivsuff;
 	char * tmpdsuff;
 	char * stembuf;
@@ -482,7 +481,7 @@ printf("about to add [%s]\n", tmp2 );
 	return(rval);
 }
 
-DstemTakesDsuff(char *dsuffkeys, char *dstemkeys, gk_string *gstr, char *defstem, char *derivstr)
+int DstemTakesDsuff(char *dsuffkeys, char *dstemkeys, gk_string *gstr, char *defstem, char *derivstr)
 {
 	int rval = 0;
 
@@ -512,7 +511,7 @@ derivstr , dsuffkeys );
 	return(rval);
 }
 
-need_rei_alpha(char *dsuffkeys)
+int need_rei_alpha(char *dsuffkeys)
 {
 	gk_string * gstr;
 	gk_word * Gkword;
@@ -537,7 +536,7 @@ char * cache_stems[BADTRIES];
 char * cache_keys[BADTRIES];
 static int badinit = 0;
 static int badindex = 0;
-stemstr_in_cache(char *s, char *stemkeys)
+int stemstr_in_cache(char *s, char *stemkeys)
 {
 	int i;
 	
@@ -552,7 +551,7 @@ stemstr_in_cache(char *s, char *stemkeys)
 	return(0);
 }
 
-add_deriv_cache(char *s, char *keys)
+void add_deriv_cache(char *s, char *keys)
 {
 	int i;
 	
@@ -578,7 +577,7 @@ add_deriv_cache(char *s, char *keys)
 	badindex++;
 }
 
-ends_in_vowel(char *s)
+int ends_in_vowel(char *s)
 {
 	char * p;
 	

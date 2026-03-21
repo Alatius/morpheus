@@ -6,7 +6,7 @@
 #include <greek.h>
 
 
-cinsert (int c, char *p)
+void cinsert (int c, char *p)
 /* insert char c before point p */
 {
 	register char *enid;

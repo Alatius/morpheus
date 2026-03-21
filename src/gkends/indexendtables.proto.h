@@ -3,7 +3,7 @@
 
 
 /* indexendtables.c */
-int indexendtables(Stemtype, int);
+void indexendtables(Stemtype, int);
 int xstrcmp(char **, char **);
 
 #endif /* INDEXENDTABLES_PROTO_H */

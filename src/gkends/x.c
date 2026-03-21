@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <netinet/in.h>
 
-main()
+int main(void)
 {
 	long int i = 0;
 

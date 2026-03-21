@@ -3,6 +3,6 @@
 
 
 /* stripstemsep.c */
-int stripstemsep(char *);
+void stripstemsep(char *);
 
 #endif /* STRIPSTEMSEP_PROTO_H */

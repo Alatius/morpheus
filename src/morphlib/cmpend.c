@@ -7,7 +7,7 @@
  * son of morpheus
  * 2/6/87
  */
-cmpend(char *word, char *ending, char *stem)
+int cmpend(char *word, char *ending, char *stem)
 {
 	register char * s1 = word;
 	register char * s2 = ending;

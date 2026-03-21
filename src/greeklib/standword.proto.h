@@ -3,7 +3,7 @@
 
 
 /* standword.c */
-int standword(char *);
-int striphyph(char *);
+void standword(char *);
+void striphyph(char *);
 
 #endif /* STANDWORD_PROTO_H */

@@ -28,9 +28,7 @@ int zstrcmp(const void * s1, const void * s2)
 }
 
 
-main(argc,argv)
-int argc;
-char * argv[];
+int main(int argc, char *argv[])
 {
 	int nblocks;
 	int nkeys;

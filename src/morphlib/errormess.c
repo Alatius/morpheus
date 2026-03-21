@@ -2,7 +2,7 @@
 
 #include "errormess.proto.h"
 
-ErrorMess(char *s)
+void ErrorMess(char *s)
 {
 #ifdef LIGHTSPEED
 /*

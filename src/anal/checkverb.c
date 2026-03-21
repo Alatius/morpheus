@@ -3,7 +3,7 @@
 
 #include "checkverb.proto.h"
 
-checkverb(gk_word *Gkword)
+int checkverb(gk_word *Gkword)
 {
 	register char * wp;
 	register char * a1;
@@ -110,7 +110,7 @@ fprintf(stderr,"trying reg stem [%s] [%s] preverb [%s] rval %d\n", stem_of(Gkwor
 		return(rval);
 }
 
-analyzed_verb(gk_word *Gkword)
+int analyzed_verb(gk_word *Gkword)
 {
 	char tmpendstring[MAXWORDSIZE];
 	char endkeys[LONGSTRING];

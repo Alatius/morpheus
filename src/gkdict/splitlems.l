@@ -1,5 +1,11 @@
 %option noyywrap main
 
+%{
+void set_lemma(void);
+void dump_orth(void);
+void add_lemma(void);
+%}
+
 %%
 
 ^[A-Za-z\^\_\-]+[#1-9]* 	set_lemma();
@@ -15,18 +21,18 @@
 #include <string.h>
 unsigned char curlemma[BUFSIZ];
 
-add_lemma()
+void add_lemma()
 {
 printf("</gen>\n%s\t<itype>", curlemma );
 }
 
-set_lemma()
+void set_lemma()
 {
 	ECHO;
 	strcpy(curlemma,yytext);
 }
 
-dump_orth()
+void dump_orth()
 {
 	unsigned char * t;
 	yytext[yyleng-7] = 0;

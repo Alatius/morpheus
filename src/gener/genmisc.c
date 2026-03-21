@@ -1,9 +1,6 @@
 #include <greek.h>
 
-set_baseentry(source,baseentry,n)
-char * source;
-char * baseentry;
-int n;
+void set_baseentry(char *source, char *baseentry, int n)
 {
 	char * s = baseentry;
 	
@@ -17,8 +14,7 @@ int n;
 	
 }
 
-clear_globs(s)
-char *s;
+void clear_globs(char *s)
 {
 	while(isspace(*s)) s++;
 	while(*s&&!isspace(*s)) {
@@ -31,28 +27,23 @@ char *s;
 FILE * fbumwords = NULL;
 FILE * foddkeys = NULL;
 
-SawBadForm(lemmastr, stemstr, stemkeys )
-char * lemmastr;
-char * stemstr;
-char * stemkeys;
+void SawBadForm(char *lemmastr, char *stemstr, char *stemkeys)
 {
 	if( ! fbumwords ) {
 		if( ! (fbumwords = fopen("bumwords","w")) ) {
-			return(0);
+			return;
 		}
 	}
 	fprintf(fbumwords,"%s\t%s\t%s\n\n", lemmastr, stemstr, stemkeys );
 }
 
-ShowOddKeys(lemmastr,s)
-char * lemmastr;
-char *s;
+void ShowOddKeys(char *lemmastr, char *s)
 {
 	if( ! foddkeys ) {
 		if( ! ( foddkeys = fopen("oddkeys2","w")) ) {
-				return(0);
+				return;
 		}
 	}
 	fprintf(foddkeys,"%s\t%s\n", lemmastr, s );
-	
+
 }

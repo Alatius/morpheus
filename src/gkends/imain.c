@@ -3,9 +3,7 @@ static gk_string Gstr;
 char fname[MAXWORDSIZE];
 static gk_word Gkword;
 
-main(argc,argv)
-int argc;
-char * argv[];
+int main(int argc, char *argv[])
 {
 	FILE * ffname;
 	Stemtype stype;

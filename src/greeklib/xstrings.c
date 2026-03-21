@@ -3,15 +3,13 @@
 #include <string.h>
 #include "xstrings.proto.h"
 
-int
-Xstrncpy(char *s1, const char *s2, size_t len)
+int Xstrncpy(char *s1, const char *s2, size_t len)
 {
 memmove(s1,s2,strlen(s2)+1);
 return(1);
 }
 	
-int
-Ystrncpy(char *s1, const char *s2, size_t len)
+int Ystrncpy(char *s1, const char *s2, size_t len)
 {
 	if( Xstrlen(s2) >= len ) {
 		char * p;
@@ -36,7 +34,7 @@ Ystrncpy(char *s1, const char *s2, size_t len)
 }
 
 
-Xstrncat(char *s1, const char *s2, size_t len)
+void Xstrncat(char *s1, const char *s2, size_t len)
 {
 	size_t nlen;
 	
@@ -54,12 +52,12 @@ fprintf(stderr,"nlen %d\n", nlen );
 		strcat(s1,s2);
 }
 
-Xstrncmp(const char *s1, const char *s2, size_t len)
+int Xstrncmp(const char *s1, const char *s2, size_t len)
 {
 	return(strncmp(s1,s2,(size_t)len));
 }
 
-Xstrlen(const char *s)
+int Xstrlen(const char *s)
 {
 	return((int)strlen(s));
 }

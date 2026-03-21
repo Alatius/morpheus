@@ -7,7 +7,7 @@
 
 #include "addbreath.proto.h"
 
-addbreath(char *w, int c)
+void addbreath(char *w, int c)
 {
 /*
  * this algorithm gives you breathing "iei(s" for "ieis"

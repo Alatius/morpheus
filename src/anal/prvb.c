@@ -3,7 +3,7 @@
 
 #include "prvb.proto.h"
 
-strippreverb(gk_word *Gkword, char *endkeys, int rval)
+int strippreverb(gk_word *Gkword, char *endkeys, int rval)
 {
 	register char * a;
 	register char * b;
@@ -91,7 +91,7 @@ stem_of(&WorkGkword), endstring_of(&WorkGkword) );
 /*
  * check for stems such as a)na-ssei/sas
  */
-doubled_cons(char *s)
+int doubled_cons(char *s)
 {
 	if( *s == 'r' ) 
 		return(0);

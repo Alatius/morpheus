@@ -1,5 +1,13 @@
 %option noyywrap main
 
+%{
+void set_quant(void);
+void set_quant2(void);
+int quantcmp(char *want, char *got, int curquant);
+int is_match(char *want, char *got, int curquant);
+void addquant(char *s, int c);
+%}
+
 %%
 
 
@@ -13,7 +21,7 @@
 
 #include <greek.h>
 
-set_quant()
+void set_quant()
 {
 	char cmps[BUFSIZ];
 	char * s;
@@ -31,7 +39,7 @@ set_quant()
 printf("%s curq [%c]\n", yytext , curquant);
 }
 
-set_quant2()
+void set_quant2()
 {
 	char subs[BUFSIZ];
 	int curquant = 0;
@@ -64,7 +72,7 @@ set_quant2()
 	else ECHO;
 }
 
-quantcmp(char *want,char * got,int curquant)
+int quantcmp(char *want,char * got,int curquant)
 {
 	while(*got) {
 		if( is_match(want,got,curquant) ) {
@@ -77,7 +85,7 @@ quantcmp(char *want,char * got,int curquant)
 	return(0);
 }
 
-is_match(char *want, char *got,int curquant)
+int is_match(char *want, char *got,int curquant)
 {
 	int sawdiac  = 0;
 
@@ -98,7 +106,7 @@ is_match(char *want, char *got,int curquant)
 	return(0);
 }
 
-addquant(char *s, int c)
+void addquant(char *s, int c)
 {
 	char tmp[BUFSIZ];
 

@@ -9,7 +9,7 @@
  * a(d --> a(nd
  * etc.
  */
-addninfix(char *word)
+int addninfix(char *word)
 {
 	char * syllp;
 	char *getaccp();

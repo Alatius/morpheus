@@ -2,7 +2,7 @@
 #include <string.h>
 
 
-main()
+int main(void)
 /*
 main(argc,argv)
 int argc;

@@ -8,7 +8,7 @@
 /*
  * more trouble than it is worth--no longer called as of 6/7/88, grc
  */
-Check_preverb(gk_word *Gkword, gk_string *gstr)
+int Check_preverb(gk_word *Gkword, gk_string *gstr)
 {
 	char savelemma[MAXWORDSIZE];
 	int rval = 0;

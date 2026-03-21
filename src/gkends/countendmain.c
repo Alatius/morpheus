@@ -5,7 +5,7 @@ static gk_string Gstr;
 char fname[MAXWORDSIZE];
 static gk_word Gkword;
 
-_main(void)
+int _main(void)
 {
 	FILE * ffname;
 	Stemtype stype;

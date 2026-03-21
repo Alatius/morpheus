@@ -7,9 +7,9 @@ gk_word * GenStemForms();
 static int count = 0;
 char * 	GetLemmStem();
 
-extern verbose;
+extern int verbose;
 
-checkdict(gk_word *Gkword, gk_string *stem, char *stemkeys)
+int checkdict(gk_word *Gkword, gk_string *stem, char *stemkeys)
 {
 	int i, j;
 	int hits;

@@ -12,7 +12,7 @@
  *		2 if the vowel could be long by position
  */
  
-longbyposition(char *s)
+int longbyposition(char *s)
 {
 	while(Is_vowel(*s)||(*s && ! isalpha(*s))) s++;
 

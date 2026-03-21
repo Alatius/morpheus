@@ -5,7 +5,7 @@
 
 char * is_substring();
 
-dictstems(char *lemma, int *nstems, bool wantacc, char *orgstem, char *stemtype, char *pparttab[], int maxpparts)
+int dictstems(char *lemma, int *nstems, bool wantacc, char *orgstem, char *stemtype, char *pparttab[], int maxpparts)
 {
 	FILE * f;
 	FILE * getlemmstart();

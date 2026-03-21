@@ -2,9 +2,9 @@
 #include <gkstring.h>
 
 #include "checknom.proto.h"
-static gotnom(gk_word *);
+static int gotnom(gk_word *);
 
-checknom(gk_word *Gkword)
+int checknom(gk_word *Gkword)
 {
 	int rval;
 
@@ -15,7 +15,7 @@ checknom(gk_word *Gkword)
 	return(0);
 }
 
-checkregnom(gk_word *Gkword)
+int checkregnom(gk_word *Gkword)
 {
 	register char * wp;
 	char workword[MAXWORDSIZE];
@@ -81,8 +81,7 @@ checkregnom(gk_word *Gkword)
 		return(rval);
 }
 
-static 
-gotnom(gk_word *Gkword)
+static int gotnom(gk_word *Gkword)
 {
 	int is_ending = 0;
 	int rval = 0;

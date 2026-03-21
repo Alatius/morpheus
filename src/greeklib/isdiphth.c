@@ -40,7 +40,7 @@ bool is_diphth(char *p, char *word)
 	return (NO);
 }
 
-starts_w_diphth(char *stem)
+int starts_w_diphth(char *stem)
 {
 	return(is_diphth(stem+1,stem));
 }

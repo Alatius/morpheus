@@ -3,11 +3,11 @@
 
 
 /* indkeys.c */
-int index_list(char *, char *, int);
+void index_list(char *, char *, int);
 #ifdef DECALPHA
-int prockeyline(char *, int, int, FILE *);
+void prockeyline(char *, int, int, FILE *);
 #else
-int prockeyline(char *, int, long, FILE *);
+void prockeyline(char *, int, long, FILE *);
 #endif
 
 #endif /* INDKEYS_PROTO_H */

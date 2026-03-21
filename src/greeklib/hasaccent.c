@@ -7,7 +7,7 @@
 
 #include "hasaccent.proto.h"
 
-hasaccent(char *s)
+int hasaccent(char *s)
 {
 	while(*s) {
 		if( Is_accent(*s) ) return(1);

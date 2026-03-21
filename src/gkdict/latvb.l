@@ -1,5 +1,16 @@
 %option noyywrap main
 
+%{
+void set_lemma(void);
+void do_itype(void);
+void set_orth(void);
+int is_spectype(void);
+void doderiv(char *tag);
+void doverb(char *vtag);
+void do_vstems(char *vtag, int trimn);
+void truncstem(char *workstem, int trimn);
+%}
+
 %%
 
 ^[A-Za-z\^\_\-]+o[#1-9]* 	set_lemma();
@@ -62,85 +73,85 @@ char *spectypes[] = {
 "<itype>e_vi, e_tum, 3</itype>"
 };
 
-do_itype()
+void do_itype()
 {
 	int rval;
-	
-if( !strcmp(yytext,"<itype>e_re</itype>") )	return( doverb("conj2"));
-if( !strcmp(yytext,"<itype>e^re</itype>") )	return( doverb("conj3"));
-if( !strcmp(yytext,"<itype>i_re</itype>") )	return( doderiv("ire_vb"));
-if( !strcmp(yytext,"<itype>i_ri</itype>") )	{sawpass = 1; return( doderiv("ire_vb")); }
-if( !strcmp(yytext,"<itype>a_re</itype>") )	return( doderiv("are_vb"));
-if( !strcmp(yytext,"<itype>a_ri</itype>") ) {sawpass = 1; return( doderiv("are_vb")); }
-if( !strcmp(yytext,"<itype>xi, 3</itype>") )	return( do_vstems("conj3",1));
-if( !strcmp(yytext,"<itype>xi, xum, 3</itype>") )	return( do_vstems("conj3",1));
-if( !strcmp(yytext,"<itype>si, sum</itype>") )	return( do_vstems("conj3",1));
-if( !strcmp(yytext,"<itype>sum, 3</itype>") )	return( do_vstems("conj3",1));
-if( !strcmp(yytext,"<itype>si, 2</itype>") )	return( do_vstems("conj2",1));
-if( !strcmp(yytext,"<itype>xi, 2</itype>") )	return( do_vstems("conj2",1));
-if( !strcmp(yytext,"<itype>xi, ctum, 3</itype>") )	return( do_vstems("conj3",1));
-if( !strcmp(yytext,"<itype>si, sum, 2</itype>") )	return( do_vstems("conj2",1));
-if( !strcmp(yytext,"<itype>si, sum, 3</itype>") )	return( do_vstems("conj3",1));
-if( !strcmp(yytext,"<itype>psi, ptum, 3</itype>") )	return( do_vstems("conj3",1));
-if( !strcmp(yytext,"<itype>di^di, di^tum, 3</itype>") ) return( do_vstems("conj3",1));
-if( !strcmp(yytext,"<itype>si, sum, 4</itype>") ) return( do_vstems("conj4",1));
 
-if( !strcmp(yytext,"<itype>u^i, itum, 2</itype>") )	return( do_vstems("conj2",0));
-if( !strcmp(yytext,"<itype>i^ti, i^tum, 1</itype>") )	return( do_vstems("conj1",0));
-if( !strcmp(yytext,"<itype>ii, i_tum, 4</itype>") )	return( do_vstems("conj4",0));
-if( !strcmp(yytext,"<itype>i^tus, 2</itype>") )	return( do_vstems("conj2",0));
-if( !strcmp(yytext,"<itype>ii, 4</itype>") )	return( do_vstems("conj4",0));
-if( !strcmp(yytext,"<itype>u^i, e_re</itype>") )	return( do_vstems("conj2",0));
-if( !strcmp(yytext,"<itype>ui, i^tum, 1</itype>") )	return( do_vstems("conj1",0));
-if( !strcmp(yytext,"<itype>ui, i^tum, 2</itype>") )	return( do_vstems("conj2",0));
-if( !strcmp(yytext,"<itype>i_vi, 4</itype>") )	return( do_vstems("conj4",0));
-if( !strcmp(yytext,"<itype>i_tus, 4</itype>") )	return( do_vstems("conj4",0));
-if( !strcmp(yytext,"<itype>u^i, i^tum, 1</itype>") )	return( do_vstems("conj1",0));
-if( !strcmp(yytext,"<itype>u^i, 1</itype>") )	return( do_vstems("conj1",0));
-if( !strcmp(yytext,"<itype>ui, 1</itype>") )	return( do_vstems("conj1",0));
+if( !strcmp(yytext,"<itype>e_re</itype>") )	{ doverb("conj2"); return; }
+if( !strcmp(yytext,"<itype>e^re</itype>") )	{ doverb("conj3"); return; }
+if( !strcmp(yytext,"<itype>i_re</itype>") )	{ doderiv("ire_vb"); return; }
+if( !strcmp(yytext,"<itype>i_ri</itype>") )	{ sawpass = 1; doderiv("ire_vb"); return; }
+if( !strcmp(yytext,"<itype>a_re</itype>") )	{ doderiv("are_vb"); return; }
+if( !strcmp(yytext,"<itype>a_ri</itype>") )	{ sawpass = 1; doderiv("are_vb"); return; }
+if( !strcmp(yytext,"<itype>xi, 3</itype>") )	{ do_vstems("conj3",1); return; }
+if( !strcmp(yytext,"<itype>xi, xum, 3</itype>") )	{ do_vstems("conj3",1); return; }
+if( !strcmp(yytext,"<itype>si, sum</itype>") )	{ do_vstems("conj3",1); return; }
+if( !strcmp(yytext,"<itype>sum, 3</itype>") )	{ do_vstems("conj3",1); return; }
+if( !strcmp(yytext,"<itype>si, 2</itype>") )	{ do_vstems("conj2",1); return; }
+if( !strcmp(yytext,"<itype>xi, 2</itype>") )	{ do_vstems("conj2",1); return; }
+if( !strcmp(yytext,"<itype>xi, ctum, 3</itype>") )	{ do_vstems("conj3",1); return; }
+if( !strcmp(yytext,"<itype>si, sum, 2</itype>") )	{ do_vstems("conj2",1); return; }
+if( !strcmp(yytext,"<itype>si, sum, 3</itype>") )	{ do_vstems("conj3",1); return; }
+if( !strcmp(yytext,"<itype>psi, ptum, 3</itype>") )	{ do_vstems("conj3",1); return; }
+if( !strcmp(yytext,"<itype>di^di, di^tum, 3</itype>") )	{ do_vstems("conj3",1); return; }
+if( !strcmp(yytext,"<itype>si, sum, 4</itype>") )	{ do_vstems("conj4",1); return; }
+
+if( !strcmp(yytext,"<itype>u^i, itum, 2</itype>") )	{ do_vstems("conj2",0); return; }
+if( !strcmp(yytext,"<itype>i^ti, i^tum, 1</itype>") )	{ do_vstems("conj1",0); return; }
+if( !strcmp(yytext,"<itype>ii, i_tum, 4</itype>") )	{ do_vstems("conj4",0); return; }
+if( !strcmp(yytext,"<itype>i^tus, 2</itype>") )	{ do_vstems("conj2",0); return; }
+if( !strcmp(yytext,"<itype>ii, 4</itype>") )	{ do_vstems("conj4",0); return; }
+if( !strcmp(yytext,"<itype>u^i, e_re</itype>") )	{ do_vstems("conj2",0); return; }
+if( !strcmp(yytext,"<itype>ui, i^tum, 1</itype>") )	{ do_vstems("conj1",0); return; }
+if( !strcmp(yytext,"<itype>ui, i^tum, 2</itype>") )	{ do_vstems("conj2",0); return; }
+if( !strcmp(yytext,"<itype>i_vi, 4</itype>") )	{ do_vstems("conj4",0); return; }
+if( !strcmp(yytext,"<itype>i_tus, 4</itype>") )	{ do_vstems("conj4",0); return; }
+if( !strcmp(yytext,"<itype>u^i, i^tum, 1</itype>") )	{ do_vstems("conj1",0); return; }
+if( !strcmp(yytext,"<itype>u^i, 1</itype>") )	{ do_vstems("conj1",0); return; }
+if( !strcmp(yytext,"<itype>ui, 1</itype>") )	{ do_vstems("conj1",0); return; }
 /*
-if( !strcmp(yytext,"<itype>u^i, u_tum, 3</itype>") )	return( do_vstems("conj3",0));
+if( !strcmp(yytext,"<itype>u^i, u_tum, 3</itype>") )	{ do_vstems("conj3",0); return; }
 */
-if( !strcmp(yytext,"<itype>u^i, 1</itype>") )	return( do_vstems("conj1",0));
-if( !strcmp(yytext,"<itype>u^i, 2</itype>") )	return( do_vstems("conj2",0));
-if( !strcmp(yytext,"<itype>ui, 2</itype>") )	return( do_vstems("conj2",0));
-if( !strcmp(yytext,"<itype>u^i, 3</itype>") )	return( do_vstems("conj3",0));
-if( !strcmp(yytext,"<itype>u^i</itype>") )	return( do_vstems("conj3",0));
-if( !strcmp(yytext,"<itype>i_tum, 4</itype>") )	return( do_vstems("conj4",0));
+if( !strcmp(yytext,"<itype>u^i, 1</itype>") )	{ do_vstems("conj1",0); return; }
+if( !strcmp(yytext,"<itype>u^i, 2</itype>") )	{ do_vstems("conj2",0); return; }
+if( !strcmp(yytext,"<itype>ui, 2</itype>") )	{ do_vstems("conj2",0); return; }
+if( !strcmp(yytext,"<itype>u^i, 3</itype>") )	{ do_vstems("conj3",0); return; }
+if( !strcmp(yytext,"<itype>u^i</itype>") )	{ do_vstems("conj3",0); return; }
+if( !strcmp(yytext,"<itype>i_tum, 4</itype>") )	{ do_vstems("conj4",0); return; }
 
-if( !strcmp(yytext,"<itype>i_vi, or i^i, i_tum, 4</itype>") )	return( do_vstems("conj4",0));
-if( !strcmp(yytext,"<itype>i_vi, or i^i, i_tum, 3</itype>") )	return( do_vstems("conj3",0));
-if( !strcmp(yytext,"<itype>i_vi, or i^i, 4</itype>") )	return( do_vstems("conj4",0));
-if( !strcmp(yytext,"<itype>i_vi, or i^i, i_tum, 3</itype>") )	return( do_vstems("conj3",0));
+if( !strcmp(yytext,"<itype>i_vi, or i^i, i_tum, 4</itype>") )	{ do_vstems("conj4",0); return; }
+if( !strcmp(yytext,"<itype>i_vi, or i^i, i_tum, 3</itype>") )	{ do_vstems("conj3",0); return; }
+if( !strcmp(yytext,"<itype>i_vi, or i^i, 4</itype>") )	{ do_vstems("conj4",0); return; }
+if( !strcmp(yytext,"<itype>i_vi, or i^i, i_tum, 3</itype>") )	{ do_vstems("conj3",0); return; }
 
-if( !strcmp(yytext,"<itype>u^i, i^tum, 3</itype>") )	return( do_vstems("conj3",0));
+if( !strcmp(yytext,"<itype>u^i, i^tum, 3</itype>") )	{ do_vstems("conj3",0); return; }
 
-if( !strcmp(yytext,"<itype>i_vi, i_tum, 4</itype>") )	return( do_vstems("conj4",0));
-if( !strcmp(yytext,"<itype>i^i, i^tum, 4</itype>") )	return( do_vstems("conj4",0));
-if( !strcmp(yytext,"<itype>u^i, i^tum, 2</itype>") )	return( do_vstems("conj2",0));
+if( !strcmp(yytext,"<itype>i_vi, i_tum, 4</itype>") )	{ do_vstems("conj4",0); return; }
+if( !strcmp(yytext,"<itype>i^i, i^tum, 4</itype>") )	{ do_vstems("conj4",0); return; }
+if( !strcmp(yytext,"<itype>u^i, i^tum, 2</itype>") )	{ do_vstems("conj2",0); return; }
 
 if( !strcmp(yytext,"<itype>e_gi, actum, 3</itype>") ) {
 printf("\nlem:%s\n", lemma );
-	if( !strcmp(lemma+strlen(lemma)-strlen("igo"),"igo") || 
-		!strcmp(lemma+strlen(lemma)-strlen("igor"),"igor") || 
-		!strcmp(lemma+strlen(lemma)-strlen("ingo"),"ingo") ) 
+	if( !strcmp(lemma+strlen(lemma)-strlen("igo"),"igo") ||
+		!strcmp(lemma+strlen(lemma)-strlen("igor"),"igor") ||
+		!strcmp(lemma+strlen(lemma)-strlen("ingo"),"ingo") )
 
-			return( do_vstems("conj3",'i'));
-	else return( do_vstems("conj3",'a'));
+			{ do_vstems("conj3",'i'); return; }
+	else { do_vstems("conj3",'a'); return; }
 }
 
 if( !strcmp(yytext,"<itype>essi, essum, 3</itype>") ) {
-	if( strchr(lemma,'e') )	return( do_vstems("conj3",yytext[7]));
-	else return( do_vstems("conj3",'i'));
+	if( strchr(lemma,'e') )	{ do_vstems("conj3",yytext[7]); return; }
+	else { do_vstems("conj3",'i'); return; }
 }
 
-if( !strcmp(yytext,"<itype>sum, 2</itype>") )	return( do_vstems("conj2",'d'));
-if( !strcmp(yytext,"<itype>u^i, u_tum, 3</itype>") )	return( do_vstems("conj3",'u'));
-if( !strcmp(yytext,"<itype>ve_ni, ventum</itype>") )	return( do_vstems("conj4",'v'));
-if( !strcmp(yytext,"<itype>cu_tus, 3</itype>") )	return( do_vstems("conj3",'q'));
-if( !strcmp(yytext,"<itype>mpsi</itype>") )	return( do_vstems("conj3",yytext[7]));
-if( !strcmp(yytext,"<itype>ui, u_tum, 3</itype>") )	return( do_vstems("conj3",yytext[7]));
-if( !strcmp(yytext,"<itype>fe_ci, factum</itype>") )	return( do_vstems("conj3_io",yytext[7]));
+if( !strcmp(yytext,"<itype>sum, 2</itype>") )	{ do_vstems("conj2",'d'); return; }
+if( !strcmp(yytext,"<itype>u^i, u_tum, 3</itype>") )	{ do_vstems("conj3",'u'); return; }
+if( !strcmp(yytext,"<itype>ve_ni, ventum</itype>") )	{ do_vstems("conj4",'v'); return; }
+if( !strcmp(yytext,"<itype>cu_tus, 3</itype>") )	{ do_vstems("conj3",'q'); return; }
+if( !strcmp(yytext,"<itype>mpsi</itype>") )	{ do_vstems("conj3",yytext[7]); return; }
+if( !strcmp(yytext,"<itype>ui, u_tum, 3</itype>") )	{ do_vstems("conj3",yytext[7]); return; }
+if( !strcmp(yytext,"<itype>fe_ci, factum</itype>") )	{ do_vstems("conj3_io",yytext[7]); return; }
 
 if( (rval=is_spectype()) ) {
 	char tmp[BUFSIZ];
@@ -148,12 +159,13 @@ if( (rval=is_spectype()) ) {
 	strcpy(tmp,"conjX");
 	tmp[4] = rval;
 
-	return( do_vstems(tmp,yytext[7]));
+	do_vstems(tmp,yytext[7]);
+	return;
 }
 
 /*
 if( isalpha( yytext[7] ) && ! strchr("aeioux",yytext[7]) )
-	 return( do_vstems("conj3",yytext[7]));
+	 { do_vstems("conj3",yytext[7]); return; }
 */
 
 
@@ -161,7 +173,7 @@ ECHO;
 }
 
 #define LENGTH_OF(X) (sizeof X/sizeof X[0])
-is_spectype()
+int is_spectype()
 {
 	int i;
 
@@ -182,7 +194,7 @@ is_spectype()
 }
 
 
-set_lemma()
+void set_lemma()
 {
 	unsigned char *t;
 
@@ -248,7 +260,7 @@ set_lemma()
 */
 
 
-doderiv(char * tag)
+void doderiv(char * tag)
 {
 	unsigned char *t;
 	char addi[BUFSIZ], deptag[BUFSIZ];
@@ -269,7 +281,7 @@ doderiv(char * tag)
 	sawi = sawpass = 0;
 }
 
-set_orth()
+void set_orth()
 {
 	unsigned char * t = yytext + 6;
 	unsigned char * p = orthstem;
@@ -281,21 +293,21 @@ set_orth()
 	if(!strcmp("<orth>adf-</orth>",yytext) ) {
 		if( ! strncmp(orthstem,"af-f",4) ) {
 			orthstem[1] = 'd';
-			return(0);
+			return;
 		}
 	}
 
 	if(!strcmp("<orth>adl-</orth>",yytext) ) {
 		if( ! strncmp(orthstem,"al-l",4) ) {
 			orthstem[1] = 'd';
-			return(0);
+			return;
 		}
 	}
 
 	if(!strcmp("<orth>adn-</orth>",yytext) ) {
 		if( ! strncmp(orthstem,"an-n",4) ) {
 			orthstem[1] = 'd';
-			return(0);
+			return;
 		}
 	}
 
@@ -310,10 +322,10 @@ set_orth()
 			orthstem[1] = 'd';
 		}
 
-		return(0);
+		return;
 	}
 	orthstem[0] = 0;
-return(0);
+return;
 
 
 	while(*t && *t !='<') {
@@ -330,7 +342,7 @@ return(0);
 printf("\nstem:[%s] + [%s] = [%s]\n", stem , yytext+6, orthstem );
 }
 
-doverb(char * vtag)
+void doverb(char * vtag)
 {
 	char tmp[BUFSIZ];
 
@@ -347,7 +359,7 @@ doverb(char * vtag)
 	sawi = 0;
 }
 
-do_vstems(char * vtag, int trimn )
+void do_vstems(char * vtag, int trimn )
 {
 	unsigned char tmpstem[BUFSIZ], perfsuff[BUFSIZ] , supsuff[BUFSIZ];
 	unsigned char tmporths[BUFSIZ];
@@ -434,7 +446,7 @@ do_vstems(char * vtag, int trimn )
 
 }
 
-truncstem(char * workstem, int trimn)
+void truncstem(char * workstem, int trimn)
 {
 	char  * t;
 

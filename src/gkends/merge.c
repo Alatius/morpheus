@@ -5,7 +5,7 @@
 /*
  *
  */
- merge_keys(gk_string *Have, gk_string *Avoid, char *stem, char *endstr, char *newkeys)
+int merge_keys(gk_string *Have, gk_string *Avoid, char *stem, char *endstr, char *newkeys)
 {
 	int rval = 0;
 

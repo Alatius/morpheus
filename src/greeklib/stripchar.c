@@ -3,7 +3,7 @@
 
 #include "stripchar.proto.h"
 
-stripchar(char *s, int c)
+void stripchar(char *s, int c)
 {
 	register char * s1;
 	

@@ -2,7 +2,7 @@
 #define Is_zeroend(X) (X=='*')
 
 #include "stripzeroend.proto.h"
-stripzeroend(char *word)
+void stripzeroend(char *word)
 {
 	int n;
 

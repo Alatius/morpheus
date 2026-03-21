@@ -6,7 +6,7 @@
  * november 1987
  */
  
- stripmetachars(char *s)
+void stripmetachars(char *s)
 {
 	stripquant(s);
 	stripzeroend(s);

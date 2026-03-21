@@ -16,18 +16,18 @@ char *NameOfMood(word_form);
 char *NameOfVoice(word_form);
 char *NameOfDialect(Dialect);
 */
-int DomainNames(char *, char *, char *);
-int DialectNames(Dialect, char *, char *);
-int GeogRegionNames(GeogRegion, char *, char *);
+void DomainNames(char *, char *, char *);
+void DialectNames(Dialect, char *, char *);
+void GeogRegionNames(GeogRegion, char *, char *);
 char *NameOfGender(word_form);
 char *NameOfCase(word_form);
 char *NameOfDegree(word_form);
 char *NameOfMorphFlags(long);
 int AddMorphKey(gk_string *, char *);
 Stemtype GetStemNum(char *);
-int init_stems(void);
+void init_stems(void);
 int has_octal(char *);
-int init_keys(void);
+void init_keys(void);
 Stemtype GetStemClass(char *);
 Stemtype GetIsProse(char *);
 

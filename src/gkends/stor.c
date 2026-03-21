@@ -4,7 +4,7 @@ static gk_string * StoreGstr;
 #define MAXENDINGS 	10000
 
 #include "stor.proto.h"
-static cur_endcnt = 0;
+static int cur_endcnt = 0;
 static int maxstring = 0;
 gk_string * CreatGkString();
 int dictstrcmp();
@@ -12,7 +12,7 @@ int CompByDictStr(const void *gstr1, const void *gstr2);
  int
  CompGkString(const void *gstr1, const void *gstr2);
 
-InitGstrMem(void)
+int InitGstrMem(void)
 {
 	if( ! StoreGstr ) {
 		if( (StoreGstr = (gk_string *) 	CreatGkString(MAXENDINGS+1)) == NULL ) {
@@ -23,7 +23,7 @@ InitGstrMem(void)
 	return(1);
 }
 
- AddNewGstr(gk_string *gstr)
+void AddNewGstr(gk_string *gstr)
 {
 	char * news;
 	Dialect d;
@@ -39,7 +39,7 @@ InitGstrMem(void)
 	if( cur_endcnt >= MAXENDINGS ) {
 		fprintf(stderr,"Hey! you only have space for %d endings!\n", MAXENDINGS );
 		fprintf(stderr,"Change to variable MAXENDINGS to reflect the actual number you want!\n");
-		return(-1);
+		return;
 	}
 	if( strlen(news) + 1 >= maxstring )
 		maxstring = strlen(news) + 1;
@@ -58,13 +58,13 @@ InitGstrMem(void)
 
 }
 
-ResetGstrBuf()
+void ResetGstrBuf()
 {
 
 	cur_endcnt = 0;
 }
 
- PrntNewGstrings(FILE *f, int compiled_flag)
+void PrntNewGstrings(FILE *f, int compiled_flag)
 {
 	int rval, i;
 	char tmp[LONGSTRING];
@@ -111,7 +111,7 @@ ResetGstrBuf()
 	}
 }
 
-LPrntGstr(gk_string *gstr, FILE *f)
+void LPrntGstr(gk_string *gstr, FILE *f)
 {
 	char tmp[256], res[256], line[256];
 	int indecl;
@@ -143,7 +143,7 @@ LPrntGstr(gk_string *gstr, FILE *f)
 	}
 }
 
-new_parad(gk_string *gstr1, gk_string *gstr2)
+int new_parad(gk_string *gstr1, gk_string *gstr2)
 {
 	word_form wf1, wf2;
 	
@@ -167,7 +167,7 @@ new_parad(gk_string *gstr1, gk_string *gstr2)
  *
  * added so that we would be able to analyze "gh/rai+".
  */
-hyphtodiaer(char *news)
+void hyphtodiaer(char *news)
 {
 	register char * s= news;
 		

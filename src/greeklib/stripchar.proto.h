@@ -3,6 +3,6 @@
 
 
 /* stripchar.c */
-int stripchar(char *, int);
+void stripchar(char *, int);
 
 #endif /* STRIPCHAR_PROTO_H */

@@ -17,9 +17,9 @@
 	modified: 	04.30.92
 	By:			jjake
 	I got the wrong fields. It seems that derivType is the empty one, and not stemtype, and
-	furthermore that there is an extra tab somewhere. So Here goes…
+	furthermore that there is an extra tab somewhere. So here goes...
 */
-JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, char *more_dels, int pretty)
+void JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, char *more_dels, int pretty)
 {
 		char dialbuf[LONGSTRING*2];
 		char * s;

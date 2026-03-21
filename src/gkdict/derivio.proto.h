@@ -13,7 +13,7 @@ int checkcomderiv2(char *asuffkeys, char *dstem, char *dstemkeys, char *suffix, 
 int DstemTakesDsuff(char *dsuffkeys, char *dstemkeys, gk_string *gstr, char *defstem, char *derivstr);
 int need_rei_alpha(char *dsuffkeys);
 int stemstr_in_cache(char *s, char *stemkeys);
-int add_deriv_cache(char *s, char *keys);
+void add_deriv_cache(char *s, char *keys);
 int ends_in_vowel(char *s);
 
 #endif /* DERIVIO_PROTO_H */

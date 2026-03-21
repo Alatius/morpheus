@@ -15,7 +15,7 @@ char *fullkeys[] = {
 		"vn" /* verbal noun */
 		};
 
-dummyfnc()
+void dummyfnc(void)
 {
 }
 
@@ -34,10 +34,10 @@ static int wantpparts = 0;
 
 int fullconj = 0;
 
-GenConjForms(fin,fout,conjmode)
-FILE * fin;
-FILE * fout;
-int conjmode;
+static void show_defvals(FILE *fout);
+static void set_newlemma(char *s);
+
+void GenConjForms(FILE *fin, FILE *fout, int conjmode)
 {
 	char * lp;
 	char saveline[LONGSTRING];
@@ -87,7 +87,7 @@ int conjmode;
 		
 		if( ! strncmp(":de:",linebuf,4) ) {
 			if( ! npparts && wantpparts && (irreg_conj() || fullconj)) {
-				show_defvals(fout,fullconj ? DEFPPARTS : 1 );
+				show_defvals(fout);
 				fprintf(fout,"\n");
 			}
 			npparts = 0;
@@ -226,16 +226,18 @@ printf("rval %d stembuf [%s] global [%s] deriv [%s] tk [%s]\n", rval,
 
 	}
 	if( ! npparts && wantpparts && (irreg_conj() || fullconj ) ) 
-			show_defvals(fout,fullconj ? DEFPPARTS : 1 );
+			show_defvals(fout);
 
 
 }
 
-show_defvals(fout)
-FILE * fout;
+/* TODO: callers formerly passed a count argument (fullconj ? DEFPPARTS : 1)
+ * that was silently ignored due to K&R calling conventions.
+ * Consider adding an nparts parameter instead of hardcoding DEFPPARTS. */
+void show_defvals(FILE *fout)
 {
 	int i;
-	
+
 	for(i=0;i< DEFPPARTS;i++) {
 		char tkeys[256];
 		sprintf(tkeys,"%s ", fullkeys[i]  );
@@ -247,16 +249,14 @@ FILE * fout;
 	}
 
 }
-set_newlemma(s)
-char *s;
+void set_newlemma(char *s)
 {
 	*(s+strlen(s)-1) = 0;
 	strcpy(curlemma,s+4);
 	derivbuf[0] = 0;
 }
 
-noppart(s)
-char * s;
+int noppart(char *s)
 {
 	char buf1[256];
 	char buf2[256];
@@ -280,8 +280,7 @@ char * s;
 
 }
 
-is_empty(s)
-char *s;
+int is_empty(char *s)
 {
 	while(*s) {
 		if( !isspace(*s++) ) return(0);
@@ -289,17 +288,14 @@ char *s;
 	return(1);
 }
 
-has_pref(s,pref)
-char *s;
-char *pref;
+int has_pref(char *s, char *pref)
 {
 	return(strncmp(s,pref,strlen(pref)) == 0 );
 }
 
 static gk_string   BlnkGstr;
 static gk_word BlnkGkword;
-need_ppart(s)
-char *s;
+int need_ppart(char *s)
 {
 	gk_string  GlobGstr, CurGstr;
 	gk_word TmpGkword;
@@ -360,9 +356,7 @@ printf("savekeys:%s\nglobs:%s\nrval %d\n", tmpkeys , globalkeys , rval);
 	return( rval <= 0 );
 }
 
-check_vsdupl(s,fout)
-char * s;
-FILE * fout;
+int check_vsdupl(char *s, FILE *fout)
 {
 	gk_string  GlobGstr, CurGstr;
 	gk_word TmpGkword;
@@ -415,8 +409,7 @@ FILE * fout;
 	return(rval<=0);
 }
 
-need_codupl(s)
-char * s;
+int need_codupl(char *s)
 {
 	gk_string  GlobGstr, CurGstr;
 	gk_word TmpGkword;
@@ -471,8 +464,7 @@ printf("b1 [%s] b2 [%s] rval %d\n", tmpcobuf1, tmpcobuf2 , rval );
 	return(rval<=0);
 }
 
-regular_entry(s) 
-char *s;
+int regular_entry(char *s)
 {
 	gk_string * gstr;
 	gk_word * gkw;
@@ -489,8 +481,7 @@ char *s;
 	return(rconj);
 }
 
-has_alpha(s)
-register char *s;
+int has_alpha(char *s)
 {
 
 	while(*s) {
@@ -500,7 +491,7 @@ register char *s;
 	return(0);
 }
 
-irreg_conj()
+int irreg_conj()
 {
 	gk_word TmpGkword;
 	gk_string GlobGstr;

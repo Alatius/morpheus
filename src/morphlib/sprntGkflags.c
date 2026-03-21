@@ -9,7 +9,7 @@
   a second delimiter for the lists of Dialects,regions,domains and morph names.
 	
 */
-JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, int more_dels, int pretty)
+void JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, int more_dels, int pretty)
 {
   char dialbuf[LONGSTRING*2];
   char * s;
@@ -120,7 +120,7 @@ JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, int more_dels, int pre
   }
 }
 
-GregSprintGkFlags(gk_string *gstr, char *buf, char *dels, int more_dels, int pretty)
+void GregSprintGkFlags(gk_string *gstr, char *buf, char *dels, int more_dels, int pretty)
 {
   char dialbuf[LONGSTRING*2];
   char * s;

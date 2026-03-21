@@ -3,6 +3,6 @@
 
 
 /* addaccent.c */
-int addaccent(char *, char, char *);
+void addaccent(char *, int, char *);
 
 #endif /* ADDACCENT_PROTO_H */

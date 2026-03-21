@@ -8,7 +8,7 @@
  * harvard university
  */
  
- stripacute(char *s)
+void stripacute(char *s)
 {
 	while(*s) {
 		if( *s == ACUTE ) 

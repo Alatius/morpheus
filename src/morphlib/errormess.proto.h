@@ -3,6 +3,6 @@
 
 
 /* errormess.c */
-int ErrorMess(char *);
+void ErrorMess(char *);
 
 #endif /* ERRORMESS_PROTO_H */

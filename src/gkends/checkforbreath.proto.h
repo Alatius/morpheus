@@ -3,6 +3,6 @@
 
 
 /* checkforbreath.c */
-int CheckForBreathing(gk_string *);
+void CheckForBreathing(gk_string *);
 
 #endif /* CHECKFORBREATH_PROTO_H */

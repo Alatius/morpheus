@@ -2,12 +2,12 @@
 
 #include "checkword.proto.h"
 
-extern quickflag;
+extern int quickflag;
 
 long prevmem, curmem;
 static int meminit = 0;
 long startmem;
-checkword(gk_word *Gkword)
+int checkword(gk_word *Gkword)
 {
 	int rval = 0;
 

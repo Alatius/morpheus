@@ -3,7 +3,7 @@
 
 #include "checkhalf1.proto.h"
 
-extern verbose;
+extern int verbose;
 
 /*
  * this routine gets handed possible stems that have been stripped
@@ -11,7 +11,7 @@ extern verbose;
  * but lacking a breathing. if so, it tries both a smooth and a rough
  * breathing.
  */
-checkhalf1(gk_word *Gkword, char *endkeys)
+int checkhalf1(gk_word *Gkword, char *endkeys)
 {
 	int rval = 0;
 	char * stem = stem_of(Gkword);
@@ -146,9 +146,9 @@ printf("half1 stem preverb [%s] stem [%s] end [%s]\n", preverb_of(Gkword) , stem
 
 static gk_string * poss_stems[MAX_POSS_STEMS];
 static char * poss_keys[MAX_POSS_STEMS];
-static init_stor = 0;
+static int init_stor = 0;
 
-checkhalf2(gk_word *Gkword, char *endkeys)
+int checkhalf2(gk_word *Gkword, char *endkeys)
 {
 	int i;
 	int rval = 0;
@@ -190,7 +190,7 @@ fprintf(stderr,"rval %d for pb [%s] stem [%s] endkeys [%s]\n", rval, preverb_of(
 		else return(0);
 }
 
-StemsWork(gk_word *Gkword, gk_string *poss_stems[], char *poss_keys[], int stem_num)
+int StemsWork(gk_word *Gkword, gk_string *poss_stems[], char *poss_keys[], int stem_num)
 {
 	char savestem[MAXWORDSIZE];
 	int i, rval, result;
@@ -211,7 +211,7 @@ fprintf(stderr,"stem_num [%d]\n", stem_num );
 	return(result);
 }
 
-StemWorks(gk_word *Gkword, char *posskey, gk_string *possstem)
+int StemWorks(gk_word *Gkword, char *posskey, gk_string *possstem)
 {
 	int rval = 0;
 	int curval = 0;

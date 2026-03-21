@@ -2,13 +2,13 @@
 
 #include "preverb3.proto.h"
 
-static previndex = 0;
+static int previndex = 0;
 static char prevprevb[MAXWORDSIZE];
 static gk_string * PrevbTable;
 gk_string * load_euph_tab();
 static int numprevb = 0;
 
-nextpreverb(char *word, char *oldprevb, char *pblemma, gk_string *gstr)
+int nextpreverb(char *word, char *oldprevb, char *pblemma, gk_string *gstr)
 {
   int i = 0;
   
@@ -98,12 +98,12 @@ nextpreverb(char *word, char *oldprevb, char *pblemma, gk_string *gstr)
   return(0);
 }
 
-has_rawpreverb(char *curpb, gk_string *pbentry)
+int has_rawpreverb(char *curpb, gk_string *pbentry)
 {
   return(!Xstrncmp(curpb,gkstring_of(pbentry),Xstrlen(gkstring_of(pbentry))));
 }
 
-is_rawpreverb(char *s) 
+int is_rawpreverb(char *s)
 {
 	int i;
 

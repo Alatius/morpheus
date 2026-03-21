@@ -2,7 +2,7 @@
 
 #include "ulttakescirc.proto.h"
 
-ulttakescirc(gk_string *gstring, word_form form_info)
+int ulttakescirc(gk_string *gstring, word_form form_info)
 {
 	Stemtype stemtype;
 

@@ -6,7 +6,7 @@ gk_word *  GenStemForms(gk_word *,char *,int);
 gk_word *  GenIrregForm(gk_word *,char *,int);
 int CompGkForms(const void *a, const void *b);
 
- GenStemLink(FILE * f,FILE * fout)
+int GenStemLink(FILE * f,FILE * fout)
 {
 	gk_word * Rvals = NULL;
 	gk_word *Gkword;

@@ -12,7 +12,7 @@ is_thirdmono(stemtype,morphflags,stem,endstring,form_info,is_ending)
 Stemtype stemtype;
 MorphFlags * morphflags;
 */
-is_thirdmono(gk_string *stemgstr, gk_string *endgstr, char *stem, char *endstring, word_form form_info, int is_ending)
+int is_thirdmono(gk_string *stemgstr, gk_string *endgstr, char *stem, char *endstring, word_form form_info, int is_ending)
 {
 	char * p;
 	Stemtype stemtype = stemtype_of(stemgstr);
@@ -70,12 +70,12 @@ is_thirdmono(gk_string *stemgstr, gk_string *endgstr, char *stem, char *endstrin
 	
 }
 
-is_mono_stem(char *stems, char *ends)
+int is_mono_stem(char *stems, char *ends)
 {
 	return( (nsylls(stems)+nsylls(ends) == 2) );
 }
 
-is_thirdexception(char *stem, char *endstring)
+int is_thirdexception(char *stem, char *endstring)
 {
 	char workword[MAXWORDSIZE];
 	int i;
@@ -97,7 +97,7 @@ is_thirdexception(char *stem, char *endstring)
 /*
  * does not regard case information and returns only a possibility
  */
-poss_thirdmono(Stemtype stemtype, char *stem, char *endstring)
+int poss_thirdmono(Stemtype stemtype, char *stem, char *endstring)
 {
 	char * p1;
 	char * p2;
@@ -142,7 +142,7 @@ char * ending;
 }
 */
 
-diphth_end(char *stem, char *endstring)
+int diphth_end(char *stem, char *endstring)
 {
 	char tmp[MAXWORDSIZE];
 	char * s;

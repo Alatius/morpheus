@@ -6,7 +6,7 @@
 #include <string.h>
 
 #include "nextkey.proto.h"
-nextkey(char *keylist, char *nextkey)
+int nextkey(char *keylist, char *nextkey)
 {
 	register char * a = keylist;
 	register char * b = nextkey;

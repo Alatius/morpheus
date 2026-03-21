@@ -2,7 +2,7 @@
 
 #include "isblank.proto.h"
 
-is_blank(char *s)
+int is_blank(char *s)
 {
 	while(*s && isspace(*s)) s++;
 	if( ! *s  ) return(1);

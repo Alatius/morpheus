@@ -3,6 +3,6 @@
 
 
 /* subchar.c */
-int subchar(char *, int, int);
+void subchar(char *, int, int);
 
 #endif /* SUBCHAR_PROTO_H */

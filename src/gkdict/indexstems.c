@@ -12,7 +12,7 @@ gk_string AvoidGstr;
 gk_string Blnk;
 char ** stems;
 
-int index_stems(int, int, int,char *, char* ,int);
+void index_stems(int, int, int,char *, char* ,int);
 int wantstem, wantirrverb, wantindecl;
 char * wlist, *indexlist;
 int indfreq;
@@ -28,7 +28,7 @@ static long stemcount = 0;
 #define DELIMITER " "
 
 #include "indexstems.proto.h"
-static do_index(char *file, int indfreq);
+static void do_index(char *file, int indfreq);
 long bufsiz =  0;
 long bufcount = 0;
 char * bufptr;
@@ -58,23 +58,22 @@ int zstrcmp(const void * s1, const void * s2)
 }
 
 
-index_hqdict(int wantstem, int wantirrverb, int wantindecl)
+void index_hqdict(int wantstem, int wantirrverb, int wantindecl)
 {
 	index_stems(wantstem,wantirrverb,wantindecl,WORDLIST,STEMLIST,1);
 }
 
-index_noms(int wantstem, int wantirrverb, int wantindecl)
+void index_noms(int wantstem, int wantirrverb, int wantindecl)
 {
 	index_stems(wantstem,wantirrverb,wantindecl,NOMLIST,NOMINDEX,(int)10);
 }
 
-index_vbs(int wantstem, int wantirrverb, int wantindecl)
+void index_vbs(int wantstem, int wantirrverb, int wantindecl)
 {
 	index_stems(wantstem,wantirrverb,wantindecl,VBLIST,VBINDEX,(int)10);
 }
 
-int
-index_stems(int wantstem, int wantirrverb, int wantindecl, char *wlist, char *indexlist, int indfreq)
+void index_stems(int wantstem, int wantirrverb, int wantindecl, char *wlist, char *indexlist, int indfreq)
 {
 
 	char curlemma[MAXWORDSIZE];
@@ -96,7 +95,7 @@ index_stems(int wantstem, int wantirrverb, int wantindecl, char *wlist, char *in
 	
 	if(! (finput=fopen(wlist,"r"))) {
 			fprintf(stderr,"Could not open %s\n", wlist );
-			return(-1);
+			return;
 	}
 /*	
 	sprintf(errfile,"%s.error", wlist );
@@ -218,8 +217,7 @@ index_stems(int wantstem, int wantirrverb, int wantindecl, char *wlist, char *in
 	}
 }
 		
-static
-do_index(char *file, int indfreq)
+static void do_index(char *file, int indfreq)
 {
 	FILE * foutput;
 /*
@@ -256,7 +254,7 @@ fprintf(stderr,"out of qsort\n");
 		
 		sprintf(tmp,"Could not open %s!", file );
 		ErrorMess(tmp);
-		return(-1);
+		return;
 	}
 	
 	prevtag[0] = 0;
@@ -300,7 +298,7 @@ fprintf(stderr,"have just indexed [%s]\n", file);
 
 
 
-add_newstemkey(char *s)
+int add_newstemkey(char *s)
 {
 	if( stemcount >= MAX_END_TABLE ) {
 		fprintf(stderr,"more than %d endings in table! bye!\n", MAX_END_TABLE );
@@ -328,7 +326,7 @@ add_newstemkey(char *s)
 	return(1);
 }
 
-do_curstem(char *tag, char *curstem, char *curlemma, char *curline, char *prefix)
+int do_curstem(char *tag, char *curstem, char *curlemma, char *curline, char *prefix)
 {
 
 	char markedstem[BIGSTRING];
@@ -382,7 +380,7 @@ if(preverb_of(&GkWord)[0] )
 	return(1);
 }
 
-dumpaccstem(char *prefix, char *curstem, char *markedstem, char *curlemma, gk_string *gstr, gk_string *avoidgstr, int syllnum, char *preverb)
+int dumpaccstem(char *prefix, char *curstem, char *markedstem, char *curlemma, gk_string *gstr, gk_string *avoidgstr, int syllnum, char *preverb)
 {
 	char * p, * getsyll();
 	char tmpmarked[MAXWORDSIZE];
@@ -416,8 +414,8 @@ dumpaccstem(char *prefix, char *curstem, char *markedstem, char *curlemma, gk_st
 	return(1);
 }
 	
-dump_curstem(char *prefix, char *curstem, char *markedstem, char *curlemma, gk_string *gstr, gk_string *avoidgstr, char *preverb)
-{	
+int dump_curstem(char *prefix, char *curstem, char *markedstem, char *curlemma, gk_string *gstr, gk_string *avoidgstr, char *preverb)
+{
 	char tmp[BIGSTRING];
 	char notbuf[BIGSTRING];
 
@@ -473,7 +471,7 @@ printf("numovable is [%s]\n", gkstring_of(&TmpGstr));
 	return (add_newstemkey(tmp));
 }
 
-clear_globs(char *s)
+void clear_globs(char *s)
 {
 	while(*s) {
 		if( *s == ',' )
@@ -482,14 +480,14 @@ clear_globs(char *s)
 	}
 }
 
-is_presredupl(char *s)
+int is_presredupl(char *s)
 {
 	if( is_substring("pres_redupl",s) )
 		return(1);
 	return(0);
 }
 
-huh(void)
+void huh(void)
 {
 	getchar();
 }

@@ -10,7 +10,7 @@
 char * domlist[MAXDOMAINS];
 char lastdom[BUFSIZ];
 
-_main(int argc, char *argv[])
+void _main(int argc, char *argv[])
 {
 	 char line[BUFSIZ*6];
 	FILE * f, *MorphFopen();
@@ -67,21 +67,21 @@ _main(int argc, char *argv[])
 */
 }
 
-conv_defline(char *s, FILE *fout)
+void conv_defline(char *s, FILE *fout)
 {
 	char res1[128], res2[128], result[BUFSIZ*6];
 	char * introp;
 	int levnum;
-	
+
 	res1[0] = 0;
 	introp = "";
-	
+
 	if( has_pref(s,":dnum") ) {
-		
+
 		while(*s&&!isspace(*s)) s++;
 		while(isspace(*s)) s++;
-		
-		
+
+
 
 		levnum = check_deflev(s,res1,sizeof res1);
 		set_roman();
@@ -89,11 +89,11 @@ conv_defline(char *s, FILE *fout)
 		strcat(res2,"\t");
 		if (levnum == 2 )
 			introp = "\\s2\\fi-510\\li1134\\sb80\\sa80\\tx1134 \\f20";
-		else if( levnum == 3 ) 
+		else if( levnum == 3 )
 			introp = "\\s3\\fi-539\\li1701\\sb60\\sa60\\tx1729 \\f20";
-		else if( levnum == 4 ) 
+		else if( levnum == 4 )
 			introp = "\\s4\\fi-510\\li652\\sb80\\sa80\\tx652 \\f20";
-		else if( levnum == 5 ) 
+		else if( levnum == 5 )
 			introp = "\\s5\\fi-539\\li2296\\sb80\\sa80\\tx2296 \\f20";
 		else if( levnum == 9 )  {
 			introp = "\\s9\\sb60\\sa60 \\f20";
@@ -106,36 +106,36 @@ conv_defline(char *s, FILE *fout)
 
 		beta2smk(s,result);
 		fprintf(fout,"%s}\\par\\pard\\plain}\n",  result );
-		return(0);
+		return;
 	}
 	if( has_pref(s,":xref") ) {
 		while(*s&&!isspace(*s)) s++;
 		while(isspace(*s)) s++;
-		
+
 		beta2smk(s,result);
 		fprintf(fout,"\\s6{%s}\\par\\pard\\plain\n", result );
-		return(0);
+		return;
 	}
 	if( has_pref(s,":le:") || has_pref(s,":cv:")  ) {
 		*(s+3) = '$';
 		beta2smk(s+3,result);
 
 		fprintf(fout,"\\s7\\sb160 \\b\\f20\\fs24{%s}\\par\\pard\\plain\n", result);
-		return(0);
+		return;
 	}
 	if( has_pref(s,":comm") ) {
 		while(*s&&!isspace(*s)) s++;
 		while(isspace(*s)) s++;
-		
+
 		beta2smk(s,result);
 		fprintf(fout,"\\s8{%s}\\par\n", result );
-		return(0);
+		return;
 	}
 
 	fprintf(fout,"%s\\par\n", s );
 }
 
-check_deflev(char *p, char *res, int len)
+int check_deflev(char *p, char *res, int len)
 {
 	char * s;
 	
@@ -162,13 +162,13 @@ check_deflev(char *p, char *res, int len)
 	return(0);
 }
 
-has_pref(char *s, char *prefs)
+int has_pref(char *s, char *prefs)
 {
 	return(!strncmp(s,prefs,strlen(prefs)));
 }
 
 
-is_greek(char *s)
+int is_greek(char *s)
 {
 	int n = 0;
 	

@@ -3,7 +3,7 @@
 
 
 /* Fclose.c */
-int xFclose(FILE *);
+void xFclose(FILE *);
 int xFree(char *, char *);
 
 #endif /* FCLOSE_PROTO_H */

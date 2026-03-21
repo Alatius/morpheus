@@ -21,8 +21,7 @@ fprintf(stdout,"hello world!\n");
 	
 }
 
-crunchfile(s)
-char *s;
+void crunchfile(char *s)
 {
 	FILE * finput, *foutput;
 	char line[BUFSIZ*4];

@@ -2,16 +2,16 @@
 #include "endfiles.h"
 
 #include "mkend.proto.h"
-static mk_compend(gk_string *, gk_string *, char *, char *);
-static update_end(gk_string *, gk_string *, char *, char *, char *);
-static join_end(gk_string *, char *, int);
+static void mk_compend(gk_string *, gk_string *, char *, char *);
+static void update_end(gk_string *, gk_string *, char *, char *, char *);
+static void join_end(gk_string *, char *, int);
 
 static gk_string WantGstr;
 static gk_string AvoidGstr;
 static gk_string CurGstr;
 static gk_string BlankGstr;
 
- mk_end(char *havestr, gk_string *Have, gk_string *Avoid)
+void mk_end(char *havestr, gk_string *Have, gk_string *Avoid)
 {
 	char * s;
 	char savestr[MAXWORDSIZE];
@@ -33,7 +33,7 @@ static gk_string BlankGstr;
 
 			*s = 0;
 			mk_compend(Have,Avoid,savestr,s+1);
-			return(0);
+			return;
 		}
 		s++;
 	}
@@ -57,7 +57,7 @@ static gk_string BlankGstr;
 			mk_end(gkstring_of(euph_forms+i),euph_forms+i,&AvoidGstr);
 		}
 		FreeGkString(euph_forms);
-		return(0);
+		return;
 	}
 /*
  * allow only one contraction per ending for now
@@ -101,8 +101,7 @@ printf("no contr in: "); PrntGkStr(Have,stdout);
 }
 
 
-static 
- mk_compend(gk_string *Have, gk_string *Avoid, char *curstr, char *endtype)
+static void mk_compend(gk_string *Have, gk_string *Avoid, char *curstr, char *endtype)
 {
 	char fname[BUFSIZ];
 	FILE * f;
@@ -117,7 +116,7 @@ static
 
 	if( ! (f=MorphFopen(line,"r")) ) {
 		fprintf(stderr,"could not open [%s]\n", endtype );
-		return(-1);
+		return;
 	}
 	while(fgets(line,sizeof line,f)) {
 		char curendstr[MAXWORDSIZE];
@@ -139,8 +138,7 @@ static
 	fclose(f);
 }
 
-static 
- update_end(gk_string *Have, gk_string *Avoid, char *stem, char *endstr, char *newkeys)
+static void update_end(gk_string *Have, gk_string *Avoid, char *stem, char *endstr, char *newkeys)
 {
 	char savestem[MAXWORDSIZE];
 
@@ -165,8 +163,7 @@ static
 	} 
 }
 
-static
- join_end(gk_string *Have, char *stem, int saw_vowel)
+static void join_end(gk_string *Have, char *stem, int saw_vowel)
 {
 	gk_string SaveGstr;
 	set_gkstring(Have,stem);
@@ -206,7 +203,7 @@ printf("saw_vowel on [%s]\n", gkstring_of(Have) );
 	}
 }
 
- CompStemEnd(gk_string *gstr, char *stem, char *endstr)
+void CompStemEnd(gk_string *gstr, char *stem, char *endstr)
 {
 	int lastc;
 	char * ep = endstr;
@@ -286,7 +283,7 @@ printf("gks [%s] lastc [%c] stem [%s] endstr [%s]\n", gkstring_of(gstr), lastc ,
 	}
 }
 
-zap_extra_lmarks(char *s)
+void zap_extra_lmarks(char *s)
 {
 	while(*s) {
 		if( Is_lvwl(*s) && *(s+1) == HARDLONG ) {

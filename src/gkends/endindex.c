@@ -31,7 +31,7 @@ static int nvstemetags = 0;
 
 endind * init_endind();
 
-chcknend(char *endstr, char *keys)
+int chcknend(char *endstr, char *keys)
 {
 	long startoff;
 	char tmpendstr[MAXWORDSIZE+1];
@@ -55,7 +55,7 @@ chcknend(char *endstr, char *keys)
 }
 
 
-chckdictent(char * possent, char *keys)
+int chckdictent(char * possent, char *keys)
 {
 	long startoff;
 	char tmpendstr[MAXWORDSIZE+1];
@@ -78,7 +78,7 @@ chckdictent(char * possent, char *keys)
 	return( checkendind(DictEntTags,tmpendstr,keys,strncmp));
 }
 
-chckcmpvb(char *endstr, char *keys)
+int chckcmpvb(char *endstr, char *keys)
 {
 	long startoff;
 	char tmpendstr[MAXWORDSIZE+1];
@@ -101,7 +101,7 @@ chckcmpvb(char *endstr, char *keys)
 	return( checkendind(CmpVbtags,tmpendstr,keys,strncmp));
 }
 
-chckend(char *endstring) 
+int chckend(char *endstring)
 {
 	char tmp[LONGSTRING];
 
@@ -110,7 +110,7 @@ chckend(char *endstring)
 	return(chckvend(endstring,tmp)||chcknend(endstring,tmp));
 }
 
-chckvend(char *endstr, char *keys)
+int chckvend(char *endstr, char *keys)
 {
 	long startoff;
 	int curhit;
@@ -128,7 +128,7 @@ chckvend(char *endstr, char *keys)
 	return(curhit);
 }
 
-chckvstem(char *stemstr, char *keys)
+int chckvstem(char *stemstr, char *keys)
 {
 	long startoff;
 	int curhit;
@@ -146,7 +146,7 @@ chckvstem(char *stemstr, char *keys)
 	return(curhit);
 }
 
-chckdvend(char *endstr, char *keys)
+int chckdvend(char *endstr, char *keys)
 {
 	long startoff;
 	int curhit;
@@ -243,7 +243,7 @@ init_endind(char *fname, endind *etags)
 	return(etags);
 }
 
-checkendind(endind *etags, char *endstr, char *keys, int (*scmp )())
+int checkendind(endind *etags, char *endstr, char *keys, int (*scmp )())
 {
 	int high = 0;
 	int low = 0;

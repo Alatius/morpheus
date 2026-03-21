@@ -3,7 +3,7 @@
 #include <ctype.h>
 char * malloc();
 
-_main()
+void _main()
 {
 		int c,hcode;
 		char line[BUFSIZ], *s;

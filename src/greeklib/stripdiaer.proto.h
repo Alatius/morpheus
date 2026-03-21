@@ -3,6 +3,6 @@
 
 
 /* stripdiaer.c */
-int stripdiaer(char *);
+void stripdiaer(char *);
 
 #endif /* STRIPDIAER_PROTO_H */

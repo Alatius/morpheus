@@ -12,12 +12,12 @@
  * start with something like "*(/ellhn"
  * and end with "E(/llhn"
  */
-normucase(char *word)
+void normucase(char *word)
 {
 	register char * s;
 	register char * t;
 
-	if( *word != BETA_UCASE_MARKER ) return(0);
+	if( *word != BETA_UCASE_MARKER ) return;
 
 	s = word;
 	while(!isalpha(*s)&&*s) s++;
@@ -26,7 +26,7 @@ normucase(char *word)
 	 * in case of "*(/ellhn", s points now to "ellhn"
  	 */
 	if( ! islower(*s) )
-		return(0);
+		return;
 	*word = toupper(*s);
 	/*
  	 * word now "E(/ellhn"

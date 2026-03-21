@@ -9,10 +9,10 @@ char * GetEndString();
 
 #include "retrends.proto.h"
 static gk_string *RetrCompEnds(gk_string *, gk_string *, int *, Dialect);
-static ProcEndRecord(char *, gk_string *);
+static void ProcEndRecord(char *, gk_string *);
 static char *GetEndString(char *, gk_string *);
-static NoWantGkEnd(gk_string *, gk_string *, int);
-static AddNewEnd(gk_string *, gk_string *, int);
+static int NoWantGkEnd(gk_string *, gk_string *, int);
+static void AddNewEnd(gk_string *, gk_string *, int);
 
 static gk_string  Cur_gkend;
 
@@ -99,7 +99,7 @@ printf("AvoidEnd:"); PrntAGstr(&AvoidEnd,stdout); printf("\n");
 	return(gstring);
 }
 
- CompatKeys(char *keys1, char *keys2, gk_string *gstr)
+int CompatKeys(char *keys1, char *keys2, gk_string *gstr)
 {
 	gk_string  Gstr;
 	gk_string  Gstr2;
@@ -137,7 +137,7 @@ printf("AvoidEnd:"); PrntAGstr(&AvoidEnd,stdout); printf("\n");
 }
  
  
- EndingOk(char *keys, gk_string *gstr, gk_string *avoidgstr, int wantderiv)
+int EndingOk(char *keys, gk_string *gstr, gk_string *avoidgstr, int wantderiv)
 {
 	int good = 0;
 	gk_word * BlnkGkword;
@@ -301,8 +301,7 @@ printf("Cur_gkend:"); PrntGkFlags(&Cur_gkend,stdout); printf("\n\n");
 	return(ListOfEnds);
 }
 
-static
- ProcEndRecord(char *s, gk_string *gkend)
+static void ProcEndRecord(char *s, gk_string *gkend)
 {
 	gk_word * BlnkGkword;
 	
@@ -329,8 +328,7 @@ static char *
 	return(s);
 }
 
-static
- NoWantGkEnd(gk_string *skipend, gk_string *haveend, int strict)
+static int NoWantGkEnd(gk_string *skipend, gk_string *haveend, int strict)
 {
 
 	if( dialect_of(skipend) ) {
@@ -366,7 +364,7 @@ static
  *		
  */
 /*static*/
- WantGkEnd(gk_string *wantend, gk_string *haveend, bool writeflag, int strict)
+int WantGkEnd(gk_string *wantend, gk_string *haveend, bool writeflag, int strict)
 {
 	int compval;
 
@@ -653,7 +651,7 @@ printf("[%s] failing on rightmorphflags\n", gkstring_of(haveend) );
 	return(1);
 }
 
- RightMorphflags(gk_string *wantend, gk_string *haveend)
+int RightMorphflags(gk_string *wantend, gk_string *haveend)
 {
 /*
  * this kludge checks to make sure that you don't yank create weird
@@ -684,8 +682,7 @@ printf("[%s] failing on rightmorphflags\n", gkstring_of(haveend) );
 	return(1);
 }
 
-static 
- AddNewEnd(gk_string *gstrings, gk_string *newgstr, int sofar)
+static void AddNewEnd(gk_string *gstrings, gk_string *newgstr, int sofar)
 {
 	int i, rval;
 
@@ -694,7 +691,7 @@ static
 
 	if( sofar == 0 ) {
 		*gstrings = *newgstr;
-		return(0);
+		return;
 	}
 
 /* 
@@ -711,7 +708,7 @@ printf("starting with: "); PrntGkFlags(newgstr,stdout); printf("\n", rval );
 
 		if( rval > 0 ) {
 			*(gstrings+i) = *newgstr;
-			return(0);
+			return;
 		}
 		*(gstrings+i) = *(gstrings+i-1);
 	}
@@ -720,7 +717,7 @@ printf("starting with: "); PrntGkFlags(newgstr,stdout); printf("\n", rval );
 }
 
 
-setwendstr(char *wendstr, char *str)
+void setwendstr(char *wendstr, char *str)
 {
 	char * p = str;
 	char * s = wendstr;
@@ -740,7 +737,7 @@ setwendstr(char *wendstr, char *str)
 	stripacc(wendstr);
 }
 
-endstrcmp(char *wendstr, char *haveendstr)
+int endstrcmp(char *wendstr, char *haveendstr)
 {
 	char tmp[MAXWORDSIZE];
 	char *hp, *sp;
@@ -772,7 +769,7 @@ printf("%s --> %s\n", haveendstr, tmp );
 	return(dictstrcmp(wendstr,haveendstr));
 }
 
-noaccstrcmp(char *wendstr, char *hendstr)
+int noaccstrcmp(char *wendstr, char *hendstr)
 {
 	char tmp1[BUFSIZ];
 	char tmp2[BUFSIZ];
@@ -786,7 +783,7 @@ noaccstrcmp(char *wendstr, char *hendstr)
 	return(strcmp(tmp1,tmp2));
 }
 
-has_quantacc(char *s)
+int has_quantacc(char *s)
 {
 	int rval = 0;
 	if( has_quant(s) ) rval += 010;
@@ -794,7 +791,7 @@ has_quantacc(char *s)
 	return(rval);
 }
 
-stripquantacc(char *s)
+void stripquantacc(char *s)
 {
 	stripquant(s);
 	stripacc(s);

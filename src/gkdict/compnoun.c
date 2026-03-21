@@ -4,7 +4,7 @@
 
 int is_nomhead(char * heads,char * headkeys);
 
-checkforcompnoun(char * curstem,char * endkeys,char * stemkeys)
+void checkforcompnoun(char * curstem,char * endkeys,char * stemkeys)
 {
 	char *s = curstem;
 	char headkeys[BUFSIZ];
@@ -42,7 +42,7 @@ char *headtab[MAXTAILS];
 static int init_headtab = 0;
 static int nheads = 0;
 
-setup_headtab()
+int setup_headtab()
 {
 	FILE * fheads;
 	char line[1000];
@@ -64,7 +64,7 @@ setup_headtab()
 	return(1);
 }
 
-is_nomhead(char * heads,char * headkeys)
+int is_nomhead(char * heads,char * headkeys)
 {
 	int rval = 0;
 	char tmphead[BUFSIZ];

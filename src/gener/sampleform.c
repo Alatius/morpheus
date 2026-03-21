@@ -1,7 +1,6 @@
 #include <gkstring.h>
 
-set_sampleform(keys)
-char * keys;
+int set_sampleform(char *keys)
 {
 	word_form wf;
 	gk_string * gstr;

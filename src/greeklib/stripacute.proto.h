@@ -3,6 +3,6 @@
 
 
 /* stripacute.c */
-int stripacute(char *);
+void stripacute(char *);
 
 #endif /* STRIPACUTE_PROTO_H */

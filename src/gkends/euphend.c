@@ -2,7 +2,7 @@
 
 #include "euphend.proto.h"
 
- EuphEnd(gk_string *want, gk_string *have, int strict)
+int EuphEnd(gk_string *want, gk_string *have, int strict)
 {
 	Dialect d;
 	char * curs = gkstring_of(have);

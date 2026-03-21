@@ -3,6 +3,6 @@
 
 
 /* stripbreath.c */
-int stripbreath(char *);
+void stripbreath(char *);
 
 #endif /* STRIPBREATH_PROTO_H */

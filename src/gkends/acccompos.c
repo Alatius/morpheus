@@ -5,7 +5,7 @@
 #include "acccompos.proto.h"
 char * skip_to_syll();
 
-AccComposForm(gk_string *gstr)
+void AccComposForm(gk_string *gstr)
 {
 	gk_word * gkform;
 	char * p = gkstring_of(gstr);

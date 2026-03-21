@@ -4,7 +4,7 @@
 #include "conjstem.proto.h"
 
 
-fixcontr(char *stem, char *verb)
+void fixcontr(char *stem, char *verb)
 /* expand stem for contract verbs */
 {
 	if (A_CONTR(verb) || E_CONTR(verb))
@@ -13,7 +13,7 @@ fixcontr(char *stem, char *verb)
 		Xstrncat(stem,"w",MAXWORDSIZE);
 }
 
-makeperf(char *s)
+void makeperf(char *s)
 {
 	register char *p;
 
@@ -32,12 +32,12 @@ makeperf(char *s)
 		conjoin(s,"k");
 }
 
-fixperf(char *s)
+void fixperf(char *s)
 {
 	register char *p;
 
-	if( *(lastn(s,1)) != 'k' ) 
-	  return(0);
+	if( *(lastn(s,1)) != 'k' )
+	  return;
 		
 	p = lastn(s,2);
 	if (Is_dental(*p) || *p == 'z') {
@@ -66,7 +66,7 @@ fixperf(char *s)
 	}
 }
 
-conjstem(char *stem, char *e)
+void conjstem(char *stem, char *e)
 {
 	register char *p;
 	char ending[MAXWORDSIZE];
@@ -93,7 +93,7 @@ conjstem(char *stem, char *e)
 	conjoin(stem,ending);
 }
 
-conjoin(char *stem, char *e)
+void conjoin(char *stem, char *e)
 {
 	/* observe the laws of euphony, if you please... */
 	register char *p;
@@ -106,16 +106,16 @@ conjoin(char *stem, char *e)
  * this has got to be fixed if it is going to work at all well with
  * dialects!
  */
- 
+
  /*
   * grc 4/21/89
   * an unbelievable kludge to allow me to generate plass- from plat-ss so that
   * i can get the epic form pla/ssa.  unbelievable! ugh.
   */
- 	if( (Is_dental(*p) || *p == 'z' || *p == 'n' ) && !Xstrncmp(e,"ss",2) ) {
- 		Xstrncpy(p,e,MAXWORDSIZE-(int)(p-stem));
- 		return(0);
- 	}
+	if( (Is_dental(*p) || *p == 'z' || *p == 'n' ) && !Xstrncmp(e,"ss",2) ) {
+		Xstrncpy(p,e,MAXWORDSIZE-(int)(p-stem));
+		return;
+	}
  	
 	do {
 		changed = NO;
@@ -137,7 +137,7 @@ conjoin(char *stem, char *e)
 	Xstrncat(stem,ending,MAXWORDSIZE);
 }
 
-do_sigma(char *s, char *ending)
+int do_sigma(char *s, char *ending)
 {
 	/* Smyth 537,545 */
 	register char *p;

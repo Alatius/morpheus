@@ -9,6 +9,7 @@
 #include <string.h>
 #include "../greeklib/xstrings.proto.h"
 #include "gkstring.proto.h"
+#include "morphkeys.proto.h"
 #ifdef LIGHTSPEED
 
 /*
@@ -26,12 +27,11 @@ Stemtype GetStemClass(char * );
 Stemtype GetIsProse(char *);
 
 #ifndef LIGHTSPEED
-static GetGkFlag();
-static GetMorphKeys();
+static int GetGkFlag(char *, gk_string *, char *, char *, char *);
 #endif
 
-static RearrangeMorphflags(gk_word *, gk_string *);
-static GetGkFlag(char *, gk_string *, char *, char *, char *);
+static void RearrangeMorphflags(gk_word *, gk_string *);
+static int GetGkFlag(char *, gk_string *, char *, char *, char *);
 static char *p_eq_morph_keys(long, Morph_args *);
 static int keys_inited = 0;
 static int nstems = 0;
@@ -42,7 +42,7 @@ static int nkeys = 0;
 int keycomp1(const void *, const void *);
 static Morph_args ** key_table = NULL;
 
- ScanAsciiKeys(char *s, gk_word *Gkword, gk_string *want, gk_string *avoid)
+int ScanAsciiKeys(char *s, gk_word *Gkword, gk_string *want, gk_string *avoid)
 {
 	char savekeys[LONGSTRING];
 	char curkey[LONGSTRING];
@@ -150,15 +150,13 @@ printf("crasis now set to [%s]\n", crasis_of(Gkword) );
 		return(1);
 }
 
-static 
-RearrangeMorphflags(gk_word *Gkword, gk_string *gstr)
+static void RearrangeMorphflags(gk_word *Gkword, gk_string *gstr)
 {
 	xfer_prvbflags(morphflags_of(Gkword),morphflags_of(prvb_gstr_of(Gkword)));
 	xfer_prvbflags(morphflags_of(gstr),morphflags_of(prvb_gstr_of(Gkword)));
 }
 
-static
- GetGkFlag(char *field, gk_string *gstr, char *endstring, char *preverb, char *lemma)
+static int GetGkFlag(char *field, gk_string *gstr, char *endstring, char *preverb, char *lemma)
 {
 	
  	if( ! keys_inited )
@@ -348,7 +346,7 @@ char *
 }
 
 
-DomainNames(char *domp, char *res, char *dels)
+void DomainNames(char *domp, char *res, char *dels)
 {
 	char * p = domp;
 	
@@ -360,7 +358,7 @@ DomainNames(char *domp, char *res, char *dels)
 	}
 }
   
- DialectNames(Dialect di, char *res, char *dels)
+void DialectNames(Dialect di, char *res, char *dels)
 {
 	char * s;
 	int i;
@@ -368,12 +366,12 @@ DomainNames(char *domp, char *res, char *dels)
 	Dialect sofar = 0;
 	Morph_flags mf;
 	Morph_args * morph_args;
-	
+
 	morph_args = arg_dialect;
-	
+
 	*res = 0;
 	if( ! di )
-		return(0);
+		return;
 	mf = (Morph_flags)di;
 
 	while( morph_args->morph_key[0] ) {
@@ -386,10 +384,10 @@ DomainNames(char *domp, char *res, char *dels)
 		}
 		morph_args++;
 	}
-	return(0);
+	return;
 }
 
- GeogRegionNames(GeogRegion gr, char *res, char *dels)
+void GeogRegionNames(GeogRegion gr, char *res, char *dels)
 {
 	char * s;
 	int i;
@@ -397,12 +395,12 @@ DomainNames(char *domp, char *res, char *dels)
 	GeogRegion sofar = 0;
 	Morph_flags mf;
 	Morph_args * morph_args;
-	
+
 	morph_args = arg_geogregion;
-	
+
 	*res = 0;
 	if( ! gr )
-		return(0);
+		return;
 	mf = (Morph_flags)gr;
 
 	while( morph_args->morph_key[0] ) {
@@ -413,7 +411,7 @@ DomainNames(char *domp, char *res, char *dels)
 		}
 		morph_args++;
 	}
-	return(0);
+	return;
 }
 
 char *
@@ -553,7 +551,7 @@ InitStemSuffs(char *fname, void (*curfunc )(), Stemtype (*classfunc )(), int *sn
 }
 
 
-init_stems(void)
+void init_stems(void)
 {
 	
 	arg_stemtype = InitStemSuffs(STEMTYPES,new_stemtype,GetStemClass,&nstems);
@@ -563,7 +561,7 @@ init_stems(void)
 }
 	
 	
-has_octal(char *s)
+int has_octal(char *s)
 {
 	while(*s&& !isspace(*s)) s++;
 	while(isspace(*s)) s++;
@@ -571,7 +569,7 @@ has_octal(char *s)
 	return(0);
 }
 
-init_keys(void)
+void init_keys(void)
 {
 	int sofar = 0;
 	int i;
@@ -637,8 +635,7 @@ getchar();
 
 }
 
-int
-keycomp1(const void *k1, const void *k2)
+int keycomp1(const void *k1, const void *k2)
 {
 	Morph_args ** m1, **m2;
 
@@ -647,8 +644,7 @@ keycomp1(const void *k1, const void *k2)
 	return(strcmp( (*m1)->morph_key, (*m2)->morph_key ));
 }
 
-int
-keycomp2(char *s, Morph_args **kp)
+int keycomp2(char *s, Morph_args **kp)
 {
 	Morph_args * m;
 	int rval = 0;
@@ -659,7 +655,7 @@ keycomp2(char *s, Morph_args **kp)
 	return(rval);
 }
 
- add_keyarr(Morph_args **ktab, Morph_args *morph_args)
+int add_keyarr(Morph_args **ktab, Morph_args *morph_args)
 {
 	register Morph_args * ms = morph_args;
 	
@@ -691,7 +687,7 @@ GetIsProse(char *classp)
 	return((Stemtype)0);
 }
 
- AddMorphKey(gk_string *gstr, char *field)
+int AddMorphKey(gk_string *gstr, char *field)
 {
 	void (*func)(gk_string *, Morph_flags);
 	Morph_args * mp, *MatchMorphKey(char*);

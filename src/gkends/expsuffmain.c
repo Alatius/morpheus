@@ -7,7 +7,7 @@
 char fname[80];
 static gk_string Gstr;
 
-main(int argc, char * argv[])
+int main(int argc, char * argv[])
 {
 	FILE * ffname;
 	char * curtable, * NextEndTable();
@@ -46,7 +46,7 @@ main(int argc, char * argv[])
 		expendtables(fname,maintable,formcode);
 }
 
-do_all_derivs(int maintable, int formcode)
+void do_all_derivs(int maintable, int formcode)
 {
 	FILE * finput;
 	char inpfname[MAXPATHNAME];
@@ -59,7 +59,7 @@ do_all_derivs(int maintable, int formcode)
 	strcpy(inpfname,DERIVTYPES);
 	if(! (finput=MorphFopen(inpfname,"r"))) {
 		printf("could not open [%s]\n",  inpfname );
-		return(-1);
+		return;
 	}
 	
 	while(fgets(tmp,sizeof tmp,finput)) {

@@ -13,20 +13,20 @@
 #include <greek.h>
 
 
-addaccent(char *word, int accent, char *p)
+void addaccent(char *word, int accent, char *p)
 {
 	register char * t = p-1;
 
 	if(*word == '*' && Is_breath(*(word+1)) ) {
 		if( p == (word+2)) {
 			cinsert(accent,word+2);
-			return(0);
+			return;
 		}
 		if( p == (word+3) && is_diphth(p,word) == YES) {
 			cinsert(accent,word+2);
-			return(0);
+			return;
 		}
-	} 
+	}
 
 	do p++;
 		while (Is_breath(*p) || Is_quant(*p) );

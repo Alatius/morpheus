@@ -3,11 +3,11 @@
 #define MAXSTEMS 10
 
 #include "checkindecl.proto.h"
-static IndeclWorks(gk_word *, char *);
+static int IndeclWorks(gk_word *, char *);
 long matchendtag();
 
 
-checkindecl(gk_word *Gkword)
+int checkindecl(gk_word *Gkword)
 {
 	int rval;
 	int hits = 0;
@@ -73,8 +73,7 @@ printf("rval %d workword [%s] keys [%s]\n", rval, workword, keys );
 	return(hits);
 }
 
-static
-IndeclWorks(gk_word *Gkword, char *keys)
+static int IndeclWorks(gk_word *Gkword, char *keys)
 {
 	int i;
 	int rval = 0;

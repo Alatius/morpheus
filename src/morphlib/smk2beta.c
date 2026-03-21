@@ -11,8 +11,8 @@
 #define ITALIC 3
 
 #include "smk2beta.proto.h"
-static conv(char *, char *);
-static add_acc(char *, int);
+static void conv(char *, char *);
+static void add_acc(char *, int);
 static int smkinited = 0;
 char *Xlit_table_smk[MAXCHAR+1];
 char *Xlit_table_smarta[MAXCHAR+1];
@@ -21,7 +21,7 @@ char smarta_char[MAXCHAR+1];
 static int fromsmk = 0;
 static int cur_font = 0;
 
-smarta2beta(char *start, char *result)
+void smarta2beta(char *start, char *result)
 {
 	Xlit_table = Xlit_table_smarta;
 	
@@ -30,7 +30,7 @@ smarta2beta(char *start, char *result)
 	conv(start,result);
 }
 
-smk2beta(char *start, char *result)
+void smk2beta(char *start, char *result)
 {
 	Xlit_table = Xlit_table_smk;
 
@@ -39,8 +39,7 @@ smk2beta(char *start, char *result)
 	conv(start,result);
 }
 
-static
-conv(char *start, char *result)
+static void conv(char *start, char *result)
 {
 	char tmp[BUFSIZ];
 	/*unsigned*/ char * s = start;
@@ -95,7 +94,7 @@ return(0);
 			s++;
 			continue;
 		}
-		if( *s == '«' && ! fromsmk ) {
+		if( *s == '\xab' && ! fromsmk ) {
 			set_cur_font(ROMAN,result);
 			s++;
 			continue;
@@ -141,7 +140,7 @@ return(0);
 	}
 }
 
-smk2betachar(int c)
+int smk2betachar(int c)
 {
 	if( c == 'v' ) return('w');
 	if( c == 'y' ) return('q');
@@ -150,7 +149,7 @@ smk2betachar(int c)
 	if( c == 'W' ) return('v');
 }
 
-init_smk(void)
+void init_smk(void)
 {
 	int i;
 	char tmp[80];
@@ -186,9 +185,9 @@ printf("%d) Xlit_table [%s]\n", Beta_SMK[i].keycode , Xlit_table[Beta_SMK[i].key
 
 }
 
-set_cur_font(int n, char *s)
+void set_cur_font(int n, char *s)
 {
-	if( fromsmk ) return(0);
+	if( fromsmk ) return;
 	
 	if( n != cur_font ) {
 		switch(n) {
@@ -220,10 +219,10 @@ set_cur_font(int n, char *s)
 #define EISUB_ACUTE 0372
 #define WISUB_ACUTE 0304
 
-trap_upper(char *res, char *s)
+void trap_upper(char *res, char *s)
 {
 	char tmp[BUFSIZ];
-	
+
 	if( isupper(*s) ) {
 		if( !cur_font || cur_font == GREEK ) {
 			set_cur_font(ROMAN,res);
@@ -233,9 +232,9 @@ trap_upper(char *res, char *s)
 		tmp[1] = tolower(*s);
 		tmp[2] = 0;
 		strcat(res,tmp);
-		return(0);
+		return;
 	}
-	
+
 	if( islower(*s) ) {
 		if( !cur_font || cur_font == ROMAN || cur_font == ITALIC ) {
 			set_cur_font(GREEK,res);
@@ -244,7 +243,7 @@ trap_upper(char *res, char *s)
 		tmp[1] = *s;
 		tmp[2] = 0;
 		strcat(res,tmp);
-		return(0);
+		return;
 	}
 
 	tmp[0] = 0;
@@ -289,8 +288,7 @@ trap_upper(char *res, char *s)
 	}
 }
 
-static 
-add_acc(char *s, int anum)
+static void add_acc(char *s, int anum)
 {
 	strcpy(s,Xlit_table[(int)( anum & (0377))]);
 }

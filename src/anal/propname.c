@@ -7,7 +7,7 @@ long prevmemory = 0;
 FILE * fpnames = NULL;
 char tbuf[5000], possbuf[10000];
 
-main(void)
+int main(void)
 {
 	FILE * finput, *foutput, *fnew;
 	char line[BUFSIZ*4];
@@ -124,7 +124,7 @@ nwords , nhits, 100* ((float)nhits/(float)nwords) , line , rval  );
 	fclose(foutput);
 }
 
-trimdigit(char *s)
+void trimdigit(char *s)
 {
 	char * p = s;
 	while(*s) s++;
@@ -132,7 +132,7 @@ trimdigit(char *s)
 	while(isdigit(*s)&&s>p) *s-- = 0;
 }
 
-checkpropname(char *s, FILE *f)
+int checkpropname(char *s, FILE *f)
 {
 	char tmpname[BUFSIZ], *wp, curend[BUFSIZ], endkeys[BUFSIZ];
 	char half1[BUFSIZ];
@@ -169,7 +169,7 @@ printf("%s\n", s);
 	return(rval);
 }
 
-tryxlits(FILE *f, char *xlit, char *keys, char *fulls, char *half1, char *ends)
+int tryxlits(FILE *f, char *xlit, char *keys, char *fulls, char *half1, char *ends)
 {
 	char curkey[BUFSIZ];
 	char workkey[BUFSIZ];
@@ -186,7 +186,7 @@ tryxlits(FILE *f, char *xlit, char *keys, char *fulls, char *half1, char *ends)
 	return(rval);
 }
 
-Xliterate(char *s1, char *s2)
+void Xliterate(char *s1, char *s2)
 {
 	char tmp[BUFSIZ];
 	int add_h = 0;
@@ -266,7 +266,7 @@ nom_tab Nom_tab[] = {
 };
 
 
-checkposs(FILE *fout, char *xlit, char *curs, char *fulls, char *stems, char *ends)
+int checkposs(FILE *fout, char *xlit, char *curs, char *fulls, char *stems, char *ends)
 {
 	char tmpxlit[BUFSIZ];
 	char tmpstem[MAXWORDSIZE];
@@ -324,7 +324,7 @@ checkposs(FILE *fout, char *xlit, char *curs, char *fulls, char *stems, char *en
 	return(hits);
 }
 
-stem_can_work(char *englem, char *fulls, char *stem, char *ends, char *stype, char *keys)
+int stem_can_work(char *englem, char *fulls, char *stem, char *ends, char *stype, char *keys)
 {
 	gk_word * Gkword;
 	gk_string * curstem;
@@ -385,7 +385,7 @@ xlit_tab Xlit_list[] = {
 	0,
 	};
 	
-reliterate(char *s)
+void reliterate(char *s)
 {
 	char tmp[BUFSIZ];
 	int i = 0;
@@ -411,7 +411,7 @@ reliterate(char *s)
 }
 
 
-AlphStrcmp(char *s1, char *s2)
+int AlphStrcmp(char *s1, char *s2)
 {
 	char * p = s2;
 	char tmp[MAXWORDSIZE];
@@ -429,12 +429,12 @@ AlphStrcmp(char *s1, char *s2)
 char *pnametab[10000];
 int pnames = 0;
 
-init_pnametab()
+void init_pnametab(void)
 {
 	char line[BUFSIZ];
 	int i = 0;
 
-	if( pnames ) return(0);
+	if( pnames ) return;
 	for(pnames=0;pnames<10000;pnames++) {
 		if( ! fgets(line,sizeof line,fpnames) ) {
 			if( pnames == 1 ) pnames = 0;
@@ -447,7 +447,7 @@ init_pnametab()
 
 }
 
-is_propname(char *s)
+int is_propname(char *s)
 {
 	char line[BUFSIZ];
 	int i = 0;

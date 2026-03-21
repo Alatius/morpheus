@@ -3,6 +3,6 @@
 
 
 /* cinsert.c */
-int cinsert(char, char *);
+void cinsert(int, char *);
 
 #endif /* CINSERT_PROTO_H */

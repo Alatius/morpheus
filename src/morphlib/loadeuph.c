@@ -98,7 +98,7 @@ gkstring_of(Euph_table+i)+MAXSUBSTRING );
 	return(Euph_table);
 }
 
-count_rlines(FILE *f)
+int count_rlines(FILE *f)
 {
 	char line[BUFSIZ];
 	int nlines = 0;

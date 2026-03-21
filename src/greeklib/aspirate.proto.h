@@ -3,6 +3,6 @@
 
 
 /* aspirate.c */
-int aspirate(char *);
+void aspirate(char *);
 
 #endif /* ASPIRATE_PROTO_H */

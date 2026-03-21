@@ -8,9 +8,9 @@ long matchendtag();
 
 static	char *IrrForms[MAXIRR]; 
 static	char *IrrKeys[MAXIRR];
-static init_stor = 0;
+static int init_stor = 0;
 
-try_irregvb(gk_word *Gkword)
+int try_irregvb(gk_word *Gkword)
 {
 	gk_word Workword;
 	char *saveirrform = NULL;
@@ -205,7 +205,7 @@ printf("rval b %d irrform [%s] irkkeys [%s]\n", rval , irrform, IrrKeys[0] );
  */
 
 
-ChckIrrLemms(gk_word *Gkword, char *irrform, char *irrkey)
+int ChckIrrLemms(gk_word *Gkword, char *irrform, char *irrkey)
 {
 	register char * sp;
 	char * parsefield();
@@ -246,7 +246,7 @@ ChckIrrLemms(gk_word *Gkword, char *irrform, char *irrkey)
 	return(rval);
 }
 
-CheckIrregForm(gk_word *Gkword, char *stem, char *stemkeys)
+int CheckIrregForm(gk_word *Gkword, char *stem, char *stemkeys)
 {
 	gk_word * Forms = NULL;
 	gk_word * GenIrregForm();
@@ -287,7 +287,7 @@ CheckIrregForm(gk_word *Gkword, char *stem, char *stemkeys)
 	return(rval);
 }
 
-chckirrvform(char *form, char *keys)
+int chckirrvform(char *form, char *keys)
 {
 	char tmpform[MAXWORDSIZE];
 	int rval;
@@ -304,7 +304,7 @@ chckirrvform(char *form, char *keys)
 
 }
 
-mfi_prvb(char *rawprvb)
+int mfi_prvb(char *rawprvb)
 {
 	int slen = Xstrlen(rawprvb);
 	

@@ -50,7 +50,7 @@ char orthstem[BUFSIZ];
 
 unsigned char stem[BUFSIZ], lemma[BUFSIZ];
 
-set_lemma()
+void set_lemma()
 {
 	unsigned char *t;
 
@@ -89,7 +89,7 @@ set_lemma()
 */
 
 
-doderiv(char * tag,int trimn)
+void doderiv(char * tag,int trimn)
 {
 	unsigned char *t;
 
@@ -100,7 +100,7 @@ doderiv(char * tag,int trimn)
 	printf(":de:%s\t%s\n", stem, tag );
 }
 
-set_orth()
+void set_orth()
 {
 	unsigned char * t = yytext + 6;
 	unsigned char * p = orthstem;
@@ -122,7 +122,7 @@ set_orth()
 printf("\nstem:[%s] + [%s] = [%s]\n", stem , yytext+6, orthstem );
 }
 
-doverb(char * vtag, int trimn )
+void doverb(char * vtag, int trimn )
 {
 
 	printf("\n:le:%s\n", lemma );

@@ -7,7 +7,7 @@
  * e.g. E(lla/s, E(lla/dos
  */
 
-ultima_form(gk_string *gstr)
+int ultima_form(gk_string *gstr)
 {
 	return(Is_ultima_accent(morphflags_of(gstr)));
 }

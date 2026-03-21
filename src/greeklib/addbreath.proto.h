@@ -3,6 +3,6 @@
 
 
 /* addbreath.c */
-int addbreath(char *, int);
+void addbreath(char *, int);
 
 #endif /* ADDBREATH_PROTO_H */

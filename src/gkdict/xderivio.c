@@ -2,7 +2,7 @@
 
 #include "xderivio.proto.h"
 
-checkforderiv(char *stemstr, char *stemkeys)
+int checkforderiv(char *stemstr, char *stemkeys)
 {
 	int rval = 0;
 	int rval2 = 0;
@@ -25,7 +25,7 @@ checkforderiv(char *stemstr, char *stemkeys)
 
 }
 
-checkforredupderiv(char *stemstr, char *stemkeys)
+int checkforredupderiv(char *stemstr, char *stemkeys)
 {
 	char noredup[MAXWORDSIZE];
 		
@@ -36,7 +36,7 @@ checkforredupderiv(char *stemstr, char *stemkeys)
 	return(checkaugredup(stemstr,stemkeys));
 }
 #define MAXREDUPLS 	04
-checkaugredup(char *stemstr, char *stemkeys)
+int checkaugredup(char *stemstr, char *stemkeys)
 {
 	int hits = 0;
 	int i;
@@ -73,7 +73,7 @@ printf("checking [%s]\n", gkstring_of(tstemtab[i]) );
 	return(hits);
 }
 
-checkforderiv2(char *stemstr, char *stemkeys, int had_redupl)
+int checkforderiv2(char *stemstr, char *stemkeys, int had_redupl)
 {
 	char * ep;
 	char derivstr[LONGSTRING];
@@ -123,7 +123,7 @@ printf("sofar [%d] stemkeys [%s] stemstr [%s]\n", sofar , stemkeys, stemstr );
 	return(sofar);
 }
 
-checkcomderivs(char *derivs, char *suffix, char *lemmkeys, char *nkeys, int had_redupl)
+int checkcomderivs(char *derivs, char *suffix, char *lemmkeys, char *nkeys, int had_redupl)
 {
 	int rval = 0;
 	char lkeybuf[LONGSTRING], curlemmkeys[LONGSTRING];
@@ -141,7 +141,7 @@ checkcomderivs(char *derivs, char *suffix, char *lemmkeys, char *nkeys, int had_
 #define Is_perfect(STYPE) (((STYPE&VERBSTEM)== PP_PP)||\
 							((STYPE&VERBSTEM)== PP_PF))
 
-checkcomderiv(char *derivstr, char *suffix, char *lkeys, char *rkeys, int had_redupl)
+int checkcomderiv(char *derivstr, char *suffix, char *lkeys, char *rkeys, int had_redupl)
 {
 	char curderiv[LONGSTRING];
 	char curstem[LONGSTRING];

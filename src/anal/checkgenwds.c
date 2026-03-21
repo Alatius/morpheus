@@ -2,8 +2,8 @@
 
 #include "checkgenwds.proto.h"
 
-static anals_seen = 0;
-static lems_seen = 0;
+static int anals_seen = 0;
+static int lems_seen = 0;
 
 /*
  * ok, check an array of gk_string's against a single printword to figure
@@ -11,7 +11,7 @@ static lems_seen = 0;
  * "pisteu=sai" "pi/steusai" and "pisteu/sai"
  */
 
-CheckGenWords(gk_word *Gkword, gk_word *gkforms)
+int CheckGenWords(gk_word *Gkword, gk_word *gkforms)
 {
 	int i = 0;
 	int hits = 0;
@@ -173,8 +173,8 @@ printf("liked [%s] hits [%d]\n", checks , hits);
 	return(hits);
 }
 
-static analerror  = 0;
-AddAnalysis(gk_word *Gkword, gk_word *gkform)
+static int analerror  = 0;
+int AddAnalysis(gk_word *Gkword, gk_word *gkform)
 {
 	gk_analysis * curanal;
 	int i;
@@ -380,17 +380,17 @@ printf("\n");
 	return(1);
 }
 
-show_totanals()
+int show_totanals(void)
 {
 	return(anals_seen);
 }
 
-show_totlems()
+int show_totlems(void)
 {
 	return(lems_seen);
 }
 
-merge_anal_dialects(gk_analysis *anal1, gk_analysis *anal2)
+void merge_anal_dialects(gk_analysis *anal1, gk_analysis *anal2)
 {
 	/*
 	 * grc 3/10/91:  if anal1 has no dialects set, then this form can appear in
@@ -400,8 +400,8 @@ merge_anal_dialects(gk_analysis *anal1, gk_analysis *anal2)
 		dialect_of(anal1) |= dialect_of(anal2);	
 }
 
-equiv_anal(gk_analysis *anal1, gk_analysis *anal2)
-{	
+int equiv_anal(gk_analysis *anal1, gk_analysis *anal2)
+{
 	if( strcmp(lemma_of(anal1),lemma_of(anal2))) 
 		return(0);
 	/*
