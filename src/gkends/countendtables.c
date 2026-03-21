@@ -1,9 +1,9 @@
 #include <gkstring.h>
 #include "endfiles.h"
 #define MAX_END_TABLE	12000
-char ** endlines;
+static char ** endlines;
 static int endcount = 0;
-gk_string Gstr;
+static gk_string Gstr;
 static gk_string Blnk;
 static int xstrcmp();
 #define DELIMITER " "

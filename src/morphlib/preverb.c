@@ -10,9 +10,45 @@
 #include <string.h>
 
 #include <gkstring.h>
-#include <preverb.h>
 
 #include "preverb.proto.h"
+
+/* Greek preverbs, from Smyth #s 1681-1698 */
+static char	prevbs [][MAXPRVBSIZE] = {
+	"a)mf",
+	"a)mfi/",
+	"a)n",
+	"a)na/",
+	"a)nt",
+	"a)nti/",
+	"a)p",
+	"a)po/",
+	"di",
+	"dia/",
+	"e)s",
+	"ei)s",
+	"e)n",
+	"e)k",
+	"e)c",
+	"e)p",
+	"e)pi/",
+	"kat",
+	"kata/",
+	"met",
+	"meta/",
+	"par",
+	"para/",
+	"peri/",
+	"pro/s",
+	"pro/",
+	"cu/n",
+	"su/n",
+	"u(pe/r",
+	"u(p",
+	"u(po/",
+};
+
+#define NUMPREVBS ( sizeof prevbs / sizeof prevbs[0] )
 static comp_preverb(char *, int, MorphFlags *);
 static getprvbform(char *, char *, MorphFlags *);
 static int verbose = 0;

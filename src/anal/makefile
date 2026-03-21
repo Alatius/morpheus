@@ -2,7 +2,7 @@
 LEXLIB =
 
 INCLUDE=../includes
-CFLAGS= -O2 -I${INCLUDE} -fcommon  -Wno-implicit-int   -Wno-implicit-function-declaration
+CFLAGS= -O2 -I${INCLUDE}  -Wno-implicit-int   -Wno-implicit-function-declaration
 RM=rm
 CC=cc
 CC=gcc

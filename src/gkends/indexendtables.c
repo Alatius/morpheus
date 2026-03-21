@@ -3,9 +3,9 @@
 #include "nextsufftab.proto.h"
 #include "../morphlib/morphkeys.proto.h"
 #define MAX_END_TABLE	20000
-char ** endlines;
+static char ** endlines;
 static int endcount = 0;
-gk_string Gstr;
+static gk_string Gstr;
 static gk_string Blnk;
 static int xstrcmp();
 #define DELIMITER " "
