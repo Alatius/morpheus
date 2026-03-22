@@ -486,7 +486,7 @@ static char *
 	if( ! flag )
 		return("");
 	while( morph_args->morph_key[0] ) {
-		if( ( flag == morph_args->morph_flags ) ) {
+		if( flag == morph_args->morph_flags ) {
 			return(morph_args->morph_key);
 		}
 		morph_args++;

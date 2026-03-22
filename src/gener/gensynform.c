@@ -168,10 +168,8 @@ printf("stemkeys [%s]\n", stemkeys );
 			set_geogregion(Gkword,geogregion_of(&Gstr));
 			set_domains(Gkword,domains_of(&Gstr));
 
-/*
-			set_morphflags(Gkword, morphflags_of(&Gstr));
+			// set_morphflags(Gkword, morphflags_of(&Gstr));
 */
-
 
 			Rvals = GenStemForms(Gkword,stemkeys,0);
 

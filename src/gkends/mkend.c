@@ -21,14 +21,14 @@ void mk_end(char *havestr, gk_string *Have, gk_string *Avoid)
 	gk_string * do_euph();
 	gk_string * fix_eta();
 	int saw_vowel = 0;
-	
+
 	strcpy(savestr,havestr);
 	s = savestr;
 
 
 	while(*s) {
 		if( Is_vowel(*s) ) saw_vowel = 1;
-		
+
 		if( *s == '@' ) {
 
 			*s = 0;
@@ -174,9 +174,7 @@ static void join_end(gk_string *Have, char *stem, int saw_vowel)
 /*
 	if( Is_penult_accent(morphflags_of(Have)) ) {
 		if( saw_vowel) {
-/*
-printf("saw_vowel on [%s]\n", gkstring_of(Have) );
-*
+//printf("saw_vowel on [%s]\n", gkstring_of(Have) );
 			zap_morphflag(morphflags_of(Have),STEM_ACC);
 			add_morphflag(morphflags_of(Have),SUFF_ACC);
 		}

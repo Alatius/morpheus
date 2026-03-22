@@ -27,13 +27,13 @@ void AddNewGstr(gk_string *gstr)
 {
 	char * news;
 	Dialect d;
-	
+
 	news = gkstring_of(gstr);
 
 
 /*
 	if( (d=AndDialect((Dialect)(ATTIC),dialect_of(gstr))) < 0) {
-			return(0);
+			return;
 	}
 */
 	if( cur_endcnt >= MAXENDINGS ) {

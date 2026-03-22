@@ -168,7 +168,7 @@ void GenConjForms(FILE *fin, FILE *fout, int conjmode)
 				*s = 0;
 				
 				len = strlen(linebuf);
-				if( linebuf[len-1] == '\n'); linebuf[len-1] = 0;
+				if( linebuf[len-1] == '\n') linebuf[len-1] = 0;
 
 				strcpy(tkeys, linebuf+1 );
 				strcpy(savekeys,linebuf+1);
@@ -210,7 +210,7 @@ printf("rval %d stembuf [%s] global [%s] deriv [%s] tk [%s]\n", rval,
 				if( ! need_codupl(linebuf) && has_alpha(stembuf) ) continue;
 				
 				len = strlen(linebuf);
-				if( linebuf[len-1] == '\n'); linebuf[len-1] = 0;
+				if( linebuf[len-1] == '\n') linebuf[len-1] = 0;
 
 				sprintf(tkeys, "%s %s", savekeys, linebuf+1 );
 				if( ! need_ppart(tkeys)  ) 

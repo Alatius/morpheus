@@ -674,7 +674,7 @@ static void getprvbform(char *word, char *prevb, MorphFlags *oddpb)
  *
  * this check was producing forms such as ei)s-rre/w
  *
- 		else if (*word == 'r' && *lastn(prevb,1) != 'r' )	/* double it *
+ 		else if (*word == 'r' && *lastn(prevb,1) != 'r' )	// double it
  */
 		else if (*word == 'r' && Is_vowel(*lastn(prevb,1))  &&
 /* grc 6/29/89 -- add the check for raw_preverb when i failed to analyze e)kprore/w */

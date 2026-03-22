@@ -236,7 +236,7 @@ fprintf(stdout,"files: [%s] [%s]\n", outname, failedname);
       fprintf(foutput,"%s",anal_buf() );
     } else {
       /*	printf("%s\t:failed\n", line );*/
-      if( flags & SHOW_LEMMA && flags & IGNORE_ACCENTS ) fprintf(ffailed,"form:", line );
+      if( flags & SHOW_LEMMA && flags & IGNORE_ACCENTS ) fprintf(ffailed,"form: %s", line );
       fprintf(ffailed,"%s\n", line );
       fflush(ffailed);
     }
@@ -262,8 +262,8 @@ fprintf(stdout,"files: [%s] [%s]\n", outname, failedname);
     }
 
   if( nhits ) {
-	fprintf(fstats,":nhits %ld anals %ld anals/hit %0.2f lems %d lems/hit %0.2f\n",
-		nhits, show_totanals() , 
+	fprintf(fstats,":nhits %ld anals %d anals/hit %0.2f lems %d lems/hit %0.2f\n",
+		nhits, show_totanals() ,
 		((float)show_totanals()/(float)nhits),
 		show_totlems(),
 		((float)show_totlems()/(float)nhits) );

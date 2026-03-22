@@ -307,7 +307,7 @@ int low_bit_of(int n)
 			return(n & mask );
 		}
 	}
-		
+	return(0);
 }
 
 int CompByDictStr(const void *gstr1, const void *gstr2)

@@ -48,7 +48,7 @@ void stand_phonetics(gk_word *Gkword)
 		 * grc 6/29/89
 		 * this causes ei)s-de/xomai, ei)s-de/rkomai etc. to fail
 		 *
-		if( *s == 's' && *(s+1) == 'd' ) { /* "sd" --> "z" *
+		if( *s == 's' && *(s+1) == 'd' ) { // "sd" --> "z"
 			*s = 'z';
 			s++;
 			memmove(s,s+1,strlen(s+1)+1);
@@ -58,7 +58,7 @@ void stand_phonetics(gk_word *Gkword)
 		 * grc 6/29/89
 		 * this causes e)k-ste/llw, e)kste/fw etc. to fail
 		 *
-		if( *s == 'k' && *(s+1) == 's' ) { /* "ks" --> "c" *
+		if( *s == 'k' && *(s+1) == 's' ) { // "ks" --> "c"
 			*s = 'c';
 			s++;
 			memmove(s,s+1,strlen(s+1)+1);

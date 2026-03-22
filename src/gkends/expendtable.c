@@ -131,7 +131,9 @@ void expendtables(char *tabname, int maintable, int formcode)
 
 /*
 		if( maintable ) {
-			if( AddEndLine(/*foutput,*line,basename,maxstring) < 0 )
+			if( AddEndLine(
+				//foutput,
+				line,basename,maxstring) < 0 )
 
 				break;
 		} else {
@@ -139,7 +141,7 @@ void expendtables(char *tabname, int maintable, int formcode)
 /*
 fprintf(stderr,"basenam [%s] line [%s]\n", basename , line );
 */
-			if( AddEndLine(/*foutput,*/line,basename,maxstring) < 0 )
+			if( AddEndLine(/* foutput, */line,basename,maxstring) < 0 )
 				break;
 /*
 		}

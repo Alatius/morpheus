@@ -45,9 +45,10 @@ void GenDictEntry(Gkword,dentry)
 	gkforms = GenStemForms(&TmpGkword,keys,0);
 	if( ! gkforms ) return;
 
-	for(formcnt=0;workword_of((gkforms+formcnt))[0];formcnt++) ;
+	for(formcnt=0;workword_of((gkforms+formcnt))[0];formcnt++)
+		;
 
-        qsort(gkforms,formcnt,sizeof * gkforms,CompGkForms);	
+	qsort(gkforms,formcnt,sizeof * gkforms,CompGkForms);
 
 	stripmetachars(workword_of(gkforms));
 /*	printf("workword:%s\n", workword_of(gkforms) );*/
@@ -375,7 +376,7 @@ int NextDictLine(f,word,wordkeys,starts)
 /*
  * check for blank line 
  */
-		while(isspace(*s)) *s++;
+		while(isspace(*s)) s++;
 		if( ! *s ) return(0);
 		
 	}

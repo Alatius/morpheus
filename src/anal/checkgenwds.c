@@ -397,7 +397,7 @@ void merge_anal_dialects(gk_analysis *anal1, gk_analysis *anal2)
 	 * any dialect.  don't add false constraints here.
 	 */
 	 if( dialect_of(anal1) )
-		dialect_of(anal1) |= dialect_of(anal2);	
+		dialect_of(anal1) |= dialect_of(anal2);
 }
 
 int equiv_anal(gk_analysis *anal1, gk_analysis *anal2)

@@ -193,7 +193,9 @@ init_endind(char *fname, endind *etags)
 	fseek(f,0L,0);
 
 /*
-	if( !(endbuffer_of(etags) = clalloc(/*(int)*flen + 1,(long) sizeof * endbuffer_of(etags)  ))) {
+	if( !(endbuffer_of(etags) = clalloc(
+		//(int)
+		flen + 1,(long) sizeof * endbuffer_of(etags)  ))) {
 */
 	if( !(endbuffer_of(etags) = (char *)calloc((size_t)flen + 1, (size_t)sizeof * endbuffer_of(etags)  ))) {
 

@@ -390,7 +390,7 @@ void reliterate(char *s)
 	char tmp[BUFSIZ];
 	int i = 0;
 	int sawone = 0;
-	
+
 	while(*s) {
 		for(i=0;Xlit_list[i].raw[0];i++) {
 			if( ! Xstrncmp(s,Xlit_list[i].raw,Xstrlen(Xlit_list[i].raw) ) ) {
@@ -402,12 +402,12 @@ void reliterate(char *s)
 			}
 		}
 
-		if( sawone) 
+		if( sawone)
 			sawone = 0;
 		else
 			s++;
 	}
-	
+
 }
 
 

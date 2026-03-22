@@ -189,7 +189,7 @@ int vax_fread(char *Buffer, size_t size, int nswap, FILE *f)
 		
 	    default:
 
-		fprintf(stderr, "vax_words: byte swap error, size = %d\n", size);
+		fprintf(stderr, "vax_words: byte swap error, size = %zu\n", size);
 		return(-1);
 	}
 }
@@ -259,7 +259,7 @@ int vax_fwrite(char *Buffer, size_t size, int nswap, FILE *f)
 */
 	    default:
 
-		fprintf(stderr, "vax_words: byte swap error, size = %d\n", size);
+		fprintf(stderr, "vax_words: byte swap error, size = %zu\n", size);
 		return(-1);
 
 	}

@@ -61,12 +61,12 @@ void do_all_derivs(int maintable, int formcode)
 		printf("could not open [%s]\n",  inpfname );
 		return;
 	}
-	
+
 	while(fgets(tmp,sizeof tmp,finput)) {
 		if( ! isalpha( tmp[0] ) ) continue;
 		nextkey(tmp,derivname);
 		printf("compiling deriv [%s]\n", derivname );
-		
+
 		expendtables(derivname,maintable,formcode);
 
 	}

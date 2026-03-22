@@ -105,12 +105,12 @@ cacheconsistent();
 void cacheconsistent(void)
 {
 	int i;
-	
+
 	for(i=0;i<ENDCACHESIZE;i++) {
 		if( ! EndingCache[i] ) break;
 		if( ! NameOfStemtype(stemtype_of(EndingCache[i])) ) {
-			if( i > 1 ) 
-				printf("%d) prev type %s\n", i, 
+			if( i > 1 )
+				printf("%d) prev type %s\n", i,
 				NameOfStemtype(stemtype_of(EndingCache[i-1])) );
 			else
 				printf("first stemtype has been zapped!\n");
@@ -121,12 +121,12 @@ void cacheconsistent(void)
 		printf("saw only %d of %d ending tables\n", i , csize );
 	} else
 		csize = i;
-	
+
 }
 void InsertEndCache(gk_string *gstr)
 {
 	int i;
-	
+
 	if( EndingCache[curecache] ) {
 		FreeGkString(EndingCache[curecache] );
 		EndingCache[curecache] = NULL;

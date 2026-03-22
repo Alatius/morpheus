@@ -283,9 +283,7 @@ typedef struct {
 /*
 #define	COMMON_GNDR	4
 */
-/*
-#define	ADVERB		5 /* NB!! */
-
+//#define	ADVERB		5 // NB!!
 /* values for degree field */
 #define NDEGREES	3
 #define	POSITIVE	0

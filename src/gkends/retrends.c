@@ -57,8 +57,8 @@ printf("WantEnd:"); PrntAGstr(&WantEnd,stdout); printf("\n");
 printf("AvoidEnd:"); PrntAGstr(&AvoidEnd,stdout); printf("\n");
 */
 	if( ! stemtype_of(&WantEnd) ) {
-		printf("could not find a stemtype for [%s] with restricts [%s]\n", 
-			restricts );
+		printf("could not find a stemtype for [%s] with restricts [%s]\n",
+			stemkeys, restricts );
 		return(NULL);
 	}
 
@@ -483,8 +483,6 @@ printf("failing on wtense %o htense %o\n", wtense, htense );
  * stem, e.g. -es in nom pl for masc and fem, but -a for neuter)
  */
 /*
-
-/*
  * only fail if gender set for both.
  * 	e.g., dwr- from dw=ron will want to find 
  * endings such as -on, or -a that are specifically flagged
@@ -500,11 +498,12 @@ printf("failing with hgender %o and wgender %o\n", hgender , wgender );
 				return(0);
 			}
 		}
-		if( writeflag )
+		if( writeflag ) {
 			if( Want_Gender(wform,hform) )
 				set_gender(forminfo_of(haveend), Want_Gender(wform, hform));
 			else
 			   	set_gender(forminfo_of(haveend), wgender );
+		}
 	}
 
 	if( wcase ) {
@@ -721,7 +720,7 @@ void setwendstr(char *wendstr, char *str)
 {
 	char * p = str;
 	char * s = wendstr;
-	
+
 	*wendstr = 0;
 	while(*p) {
 		*s++ = *p++;

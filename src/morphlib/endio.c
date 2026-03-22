@@ -165,7 +165,7 @@ int get_endheader(FILE *f, int *maxp)
 #else
 	if( endlen % (long) unitsize ) {
 #endif
-printf("gstrsize %d endlen %d unitsize %d, mod %d, nendings %d filelen %ld\n", gstrsize, endlen, unitsize, ( endlen % unitsize ), nendings, filelen );
+printf("gstrsize %d endlen %d unitsize %d, mod %d, nendings %d filelen %d\n", gstrsize, endlen, unitsize, ( endlen % unitsize ), nendings, filelen );
 		fprintf(stderr,"Error in endio!\n");
 		return(0);
 	}

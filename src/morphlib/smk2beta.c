@@ -147,6 +147,7 @@ int smk2betachar(int c)
 	if( c == 'c' ) return('y');
 	if( c == 'j' ) return('c');
 	if( c == 'W' ) return('v');
+	return(c);
 }
 
 void init_smk(void)

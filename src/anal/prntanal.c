@@ -1,3 +1,4 @@
+#include <string.h>
 #include <gkstring.h>
 static char * pbuf = NULL;
 #define NEWLINE "\r"
@@ -398,7 +399,8 @@ void DumpPerseusAnalysis(
   fprintf(fout,"%s ", lemma_of(anal) );
 
   if (prntflags & ENDING_INDEX) {
-    fprintf(fout,"\t%d</NL>",forminfo_of(anal));
+    unsigned formval; memcpy(&formval, &forminfo_of(anal), sizeof formval);
+    fprintf(fout,"\t%u</NL>", formval);
   }
   else {
     GregSprintGkFlags(anal,tmp," "," ",1);

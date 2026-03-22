@@ -16,7 +16,7 @@ int nextkey(char *keylist, char *nextkey)
 	while(*a && !isspace(*a)) *b++ = *a++;
 	*b = 0;
 	while(isspace(*a)) a++;
-	while(*keylist++ = *a++)
+	while((*keylist++ = *a++))
 		;
 	return(1);
 }

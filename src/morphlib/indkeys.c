@@ -33,7 +33,7 @@ void index_list(char *listname, char *tagstring, int modulus)
 		return;
 	}
 	sprintf(outfile,"%s.lindex",listname);
-	
+
 	foutput = MorphFopen(outfile,"wb");
 	if( ! finput ) {
 		fprintf(stderr,"Could not open output  %s\n", outfile );
@@ -94,13 +94,13 @@ void prockeyline(char *s, int modulus, long curoff, FILE *f)
 	
 	if( ++nkeys >= modulus && morphstrcmp(curkey,prevkey) ) {
 		if( prntflag )
-			fprintf(stdout,"%s\t%ld\n", curkey , curoff );
+			fprintf(stdout,"%s\t%d\n", curkey , curoff );
 
 		WriteKey(curkey,&curoff,f);
 		nkeys = 0;
 	} else {
 		if( prntflag )
-			printf("not writing key [%s]:nkeys %d modulus %d prev %s curkey [%s] curoff %ld\n",s,nkeys, modulus, prevkey, curkey , curoff );
+			printf("not writing key [%s]:nkeys %d modulus %d prev %s curkey [%s] curoff %d\n",s,nkeys, modulus, prevkey, curkey , curoff );
 	}
 	Xstrncpy(prevkey,curkey,LONGSTRING);
 

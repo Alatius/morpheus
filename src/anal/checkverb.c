@@ -133,7 +133,7 @@ printf("rval %d tmpend %s endkeys %s\n", chckvend(tmpendstring,endkeys),tmpendst
 	    TmpGkword = * Gkword;
 	    stripacc(stem_of(&TmpGkword));
 
-	    if(rval=strippreverb(&TmpGkword,endkeys,0)) {
+	    if((rval=strippreverb(&TmpGkword,endkeys,0))) {
 		CpGkAnal(Gkword,&TmpGkword);
 	    }
 	} 

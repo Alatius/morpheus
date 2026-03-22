@@ -45,9 +45,10 @@ int has_morphflags(gk_string *gstr, MorphFlags *Flags)
 	unsigned char * Mf = morphflags_of(gstr);
 	int i;
 	
-	for(i=0;i<MORPHFLAG_BYTES;i++ ) 
+	for(i=0;i<MORPHFLAG_BYTES;i++ )
 		if( morphflags_of(gstr)[i] & Flags[i])
 			return(1);
+	return(0);
 }
 
 int no_morphflags(gk_string *gstr)

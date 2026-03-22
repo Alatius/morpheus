@@ -10,7 +10,7 @@ int checknom(gk_word *Gkword)
 
 	if( (prntflags_of(Gkword) & VERBS_ONLY ) ) return(0);
 
-	if(rval=checkregnom(Gkword))
+	if((rval=checkregnom(Gkword)))
 		return(rval);
 	return(0);
 }

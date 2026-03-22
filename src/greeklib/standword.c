@@ -17,7 +17,7 @@
 	 * word
 	 */
 	  /* || \
-	/* grc 6/28/89 -- '*' is long mark in smk  X == '*' )*/
+	// grc 6/28/89 -- '*' is long mark in smk  X == '*' )*/
 /*
  * 1) strip any white space or garbage at the start of a word
  * 2) standardize some printing conventions: e.g. $ai(/dhn& is converted to $*(/aidhn&.

@@ -103,8 +103,7 @@ ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *od
 	char * s;
 	char ppartname[MAXWORDSIZE];
 	char tmp[LONGSTRING];
-	Stemtype stype, GetStemClass();		
-	int npparts;
+	Stemtype stype;
 	
 /*	blnk = (gk_string *) CreatGkString(1);
 	* gstr = * blnk;
@@ -126,7 +125,7 @@ ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *od
 	strcpy(ppartname,"pp_");
 	nextkey(keytmp,ppartname+3);
 
-	stype = GetStemClass(ppartname,npparts);
+	stype = GetStemClass(ppartname);
 
 	if( keytmp[0] == '-' ) {
 		/*
@@ -427,8 +426,6 @@ gk_string *
 gk_string BlnkGstr, Gstr;
 int conjoinX(gk_string *gstr, char *s1, char *s2)
 {
-	int i;
-
 	gk_string *newgstr;
 
 	Gstr = BlnkGstr;
@@ -452,5 +449,5 @@ int conjoinX(gk_string *gstr, char *s1, char *s2)
 	*gstr = *newgstr;
 	strcpy(s1,gkstring_of(newgstr));
 
-	return(i);
+	return(1);
 }

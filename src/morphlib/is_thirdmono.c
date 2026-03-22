@@ -129,11 +129,11 @@ char * ending;
 		case hs_eos:
 		case is_ews:
 		case is_ios:
-/*		case os_eos:*
-/*		case u_ews:*
+ 		// case os_eos:
+ 		// case u_ews:
 		case us_ews:
-/*		case ws_w:*
-/*		case ws_wos:*
+ 		// case ws_w:
+ 		// case ws_wos:
 			return(0);
 			
 		default:

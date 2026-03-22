@@ -14,6 +14,7 @@
 #define SMARTA_ROUGH_RHO		0373
 #define SMK_ROUGH_RHO		075
 #define TERMINAL_SIGMA	'w'
+#undef GREEK
 #define GREEK 			0100
 #define ROMAN 			0200
 #define AISUB			046
@@ -86,7 +87,7 @@ static void init_gktab(void)
 /*
 static int gktab[256];
 */
-#define Is_accflag(X) (accenttab[X] > 0 && accenttab[X] <= ISUBFLAG )
+#define Is_accflag(X) (accenttab[(unsigned char)(X)] > 0 && accenttab[(unsigned char)(X)] <= ISUBFLAG )
 #define SMARTA 2
 #define SMK 4
 
@@ -358,11 +359,11 @@ void beta2mac(char *source, char *res, int xlit)
 				*rp = 'V';
 			else if (*rp == 'V' )
 				*rp = 'C';
-			else if( *rp == 'v' ) /* digamma *
+			else if( *rp == 'v' ) // digamma
 				*rp = 'W';
 			else if( *rp == '*' && xlit == SMARTA ) {
 					*rp = UCASEMARKER;
-			} /*else if ( xlit == SMK && ) {
+			}  else if ( xlit == SMK && )  {
 					unsigned char * t = sp;
 					if( Is_accflag(*sp)) {
 							*rp = ' ';
@@ -389,7 +390,7 @@ void beta2mac(char *source, char *res, int xlit)
 				 * don't count the hard short marker (no way to print it for now)
 				 */
 				 else		
-					acc += accenttab[*sp++];
+					acc += accenttab[(unsigned char)*sp++];
 			}
 /*
 printf("got [%o] ", acc );
@@ -479,13 +480,13 @@ printf("got [%o] ", acc );
 						*rp = 0376;
 					else 
 						*rp =  0243;
-				} else if( !gktab[*rp] ) {
+				} else if( !gktab[(unsigned char)*rp] ) {
 					*(rp+1) = *rp;
 					*rp = '?';
 					rp += 2;
 					*rp = '?';
 				} else
-					*rp = (unsigned char) (gktab[*rp] + accnum(acc));
+					*rp = (unsigned char) (gktab[(unsigned char)*rp] + accnum(acc));
 /*
 if(1) {
 int n;

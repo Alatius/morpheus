@@ -34,7 +34,7 @@ void set_gkorder(register char *s)
 	int i;
 
 	for(i=0;i< sizeof gktoasc;) {
-		s[ gktoasc[ i ] ] = gktoasc[ i+1 ] ;
+		s[ (unsigned char)gktoasc[ i ] ] = gktoasc[ i+1 ] ;
 		i += 2;
 	}
 }

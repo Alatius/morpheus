@@ -23,8 +23,8 @@ void ErrorMess(char *s)
 
 /*
 int sprintf(dest, fmt)
-char    *dest;		/* pointer to buffer space *
-char    *fmt;		/* pointer to format string *
+char    *dest;		// pointer to buffer space
+char    *fmt;		// pointer to format string
 {
 	return xprintf(dest, &fmt,false);
 }

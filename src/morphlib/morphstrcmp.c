@@ -19,8 +19,8 @@ int morphstrcmp(char *s1, char *s2)
 fprintf(stderr,"looking at [%s] and [%s]\n", s1, s2 );
 */
 	while(1) {
-		if(comptab[*s1] != comptab[*s2]) 
-			return((int)(comptab[*s1] - comptab[*s2]));
+		if(comptab[(unsigned char)*s1] != comptab[(unsigned char)*s2]) 
+			return((int)(comptab[(unsigned char)*s1] - comptab[(unsigned char)*s2]));
 		if (*s1=='\0')
 			return(0);
 		s1++; s2++;
@@ -34,11 +34,11 @@ int betastrcmp(char *s1, char *s2)
 		init_betatab();
 	}
 	while(1) {
-		while(*s1&&!betatab[*s1]) s1++;
-		while(*s2&&!betatab[*s2]) s2++;
+		while(*s1&&!betatab[(unsigned char)*s1]) s1++;
+		while(*s2&&!betatab[(unsigned char)*s2]) s2++;
 
-		if(betatab[*s1] != betatab[*s2]) 
-			return((int)(betatab[*s1] - betatab[*s2]));
+		if(betatab[(unsigned char)*s1] != betatab[(unsigned char)*s2]) 
+			return((int)(betatab[(unsigned char)*s1] - betatab[(unsigned char)*s2]));
 		if (*s1=='\0')
 			return(strcmp(s1,s2));
 		s1++; s2++;
@@ -58,11 +58,11 @@ int morphstrncmp(char *s1, char *s2, size_t n)
 		init_comptab();
 	}
 	if (n <= 0) return ( 0 );
-	for (; --n && (comptab[*s1] == comptab[*s2]); s1++, s2++) {
+	for (; --n && (comptab[(unsigned char)*s1] == comptab[(unsigned char)*s2]); s1++, s2++) {
 		if (!*s1) break;
 	}
 		
-	return ((int)(comptab[*s1] - comptab[*s2]));
+	return ((int)(comptab[(unsigned char)*s1] - comptab[(unsigned char)*s2]));
 }
 
 int dictstrcmp(char *s1, char *s2)
@@ -76,8 +76,8 @@ int dictstrcmp(char *s1, char *s2)
 	while(1) {
 		while(! isalpha(*s1) && *s1 != '|'  && *s1 != HARDLONG && *s1 ) s1++;
 		while(! isalpha(*s2) && *s2 != '|'  && *s2 != HARDLONG && *s2 ) s2++;
-		if(comptab[*s1] != comptab[*s2]) 
-			return(comptab[*s1] - comptab[*s2]);
+		if(comptab[(unsigned char)*s1] != comptab[(unsigned char)*s2]) 
+			return(comptab[(unsigned char)*s1] - comptab[(unsigned char)*s2]);
 		if (*s1=='\0'||isspace(*s1))
 
 			return(0);
