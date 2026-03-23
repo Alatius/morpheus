@@ -131,6 +131,8 @@ fi
 
 CHECKSUMS="$SCRIPT_DIR/stemlib_checksums.txt"
 if [ -f "$CHECKSUMS" ]; then
+    # Ensure oddfiles exist (they may not be generated if no odd keys are found)
+    touch "$PROJECT_DIR/stemlib/Greek/oddfile" "$PROJECT_DIR/stemlib/Latin/oddfile"
     actual=$(cd "$PROJECT_DIR" && awk '{print $NF}' "$CHECKSUMS" | xargs cksum)
     if diff -u "$CHECKSUMS" - <<< "$actual" > /dev/null 2>&1; then
         echo "PASS: stemlib rebuild ($(wc -l < "$CHECKSUMS" | tr -d ' ') files verified)"

@@ -501,4 +501,5 @@ int irreg_conj()
 	ScanAsciiKeys(derivbuf,&TmpGkword,&GlobGstr,NULL);
 
 	if( ! Is_regconj(&GlobGstr) ) return(1);
+	return(0);
 }
