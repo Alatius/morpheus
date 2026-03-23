@@ -7,6 +7,16 @@
 :aug1 				
 :stem ro_s				pp4
 :suff 				
+:end a	 perf part pass fem nom/voc sg			pp4
+
+:raw rosa
+
+:workw ro_sa
+:lem rodo
+:prvb 				
+:aug1 				
+:stem ro_s				pp4
+:suff 				
 :end a	 perf part pass neut nom/voc/acc pl			pp4
 
 :raw rosa
@@ -21,13 +31,13 @@
 
 :raw rosa
 
-:workw ro_sa
-:lem rodo
+:workw ro^sa
+:lem rosa
 :prvb 				
 :aug1 				
-:stem ro_s				pp4
+:stem ro^s	 fem			a_ae
 :suff 				
-:end a	 perf part pass fem nom/voc sg			pp4
+:end a	 fem nom/voc sg			a_ae
 
 :raw rosa
 
@@ -38,16 +48,6 @@
 :stem ro^s	 fem			a_ae
 :suff 				
 :end a_	 fem abl sg			a_ae
-
-:raw rosa
-
-:workw ro^sa
-:lem rosa
-:prvb 				
-:aug1 				
-:stem ro^s	 fem			a_ae
-:suff 				
-:end a	 fem nom/voc sg			a_ae
 
 :raw dominus
 
@@ -121,21 +121,21 @@
 
 :raw bonus
 
-:workw bonus
-:lem bonus
-:prvb 				
-:aug1 				
-:stem bon				us_a_um
-:suff 				
-:end us	 masc nom sg			us_a_um
-
-:raw bonus
-
 :workw bo^nus
 :lem bonus
 :prvb 				
 :aug1 				
 :stem bo^n				us_a_um
+:suff 				
+:end us	 masc nom sg			us_a_um
+
+:raw bonus
+
+:workw bonus
+:lem bonus
+:prvb 				
+:aug1 				
+:stem bon				us_a_um
 :suff 				
 :end us	 masc nom sg			us_a_um
 
@@ -201,16 +201,6 @@
 
 :raw hic
 
-:workw hic
-:lem hic
-:prvb 				
-:aug1 				
-:stem hic			indeclform	
-:suff 				
-:end 	 masc nom sg		indeclform	demonstr
-
-:raw hic
-
 :workw hi_c
 :lem hic
 :prvb 				
@@ -218,6 +208,16 @@
 :stem hi_c			indeclform	
 :suff 				
 :end 			indeclform	adverb
+
+:raw hic
+
+:workw hic
+:lem hic
+:prvb 				
+:aug1 				
+:stem hic			indeclform	
+:suff 				
+:end 	 masc nom sg		indeclform	demonstr
 
 :raw et
 
@@ -267,17 +267,7 @@
 :aug1 				
 :stem fe^r				us_a_um
 :suff 				
-:end o_	 neut abl sg			us_a_um
-
-:raw fero
-
-:workw fe^ro_
-:lem ferus
-:prvb 				
-:aug1 				
-:stem fe^r				us_a_um
-:suff 				
-:end o_	 masc abl sg			us_a_um
+:end o_	 masc dat sg			us_a_um
 
 :raw fero
 
@@ -297,7 +287,7 @@
 :aug1 				
 :stem fe^r				us_a_um
 :suff 				
-:end o_	 masc dat sg			us_a_um
+:end o_	 masc abl sg			us_a_um
 
 :raw fero
 
@@ -305,9 +295,9 @@
 :lem ferus
 :prvb 				
 :aug1 				
-:stem fe^r	 masc			us_i
+:stem fe^r				us_a_um
 :suff 				
-:end o_	 masc abl sg			us_i
+:end o_	 neut abl sg			us_a_um
 
 :raw fero
 
@@ -318,3 +308,13 @@
 :stem fe^r	 masc			us_i
 :suff 				
 :end o_	 masc dat sg			us_i
+
+:raw fero
+
+:workw fe^ro_
+:lem ferus
+:prvb 				
+:aug1 				
+:stem fe^r	 masc			us_i
+:suff 				
+:end o_	 masc abl sg			us_i

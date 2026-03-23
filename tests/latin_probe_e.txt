@@ -1,5 +1,5 @@
 rosa
-<NL>P ro_sa,rodo 	137560756</NL><NL>P ro_sa_,rodo 	71320244</NL><NL>P ro_sa,rodo 	69354164</NL><NL>N ro^sa_,rosa 	71319552</NL><NL>N ro^sa,rosa 	69353472</NL>
+<NL>P ro_sa,rodo 	69354164</NL><NL>P ro_sa,rodo 	137560756</NL><NL>P ro_sa_,rodo 	71320244</NL><NL>N ro^sa,rosa 	69353472</NL><NL>N ro^sa_,rosa 	71319552</NL>
 dominus
 <NL>N do^mi^nus,dominus 	33701888</NL>
 rex
@@ -13,13 +13,13 @@ amans
 sum
 <NL>V sum#1 	18569</NL>
 bonus
-<NL>N bonus 	33701888</NL><NL>N bo^nus,bonus 	33701888</NL>
+<NL>N bo^nus,bonus 	33701888</NL><NL>N bonus 	33701888</NL>
 fortis
 <NL>N forti_s,fors 	68222976</NL><NL>N fors 	67387392</NL><NL>N forti_s,fortis 	101777408</NL><NL>N fortis 	235159552</NL><NL>N fortis 	102907904</NL>
 ego
 <NL>N ego 	100810752</NL>
 hic
-<NL>N hic 	33701888</NL><NL>N hi_c,hic 	0</NL>
+<NL>N hi_c,hic 	0</NL><NL>N hic 	33701888</NL>
 et
 <NL>N et 	0</NL>
 in
@@ -27,4 +27,4 @@ in
 abeo
 <NL>V abeo_,ab-eo#1 	18569</NL>
 fero
-<NL>V fe^ro_,fero 	18569</NL><NL>N fe^ro_,ferus 	138428416</NL><NL>N fe^ro_,ferus 	37765120</NL><NL>N fe^ro_,ferus 	134758400</NL><NL>N fe^ro_,ferus 	34095104</NL><NL>N fe^ro_,ferus 	37765120</NL><NL>N fe^ro_,ferus 	34095104</NL>
+<NL>V fe^ro_,fero 	18569</NL><NL>N fe^ro_,ferus 	34095104</NL><NL>N fe^ro_,ferus 	134758400</NL><NL>N fe^ro_,ferus 	37765120</NL><NL>N fe^ro_,ferus 	138428416</NL><NL>N fe^ro_,ferus 	34095104</NL><NL>N fe^ro_,ferus 	37765120</NL>

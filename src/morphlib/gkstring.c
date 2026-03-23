@@ -251,8 +251,10 @@ printf("1 [%s] 2 [%s] rval %d\n", gkstring_of((gk_string *)gstr1), gkstring_of((
 			int p1, p2;
 			p1 = has_morphflag(morphflags_of((gk_string *)gstr1),PARADIGM);
 			p2 = has_morphflag(morphflags_of((gk_string *)gstr2),PARADIGM);
-			
+
 			if( p1 != p2 ) return(p2-p1);
+
+			rval = strcmp(gkstring_of((gk_string *)gstr1), gkstring_of((gk_string *)gstr2));
 		}
 		return(rval);
 }

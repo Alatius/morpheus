@@ -1,12 +1,12 @@
 lu/w
-<NL>V lu^/w,lu/w  pres subj act 1st sg	epic		w_stem,reg_conj</NL><NL>V lu^/w,lu/w  pres ind act 1st sg	epic		w_stem,reg_conj</NL><NL>V lu_/w,lu/w  pres subj act 1st sg			w_stem,reg_conj</NL><NL>V lu_/w,lu/w  pres ind act 1st sg			w_stem,reg_conj</NL>
+<NL>V lu^/w,lu/w  pres ind act 1st sg	epic		w_stem,reg_conj</NL><NL>V lu^/w,lu/w  pres subj act 1st sg	epic		w_stem,reg_conj</NL><NL>V lu_/w,lu/w  pres ind act 1st sg			w_stem,reg_conj</NL><NL>V lu_/w,lu/w  pres subj act 1st sg			w_stem,reg_conj</NL>
 e)/lusa
 <NL>V e)lu/w  aor ind act 1st sg	homeric ionic	unaugmented	aor1,reg_conj</NL><NL>V e)/lu_sa,lu/w  aor ind act 1st sg			aor1,reg_conj</NL>
 lu/wn
-<NL>P lu^/wn,lu/w  pres part act masc nom sg	epic		w_stem,reg_conj</NL><NL>P lu_/wn,lu/w  pres part act masc nom sg			w_stem,reg_conj</NL><NL>V lua/w  imperf ind act 3rd pl	homeric ionic	contr unaugmented	aw_pr,aw_denom</NL><NL>V lua/w  imperf ind act 1st sg	homeric ionic	contr unaugmented	aw_pr,aw_denom</NL>
+<NL>P lu^/wn,lu/w  pres part act masc nom sg	epic		w_stem,reg_conj</NL><NL>P lu_/wn,lu/w  pres part act masc nom sg			w_stem,reg_conj</NL><NL>V lua/w  imperf ind act 1st sg	homeric ionic	contr unaugmented	aw_pr,aw_denom</NL><NL>V lua/w  imperf ind act 3rd pl	homeric ionic	contr unaugmented	aw_pr,aw_denom</NL>
 ti/qhmi
 <NL>V ti^/qhmi,ti/qhmi  pres ind act 1st sg			emi_pr</NL>
 ei)mi/
 <NL>V ei)mi,ei)mi/  pres ind act 1st sg		enclitic	irreg_mi</NL>
 a)pole/gw
-<NL>V a)pole/gw1  pres subj act 1st sg			w_stem,reg_conj</NL><NL>V a)pole/gw1  pres ind act 1st sg			w_stem,reg_conj</NL><NL>V a)pole/gw2  pres subj act 1st sg			w_stem,reg_conj</NL><NL>V a)pole/gw2  pres ind act 1st sg			w_stem,reg_conj</NL>
+<NL>V a)pole/gw1  pres ind act 1st sg			w_stem,reg_conj</NL><NL>V a)pole/gw1  pres subj act 1st sg			w_stem,reg_conj</NL><NL>V a)pole/gw2  pres ind act 1st sg			w_stem,reg_conj</NL><NL>V a)pole/gw2  pres subj act 1st sg			w_stem,reg_conj</NL>

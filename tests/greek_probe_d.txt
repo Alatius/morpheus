@@ -47,7 +47,7 @@
 :aug1 				
 :stem lu^		epic		w_stem,reg_conj
 :suff 				
-:end w	 pres subj act 1st sg			w_stem
+:end w	 pres ind act 1st sg			w_stem
 
 :raw lu/w
 
@@ -57,16 +57,6 @@
 :aug1 				
 :stem lu^		epic		w_stem,reg_conj
 :suff 				
-:end w	 pres ind act 1st sg			w_stem
-
-:raw lu/w
-
-:workw lu_/w
-:lem lu/w
-:prvb 				
-:aug1 				
-:stem lu_				w_stem,reg_conj
-:suff 				
 :end w	 pres subj act 1st sg			w_stem
 
 :raw lu/w
@@ -78,6 +68,16 @@
 :stem lu_				w_stem,reg_conj
 :suff 				
 :end w	 pres ind act 1st sg			w_stem
+
+:raw lu/w
+
+:workw lu_/w
+:lem lu/w
+:prvb 				
+:aug1 				
+:stem lu_				w_stem,reg_conj
+:suff 				
+:end w	 pres subj act 1st sg			w_stem
 
 :raw e)/lusa
 
@@ -127,7 +127,7 @@
 :aug1 				
 :stem lu			unaugmented	aw_pr,aw_denom
 :suff 				
-:end wn	 imperf ind act 3rd pl		contr	aw_pr
+:end wn	 imperf ind act 1st sg		contr	aw_pr
 
 :raw lu/wn
 
@@ -137,7 +137,7 @@
 :aug1 				
 :stem lu			unaugmented	aw_pr,aw_denom
 :suff 				
-:end wn	 imperf ind act 1st sg		contr	aw_pr
+:end wn	 imperf ind act 3rd pl		contr	aw_pr
 
 :raw ti/qhmi
 
@@ -237,7 +237,7 @@
 :aug1 				
 :stem leg				w_stem,reg_conj
 :suff 				
-:end w	 pres subj act 1st sg			w_stem
+:end w	 pres ind act 1st sg			w_stem
 
 :raw a)pole/gw
 
@@ -247,16 +247,6 @@
 :aug1 				
 :stem leg				w_stem,reg_conj
 :suff 				
-:end w	 pres ind act 1st sg			w_stem
-
-:raw a)pole/gw
-
-:workw a)pole/gw
-:lem a)pole/gw1
-:prvb a)po/				
-:aug1 				
-:stem leg				w_stem,reg_conj
-:suff 				
 :end w	 pres subj act 1st sg			w_stem
 
 :raw a)pole/gw
@@ -272,7 +262,7 @@
 :raw a)pole/gw
 
 :workw a)pole/gw
-:lem a)pole/gw2
+:lem a)pole/gw1
 :prvb a)po/				
 :aug1 				
 :stem leg				w_stem,reg_conj
@@ -288,3 +278,13 @@
 :stem leg				w_stem,reg_conj
 :suff 				
 :end w	 pres ind act 1st sg			w_stem
+
+:raw a)pole/gw
+
+:workw a)pole/gw
+:lem a)pole/gw2
+:prvb a)po/				
+:aug1 				
+:stem leg				w_stem,reg_conj
+:suff 				
+:end w	 pres subj act 1st sg			w_stem

@@ -14,6 +14,25 @@ fi
 
 FAILURES=0
 
+# Build stemlibs if needed (ensures test works from a clean checkout)
+if [ ! -f "$PROJECT_DIR/stemlib/Greek/steminds/nomind" ]; then
+    echo "     (building Greek stemlib ...)"
+    if ! (cd "$PROJECT_DIR/stemlib/Greek" && PATH="$PROJECT_DIR/bin:$PATH" MORPHLIB=.. make -B all) \
+            > /dev/null 2>&1; then
+        echo "FAIL: Greek stemlib build"
+        FAILURES=$((FAILURES + 1))
+    fi
+fi
+
+if [ ! -f "$PROJECT_DIR/stemlib/Latin/steminds/nomind" ]; then
+    echo "     (building Latin stemlib ...)"
+    if ! (cd "$PROJECT_DIR/stemlib/Latin" && PATH="$PROJECT_DIR/bin:$PATH" MORPHLIB=.. make -B all) \
+            > /dev/null 2>&1; then
+        echo "FAIL: Latin stemlib build"
+        FAILURES=$((FAILURES + 1))
+    fi
+fi
+
 run_cruncher_test() {
     local label="$1" lang_flag="$2" words="$3" expected="$4"
 
@@ -95,27 +114,33 @@ run_cruncher_test "Greek -n (ignore accents)" "-n" \
     "$SCRIPT_DIR/greek_probe_noaccent.txt" \
     "$SCRIPT_DIR/greek_probe_n.txt"
 
-# Rebuild stemlibs from source, then re-test cruncher output
+# Rebuild stemlibs from source and verify output files are byte-identical
 echo "     (rebuilding Greek stemlib ...)"
-if (cd "$PROJECT_DIR/stemlib/Greek" && PATH="$PROJECT_DIR/bin:$PATH" MORPHLIB=.. make -B all) \
+if ! (cd "$PROJECT_DIR/stemlib/Greek" && PATH="$PROJECT_DIR/bin:$PATH" MORPHLIB=.. make -B all) \
         > /dev/null 2>&1; then
-    run_cruncher_test "Greek stemlib rebuild" "" \
-        "$SCRIPT_DIR/greek_words.txt" \
-        "$SCRIPT_DIR/greek_expected.txt"
-else
     echo "FAIL: Greek stemlib rebuild (build failed)"
     FAILURES=$((FAILURES + 1))
 fi
 
 echo "     (rebuilding Latin stemlib ...)"
-if (cd "$PROJECT_DIR/stemlib/Latin" && PATH="$PROJECT_DIR/bin:$PATH" MORPHLIB=.. make -B all) \
+if ! (cd "$PROJECT_DIR/stemlib/Latin" && PATH="$PROJECT_DIR/bin:$PATH" MORPHLIB=.. make -B all) \
         > /dev/null 2>&1; then
-    run_cruncher_test "Latin stemlib rebuild" "-L" \
-        "$SCRIPT_DIR/latin_words.txt" \
-        "$SCRIPT_DIR/latin_expected.txt"
-else
     echo "FAIL: Latin stemlib rebuild (build failed)"
     FAILURES=$((FAILURES + 1))
+fi
+
+CHECKSUMS="$SCRIPT_DIR/stemlib_checksums.txt"
+if [ -f "$CHECKSUMS" ]; then
+    actual=$(cd "$PROJECT_DIR" && awk '{print $NF}' "$CHECKSUMS" | xargs cksum)
+    if diff -u "$CHECKSUMS" - <<< "$actual" > /dev/null 2>&1; then
+        echo "PASS: stemlib rebuild ($(wc -l < "$CHECKSUMS" | tr -d ' ') files verified)"
+    else
+        echo "FAIL: stemlib rebuild (files differ after rebuild)"
+        diff -u "$CHECKSUMS" - <<< "$actual" | head -20
+        FAILURES=$((FAILURES + 1))
+    fi
+else
+    echo "SKIP: stemlib checksums (stemlib_checksums.txt not found)"
 fi
 
 echo ""

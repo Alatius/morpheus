@@ -3,7 +3,7 @@ VBI
 FECIT
 <NL>V fe_cit,facio  perf ind act 3rd sg			perfstem</NL>
 ROSA
-<NL>P ro_sa,rodo  perf part pass neut nom/voc/acc pl			pp4</NL><NL>P ro_sa_,rodo  perf part pass fem abl sg			pp4</NL><NL>P ro_sa,rodo  perf part pass fem nom/voc sg			pp4</NL><NL>N ro^sa_,rosa  fem abl sg			a_ae</NL><NL>N ro^sa,rosa  fem nom/voc sg			a_ae</NL>
+<NL>P ro_sa,rodo  perf part pass fem nom/voc sg			pp4</NL><NL>P ro_sa,rodo  perf part pass neut nom/voc/acc pl			pp4</NL><NL>P ro_sa_,rodo  perf part pass fem abl sg			pp4</NL><NL>N ro^sa,rosa  fem nom/voc sg			a_ae</NL><NL>N ro^sa_,rosa  fem abl sg			a_ae</NL>
 DOMINUS
 <NL>N do^mi^nus,dominus  masc nom sg			us_i</NL>
 REX

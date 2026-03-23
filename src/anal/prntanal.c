@@ -327,7 +327,22 @@ SortAnals(gk_analysis *Anal, int nanals)
 
 int CompAnals(const void* Anal1, const void* Anal2)
 {
-  return(strcmp(lemma_of((gk_analysis*)Anal1),lemma_of((gk_analysis*)Anal2)));
+  const gk_analysis *a = Anal1, *b = Anal2;
+  int r;
+  if ((r = strcmp(lemma_of(a),lemma_of(b)))) return r;
+  if ((r = strcmp(rawword_of(a),rawword_of(b)))) return r;
+  if ((r = strcmp(stem_of(a),stem_of(b)))) return r;
+  if ((r = strcmp(endstring_of(a),endstring_of(b)))) return r;
+  if ((r = (int)stemtype_of(a) - (int)stemtype_of(b))) return r;
+  if ((r = (int)dialect_of(a) - (int)dialect_of(b))) return r;
+  if ((r = (int)tense_of(forminfo_of(a)) - (int)tense_of(forminfo_of(b)))) return r;
+  if ((r = (int)mood_of(forminfo_of(a)) - (int)mood_of(forminfo_of(b)))) return r;
+  if ((r = (int)voice_of(forminfo_of(a)) - (int)voice_of(forminfo_of(b)))) return r;
+  if ((r = (int)person_of(forminfo_of(a)) - (int)person_of(forminfo_of(b)))) return r;
+  if ((r = (int)number_of(forminfo_of(a)) - (int)number_of(forminfo_of(b)))) return r;
+  if ((r = (int)case_of(forminfo_of(a)) - (int)case_of(forminfo_of(b)))) return r;
+  if ((r = (int)gender_of(forminfo_of(a)) - (int)gender_of(forminfo_of(b)))) return r;
+  return (int)degree_of(forminfo_of(a)) - (int)degree_of(forminfo_of(b));
 }
 
 static gk_string EndGstr;

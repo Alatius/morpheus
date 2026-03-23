@@ -48,6 +48,8 @@ int zstrcmp(const void * s1, const void * s2)
 	char **p2 = (char **)  s2;
 	
 	rval = morphstrcmp(*p1,*p2);
+	if( !rval )
+		rval = strcmp(*p1,*p2);
 /*
 	if( ! ( curcomp++ % 4000 ) ) fprintf(stderr,"%d:  [%s] [%s]\n", rval , *p1 , *p2 );
 */

@@ -1,5 +1,5 @@
 rosa
-<NL>P ro_sa,rodo  perf part pass neut nom/voc/acc pl			pp4</NL><NL>P ro_sa_,rodo  perf part pass fem abl sg			pp4</NL><NL>P ro_sa,rodo  perf part pass fem nom/voc sg			pp4</NL>
+<NL>P ro_sa,rodo  perf part pass fem nom/voc sg			pp4</NL><NL>P ro_sa,rodo  perf part pass neut nom/voc/acc pl			pp4</NL><NL>P ro_sa_,rodo  perf part pass fem abl sg			pp4</NL>
 amo
 <NL>V a^mo_,amo  pres ind act 1st sg			conj1,are_vb</NL>
 amavi
@@ -9,7 +9,7 @@ amans
 sum
 <NL>V sum#1  pres ind act 1st sg			irreg_pp1</NL>
 in
-<NL>V i_s,eo#1  pres ind act 2nd sg			irreg_pp1</NL><NL>V i_,eo#1  pres imperat act 2nd sg			irreg_pp1</NL>
+<NL>V i_,eo#1  pres imperat act 2nd sg			irreg_pp1</NL><NL>V i_s,eo#1  pres ind act 2nd sg			irreg_pp1</NL>
 abeo
 <NL>V abeo_,ab-eo#1  pres ind act 1st sg			irreg_pp1</NL>
 fero
