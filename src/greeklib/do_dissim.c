@@ -17,7 +17,7 @@ int do_dissim(char *s, Stemtype stype)
 	 * added -- grc 5/10/89: a)riqmh/qhn not a)ritmh/qhn
 	 */
 
-	if( Is_asp(*(lastn(s,1))) && ((stype & VERBSTEM ) == PP_AP) ) {
+	if( Is_asp(*(lastn(s,1))) && ((stype & PPARTMASK) == PP_AP) ) {
 		return(0);
 	}
 	/* end 5/10/89 addition */
