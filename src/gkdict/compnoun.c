@@ -5,6 +5,7 @@
 #include <gkstring.h>
 #include "../greeklib/stripacc.proto.h"
 #include "../greeklib/stripquant.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 int is_nomhead(char * heads,char * headkeys);
 extern int comstemtypes(char *, char *, char *);
@@ -24,7 +25,7 @@ void checkforcompnoun(char * curstem,char * endkeys,char * stemkeys)
 		if( (Is_vowel(*(s-1))||Is_vowel(*s) ||Is_breath(*(s-1)) ) && is_nomhead(s,headkeys) ) {
 			printf("[%s] [%s] [%s]\n", curstem, headkeys , endkeys);
 			n = comstemtypes(curstem,headkeys,endkeys);
-			strcpy(firsth,curstem);
+			Xstrncpy(firsth,curstem,sizeof(firsth));
 			firsth[strlen(curstem)-strlen(s)] = 0;
 			if(n) {
 				char * p;
@@ -62,7 +63,7 @@ int setup_headtab(void)
 		if( line[0] != '#' ) continue;
 		headtab[nheads] = malloc(strlen(line));
 		line[strlen(line)-1] = 0;
-		strcpy(headtab[nheads],line+1);
+		Xstrncpy(headtab[nheads],line+1,strlen(line));
 		nheads++;
 	}
 	fclose(fheads);
@@ -79,21 +80,21 @@ int is_nomhead(char * heads,char * headkeys)
 	char *s;
 
 	if( ! init_headtab ) setup_headtab();
-	strcpy(tmphead,heads);
+	Xstrncpy(tmphead,heads,sizeof(tmphead));
 	stripacc(tmphead);
-	strcat(tmphead,"\t");
+	Xstrncat(tmphead,"\t",sizeof(tmphead));
 
 	headkeys[0] = 0;
 	for(i=0;i<nheads;i++) {
-		strcpy(tmptab,headtab[i]);
+		Xstrncpy(tmptab,headtab[i],sizeof(tmptab));
 		stripquant(tmptab);
 		if( !strncmp(tmptab,tmphead,strlen(tmphead)) ) {
 			s = headtab[i]+strlen(tmphead)-1;
 			while(isspace(*s)) *s++ = ':';	
 			while(*s&&!isspace(*s)) s++;
 			while(isspace(*s)) *s++ = ':';	
-			strcat(headkeys,headtab[i]);
-			strcat(headkeys," ");
+			Xstrncat(headkeys,headtab[i],sizeof(headkeys));
+			Xstrncat(headkeys," ",sizeof(headkeys));
 			rval = 1;
 		} 
 	}

@@ -5,6 +5,7 @@ static char  SCCSID[] = "@(#)worksetup.c	2.1  9/26/87";
  */
 
 #include "srchstate.h"
+#include "../greeklib/xstrings.proto.h"
 #include "tlg.h"
 #include "tlgwind.h"
 #define TABSIZE 1024 /* max number of works allowed for now */
@@ -15,7 +16,6 @@ static char  SCCSID[] = "@(#)worksetup.c	2.1  9/26/87";
  * various functions
  */
     char * Calloc();
-    char * strcpy();
     char * strncpy();
     char * NextField();
 
@@ -50,7 +50,7 @@ static char  SCCSID[] = "@(#)worksetup.c	2.1  9/26/87";
                 return( -1 );
             }
         }
-        strcpy( curauth , srch->sname );
+        Xstrncpy( curauth , srch->sname, sizeof(curauth) );
         if( ! OpWorkfFile(srch->sname) ) {
 		fprintf(stderr,"could not find %s.workfile\n", srch->sname);
 		return(-1);
@@ -277,7 +277,7 @@ static char  SCCSID[] = "@(#)worksetup.c	2.1  9/26/87";
  *	Make sure every work has a name -- vjh 9/87
  */
 	if ( swk->wkname[0] == '\0' )  {
-		strcpy( swk->wkname, "wk" );
+		Xstrncpy( swk->wkname, "wk", sizeof(swk->wkname) );
 		snprintf( swk->wkname+2, sizeof(swk->wkname)-2, "%03d", swk->wknum );
 	}
 }

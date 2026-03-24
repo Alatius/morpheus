@@ -1,4 +1,5 @@
 #include <gkstring.h>
+#include "../greeklib/xstrings.proto.h"
 
 int set_sampleform(char *keys)
 {
@@ -18,13 +19,13 @@ int set_sampleform(char *keys)
 	
 	if( Is_verbform(gstr) ) {
 		if( ! person_of(wf) ) {
-			strcat(keys," 1st");
+			Xstrncat(keys," 1st",BUFSIZ);
 		if( ! number_of(wf) )
-			strcat(keys," sing");
+			Xstrncat(keys," sing",BUFSIZ);
 		if( ! mood_of(wf) )
-			strcat(keys," ind");
+			Xstrncat(keys," ind",BUFSIZ);
 		if( ! voice_of(wf) )
-			strcat(keys," act");
+			Xstrncat(keys," act",BUFSIZ);
 	}
 	if( ! tense_of(wf) ) {
 			switch(stemtype_of(gstr) ) {
@@ -36,7 +37,7 @@ int set_sampleform(char *keys)
 				case AMI_PR:
 				case OMI_PR:
 				case UMI_PR:
-					strcat(keys," pres");
+					Xstrncat(keys," pres",BUFSIZ);
 					break;
 				case AOR_PASS:
 				case AOR2_PASS:
@@ -46,7 +47,7 @@ int set_sampleform(char *keys)
 				case AMI_AOR:
 				case OMI_AOR:
 				case UMI_AOR:
-					strcat(keys," aor");
+					Xstrncat(keys," aor",BUFSIZ);
 					break;
 				case	PERF_ACT:
 				case	PERF2_ACT:
@@ -61,7 +62,7 @@ int set_sampleform(char *keys)
 				case	PERF_ACT:
 				case	PERFP_R:
 				case PERF_ACT:
-					strcat(keys," perf");
+					Xstrncat(keys," perf",BUFSIZ);
 					break;
 			    default:
 			    		break;

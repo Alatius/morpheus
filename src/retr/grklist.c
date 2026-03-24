@@ -16,6 +16,7 @@
 
 #include "defcons.h"
 #include "tlgfile.h"
+#include "../greeklib/xstrings.proto.h"
 
 
 /*
@@ -39,7 +40,6 @@
     FILE * OpenGrklist();
     char * GetAuthRec();
     char * AuthInGrklist();
-    char * strcpy();
     char * strncpy();
     char * getenv();
 
@@ -280,8 +280,8 @@ static char *
                 fprintf(stderr,"could not open grklist, looking for %s\n", s );
                 return( NULL );
         }
-        strcpy( tmp , s );
-        strcat( tmp , "\t" );
+        Xstrncpy( tmp , s, sizeof(tmp) );
+        Xstrncat( tmp , "\t", sizeof(tmp) );
         
 
         while( fgets( abuf , BUFSIZ, fgrklist ) ) {

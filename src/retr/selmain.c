@@ -4,6 +4,7 @@
  */
 
 #include "srchstate.h"
+#include "../greeklib/xstrings.proto.h"
 #include <malloc.h>
 void * Malloc(size_t);
 
@@ -57,7 +58,7 @@ char * argv[];
                 switch (argv[0][1]) {
 
                 case 'o':
-                        strcpy( srch->savefile , &argv[0][2] );
+                        Xstrncpy( srch->savefile , &argv[0][2], sizeof(srch->savefile) );
                         continue;
 
 		case 'S':
@@ -147,8 +148,9 @@ char * argv[];
 
                 case 'p':
                         srch->rflags |= THESAURUS|INDEX ;
-                        strcpy( autharr[0] , BIGINDNAME );
-                        strcpy( srch->sname , BIGINDNAME );
+                        strncpy( autharr[0] , BIGINDNAME, SHORTS );
+                        autharr[0][SHORTS - 1] = '\0';
+                        Xstrncpy( srch->sname , BIGINDNAME, sizeof(srch->sname) );
                         nauths = 1;
                         continue;
                 default:
@@ -158,7 +160,9 @@ char * argv[];
 
         
         if( !wflag ) {
-        strcpy( wordarr[nwords++] , *argv );
+        strncpy( wordarr[nwords] , *argv, SHORTS );
+        wordarr[nwords][SHORTS - 1] = '\0';
+        nwords++;
         argc--; argv++;
         }
 

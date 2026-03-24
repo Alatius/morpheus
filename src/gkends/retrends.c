@@ -747,10 +747,10 @@ int noaccstrcmp(char *wendstr, char *hendstr)
 	char tmp1[BUFSIZ];
 	char tmp2[BUFSIZ];
 	
-	strcpy(tmp1,wendstr);
+	Xstrncpy(tmp1,wendstr,sizeof(tmp1));
 	stripquantacc(tmp1);
-	
-	strcpy(tmp2,hendstr);
+
+	Xstrncpy(tmp2,hendstr,sizeof(tmp2));
 	stripquantacc(tmp2);
 	
 	return(strcmp(tmp1,tmp2));

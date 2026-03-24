@@ -5,6 +5,7 @@
 
 #include  <ssearch.h>
 #include "srchstate.h"
+#include "../greeklib/xstrings.proto.h"
 
 #define  MAXKEY  100
 
@@ -40,8 +41,8 @@ char * argv[];
                 exit( -1 );
         }
 
-        strcpy( Srch.sname , argv[2] );
-        strcpy( Authname , Srch.sname );
+        Xstrncpy( Srch.sname , argv[2], sizeof(Srch.sname) );
+        Xstrncpy( Authname , Srch.sname, sizeof(Authname) );
 
         if( ! TlgOnline( Srch.sname ) ) {
                 fprintf(stderr,"%s not found\n", Srch.sname );

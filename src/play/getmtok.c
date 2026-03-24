@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include "y.tab.h"
 #include <string.h>
+#include "../greeklib/xstrings.proto.h"
 
 char line[10000];
 char anals[10000];
@@ -28,7 +29,8 @@ passVal()
         if (!yylval.string)
                 fprintf(stderr, "Out of memory for %s\n", line );
         else
-                strcpy( yylval.string, line );
+                strncpy( yylval.string, line, sizeof(line) );
+                yylval.string[sizeof(line) - 1] = '\0';
 /*        fprintf(stderr, "%s\n",yylval.string);*/
 }
 

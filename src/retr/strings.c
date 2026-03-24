@@ -1,4 +1,5 @@
 #include <srchstate.h>
+#include "../greeklib/xstrings.proto.h"
 
 trim_white(s)
 char * s;
@@ -23,7 +24,8 @@ char * s;
 		*b-- = 0;
 	}
 	
-	strcpy(s,a);
+	strncpy(s,a,MAXLINE);
+	s[MAXLINE - 1] = '\0';
 }
 
 s_blank(s)

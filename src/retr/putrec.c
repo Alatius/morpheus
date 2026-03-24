@@ -4,6 +4,7 @@
  */
 
 #include "srchstate.h"
+#include "../greeklib/xstrings.proto.h"
 #include "tlgwind.h"
 
 
@@ -229,7 +230,7 @@ FILE * foutfile;
 
 	tlg_seek( srch->sname , start );
 	/* copy current line into cur_line */
-	strcpy( cur_line , tlg_cur_textline() );
+	Xstrncpy( cur_line , tlg_cur_textline(), sizeof(cur_line) );
 
 
 	index = (int)(start - (get_textoffset()));
@@ -302,7 +303,7 @@ int part;
 	if( index < 0 ) 
 		return(-1);
 	if( part == 1 ) {
-		strcpy(tmp,s);
+		Xstrncpy(tmp,s,sizeof(tmp));
 		*(s+index) = 0;
 		gk_sprint(s,PRINTFLAG);
 		fadd_newline(f);

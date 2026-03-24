@@ -4,6 +4,7 @@
  */
 
 #include "srchstate.h"
+#include "../greeklib/xstrings.proto.h"
 
 #define GETNWORDS 10
 #define TMPL BUFSIZ
@@ -47,7 +48,7 @@ static SetSliceOfIndex(srch_state * srch, char * key);
         }
 
         InitBigind();
-        strcpy( srch->sname , BIGINDNAME );
+        Xstrncpy( srch->sname , BIGINDNAME, sizeof(srch->sname) );
         if( ! ThesaurOnline(BIGINDNAME) ) {
 		fprintf(stderr,"Big index not online\n");
                 return(-1);
@@ -99,14 +100,15 @@ static SetSliceOfIndex(srch_state * srch, char * key);
                 }
         }
         srch->rflags |= INDEX;
-        strcpy(key,srch->key);
+        Xstrncpy(key,srch->key,sizeof(key));
 
         SetSliceOfIndex(srch , key );
         InitLinLookup(srch);
         for(i=0;NextLinPhrase(srch);i++) {
 		hits++;
                 gotp2[i] = srch->p2;
-                strcpy(gotstrings[i],srch->gotstr);
+                strncpy(gotstrings[i],srch->gotstr,sizeof(srch->gotstr));
+                gotstrings[i][sizeof(srch->gotstr) - 1] = '\0';
         /*
          * buffer hits up so that you do not have to seek out of
          * the index file on each hit -- this should save seek
@@ -147,8 +149,8 @@ static
 			printf("\t%s", gotstrings[j] );
 			continue;
 		}
-                strcpy( TmpSrch->key , gotstrings[j] );
-                strcpy( TmpSrch->gotstr , gotstrings[j] );
+                Xstrncpy( TmpSrch->key , gotstrings[j], sizeof(TmpSrch->key) );
+                Xstrncpy( TmpSrch->gotstr , gotstrings[j], sizeof(TmpSrch->gotstr) );
                 if( TmpSrch->rflags & THESAURUS ) {
                     thesaur(stdout,TmpSrch,gotp2[j],gotstrings[j]);
                 } else if ( TmpSrch->rflags & (TWOWORDS|SHOWOFFS )) {
@@ -236,7 +238,7 @@ static
 {
 	char curkey[64];
 
-	strcpy(curkey,key);
+	Xstrncpy(curkey,key,sizeof(curkey));
         if( curkey[0] != '@' && ! isupper(curkey[0]) && curkey[0] != '*' ) {
                 srch->l_lno = 1;
                 srch->l_start = 0;
@@ -271,7 +273,7 @@ static
                         ParseWlistLine(srch,prev_line,cur_line);
                         goto finish;
                 }
-                strcpy(prev_line,cur_line);
+                Xstrncpy(prev_line,cur_line,sizeof(prev_line));
         }
         ParseWlistLine(srch,prev_line,NULL);
 
@@ -415,10 +417,10 @@ if( ThFreq == 0 ) {
 	fflush(fout);
 
 
-        strcpy( gots , srch->gotstr );
+        Xstrncpy( gots , srch->gotstr, sizeof(gots) );
                 for(i=0;i<ThFreq;i++) {
-                        strcpy( srch->gotstr , gots );
-                        strcpy( srch->key , gots );
+                        Xstrncpy( srch->gotstr , gots, sizeof(srch->gotstr) );
+                        Xstrncpy( srch->key , gots, sizeof(srch->key) );
                         ThDumprec(  fout , srch , i , string );
                 }
                 fadd_newline(fout);
@@ -444,7 +446,7 @@ if( ThFreq == 0 ) {
         if( gotpA ) {
                 tmpR.p2 = ThTlgp2[index];
                 tmpR.freq = x;
-                strcpy( tmpR.key , s );
+                Xstrncpy( tmpR.key , s, sizeof(tmpR.key) );
         } else {
                 tmpR.p2 = tmpR.freq = 0;
         }
@@ -557,7 +559,8 @@ static
         }
                 
                 
-        strcpy( s , authtab[ n ] );
+        strncpy( s , authtab[ n ], MAXMEM );
+        s[MAXMEM - 1] = '\0';
         return( 1 );
 }
 

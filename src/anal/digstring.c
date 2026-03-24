@@ -74,7 +74,7 @@ digstring1(gk_word *Gkword)
 		if( ! n /* && ! hasaccent(savework) */) {
 			char tmp[MAXWORDSIZE];
 			
-			strcpy(tmp,savework);
+			Xstrncpy(tmp,savework,sizeof(tmp));
 			if( hasaccent(tmp) ) stripacc(tmp);
 			set_workword(Gkword,"e)/");
 			Xstrncat(workword_of(Gkword),tmp+1,MAXWORDSIZE);

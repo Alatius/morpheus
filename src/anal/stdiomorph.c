@@ -9,6 +9,7 @@
 #include "checkgenwds.proto.h"
 #include "../greeklib/addbreath.proto.h"
 #include "../greeklib/stripbreath.proto.h"
+#include "../greeklib/xstrings.proto.h"
 #include "../morphlib/setlang.proto.h"
 #include "../morphlib/trimwhite.proto.h"
 #ifndef CLOCKS_PER_SEC
@@ -115,7 +116,7 @@ int main(int argc, char *argv[])
 	foutput = stdout;
 	fstats = ffailed = stderr;
       } else {
-	strcpy(outname,optarg);
+	Xstrncpy(outname,optarg,sizeof(outname));
 	snprintf(failedname,sizeof(failedname),"%s.failed",outname);
 	snprintf(statsname,sizeof(statsname),"%s.stats",outname);
 printf("outname [%s]\n", outname );
@@ -132,9 +133,9 @@ printf("outname [%s]\n", outname );
 
     fstats = ffailed = stderr;
   } else {
-    strcpy(fname,argv[optind++]);
-    strcpy(inpname,fname);
-    strcat(inpname,".words");
+    Xstrncpy(fname,argv[optind++],sizeof(fname));
+    Xstrncpy(inpname,fname,sizeof(inpname));
+    Xstrncat(inpname,".words",sizeof(inpname));
     
     if (optind >= argc) {
       if (outname[0] == '\0') {
@@ -144,7 +145,7 @@ printf("outname [%s]\n", outname );
       }
 fprintf(stdout,"files: [%s] [%s]\n", outname, failedname);
     } else {
-      strcpy(destPath,argv[optind]);
+      Xstrncpy(destPath,argv[optind],sizeof(destPath));
       snprintf(outname,sizeof(outname),"%s%c%s.morph",destPath, PATH_SEP, fname);
     }
     
@@ -214,7 +215,7 @@ fprintf(stdout,"files: [%s] [%s]\n", outname, failedname);
     if( cur_lang() != LATIN && ! rval && (flags & IGNORE_ACCENTS) ) {
 	char tmpform[BUFSIZ];
 
-	strcpy(tmpform,line);
+	Xstrncpy(tmpform,line,sizeof(tmpform));
 	stripbreath(tmpform);
 	addbreath(tmpform,')');
         rval = checkstring(tmpform,flags,foutput);
@@ -231,7 +232,7 @@ fprintf(stdout,"files: [%s] [%s]\n", outname, failedname);
       if( string_time >= long_time && nwords > 0 && rval ) {
 	
 	long_time = string_time;
-	strcpy(long_string,line);
+	Xstrncpy(long_string,line,sizeof(long_string));
 	fprintf(stderr,":longtime\t%.2f\t%s\n", long_time, long_string );
       }
     }

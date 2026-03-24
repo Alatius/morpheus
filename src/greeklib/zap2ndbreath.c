@@ -1,6 +1,7 @@
 #include <greek.h>
 
 #include "zap2ndbreath.proto.h"
+#include "xstrings.proto.h"
 
 /*
  * "e)nh(/bwsa" --> "e)nh/bwsa"
@@ -67,7 +68,7 @@ void zap_rr_breath(char *s)
 	while(*s) {
 		if( *s=='r' && *(s+1) == ')' 
 		&&  *(s+2)=='r' && *(s+3) == '(' ) {
-			strcpy(s,"rr");
+			Xstrncpy(s,"rr",MAXWORDSIZE);
 			memmove(s+2,s+4,strlen(s+4)+1);
 		}
 		s++;

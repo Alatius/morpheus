@@ -65,7 +65,7 @@ int GenSynForms(FILE *f, FILE *fout)
 	while( fgets(line,sizeof line,f ) ) {
 		char saveline[BUFSIZ*2];
 
-		strcpy(saveline,line);
+		Xstrncpy(saveline,line,sizeof saveline);
 
 		showdialect = 0;
 		if( is_blank(line) ) {
@@ -405,8 +405,8 @@ keys );
 			showdialect++;
 		}
 		if( oddkeys_of(dummyword) ) {
-			strcat(keys," ");
-			strcat(keys,oddkeys_of(dummyword));
+			Xstrncat(keys," ",LONGSTRING);
+			Xstrncat(keys,oddkeys_of(dummyword),LONGSTRING);
 		}
 
 	finish:
@@ -468,8 +468,8 @@ printf("formcnt=%d\n", formcnt);
 	if( print_mode == MORPH_INFO ) {
 		char tmplem[BUFSIZ];
 
-		strcpy(tmp,workword_of(gkform));
-		strcpy(tmplem,lemma_of(gkform));
+		Xstrncpy(tmp,workword_of(gkform),sizeof tmp);
+		Xstrncpy(tmplem,lemma_of(gkform),sizeof tmplem);
 		stripmetachars(tmp);
 		stripdiaer(tmp);
 		standalpha(tmplem);
@@ -478,7 +478,7 @@ printf("formcnt=%d\n", formcnt);
 		if( strcmp(tmp,tmplem)) {
 			char tmp2[BUFSIZ];
 
-			strcpy(tmp2,workword_of(gkform));
+			Xstrncpy(tmp2,workword_of(gkform),sizeof tmp2);
 			standalpha(tmp2);
 			stripmetachars(tmp2);
 			stripdiaer(tmp2);
@@ -494,7 +494,7 @@ printf("formcnt=%d\n", formcnt);
 			tmp[0] = 0;
 			/*stripquant( workword_of(gkform+i) );*/
 			fprintf(fout,"<G>%s</G> ", workword_of(gkform+i) );
-			SprintGkFlags(ends_gstr_of(gkform+i),tmp," ",1);
+			SprintGkFlags(ends_gstr_of(gkform+i),tmp,sizeof(tmp)," ",1);
 			fprintf(fout,"%s\n", tmp );
 		}
 		return;
@@ -524,7 +524,7 @@ dialect_of(ends_gstr_of(gkform+i) ));
 			Xstrncat(linebuf,"& ",sizeof linebuf);
 		    Xstrncat(linebuf , NameOfStemtype(stemtype_of(gkform)),sizeof linebuf );
 		    Xstrncat(linebuf , " ",sizeof linebuf);
-			AddParadigmInfo(linebuf,forminfo_of(gkform)," ");
+			AddParadigmInfo(linebuf,sizeof(linebuf),forminfo_of(gkform)," ");
 		} else if( Is_nounform(gkform) && ! Is_irregform(morphflags_of(gkform)) ) {
 
 			switch(gender_of(forminfo_of(gkform))) {
@@ -565,15 +565,15 @@ dialect_of(ends_gstr_of(gkform+i) ));
 			Xstrncat(tmp," ",sizeof tmp);
 		}
 		Xstrncat(linebuf,tmp,sizeof linebuf);
-		AddParadigmInfo(linebuf,forminfo_of(gkform)," ");
+		AddParadigmInfo(linebuf,sizeof(linebuf),forminfo_of(gkform)," ");
 
 		if( Is_irregform(morphflags_of(gkform)) || person_of(forminfo_of(gkform)) != PERS1) {
 			if( Is_verbform(gkform) ) {
-				AddPersNumInfo(linebuf,forminfo_of(gkform)," ");
-				AddAdjInfo(linebuf,forminfo_of(gkform)," ");
+				AddPersNumInfo(linebuf,sizeof(linebuf),forminfo_of(gkform)," ");
+				AddAdjInfo(linebuf,sizeof(linebuf),forminfo_of(gkform)," ");
 			} else {
-				AddAdjInfo(linebuf,forminfo_of(gkform)," ");
-				AddPersNumInfo(linebuf,forminfo_of(gkform)," ");
+				AddAdjInfo(linebuf,sizeof(linebuf),forminfo_of(gkform)," ");
+				AddPersNumInfo(linebuf,sizeof(linebuf),forminfo_of(gkform)," ");
 			}
 		}
 	}
@@ -600,8 +600,8 @@ dialect_of(ends_gstr_of(gkform+i) ));
 	dialbuf[0] = 0;
 	GeogRegionNames(geogregion_of(gkform),dialbuf," ");
 	if( dialbuf[0] ) {
-		strcat(linebuf," "); 
-		strcat(linebuf,dialbuf );
+		Xstrncat(linebuf," ",sizeof linebuf);
+		Xstrncat(linebuf,dialbuf,sizeof linebuf);
 	}
 		
 
@@ -624,9 +624,9 @@ dialect_of(ends_gstr_of(gkform+i) ));
 	dialbuf[0] = 0;
 	DomainNames(domains_of(gkform),dialbuf," ");
 	if( dialbuf[0] ) {
-		strcat(linebuf," &1"); 
-		strcat(linebuf,dialbuf );
-		strcat(linebuf,"&");
+		Xstrncat(linebuf," &1",sizeof linebuf);
+		Xstrncat(linebuf,dialbuf,sizeof linebuf);
+		Xstrncat(linebuf,"&",sizeof linebuf);
 	}
 
 		
@@ -701,8 +701,8 @@ int is_exception(char *s1, char * s2)
 {
 	char tmp1[BUFSIZ], tmp2[BUFSIZ];
 
-	strcpy(tmp1,s1);
-	strcpy(tmp2,s2);
+	Xstrncpy(tmp1,s1,sizeof tmp1);
+	Xstrncpy(tmp2,s2,sizeof tmp2);
 
 	/* 
  	 * if one ends in oos or ous, see if the other does too 

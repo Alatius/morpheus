@@ -32,7 +32,7 @@ void mk_end(char *havestr, gk_string *Have, gk_string *Avoid)
 	gk_string * euph_forms;
 	int saw_vowel = 0;
 
-	strcpy(savestr,havestr);
+	Xstrncpy(savestr,havestr,sizeof(savestr));
 	s = savestr;
 
 
@@ -128,7 +128,7 @@ static void mk_compend(gk_string *Have, gk_string *Avoid, char *curstr, char *en
 	while(fgets(line,sizeof line,f)) {
 		char curendstr[MAXWORDSIZE];
 
-		strcpy(savestem,curstr);
+		Xstrncpy(savestem,curstr,sizeof(savestem));
 
 		if( is_blank(line) )
 			continue;
@@ -149,7 +149,7 @@ static void update_end(gk_string *Have, gk_string *Avoid, char *stem, char *ends
 {
 	char savestem[MAXWORDSIZE];
 
-	strcpy(savestem,stem);
+	Xstrncpy(savestem,stem,sizeof(savestem));
 
 	/*
 	 * at this point check to see if you want this ending
@@ -165,7 +165,7 @@ static void update_end(gk_string *Have, gk_string *Avoid, char *stem, char *ends
  */
  		CompStemEnd(Have,gkstring_of(Have),endstr);
 
-		strcat(gkstring_of(Have),endstr);
+		Xstrncat(gkstring_of(Have),endstr,sizeof(gkstring_of(Have)));
 		mk_end(gkstring_of(Have),Have,Avoid);
 	} 
 }

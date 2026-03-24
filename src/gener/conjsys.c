@@ -60,7 +60,7 @@ void GenConjForms(FILE *fin, FILE *fout, int conjmode)
 	fullconj = conjmode;
 	
 	while(fgets(linebuf,sizeof linebuf,fin) ) {
-		strcpy(saveline,linebuf);
+		Xstrncpy(saveline,linebuf,sizeof saveline);
 		if( !strncmp(linebuf,"@fullconj",strlen("@fullconj")) )  {
 			fullconj = 1;
 			continue;
@@ -87,7 +87,7 @@ void GenConjForms(FILE *fin, FILE *fout, int conjmode)
 		if( has_pref(linebuf,":vs:" ) ) {
 		 	wantpparts = 0;
 		 	derivbuf[0] = 0;
-		 	strcpy(vsbuf,linebuf);
+		 	Xstrncpy(vsbuf,linebuf,sizeof vsbuf);
 		 	fprintf(fout,"%s", linebuf );
 		 	continue;
 		}
@@ -109,7 +109,7 @@ void GenConjForms(FILE *fin, FILE *fout, int conjmode)
 			wantpparts = 1;
 			if( linebuf[strlen(linebuf)-1] == '\n' )
 					linebuf[strlen(linebuf)-1] = 0;
-			strcpy(origline,linebuf);
+			Xstrncpy(origline,linebuf,sizeof origline);
 			nextkey(linebuf,stembuf);
 			memmove(stembuf,stembuf+4,strlen(stembuf+4)+1);
 			nextkey(linebuf,globalkeys);
@@ -125,9 +125,9 @@ void GenConjForms(FILE *fin, FILE *fout, int conjmode)
 
 			 nextkey(globalkeys,derivbuf);
 			 if( * globalkeys ) {
-			 	strcat(globalkeys," ");
+			 	Xstrncat(globalkeys," ",sizeof globalkeys);
 			 }
-			 strcat(globalkeys, linebuf);
+			 Xstrncat(globalkeys, linebuf,sizeof globalkeys);
 			if( ! fullconj && ! regular_entry(derivbuf) )
 				fprintf(fout,"-");
 			fprintf(fout,"%s", saveline );
@@ -173,7 +173,7 @@ void GenConjForms(FILE *fin, FILE *fout, int conjmode)
 				char *s;
 				
 				fprintf(fout,"%s", linebuf );
-				strcpy(cobuf,linebuf);
+				Xstrncpy(cobuf,linebuf,sizeof cobuf);
 				s = cobuf;
 				while(*s&&!isspace(*s)) s++;
 				while(isspace(*s))s++;
@@ -183,8 +183,8 @@ void GenConjForms(FILE *fin, FILE *fout, int conjmode)
 				len = strlen(linebuf);
 				if( linebuf[len-1] == '\n') linebuf[len-1] = 0;
 
-				strcpy(tkeys, linebuf+1 );
-				strcpy(savekeys,linebuf+1);
+				Xstrncpy(tkeys, linebuf+1, sizeof tkeys );
+				Xstrncpy(savekeys,linebuf+1,sizeof savekeys);
 				s = savekeys; 
 				while(*s&&!isspace(*s)) s++; 
 				if( isspace(*s) ) *(s++) = 0;
@@ -265,7 +265,7 @@ void show_defvals(FILE *fout)
 void set_newlemma(char *s)
 {
 	*(s+strlen(s)-1) = 0;
-	strcpy(curlemma,s+4);
+	Xstrncpy(curlemma,s+4,sizeof curlemma);
 	derivbuf[0] = 0;
 }
 
@@ -277,7 +277,7 @@ int noppart(char *s)
 	
 	if(is_empty(s) ) return(1);
 	
-	strcpy(buf1,s);
+	Xstrncpy(buf1,s,sizeof buf1);
 	nextkey(buf1,buf2);
 	
 	if( ! buf2[0] ) return(1);
@@ -327,7 +327,7 @@ int need_ppart(char *s)
 			if(*s ==',') s++;
 		}
 	}
-	strcpy(tmpkeys,s);
+	Xstrncpy(tmpkeys,s,sizeof tmpkeys);
 	s = tmpkeys;
 	
 	while(*s&&!isspace(*s)) {
@@ -385,7 +385,7 @@ int check_vsdupl(char *s, FILE *fout)
 	fprintf(fout,"-%s", s );
 	if( fullconj ) return(1);
 	
-	strcpy(tmpglobs,vsbuf);
+	Xstrncpy(tmpglobs,vsbuf,sizeof tmpglobs);
 	p = tmpglobs;
 	while(*p&&!isspace(*p)) p++;
 	while(isspace(*p)) p++;
@@ -393,7 +393,7 @@ int check_vsdupl(char *s, FILE *fout)
 		if(*p==',') *p = ' ';
 		p++;
 	}
-	strcpy(tmpvsbuf1,tmpglobs);
+	Xstrncpy(tmpvsbuf1,tmpglobs,sizeof tmpvsbuf1);
 	*p = 0;
 	
 	ScanAsciiKeys(s+1,&TmpGkword,&CurGstr,NULL);
@@ -440,7 +440,7 @@ int need_codupl(char *s)
 */
 	if( fullconj ) return(1);
 	
-	strcpy(tmpglobs,cobuf);
+	Xstrncpy(tmpglobs,cobuf,sizeof tmpglobs);
 	p = tmpglobs;
 	while(*p&&!isspace(*p)) p++;
 	while(isspace(*p)) p++;
@@ -448,7 +448,7 @@ int need_codupl(char *s)
 		if(*p==',') *p = ' ';
 		p++;
 	}
-	strcpy(tmpcobuf1,tmpglobs);
+	Xstrncpy(tmpcobuf1,tmpglobs,sizeof tmpcobuf1);
 	*p = 0;
 	snprintf(tmpcobuf2,sizeof(tmpcobuf2),"%s%s", tmpglobs,s+1);
 	

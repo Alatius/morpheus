@@ -8,6 +8,7 @@
 #include "chckcmpstem.proto.h"
 #include "../morphlib/morphpath.proto.h"
 #include "../morphlib/trimwhite.proto.h"
+#include "../greeklib/xstrings.proto.h"
 int quickflag = 0;
 long prevmemory = 0;
 
@@ -30,7 +31,7 @@ main(void)
 
 	if(line[0] == 'y' ) {
 		fprintf(stderr,"type in forms\n");
-		strcpy(outname,"out.morph");
+		Xstrncpy(outname,"out.morph",sizeof(outname));
 		finput = stdin;
 	} else {
 		if((finput=MorphFopen(NOMINDEX,"r")) == NULL) {
@@ -41,11 +42,11 @@ main(void)
 		fprintf(stderr,"word file? ");
 		gets(fname);
 		
-		strcpy(inpname,fname);
-		strcat(inpname,".words");
-		
-		strcpy(outname,fname);
-		strcat(outname,".morph");
+		Xstrncpy(inpname,fname,sizeof(inpname));
+		Xstrncat(inpname,".words",sizeof(inpname));
+
+		Xstrncpy(outname,fname,sizeof(outname));
+		Xstrncat(outname,".morph",sizeof(outname));
 
 		if((finput=fopen(inpname,"r")) == NULL) {
 			fprintf(stderr,"cannot find [%s]!\n", inpname);

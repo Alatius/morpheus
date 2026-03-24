@@ -18,6 +18,7 @@
 #include "../morphlib/morphflags.proto.h"
 #include "../morphlib/nextkey.proto.h"
 #include "../greeklib/isblank.proto.h"
+#include "../greeklib/xstrings.proto.h"
 static gk_string Blnk;
 
 void expendtables(char *tabname, int maintable, int formcode)
@@ -47,8 +48,8 @@ void expendtables(char *tabname, int maintable, int formcode)
 
 	if( maintable ) {
 		if( *s == DIRCHAR ) s++;
-		strcpy(fname,s);
-		strcpy(basename,s);
+		Xstrncpy(fname,s,sizeof(fname));
+		Xstrncpy(basename,s,sizeof(basename));
 /*
 		if( formcode == DODERIV ) strcat(basename," is_deriv"); 
 		else if( formcode == DOWORD ) strcat(basename," indeclform"); 
@@ -95,7 +96,7 @@ void expendtables(char *tabname, int maintable, int formcode)
 			return;
 		}
 	} else {
-		strcpy(fname,s);
+		Xstrncpy(fname,s,sizeof(fname));
 		basename[0] = 0;
 		if(! (finput=fopen(fname,"r"))) {
 			fprintf(stderr,"could not open %s for reading\n", fname );
@@ -103,8 +104,8 @@ void expendtables(char *tabname, int maintable, int formcode)
 			return;
 		}
 	}
-	if( formcode == DODERIV ) strcat(basename," is_deriv"); 
-	else if( formcode == DOWORD ) strcat(basename," indeclform"); 
+	if( formcode == DODERIV ) Xstrncat(basename," is_deriv",sizeof(basename));
+	else if( formcode == DOWORD ) Xstrncat(basename," indeclform",sizeof(basename));
 	
 	if( ! InitGstrMem() )  {
 		fprintf(stderr,"Could not allocate storage for ending array\n" );

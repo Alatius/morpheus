@@ -150,8 +150,8 @@ int diphth_end(char *stem, char *endstring)
 	char tmp[MAXWORDSIZE];
 	char * s;
 	
-	strcpy(tmp,stem);
-	strcat(tmp,endstring);
+	Xstrncpy(tmp,stem,sizeof(tmp));
+	Xstrncat(tmp,endstring,sizeof(tmp));
 	
 	s = getsyll(tmp,ULTIMA);
 	if( s == P_ERR ) return(0);

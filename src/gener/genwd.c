@@ -51,7 +51,7 @@ void GenDictEntry(gk_word *Gkword, char *dentry)
 	set_morphflag(morphflags_of(stem_gstr_of(&TmpGkword)),0);
 	set_morphflag(morphflags_of(&TmpGkword),0);
 
-	SprintGkFlags(stem_gstr_of(&TmpGkword),keys,"\t",1);
+	SprintGkFlags(stem_gstr_of(&TmpGkword),keys,sizeof(keys),"\t",1);
 	*(ends_gstr_of(&TmpGkword)) = BlankGstr;
 /*printf("endstring: [%s] keys:%s\n", endstring_of(&TmpGkword), keys );*/
 
@@ -65,7 +65,7 @@ void GenDictEntry(gk_word *Gkword, char *dentry)
 
 	stripmetachars(workword_of(gkforms));
 /*	printf("workword:%s\n", workword_of(gkforms) );*/
-	strcpy(dentry,workword_of(gkforms));
+	Xstrncpy(dentry,workword_of(gkforms),MAXWORDSIZE);
 	FreeGkword(gkforms);
 }
 
@@ -140,7 +140,7 @@ gk_word *
 /*
 	Xstrncpy(stemkeys,keys,LONGSTRING);
 */
-	strcpy(stemkeys,keys);
+	Xstrncpy(stemkeys,keys,sizeof stemkeys);
 
 /*
  * ok, we want to process the keys associated with this stem, and then

@@ -46,8 +46,8 @@ int checkforderiv(char *stemstr, char *stemkeys)
 	
 	rval2 = checkforredupderiv(stemstr,stemkeys2);
 	if( rval2 ) {
-		if( *stemkeys ) strcat(stemkeys," ");
-		strcat(stemkeys,stemkeys2);
+		if( *stemkeys ) Xstrncat(stemkeys," ",BUFSIZ);
+		Xstrncat(stemkeys,stemkeys2,BUFSIZ);
 	}
 /*
 printf("%d) %d %d [%s] checkedsuff %d, added %d\n", checkedderivs , realderivs++,
@@ -125,13 +125,13 @@ int checkaugredup(char *stemstr, char *stemkeys)
 printf("checking [%s] [%s] [%s]\n", stemstr , gkstring_of(tstemtab[i]) , tmpkeys );
 */
 		tempstem[0] = 0;
-		SprintGkFlags(tstemtab[i],tmpkeys,"	",1);
+		SprintGkFlags(tstemtab[i],tmpkeys,sizeof(tmpkeys),"	",1);
 		Xstrncpy(tempstem,gkstring_of(tstemtab[i]),(int)sizeof tempstem );
 
-		if( has_morphflag(morphflags_of(tstemtab[i]),SYLL_AUGMENT)  ) 
-			strcpy(had_redupl,"syll_aug");
+		if( has_morphflag(morphflags_of(tstemtab[i]),SYLL_AUGMENT)  )
+			Xstrncpy(had_redupl,"syll_aug",sizeof(had_redupl));
 		else
-			strcpy(had_redupl,"temp_aug");
+			Xstrncpy(had_redupl,"temp_aug",sizeof(had_redupl));
 /*
  * grc 3/21/91
  *
@@ -140,8 +140,8 @@ printf("checking [%s] [%s] [%s]\n", stemstr , gkstring_of(tstemtab[i]) , tmpkeys
  */
 
 		if( tmpkeys[0] ) {
-			strcat(had_redupl," ");
-			strcat(had_redupl,tmpkeys);
+			Xstrncat(had_redupl," ",sizeof(had_redupl));
+			Xstrncat(had_redupl,tmpkeys,sizeof(had_redupl));
 		}
 
 		if( checkforderiv2(tempstem,tmpkeys,had_redupl,
@@ -303,7 +303,7 @@ int checkcomderiv(char *derivstr, char *defstem, char *suffix, char *lkeys, char
 			 * that we have labelled the long alpha:  a)_kolouqhs-
 			 */
 						markedstem++;
-						strcpy(tmpdstem,redupstem);
+						Xstrncpy(tmpdstem,redupstem,LONGSTRING);
 						tmpsuff = "";
 					} else
 						simpleredupit(tmpdstem,NO,'e');	
@@ -345,7 +345,7 @@ int checkmultredups(char *asuffkeys, char *dstem, char *dstemkeys, char *suffix,
 		
 		curstemkeys[0] = 0;
 		set_dialect(gstr,dialect_of(gkform+i) );
-		SprintGkFlags(gstr,curstemkeys," ",1);
+		SprintGkFlags(gstr,curstemkeys,sizeof(curstemkeys)," ",1);
 		p = workword_of(gkform+i);
 		rval += checkcomderiv2(asuffkeys,p,curstemkeys,suffix,lemma,lkeys,rkeys,had_redupl,markedstem);
 	}
@@ -464,7 +464,7 @@ int checkcomderiv2(char *asuffkeys, char *dstem, char *dstemkeys, char *suffix, 
 				FreeGkword(gkword);
 			}
 			
-			SprintGkFlags(gstr,tmp1,":",1);
+			SprintGkFlags(gstr,tmp1,sizeof(tmp1),":",1);
 /*
 printf("curstemkyes [%s] %o\n", tmp1 , has_morphflag(morphflags_of(gstr),R_E_I_ALPHA));
 */
@@ -582,7 +582,7 @@ void add_deriv_cache(char *s, char *keys)
 		cache_keys[badindex] = NULL;
 	} else {
 		cache_keys[badindex] = (char *)malloc((size_t)Xstrlen(keys)+1);
-		strcpy(cache_keys[badindex],keys);
+		Xstrncpy(cache_keys[badindex],keys,Xstrlen(keys)+1);
 	}
 	badindex++;
 }

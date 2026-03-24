@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "gkstring.proto.h"
+#include "../greeklib/xstrings.proto.h"
 #include "morphflags.proto.h"
 #include "morphkeys.proto.h"
 #include "morphstrcmp.proto.h"
@@ -411,8 +412,8 @@ void PrntVerbInfo(word_form vf, FILE *f)
 	
 	paradigm[0] = 0;
 	
-	AddParadigmInfo(paradigm,vf," ");
-	AddPersNumInfo(paradigm,vf," ");
+	AddParadigmInfo(paradigm,sizeof(paradigm),vf," ");
+	AddPersNumInfo(paradigm,sizeof(paradigm),vf," ");
 	fprintf(f,"%s", paradigm);
 }
 
@@ -421,51 +422,51 @@ void PrntParadigmInfo(word_form vf, FILE *f)
 	char paradigm[LONGSTRING];
 	paradigm[0] = 0;
 	
-	AddParadigmInfo(paradigm,vf," ");
+	AddParadigmInfo(paradigm,sizeof(paradigm),vf," ");
 	fprintf(f,"%s", paradigm);
 }
 	
 
-void AddParadigmInfo(char *s, word_form vf,char * dels)
+void AddParadigmInfo(char *s, size_t ssize, word_form vf,char * dels)
 {
 	char * p;
-	
+
 	p=NameOfTense(vf);
 	if( *p ) {
-		strcat(s,dels);
-		strcat(s,p);
+		Xstrncat(s,dels,ssize);
+		Xstrncat(s,p,ssize);
 	}
-	
+
 	p=NameOfMood(vf);
 	if( *p ) {
-		strcat(s,dels);
-		strcat(s,p);
+		Xstrncat(s,dels,ssize);
+		Xstrncat(s,p,ssize);
 	}
-	
+
 	p=NameOfVoice(vf);
 	if( *p ) {
-		strcat(s,dels);
-		strcat(s,p);
+		Xstrncat(s,dels,ssize);
+		Xstrncat(s,p,ssize);
 	}
-	
+
 }
 
-void AddPersNumInfo(char *s, word_form vf,char * dels)
+void AddPersNumInfo(char *s, size_t ssize, word_form vf,char * dels)
 {
 	char * p;
-	
+
 	p=NameOfPerson(vf);
 	if( *p ) {
-		strcat(s,dels);
-		strcat(s,p);
+		Xstrncat(s,dels,ssize);
+		Xstrncat(s,p,ssize);
 	}
-	
+
 	p=NameOfNumber(vf);
 	if( *p ) {
-		strcat(s,dels);
-		strcat(s,p);
+		Xstrncat(s,dels,ssize);
+		Xstrncat(s,p,ssize);
 	}
-	
+
 }
 
 void PrntPersNumInfo(word_form vf, FILE *f)
@@ -479,7 +480,7 @@ void PrntAdjInfo(word_form af, FILE *f)
 	char adjbuf[MAXWORDSIZE];
 	adjbuf[0] = 0;
 	
-	AddAdjInfo(adjbuf,af," ");
+	AddAdjInfo(adjbuf,sizeof(adjbuf),af," ");
 	fprintf(f,"%s", adjbuf );
 /*
 	fprintf(f,"%s ", NameOfGender(af ) );
@@ -488,28 +489,28 @@ void PrntAdjInfo(word_form af, FILE *f)
 */
 }
 
-void AddAdjInfo(char *s, word_form vf,char * dels)
+void AddAdjInfo(char *s, size_t ssize, word_form vf,char * dels)
 {
 	char * p;
-	
+
 	p=NameOfGender(vf);
 	if( *p ) {
-		strcat(s,dels);
-		strcat(s,p);
+		Xstrncat(s,dels,ssize);
+		Xstrncat(s,p,ssize);
 	}
-	
+
 	p=NameOfCase(vf);
 	if( *p ) {
-		strcat(s,dels);
-		strcat(s,p);
+		Xstrncat(s,dels,ssize);
+		Xstrncat(s,p,ssize);
 	}
 	p=NameOfDegree(vf);
 	if( *p ) {
-		strcat(s,dels);
-		strcat(s,p);
+		Xstrncat(s,dels,ssize);
+		Xstrncat(s,p,ssize);
 	}
-	
-	
+
+
 }
 
 void PrntStemtype(Stemtype st, FILE *f)
@@ -543,8 +544,8 @@ void AddDialect(Dialect di, char *dialb, char *dels)
 	for(i=0;i<(((int)sizeof di) * 8);i++) {
 		if( (s=NameOfDialect(di&mask)) )
 			if( *s ) {
-				if( *dialb ) strcat(dialb,dels);
-				strcat(dialb, s );
+				if( *dialb ) Xstrncat(dialb,dels,MAXWORDSIZE);
+				Xstrncat(dialb, s, MAXWORDSIZE);
 			}
 		mask = mask << 1;
 	}
@@ -649,159 +650,159 @@ int eq_forminfo(word_form f1, word_form f2)
 	return(1);
 }
 		
-void SprintGkFlags(gk_string *gstr, char *buf, char *dels, int pretty)
+void SprintGkFlags(gk_string *gstr, char *buf, size_t bufsize, char *dels, int pretty)
 {
 		char dialbuf[LONGSTRING*2];
 		char * s;
 		word_form wf;
-		
+
 		wf = forminfo_of(gstr);
 		s=NameOfStemtype(stemtype_of(gstr));
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, NameOfStemtype(stemtype_of(gstr) ) );
+			Xstrncat(buf, NameOfStemtype(stemtype_of(gstr) ),bufsize );
 		}
-		
+
 		s=NameOfDerivtype(derivtype_of(gstr));
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, NameOfDerivtype(derivtype_of(gstr) ) );
+			Xstrncat(buf, NameOfDerivtype(derivtype_of(gstr) ),bufsize );
 		}
-		
+
 		s=NameOfTense(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf,s );
+			Xstrncat(buf,s,bufsize );
 		}
-		
+
 		s=NameOfMood(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, s );
+			Xstrncat(buf, s,bufsize );
 		}
-		
+
 		s=NameOfVoice(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, s );
+			Xstrncat(buf, s,bufsize );
 		}
-	
+
 		s=NameOfGender(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, s );
+			Xstrncat(buf, s,bufsize );
 		}
-		
+
 		s=NameOfCase(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, s );
+			Xstrncat(buf, s,bufsize );
 		}
 
 		s=NameOfDegree(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, s );
+			Xstrncat(buf, s,bufsize );
 		}
 
 		s=NameOfPerson(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, s );
+			Xstrncat(buf, s,bufsize );
 		}
-		s=NameOfNumber(wf);		
+		s=NameOfNumber(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, NameOfNumber(wf ) );
+			Xstrncat(buf, NameOfNumber(wf ),bufsize );
 		}
-		
+
 		dialbuf[0] = 0;
 		DialectNames(dialect_of(gstr),dialbuf,dels);
 		if( dialbuf[0] || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( dialbuf[0] ) {
-			strcat(buf,dialbuf );
+			Xstrncat(buf,dialbuf,bufsize );
 		}
-		
+
 		dialbuf[0] = 0;
 		GeogRegionNames(geogregion_of(gstr),dialbuf,dels);
 		if( dialbuf[0] || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( dialbuf[0] ) {
-			strcat(buf,dialbuf );
+			Xstrncat(buf,dialbuf,bufsize );
 		}
-		
-		
+
+
 		dialbuf[0] = 0;
 		DomainNames(domains_of(gstr),dialbuf,dels);
 		if( dialbuf[0] || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( dialbuf[0] ) {
-			strcat(buf,dialbuf );
+			Xstrncat(buf,dialbuf,bufsize );
 		}
-	
-		
+
+
 		dialbuf[0] = 0;
 		MorphNames(morphflags_of(gstr),dialbuf,dels,pretty);
 		if( dialbuf[0] || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( dialbuf[0] ) {
-			strcat(buf,dialbuf );
+			Xstrncat(buf,dialbuf,bufsize );
 		}
 }
 
 
-void DbaseFormat(gk_string *gstr, char *buf, char *tabstr, int pretty)
+void DbaseFormat(gk_string *gstr, char *buf, size_t bufsize, char *tabstr, int pretty)
 {
 		char dialbuf[LONGSTRING];
 		char * s;
 		word_form wf;
-		
+
 		wf = forminfo_of(gstr);
 		s=NameOfStemtype(stemtype_of(gstr));
 		if( * s ) {
-			strcat(buf, NameOfStemtype(stemtype_of(gstr) ) );
+			Xstrncat(buf, NameOfStemtype(stemtype_of(gstr) ),bufsize );
 		}
-		
-		strcat(buf,tabstr);
+
+		Xstrncat(buf,tabstr,bufsize);
 		s=NameOfDerivtype(derivtype_of(gstr));
 		if( * s ) {
-			strcat(buf, NameOfDerivtype(derivtype_of(gstr) ) );
+			Xstrncat(buf, NameOfDerivtype(derivtype_of(gstr) ),bufsize );
 		}
-		
 
-		strcat(buf,tabstr);
-		AddParadigmInfo(buf,wf," ");
-		
-		strcat(buf,tabstr);
-		AddPersNumInfo(buf,wf," ");
 
-		strcat(buf,tabstr);
-		AddAdjInfo(buf,wf," ");
-		
+		Xstrncat(buf,tabstr,bufsize);
+		AddParadigmInfo(buf,bufsize,wf," ");
+
+		Xstrncat(buf,tabstr,bufsize);
+		AddPersNumInfo(buf,bufsize,wf," ");
+
+		Xstrncat(buf,tabstr,bufsize);
+		AddAdjInfo(buf,bufsize,wf," ");
+
 		dialbuf[0] = 0;
 		DialectNames(dialect_of(gstr),dialbuf," ");
 		if( dialbuf[0] ) {
-			strcat(buf,tabstr); 
-			strcat(buf,dialbuf );
+			Xstrncat(buf,tabstr,bufsize);
+			Xstrncat(buf,dialbuf,bufsize );
 		}
-		
-		
-		
+
+
+
 		dialbuf[0] = 0;
 		MorphNames(morphflags_of(gstr),dialbuf," ",pretty);
 		if( dialbuf[0] ) {
-			strcat(buf,tabstr); 
-			strcat(buf,dialbuf );
+			Xstrncat(buf,tabstr,bufsize);
+			Xstrncat(buf,dialbuf,bufsize );
 		}
 }

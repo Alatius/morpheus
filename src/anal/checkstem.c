@@ -254,13 +254,13 @@ void longeststem(char *s)
 	char stemkeys[1024];
 	int rval = 0;
 	
-	strcpy(tmp,s);
+	Xstrncpy(tmp,s,sizeof(tmp));
 	stemkeys[0] = 0;
 	p = tmp;
 	
 	while(*p) p++; p--;
 	while(p>=tmp) {
-		strcpy(tmp2,p);
+		Xstrncpy(tmp2,p,sizeof(tmp2));
 		*p = 0;
 		if( (rval += chckstem(tmp,stemkeys,1)) ) {
 			printf("%s-%s\tn\t%s\n", tmp, tmp2, stemkeys );

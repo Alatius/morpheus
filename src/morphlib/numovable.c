@@ -10,7 +10,7 @@ int takes_nu_movable(gk_string *gstr)
 {
 	char tmp[MAXWORDSIZE];
 	char * s = tmp;
-	strcpy(tmp,gkstring_of(gstr));
+	Xstrncpy(tmp,gkstring_of(gstr),sizeof(tmp));
 
 /*
  * grc 7/22/89

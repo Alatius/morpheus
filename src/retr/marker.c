@@ -144,6 +144,7 @@
  
 #include "defcons.h"
 #include "tlg.h"
+#include "../greeklib/xstrings.proto.h"
 
     static gkfield w_field;
     static gkfield x_field;
@@ -368,11 +369,11 @@ char *
 
         print_ref[0] = 0;
         if( prnt_gkfield( &w_field , print_ref ) ) {
-                strcat( print_ref , "." );
+                Xstrncat( print_ref , ".", MAXLIN );
         }
         if( prnt_gkfield( &x_field , print_ref ) ) {
                 if( y_field.num )
-                        strcat( print_ref , "." );
+                        Xstrncat( print_ref , ".", MAXLIN );
         }
         if( prnt_gkfield( &y_field , print_ref ) )
                 printed++;
@@ -412,20 +413,20 @@ char *
 
         if( Gk->oddlabel[0] ) {
                 snprintf(tmp,sizeof(tmp),"%c:\"%s\"", field, Gk->oddlabel );
-                strcat( s , tmp );
+                Xstrncat( s , tmp, MAXLIN );
                 return(0);
         }
         if( Gk->ch ) {
-                if( Gk->num ) 
+                if( Gk->num )
                         snprintf(tmp,sizeof(tmp),"%c\"%d%c\"", field , Gk->num , Gk->ch );
                 else
                         snprintf(tmp,sizeof(tmp),"%c\"%c\"", field , Gk->ch );
-                strcat( s , tmp );
+                Xstrncat( s , tmp, MAXLIN );
                 return(0);
         }
         if( Gk->num ) {
                 snprintf(tmp,sizeof(tmp),"%c%d", field , Gk->num );
-                strcat( s , tmp );
+                Xstrncat( s , tmp, MAXLIN );
                 return(0);
         }
                 
@@ -552,7 +553,8 @@ char *
                 while( DELIMITER( *s ) && *s )
                         s++;
         }
-        strcpy( remainder , s );
+        strncpy( remainder , s, BUFSIZ );
+        remainder[BUFSIZ - 1] = '\0';
 	return(1);
 }
 
@@ -561,7 +563,7 @@ char *
   register char * s;
 {
         if( S->oddlabel[0] ) {
-                strcat( s , S->oddlabel );
+                Xstrncat( s , S->oddlabel, MAXLIN );
                 return( 1 );
         }
         if( S->num ) {
@@ -587,13 +589,13 @@ char *
         if( ! S->oddlabel[0] && ! S->num && ! S->ch ) 
                 return(0);
         if( S == &w_field ) {
-                strcat(s,"w");
+                Xstrncat(s,"w",MAXLIN);
         } else if ( S == &x_field ) {
-                strcat(s , "x" );
+                Xstrncat(s , "x", MAXLIN );
         } else if ( S == &y_field) {
-                strcat(s , "y" );
+                Xstrncat(s , "y", MAXLIN );
         } else if ( S == &z_field) {
-                strcat(s, "z" );
+                Xstrncat(s, "z", MAXLIN );
         }
 
         if( S->oddlabel[0] ) {
@@ -963,12 +965,14 @@ printf("rval:%d in comparing ", rval ); printsect(tmpRef,0); printf(" and ");pri
 {
         char part1[256], part2[256];
         char * p2 = part2;
-        strcpy(part2,s+index);
-        strcpy(s+index,"$1");
+        Xstrncpy(part2,s+index,sizeof(part2));
+        strncpy(s+index,"$1",BUFSIZ);
+        (s+index)[BUFSIZ - 1] = '\0';
         while(*s) s++;
 
-        while(!WHITE(*p2)) 
+        while(!WHITE(*p2))
                 *s++ = *p2++;
         *s++ = '$';
-        strcpy(s,p2);
+        strncpy(s,p2,BUFSIZ);
+        s[BUFSIZ - 1] = '\0';
 }

@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "cmpend.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 /*
  * greg crane
@@ -25,7 +26,7 @@ int cmpend(char *word, char *ending, char *stem)
 		s1--; s2--;
 	}
 	if( s2 == ending ) {
-		strcpy(stem,word);
+		Xstrncpy(stem,word,MAXWORDSIZE);
 		*(stem + (s1-word)) = 0;
 		return(1);
 	}

@@ -68,16 +68,16 @@ int main(int argc, char* argv[])
 	  switch (totanal_of(base_word))
 	  {
 	    case 1:	/* this is the easy case */
-	      strcpy(work_buffer, workword_of(analysis_of(base_word)));
-	      strcpy(lemma, lemma_of(analysis_of(base_word)));
+	      Xstrncpy(work_buffer, workword_of(analysis_of(base_word)), sizeof(work_buffer));
+	      Xstrncpy(lemma, lemma_of(analysis_of(base_word)), sizeof(lemma));
 	      break;
 	    case 0:	/* problem:  not a word? */
-	      strcpy(work_buffer, workword_of(base_word));
+	      Xstrncpy(work_buffer, workword_of(base_word), sizeof(work_buffer));
 	      lemma[0] = 0;
 	      break;
 	    default:	/* problem:  which one is it? */
-	      strcpy(work_buffer, workword_of(analysis_of(base_word)));
-	      strcpy(lemma, lemma_of(analysis_of(base_word)));
+	      Xstrncpy(work_buffer, workword_of(analysis_of(base_word)), sizeof(work_buffer));
+	      Xstrncpy(lemma, lemma_of(analysis_of(base_word)), sizeof(lemma));
 	      break;
 	  }
 	  fprintf(stderr, "analyzed:  %s from %s\n", work_buffer, lemma);

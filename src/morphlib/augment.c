@@ -586,7 +586,7 @@ static int augmentit(gk_word *gkform, bool syllabic, int maxaugs)
 				stripbreath(s);
 			else
 				s[1] = 'r';	/* replace breathing with 'r' */
-			strcpy(aug1_of(gkform),"r(>e)rr");
+			Xstrncpy(aug1_of(gkform),"r(>e)rr",sizeof(aug1_of(gkform)));
 				
 		} else if( has_morphflag(morphflags_of(stem_gstr),SYLL_AUGMENT)) {
 			cinsert(*s,s);
@@ -594,7 +594,7 @@ static int augmentit(gk_word *gkform, bool syllabic, int maxaugs)
 		}
 		cinsert (SMOOTHBR,s);
 		cinsert ('e',s);
-		if( ! aug1_of(gkform)[0] ) strcpy(aug1_of(gkform),"e)");
+		if( ! aug1_of(gkform)[0] ) Xstrncpy(aug1_of(gkform),"e)",sizeof(aug1_of(gkform)));
 		return(1);
 	}
 

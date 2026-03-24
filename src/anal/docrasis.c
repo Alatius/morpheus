@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "docrasis.proto.h"
+#include "../greeklib/xstrings.proto.h"
 typedef struct {
  	char crasis[MAXWORDSIZE];
  	char curstring[MAXWORDSIZE];
@@ -45,7 +46,7 @@ do_crasis(gk_string *gstring, char *crasis)
 		if( !strcmp(crasis, CrasTab[i].crasis ) ) {
 			saw_this_crasis++;
 			if( num == CrasTab[i].w_number && (gend & CrasTab[i].w_gender)  && (wcase & CrasTab[i].w_case) ) {
-				strcpy(crasis,CrasTab[i].curstring);
+				Xstrncpy(crasis,CrasTab[i].curstring,MAXWORDSIZE);
 				return(1);
 			}
 		}

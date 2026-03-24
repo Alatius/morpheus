@@ -4,6 +4,7 @@
  */
 
 #include "srchstate.h"
+#include "../greeklib/xstrings.proto.h"
 #if MACINTOSH
 #include  "godzilla_1:lightspeed:automaton:ssearch.h"
 #else
@@ -93,17 +94,17 @@
                         printf("%s\n\n", query->ssobuf );
                 }
                 hits++;
-                strcpy( centerw , tmp_srch->gotstr );
+                Xstrncpy( centerw , tmp_srch->gotstr, sizeof(centerw) );
                 if( Pmatch->moffset > tmp_srch->pword ) {
                         tmp_srch->pword = centerp;
-                        strcpy( tmp_srch->gotstr , centerw );
+                        Xstrncpy( tmp_srch->gotstr , centerw, sizeof(tmp_srch->gotstr) );
                         tmp_srch->pw2 = Pmatch->moffset;
-                        strcpy( tmp_srch->gotstr2 , Pmatch->mstring );
+                        Xstrncpy( tmp_srch->gotstr2 , Pmatch->mstring, sizeof(tmp_srch->gotstr2) );
                 } else {
                         tmp_srch->pw2 = centerp;
                         tmp_srch->pword = Pmatch->moffset;
-                        strcpy( tmp_srch->gotstr2 , centerw );
-                        strcpy( tmp_srch->gotstr , Pmatch->mstring );
+                        Xstrncpy( tmp_srch->gotstr2 , centerw, sizeof(tmp_srch->gotstr2) );
+                        Xstrncpy( tmp_srch->gotstr , Pmatch->mstring, sizeof(tmp_srch->gotstr) );
                 }
                 workbyoff(tmp_srch,tmp_srch->pword);
                 fput_rec( stdout, tmp_srch , " " );

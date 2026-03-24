@@ -4,6 +4,7 @@
  */
 #include <stdio.h>
 #include <ctype.h>
+#include "../greeklib/xstrings.proto.h"
 #define MAXLIN 2048
 #define GREEK 1
 #define ROMAN 2
@@ -73,8 +74,8 @@ FILE * f;
 	if( argc == 1 )
 		fin = stdin;
 	else {
-		strcpy( base , argv[1] );
-		strcat( base , ".tlg" );
+		Xstrncpy( base , argv[1], sizeof(base) );
+		Xstrncat( base , ".tlg", sizeof(base) );
 		if( (fin = fopen( base , "r" )) == NULL ) {
 			fprintf(stderr,"could not open %s\n", base );
 			exit( 0 );
@@ -86,21 +87,21 @@ FILE * f;
 		exit(-1);
 	}
 
-	strcpy( basename , argv[1] );
+	Xstrncpy( basename , argv[1], sizeof(basename) );
 
-	strcpy( base , argv[1] );
-	strcat( base , ".words" );
+	Xstrncpy( base , argv[1], sizeof(base) );
+	Xstrncat( base , ".words", sizeof(base) );
 	fgreek = fopen( base , "w" );
 	if( fgreek == NULL ) {
 		fprintf(stderr,"could not open %s.words\n", base );
 		exit( 0 );
 	}
 
-	strcpy( commonfile , argv[1] );
-	strcat( commonfile , ".comwords" );
+	Xstrncpy( commonfile , argv[1], sizeof(commonfile) );
+	Xstrncat( commonfile , ".comwords", sizeof(commonfile) );
 
-	strcpy( workfile , argv[1] );
-	strcat( workfile , ".workfile" );
+	Xstrncpy( workfile , argv[1], sizeof(workfile) );
+	Xstrncat( workfile , ".workfile", sizeof(workfile) );
 	if( (f=fopen(workfile,"w")) == NULL ) {
 		fprintf(stderr,"Could not open %s\n", workfile );
 		exit( -1 );
@@ -110,8 +111,8 @@ FILE * f;
 	unlink("auths.common");
 	unlink("works.common");
 	
-	strcpy( authfile , argv[1] );
-	strcat( authfile , ".auth" );
+	Xstrncpy( authfile , argv[1], sizeof(authfile) );
+	Xstrncat( authfile , ".auth", sizeof(authfile) );
 	f = fopen( authfile , "w" );
 	if( f == NULL ) {
 		fprintf(stderr,"could not open %s\n", authfile );
@@ -119,8 +120,8 @@ FILE * f;
 	}
 	fclose( f );	
 
-	strcpy( filefile , argv[1] );
-	strcat( filefile , ".file" );
+	Xstrncpy( filefile , argv[1], sizeof(filefile) );
+	Xstrncat( filefile , ".file", sizeof(filefile) );
 	f = fopen( filefile , "w" );
 	if( f == NULL ) {
 		fprintf(stderr,"could not open %s\n", filefile );
@@ -128,16 +129,16 @@ FILE * f;
 	}
 	fclose( f );
 
-	strcpy( base , argv[1] );
-	strcat( base , ".roman" );
+	Xstrncpy( base , argv[1], sizeof(base) );
+	Xstrncat( base , ".roman", sizeof(base) );
 	froman = fopen( base , "w" );
 	if( froman == NULL ) {
 		fprintf(stderr,"could not open %s.roman\n", base );
 		exit( 0 );
 	}
 
-	strcpy( base , argv[1] );
-	strcat( base , ".broken" );
+	Xstrncpy( base , argv[1], sizeof(base) );
+	Xstrncat( base , ".broken", sizeof(base) );
 	fbroken = fopen( base , "w" );
 	if( fbroken == NULL ) {
 		fprintf(stderr,"could not open %s.broken\n", base );
@@ -446,7 +447,7 @@ register char * s;
 				else
 					authcnt = bytcnt;
 			}
-			strcpy( oldanum , anum );
+			Xstrncpy( oldanum , anum, sizeof(oldanum) );
 			if( *s != '"' ) {
 				fprintf(stderr,"Bad format: %s\n", startp );
 			}
@@ -457,8 +458,8 @@ register char * s;
 				dumpwork();
 			}
 			wkname[0] = 0;
-			strcpy( oldwknum , wknum );
-			strcpy( oldwkname , wkname );
+			Xstrncpy( oldwknum , wknum, sizeof(oldwknum) );
+			Xstrncpy( oldwkname , wkname, sizeof(oldwkname) );
 			nworks++;
 
 			s++;

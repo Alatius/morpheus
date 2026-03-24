@@ -65,6 +65,7 @@
 
 
 #include "sec.h"
+#include "../greeklib/xstrings.proto.h"
 #define UNCERT_C '!'
 #define STORBUF (8 * 1024)
 #define WMARKC '\30'
@@ -102,7 +103,6 @@
     long (*LinLength)();
     long TxtLen();
     long IndLen();
-    char * strcpy();
 
 
     int forw_count = 0;
@@ -397,7 +397,8 @@
 
         curlen = nextlen;
 
-        strcpy( curlastline , nextlastline );
+        strncpy( curlastline , nextlastline, CSIZE );
+        curlastline[CSIZE - 1] = '\0';
         if( *nextb )
                 getlastline( &nextb[nextlen-1] , nextlastline );
 

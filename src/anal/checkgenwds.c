@@ -103,7 +103,7 @@ printf("\nin checkgenword accword [%s]\n", accword );
  * "ti/" would match "ti"! 
  */
 	if( (prntflags_of(Gkword) & IGNORE_ACCENTS) ) {
-		strcpy(wordnoacc,wordnoacute);
+		Xstrncpy(wordnoacc,wordnoacute,sizeof(wordnoacc));
 		stripacc(wordnoacc);
 		checks = wordnoacc;
 	
@@ -261,9 +261,9 @@ printf("tmphalf1 [%s] s [%s]\n", tmphalf1, s );
 			chckcmpvb(s,cmplem);
 			if( cmplem[0] ) {
 				if( tmphalf1[0] ) {
-					strcat(tmphalf1,"-");
-					strcat(tmphalf1,cmplem);
-					strcpy(cmplem,tmphalf1);
+					Xstrncat(tmphalf1,"-",sizeof(tmphalf1));
+					Xstrncat(tmphalf1,cmplem,sizeof(tmphalf1));
+					Xstrncpy(cmplem,tmphalf1,sizeof(cmplem));
 				}
 				break;
 			}
@@ -274,14 +274,14 @@ printf("tmphalf1 [%s] s [%s]\n", tmphalf1, s );
 printf("s [%s] tmplem [%s] tmphalf1 [%s] t [%s] cmplem[%s]\n", s , tmplem , tmphalf1 ,t, cmplem);
 */
 			if(!s ) {
-				if( tmphalf1[0] ) strcat(tmphalf1,",");
-				strcat(tmphalf1,t);
-				strcpy(tmplem,tmphalf1);
+				if( tmphalf1[0] ) Xstrncat(tmphalf1,",",sizeof(tmphalf1));
+				Xstrncat(tmphalf1,t,sizeof(tmphalf1));
+				Xstrncpy(tmplem,tmphalf1,sizeof(tmplem));
 				 break;
 			}
 			*s++ = 0;
-			if( tmphalf1[0] ) strcat(tmphalf1,",");
-			strcat(tmphalf1,t);
+			if( tmphalf1[0] ) Xstrncat(tmphalf1,",",sizeof(tmphalf1));
+			Xstrncat(tmphalf1,t,sizeof(tmphalf1));
 /*
 printf("tmphalf1 [%s] tmplem[%s] s [%s]\n", tmphalf1 , tmplem, s);
 */

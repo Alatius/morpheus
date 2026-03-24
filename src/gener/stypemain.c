@@ -1,4 +1,5 @@
 #include <gkstring.h>
+#include "../greeklib/xstrings.proto.h"
 
 gk_word GkWord, BlankGkWord;
 gk_string Gstr, AvoidGstr, BlankGstr;
@@ -11,7 +12,7 @@ int main(void)
 	while(fgets(line, sizeof line, stdin)) {
 		line[strcspn(line, "\n")] = '\0';
 		if( !strncmp(":le:",line,4)) {
-			strcpy(curlemma,line+4);
+			Xstrncpy(curlemma,line+4,sizeof curlemma);
 			continue;
 		}
 		if( strncmp(":no:",line,4) && strncmp(":wd:",line,4) &&  strncmp(":aj:",line,4) ) continue;

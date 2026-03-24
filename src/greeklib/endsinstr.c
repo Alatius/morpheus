@@ -21,8 +21,8 @@ int ends_in(char *s1, char *s2)
  	char b2[LOCBUF];
  	int i;
  	
- 	strcpy(tmp1,s1);  s1 = tmp1;
- 	strcpy(tmp2,s2);  s2 = tmp2;
+ 	Xstrncpy(tmp1,s1,sizeof(tmp1));  s1 = tmp1;
+ 	Xstrncpy(tmp2,s2,sizeof(tmp2));  s2 = tmp2;
  	
  	stripacc(tmp1); stripacc(tmp2);
  	stripdiaer(tmp1); stripdiaer(tmp2);

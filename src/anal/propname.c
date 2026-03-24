@@ -42,21 +42,21 @@ int main(void)
 
 	if(line[0] == 'y' ) {
 		fprintf(stderr,"type in forms\n");
-		strcpy(outname,"out.morph");
+		Xstrncpy(outname,"out.morph",sizeof(outname));
 		finput = stdin;
 	} else {
 		fprintf(stderr,"word file? ");
 		fgets(fname, sizeof fname, stdin);
 		fname[strcspn(fname, "\n")] = '\0';
 		
-		strcpy(inpname,fname);
-		strcat(inpname,".words");
+		Xstrncpy(inpname,fname,sizeof(inpname));
+		Xstrncat(inpname,".words",sizeof(inpname));
 		
-		strcpy(outname,fname);
-		strcat(outname,".morph");
+		Xstrncpy(outname,fname,sizeof(outname));
+		Xstrncat(outname,".morph",sizeof(outname));
 
-		strcpy(newname,fname);
-		strcat(newname,".nstem");
+		Xstrncpy(newname,fname,sizeof(newname));
+		Xstrncat(newname,".nstem",sizeof(newname));
 
 		if((finput=fopen(inpname,"r")) == NULL) {
 			fprintf(stderr,"cannot find [%s]!\n", inpname);
@@ -79,8 +79,8 @@ int main(void)
 				fgets(fname, sizeof fname, stdin);
 				fname[strcspn(fname, "\n")] = '\0';
 			}
-			strcpy(tmp,fname);
-			strcat(tmp,".enames");
+			Xstrncpy(tmp,fname,sizeof(tmp));
+			Xstrncat(tmp,".enames",sizeof(tmp));
 			fpnames = fopen(tmp,"r");
 			if( !fpnames ) {
 				fprintf(stderr,"%s not found!\n", tmp);
@@ -155,7 +155,7 @@ int checkpropname(char *s, FILE *f)
 	char xlit[BUFSIZ];
 	int rval = 0;
 	
-	strcpy(tmpname,s);
+	Xstrncpy(tmpname,s,sizeof(tmpname));
 	endkeys[0] = 0;
 /*
 printf("%s\n", s);	
@@ -163,7 +163,7 @@ printf("%s\n", s);
 	wp = tmpname;
 	while( *wp ) {
 
-	    strcpy(curend,wp);
+	    Xstrncpy(curend,wp,sizeof(curend));
 	    stripacc(curend);
 	    stripdiaer(curend);
 	    Xstrncpy(half1,tmpname,sizeof half1);
@@ -190,7 +190,7 @@ int tryxlits(FILE *f, char *xlit, char *keys, char *fulls, char *half1, char *en
 	char workkey[BUFSIZ];
 	int rval = 0;
 	
-	strcpy(workkey,keys);
+	Xstrncpy(workkey,keys,sizeof(workkey));
 	
 	possbuf[0] = 0;
 	while(nextkey(workkey,curkey) ) {
@@ -205,28 +205,28 @@ void Xliterate(char *s1, char *s2)
 {
 	char tmp[BUFSIZ];
 	int add_h = 0;
-	
-	strcpy(tmp,s1);
+
+	Xstrncpy(tmp,s1,sizeof(tmp));
 	if( getbreath(tmp) == ROUGHBR) {
 		add_h = 1;
 	}
 
-	strcpy(tmp,s1+1);
+	Xstrncpy(tmp,s1+1,sizeof(tmp));
 	stripbreath(tmp);
 	stripacc(tmp);
 	stripdiaer(tmp);
 	reliterate(tmp);
-	
+
 	if( add_h ) {
 		if( tmp[0] == 'r' ) {
-			strcpy(s2,"rh");
-			strcat(s2,tmp+1);
+			Xstrncpy(s2,"rh",MAXWORDSIZE);
+			Xstrncat(s2,tmp+1,MAXWORDSIZE);
 		} else {
-			strcpy(s2,"h");
-			strcat(s2,tmp);
+			Xstrncpy(s2,"h",MAXWORDSIZE);
+			Xstrncat(s2,tmp,MAXWORDSIZE);
 		}
 	} else
-		strcpy(s2,tmp);
+		Xstrncpy(s2,tmp,MAXWORDSIZE);
 	*s2 = toupper(*s2);
 }
 
@@ -291,13 +291,13 @@ int checkposs(FILE *fout, char *xlit, char *curs, char *fulls, char *stems, char
 	int hits = 0;
 	int rval = 0;
 
-	strcpy(tmpstem,stems);
+	Xstrncpy(tmpstem,stems,sizeof(tmpstem));
 	stripacc(tmpstem);
 	
 	for(i=0;Nom_tab[i].stype[0];i++) {
 		if( ! strcmp(curs,Nom_tab[i].stype) ) {
-			strcpy(tmpxlit,xlit);
-			strcat(tmpxlit,Nom_tab[i].suffix);
+			Xstrncpy(tmpxlit,xlit,sizeof(tmpxlit));
+			Xstrncat(tmpxlit,Nom_tab[i].suffix,sizeof(tmpxlit));
 			if( is_propname(tmpxlit) ) {
 				snprintf(tmpkeys,sizeof(tmpkeys),"%s", Nom_tab[i].keys );
 				rval = stem_can_work(tmpxlit,fulls, tmpstem, ends, Nom_tab[i].stype, tmpkeys );
@@ -321,7 +321,7 @@ int checkposs(FILE *fout, char *xlit, char *curs, char *fulls, char *stems, char
 				if( rval && is_propname(tmpxlit) == 1 ) {
 					/*fprintf(fout,":ns:%s %s %s %s\n", tmpxlit,  tmpstem, Nom_tab[i].stype, tmpkeys );*/
 					snprintf(tbuf,sizeof(tbuf),"%s :ns:%s %s %s %s\n", fulls, tmpxlit, tmpstem, Nom_tab[i].stype, tmpkeys );
-					strcat(possbuf,tbuf);
+					Xstrncat(possbuf,tbuf,sizeof(possbuf));
 /*
 					printf("%s %s %s %s\n", tmpxlit,  tmpstem, Nom_tab[i].stype, tmpkeys );
 */
@@ -408,9 +408,9 @@ void reliterate(char *s)
 	while(*s) {
 		for(i=0;Xlit_list[i].raw[0];i++) {
 			if( ! Xstrncmp(s,Xlit_list[i].raw,Xstrlen(Xlit_list[i].raw) ) ) {
-				strcpy(tmp,s+Xstrlen(Xlit_list[i].raw) );
-				strcpy(s,Xlit_list[i].done);
-				strcat(s,tmp);
+				Xstrncpy(tmp,s+Xstrlen(Xlit_list[i].raw),sizeof(tmp));
+				Xstrncpy(s,Xlit_list[i].done,MAXWORDSIZE);
+				Xstrncat(s,tmp,MAXWORDSIZE);
 				s += Xstrlen(Xlit_list[i].done);
 				sawone = 1;
 			}
@@ -429,8 +429,8 @@ int AlphStrcmp(char *s1, char *s2)
 {
 	char * p = s2;
 	char tmp[MAXWORDSIZE];
-	
-	strcpy(tmp,s1);
+
+	Xstrncpy(tmp,s1,sizeof(tmp));
 	while(*p) {
 		if( *p == 'a' && *(tmp+(p-s2)) == 'e' ) {
 			*(tmp+(p-s2)) = 'a';
@@ -455,7 +455,7 @@ void init_pnametab(void)
 		}
 		if(line[strlen(line)-1] == '\n') line[strlen(line)-1] = 0;
 		pnametab[pnames] = (char*) malloc((size_t)strlen(line)+1);
-		strcpy(pnametab[pnames],line);
+		Xstrncpy(pnametab[pnames],line,BUFSIZ);
 	}
 
 }

@@ -44,6 +44,7 @@ static long stemcount = 0;
 #include "../greeklib/issubstring.proto.h"
 #include "../greeklib/sprntGkflags.proto.h"
 #include "../greeklib/stripdiaer.proto.h"
+#include "../greeklib/xstrings.proto.h"
 static void do_index(char *file, int indfreq);
 long bufsiz =  0;
 long bufcount = 0;
@@ -159,10 +160,10 @@ void index_stems(int wantstem, int wantirrverb, int wantindecl, char *wlist, cha
 		}
 		if( line[0] == '@' ) {
 			if( ! basename[0] ) continue;
-			strcpy(tmp,basename);
-			strcat(tmp," ");
-			strcat(tmp,line+1);
-			strcpy(line,tmp);
+			Xstrncpy(tmp,basename,sizeof(tmp));
+			Xstrncat(tmp," ",sizeof(tmp));
+			Xstrncat(tmp,line+1,sizeof(tmp));
+			Xstrncpy(line,tmp,sizeof(line));
 		}
 		/*
 		 * the stem index does not include compound
@@ -181,7 +182,7 @@ void index_stems(int wantstem, int wantirrverb, int wantindecl, char *wlist, cha
 			strncpy(tag,line,4);
 			if( ! strncmp(line,":aj:",4) || ! strncmp(line,":no:",4) ) {
 				char * t = basename;
-				strcpy(basename,line);
+				Xstrncpy(basename,line,sizeof(basename));
 				while(*t&&!isspace(*t)) t++;
 				while(isspace(*t)) t++;
 				while(*t&&!isspace(*t)) t++;
@@ -288,8 +289,8 @@ if( ! (i % 5000 ) ) printf("processing %ld: %s\n", i , *(table+i) );
 			 * where the same key is repeated
 			 */
 			fprintf(foutput,"%s%s", DELIMITER, *(table+i) );
-		strcpy(prevtag,curtag);
-		strcpy(prevkey,*(table+i));
+		Xstrncpy(prevtag,curtag,BIGSTRING);
+		Xstrncpy(prevkey,*(table+i),BIGSTRING);
 	}
 fprintf(stderr,"done with i=%ld, %ld\n", i , stemcount-i);
 	fclose(foutput);
@@ -326,7 +327,7 @@ int add_newstemkey(char *s)
 		return(0);
 	}
 	*(sptr) = 0;
-	strcpy(*(stems+stemcount),s);
+	Xstrncpy(*(stems+stemcount),s,BIGSTRING);
 	while(*sptr) {
 		sptr++;
 		bufcount++;
@@ -368,7 +369,7 @@ if(preverb_of(&GkWord)[0] )
 	stripstemsep(curstem);
 	//	stripshortmark(curstem);
 	if( has_quant(curstem) || has_diaeresis(curstem) || hasaccent(curstem)) {
-		strcpy(markedstem,curstem);
+		Xstrncpy(markedstem,curstem,sizeof(markedstem));
 		stripquant(curstem);
 		stripacc(curstem);
 	} else
@@ -398,10 +399,10 @@ int dumpaccstem(char *prefix, char *curstem, char *markedstem, char *curlemma, g
 	char tmpmarked[MAXWORDSIZE];
 	char tmpstem[MAXWORDSIZE];
 
-	if( * markedstem ) 
-		strcpy(tmpstem,markedstem);
-	else 
-		strcpy(tmpstem,curstem);
+	if( * markedstem )
+		Xstrncpy(tmpstem,markedstem,sizeof(tmpstem));
+	else
+		Xstrncpy(tmpstem,curstem,sizeof(tmpstem));
 
 	
 	if((p=getsyll(tmpstem,syllnum)) == P_ERR)
@@ -416,7 +417,7 @@ int dumpaccstem(char *prefix, char *curstem, char *markedstem, char *curlemma, g
 		tmpmarked[0] = 0;
 	}
 */
-	strcpy(tmpmarked,tmpstem);
+	Xstrncpy(tmpmarked,tmpstem,sizeof(tmpmarked));
 	stripquant(tmpstem);
 	stripdiaer(tmpstem);
 	stripacc(tmpstem);
@@ -441,8 +442,8 @@ int dump_curstem(char *prefix, char *curstem, char *markedstem, char *curlemma, 
 			if( * markedstem ) {
 				set_gkstring(&TmpGstr,markedstem);
 				add_numovable(&TmpGstr);
-				strcpy(unmarked,gkstring_of(&TmpGstr));
-				strcpy(tmpmarked,gkstring_of(&TmpGstr));
+				Xstrncpy(unmarked,gkstring_of(&TmpGstr),sizeof(unmarked));
+				Xstrncpy(tmpmarked,gkstring_of(&TmpGstr),sizeof(tmpmarked));
 				stripquant(unmarked);
 				stripacc(unmarked);
 				stripdiaer(unmarked);
@@ -450,7 +451,7 @@ int dump_curstem(char *prefix, char *curstem, char *markedstem, char *curlemma, 
 				tmpmarked[0] = 0;
 				set_gkstring(&TmpGstr,curstem);
 				add_numovable(&TmpGstr);
-				strcpy(unmarked,gkstring_of(&TmpGstr));
+				Xstrncpy(unmarked,gkstring_of(&TmpGstr),sizeof(unmarked));
 				stripquant(unmarked);
 				stripacc(unmarked);
 				stripdiaer(unmarked);
@@ -463,7 +464,7 @@ printf("numovable is [%s]\n", gkstring_of(&TmpGstr));
 
 
 	snprintf(tmp,sizeof(tmp),"%s%s %s:%s", prefix , curstem, markedstem , curlemma );
-	SprintGkFlags(gstr,tmp,":",0);
+	SprintGkFlags(gstr,tmp,sizeof(tmp),":",0);
 	if( *preverb ) {
 		char tmp2[128];
 		if( has_morphflag(morphflags_of(gstr),ROOT_PREVERB ) ) 
@@ -471,13 +472,13 @@ printf("numovable is [%s]\n", gkstring_of(&TmpGstr));
 		else
 			snprintf(tmp2,sizeof(tmp2),":pb:%s:", preverb);
 		
-		strcat(tmp,tmp2);
+		Xstrncat(tmp,tmp2,sizeof(tmp));
 	}
 	notbuf[0] = 0;
-	SprintGkFlags(avoidgstr,notbuf,":",0);
+	SprintGkFlags(avoidgstr,notbuf,sizeof(notbuf),":",0);
 	if( notbuf[0] ) {
-		strcat(tmp,":not");
-		strcat(tmp,notbuf);
+		Xstrncat(tmp,":not",sizeof(tmp));
+		Xstrncat(tmp,notbuf,sizeof(tmp));
 	}
 
 	return (add_newstemkey(tmp));

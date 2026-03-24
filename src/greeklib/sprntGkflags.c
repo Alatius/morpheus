@@ -1,6 +1,7 @@
 #include	<gkstring.h>
 
 #include "sprntGkflags.proto.h"
+#include "xstrings.proto.h"
 #include "../morphlib/morphflags.proto.h"
 #include "../morphlib/morphkeys.proto.h"
 
@@ -21,7 +22,7 @@
 	I got the wrong fields. It seems that derivType is the empty one, and not stemtype, and
 	furthermore that there is an extra tab somewhere. So here goes...
 */
-void JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, char *more_dels, int pretty)
+void JakeSprintGkFlags(gk_string *gstr, char *buf, size_t bufsize, char *dels, char *more_dels, int pretty)
 {
 		char dialbuf[LONGSTRING*2];
 		char * s;
@@ -40,7 +41,7 @@ void JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, char *more_dels, 
 			
 */
 		if( * s ) {
-			strcat(buf, NameOfStemtype(stemtype_of(gstr) ) );
+			Xstrncat(buf, NameOfStemtype(stemtype_of(gstr) ),bufsize);
 		}
 
 /*
@@ -50,72 +51,72 @@ void JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, char *more_dels, 
 		if( * s ) {
 			strcat(buf, NameOfDerivtype(derivtype_of(gstr) ) );
 		}
-		
+
 */		s=NameOfTense(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf,s );
+			Xstrncat(buf,s,bufsize);
 		}
-		
+
 		s=NameOfMood(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, s );
+			Xstrncat(buf, s,bufsize);
 		}
-		
+
 		s=NameOfVoice(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, s );
+			Xstrncat(buf, s,bufsize);
 		}
-	
+
 		s=NameOfGender(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, s );
+			Xstrncat(buf, s,bufsize);
 		}
-		
+
 		s=NameOfCase(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, s );
+			Xstrncat(buf, s,bufsize);
 		}
 
 		s=NameOfDegree(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, s );
+			Xstrncat(buf, s,bufsize);
 		}
 
 		s=NameOfPerson(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, s );
+			Xstrncat(buf, s,bufsize);
 		}
-		s=NameOfNumber(wf);		
+		s=NameOfNumber(wf);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( * s ) {
-			strcat(buf, NameOfNumber(wf ) );
+			Xstrncat(buf, NameOfNumber(wf ),bufsize);
 		}
 
 		dialbuf[0] = 0;
 		DialectNames(dialect_of(gstr),dialbuf,more_dels);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);	
+			Xstrncat(buf,dels,bufsize);
 		if( dialbuf[0] ) {
-			strcat(buf,dialbuf );
+			Xstrncat(buf,dialbuf,bufsize);
 		}
 
 /*SEE HEADER COMMENT:
- *		
+ *
  *		dialbuf[0] = 0;
  *		GeogRegionNames(geogregion_of(gstr),dialbuf,more_dels);
  *		if( *s || *dels == '\t' )
@@ -123,8 +124,8 @@ void JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, char *more_dels, 
  *		if( dialbuf[0] ) {
  *			strcat(buf,dialbuf );
  *		}
- *		
- *		
+ *
+ *
  *		dialbuf[0] = 0;
  *		DomainNames(domains_of(gstr),dialbuf,more_dels);
  *		if( *s || *dels == '\t' )
@@ -132,14 +133,14 @@ void JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, char *more_dels, 
  * 		if( dialbuf[0] ) {
  *			strcat(buf,dialbuf );
  *		}
- *	
- */		
+ *
+ */
 		dialbuf[0] = 0;
 		MorphNames(morphflags_of(gstr),dialbuf,more_dels,pretty);
 		if( *s || *dels == '\t' )
-			strcat(buf,dels);
+			Xstrncat(buf,dels,bufsize);
 		if( dialbuf[0] ) {
-			strcat(buf,dialbuf );
+			Xstrncat(buf,dialbuf,bufsize);
 		}
 }
 

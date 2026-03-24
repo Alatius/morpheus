@@ -24,11 +24,11 @@ void PrntDomains(char *, FILE *);
 void PrntMorphFlags(MorphFlags *, FILE *);
 void PrntVerbInfo(word_form, FILE *);
 void PrntParadigmInfo(word_form, FILE *);
-void AddParadigmInfo(char *, word_form, char *);
-void AddPersNumInfo(char *, word_form, char *);
+void AddParadigmInfo(char *, size_t, word_form, char *);
+void AddPersNumInfo(char *, size_t, word_form, char *);
 void PrntPersNumInfo(word_form, FILE *);
 void PrntAdjInfo(word_form, FILE *);
-void AddAdjInfo(char *, word_form, char *);
+void AddAdjInfo(char *, size_t, word_form, char *);
 void PrntStemtype(Stemtype, FILE *);
 void PrntDialect(Dialect, FILE *);
 void AddDialect(Dialect, char *, char *);
@@ -36,7 +36,7 @@ Dialect AndDialect(Dialect, Dialect);
 int xInsertGstr(gk_string *, gk_string *, int, int (*compare)(gk_string *, gk_string *), int);
 int GetTableLine(char *, int, FILE *);
 int eq_forminfo(word_form, word_form);
-void SprintGkFlags(gk_string *, char *, char *, int);
-void DbaseFormat(gk_string *, char *, char *, int);
+void SprintGkFlags(gk_string *, char *, size_t, char *, int);
+void DbaseFormat(gk_string *, char *, size_t, char *, int);
 
 #endif /* GKSTRING_PROTO_H */

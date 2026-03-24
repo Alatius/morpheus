@@ -7,6 +7,7 @@ char fname[80];
 #include "../morphlib/morphkeys.proto.h"
 #include "expendtable.proto.h"
 #include "../morphlib/setlang.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 int main(int argc, char *argv[])
 {
@@ -37,7 +38,7 @@ int main(int argc, char *argv[])
 		fprintf(stderr,"format:%s {ARGS} basename\n", argv[0] );
 		exit(-1);
 	}
-	strcpy(fname,argv[argc-1]);
+	Xstrncpy(fname,argv[argc-1],sizeof(fname));
 	rval = strcmp(fname,"formulaX");
 	if( rval) 
 		maintable = 1;

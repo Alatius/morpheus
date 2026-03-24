@@ -2,6 +2,7 @@
 
 #include "../greeklib/issubstring.proto.h"
 #include "../greeklib/stripmeta.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 extern int chckstem(char *, char *, int);
 
@@ -33,7 +34,7 @@ void check_ew(char *p)
 	char *s;
 	int rval = 0;
 
-	strcpy(workstem,p);
+	Xstrncpy(workstem,p,sizeof(workstem));
 	stripmetachars(workstem);
 	s=workstem;
 	while(*s&&!isspace(*s)) s++;
@@ -64,7 +65,7 @@ void check_ih(char *p)
 	while(*s&&!isspace(*s)) s++;
 	if(isspace(*s)&&s!=p) s--;
 	*s = 0;
-	strcpy(stembuf,p);
+	Xstrncpy(stembuf,p,sizeof(stembuf));
 	stripmetachars(stembuf);
 	rval = chckstem(stembuf,stemkeys,1);
 	if( rval ) rval = 2;

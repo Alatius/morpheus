@@ -38,10 +38,10 @@ int combine_conj(FILE *fout, char *lemma, char *origline, char *stemstr, char *d
 	char preverb[MAXWORDSIZE];
 
 	preverb[0] = suffbuf[0] = oddkeys[0] = 0;
-	strcpy(origformula , origline);
-	strcpy(curlemma , lemma);
+	Xstrncpy(origformula , origline, sizeof origformula);
+	Xstrncpy(curlemma , lemma, sizeof curlemma);
 	
-	strcpy(stembuf,stemstr);
+	Xstrncpy(stembuf,stemstr,sizeof stembuf);
 
 /*
 fprintf(stdout,"stemstr [%s] derivstr [%s] keys [%s]\n", stemstr, derivstr, localkeys );
@@ -133,7 +133,7 @@ ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *od
 	TmpGkword = (gk_word *) CreatGkword(1);
 	
 /*printf("suffstr [%s] keys [%s]\n", suffstr, keys );*/
-	strcpy(keytmp,keys);
+	Xstrncpy(keytmp,keys,sizeof keytmp);
 
 	s = keytmp;
 	while(*s&&*s!=' ') { 
@@ -141,7 +141,7 @@ ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *od
 			*s = ' ';
 		s++;
 	}
-	strcpy(ppartname,"pp_");
+	Xstrncpy(ppartname,"pp_",sizeof ppartname);
 	nextkey(keytmp,ppartname+3);
 
 	stype = GetStemClass(ppartname);
@@ -161,7 +161,7 @@ ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *od
 		char tmp[LONGSTRING];
 		
 		snprintf(tmp,sizeof(tmp),"%s %s", globalkeys , keytmp);
-		strcpy(keytmp,tmp);
+		Xstrncpy(keytmp,tmp,sizeof keytmp);
 	}
 
 	ScanAsciiKeys(keytmp,TmpGkword,gstr,NULL);
@@ -169,12 +169,12 @@ ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *od
 	add_morphflags(gstr,morphflags_of(prvb_gstr_of(TmpGkword)) );
 	
 	if( oddkeys_of(TmpGkword) )
-		strcpy(oddkeys,oddkeys_of(TmpGkword) );
+		Xstrncpy(oddkeys,oddkeys_of(TmpGkword),LONGSTRING*2);
 	else
 		oddkeys[0] = 0;
 		
 	preverb[0] = 0;
-	strcpy(preverb,preverb_of(TmpGkword));
+	Xstrncpy(preverb,preverb_of(TmpGkword),MAXWORDSIZE);
 	 
 	set_gkstring(gstr,endstring_of(TmpGkword) );
 
@@ -221,7 +221,7 @@ printf("str1 [%s] str2 [%s] rval %d\n", gkstring_of(gstr1), gkstring_of(gstr2), 
 	if( rval ) {
 		Dialect d;
 		
-		strcpy(word,stemstr);
+		Xstrncpy(word,stemstr,sizeof word);
 
 		if( has_morphflag(morphflags_of(gstr1),PRES_REDUPL)) {
 			pres_redupl(word);
@@ -255,7 +255,7 @@ printf("str1 [%s] str2 [%s] rval %d\n", gkstring_of(gstr1), gkstring_of(gstr2), 
 
 			}
 			if( *stemstr == ROUGHBR || * stemstr == SMOOTHBR ) {
-				strcpy(word,ep);
+				Xstrncpy(word,ep,sizeof word);
 				addbreath(word,*stemstr);
 			} else {
 				conjoinX(gstr2,word,gkstring_of(gstr2));
@@ -337,8 +337,8 @@ printf("str1 [%s] str2 [%s] rval %d\n", gkstring_of(gstr1), gkstring_of(gstr2), 
 			zap_morphflag(morphflags_of(gstr2),R_E_I_ALPHA);
 			
 		
-		strcpy(domains_of(gstr2),domains_of(gstr1));
-		SprintGkFlags(gstr2,showbuf," ",0);
+		Xstrncpy(domains_of(gstr2),domains_of(gstr1),sizeof domains_of(gstr2));
+		SprintGkFlags(gstr2,showbuf,sizeof(showbuf)," ",0);
 /* fflush(fout);*/
 		if( stemtype_of(gstr2) & PPARTMASK ) fprintf(fout,":vs:");
 		else if( stemtype_of(gstr2) & ADJSTEM ) fprintf(fout,":aj:");
@@ -354,9 +354,9 @@ printf("str1 [%s] str2 [%s] rval %d\n", gkstring_of(gstr1), gkstring_of(gstr2), 
 		if( *preverb ) {
 			char tmppb[MAXWORDSIZE*2];
 			
-			if( rpb_flag ) strcpy(tmppb,"rpb:");
-			else strcpy(tmppb,"pb:");
-			strcat(tmppb,preverb);
+			if( rpb_flag ) Xstrncpy(tmppb,"rpb:",sizeof tmppb);
+			else Xstrncpy(tmppb,"pb:",sizeof tmppb);
+			Xstrncat(tmppb,preverb,sizeof tmppb);
 			fprintf(fout," %s", tmppb );
 		}
 		
@@ -395,7 +395,7 @@ void DataBaseFormat(char *word, gk_string *gstr, char *endstring, char *preverb,
 	char curformula[BUFSIZ*4];
 	char * s;
 return;
-	strcpy(curformula,origformula);
+	Xstrncpy(curformula,origformula,sizeof curformula);
 	curbuf[0] = 0;
 
 	s = curformula;
@@ -413,7 +413,7 @@ return;
 		}
 	}
 	fprintf(fdbaseform,"%s\t%s\t%s\t%s\t%s\t", curlemma, curformula , word, endstring, preverb );
-	DbaseFormat(gstr,curbuf,"\t",0);
+	DbaseFormat(gstr,curbuf,sizeof(curbuf),"\t",0);
 	fprintf(fdbaseform,"%s\t", curbuf );
 	fprintf(fdbaseform,"%s\n", oddptr );
 }
@@ -431,7 +431,7 @@ int MatchSuff(char *s1, char *s2)
 	char tmp[BUFSIZ];
 
 	if( !strcmp(s1,s2) ) return(1);
-	strcpy(tmp,s1);
+	Xstrncpy(tmp,s1,sizeof tmp);
 	stripshortmark(tmp);
 	if( !strcmp(s2,tmp) ) return(1);
 
@@ -448,7 +448,7 @@ int conjoinX(gk_string *gstr, char *s1, char *s2)
 	gk_string *newgstr;
 
 	Gstr = BlnkGstr;
-	strcat(s1,s2);
+	Xstrncat(s1,s2,MAXWORDSIZE);
 
 	set_gkstring(gstr,s1);
 
@@ -466,7 +466,7 @@ int conjoinX(gk_string *gstr, char *s1, char *s2)
 	}
 */
 	*gstr = *newgstr;
-	strcpy(s1,gkstring_of(newgstr));
+	Xstrncpy(s1,gkstring_of(newgstr),MAXWORDSIZE);
 
 	return(1);
 }

@@ -242,7 +242,7 @@ void rstprevb(char *word, char *prevb, gk_string *gstr)
 	   if( !has_morphflag(oddpb,RAW_PREVERB) ) {
 		char * t;
 
-		strcpy(work,prevb);
+		Xstrncpy(work,prevb,sizeof(work));
 		t = work+strlen(work)-1;
 
 		if( !strcmp(prevb,"circum") && *word == 'i' ) {
@@ -250,12 +250,12 @@ void rstprevb(char *word, char *prevb, gk_string *gstr)
 		}
 
 		if( has_morphflag(oddpb,D_PREVB) ) {
-			strcpy(work,prevb);
-			strcat(work,"d");
+			Xstrncpy(work,prevb,sizeof(work));
+			Xstrncat(work,"d",sizeof(work));
 		}
 
 		if( has_morphflag(oddpb,T_PREVB) && !strcmp(prevb,"re") ) {
-			strcpy(work,"ret");
+			Xstrncpy(work,"ret",sizeof(work));
 		}
 
 		if( !strcmp(prevb,"sub") || !strcmp(prevb,"ob") ) {
@@ -395,8 +395,8 @@ void rstprevb(char *word, char *prevb, gk_string *gstr)
 		}
 	
 		
-		strcat(work,word);
-		strcpy(word,work);
+		Xstrncat(work,word,sizeof(work));
+		Xstrncpy(word,work,MAXWORDSIZE);
 		return;
 	   }
 	}
@@ -424,7 +424,7 @@ void rstprevb(char *word, char *prevb, gk_string *gstr)
  */	
 		Xstrncpy(work,prevb,MAXWORDSIZE);
 		comp_preverb(work,0,oddpb);
-		if( Is_vowel(*(lastn(work,1))) && Is_vowel(*word) ) strcat(work,"+");
+		if( Is_vowel(*(lastn(work,1))) && Is_vowel(*word) ) Xstrncat(work,"+",sizeof(work));
 		set_odd_prvb(oddpb,work);
 		stripbreath(tmpword); /* avoid forms such as a)na-oi)/gw */
 		Xstrncat(work,tmpword,MAXWORDSIZE);
@@ -450,7 +450,7 @@ void rstprevb(char *word, char *prevb, gk_string *gstr)
 	} 
 	
 	if( has_morphflag(oddpb,IOTA_INTENS) && *lastn(work,1) == 'n' ) {
-		strcat(work,"i");
+		Xstrncat(work,"i",sizeof(work));
 	}
 
 	comp_preverb(work,has_morphflag(oddpb,UNASP_PREVERB),oddpb);
@@ -615,7 +615,7 @@ static void getprvbform(char *word, char *prevb, MorphFlags *oddpb)
 				    getbreath(word)==ROUGHBR && !Has_unasp_preverb(oddpb))
 						aspirate(lastn(prevb,1));
 			  } else {
-			  	strcat(prevb,"+");
+			  	Xstrncat(prevb,"+",MAXWORDSIZE);
 /*
  * grc 7/14/89 
  *
@@ -731,9 +731,9 @@ void shift_pros_to_poti(char *s)
 
 	while(*s) {
 		if(!Xstrncmp(s,"pros",4) ) {
-			strcpy(tmp,s+4);
-			strcpy(s,"poti");
-			strcat(s,tmp);
+			Xstrncpy(tmp,s+4,sizeof(tmp));
+			Xstrncpy(s,"poti",MAXWORDSIZE);
+			Xstrncat(s,tmp,MAXWORDSIZE);
 			return;
 		}
 		s++;
@@ -745,9 +745,9 @@ void shift_pros_to_proti(char *s)
 
 	while(*s) {
 		if(!Xstrncmp(s,"pros",4) ) {
-			strcpy(tmp,s+4);
-			strcpy(s,"proti");
-			strcat(s,tmp);
+			Xstrncpy(tmp,s+4,sizeof(tmp));
+			Xstrncpy(s,"proti",MAXWORDSIZE);
+			Xstrncat(s,tmp,MAXWORDSIZE);
 			return;
 		}
 		s++;
@@ -759,14 +759,14 @@ void shift_upo_to_upai(char *s)
 
 	while(*s) {
 		if(!Xstrncmp(s,"upo",3) ) {
-			strcpy(tmp,s+3);
-			strcpy(s,"upai");
-			strcat(s,tmp);
+			Xstrncpy(tmp,s+3,sizeof(tmp));
+			Xstrncpy(s,"upai",MAXWORDSIZE);
+			Xstrncat(s,tmp,MAXWORDSIZE);
 			return;
 		} else if(!Xstrncmp(s,"u(po",4) ) {
-			strcpy(tmp,s+4);
-			strcpy(s,"u(pai");
-			strcat(s,tmp);
+			Xstrncpy(tmp,s+4,sizeof(tmp));
+			Xstrncpy(s,"u(pai",MAXWORDSIZE);
+			Xstrncat(s,tmp,MAXWORDSIZE);
 			return;
 		}
 		s++;
@@ -778,14 +778,14 @@ void shift_uper_to_upeir(char *s)
 
 	while(*s) {
 		if(!Xstrncmp(s,"uper",4) ) {
-			strcpy(tmp,s+4);
-			strcpy(s,"upeir");
-			strcat(s,tmp);
+			Xstrncpy(tmp,s+4,sizeof(tmp));
+			Xstrncpy(s,"upeir",MAXWORDSIZE);
+			Xstrncat(s,tmp,MAXWORDSIZE);
 			return;
 		} else if(!Xstrncmp(s,"u(per",5) ) {
-			strcpy(tmp,s+5);
-			strcpy(s,"u(peir");
-			strcat(s,tmp);
+			Xstrncpy(tmp,s+5,sizeof(tmp));
+			Xstrncpy(s,"u(peir",MAXWORDSIZE);
+			Xstrncat(s,tmp,MAXWORDSIZE);
 			return;
 		}
 		s++;
@@ -797,9 +797,9 @@ void shift_para_to_parai(char *s)
 
 	while(*s) {
 		if(!Xstrncmp(s,"para",4) ) {
-			strcpy(tmp,s+4);
-			strcpy(s,"parai");
-			strcat(s,tmp);
+			Xstrncpy(tmp,s+4,sizeof(tmp));
+			Xstrncpy(s,"parai",MAXWORDSIZE);
+			Xstrncat(s,tmp,MAXWORDSIZE);
 			return;
 		}
 		s++;
@@ -811,9 +811,9 @@ void shift_meta_to_peda(char *s)
 
 	while(*s) {
 		if(!Xstrncmp(s,"meta",4) ) {
-			strcpy(tmp,s+4);
-			strcpy(s,"peda");
-			strcat(s,tmp);
+			Xstrncpy(tmp,s+4,sizeof(tmp));
+			Xstrncpy(s,"peda",MAXWORDSIZE);
+			Xstrncat(s,tmp,MAXWORDSIZE);
 			return;
 		}
 		s++;
@@ -825,15 +825,15 @@ void shift_en_to_eni(char *s)
 
 	while(*s) {
 		if(!Xstrncmp(s,"e)n",3) && Xstrncmp(s,"e)ni",4)) {
-			strcpy(tmp,s+3);
-			strcpy(s,"e)ni");
-			strcat(s,tmp);
+			Xstrncpy(tmp,s+3,sizeof(tmp));
+			Xstrncpy(s,"e)ni",MAXWORDSIZE);
+			Xstrncat(s,tmp,MAXWORDSIZE);
 			return;
 		}
 		if(!Xstrncmp(s,"en",2) && Xstrncmp(s,"eni",3)) {
-			strcpy(tmp,s+2);
-			strcpy(s,"eni");
-			strcat(s,tmp);
+			Xstrncpy(tmp,s+2,sizeof(tmp));
+			Xstrncpy(s,"eni",MAXWORDSIZE);
+			Xstrncat(s,tmp,MAXWORDSIZE);
 			return;
 		}
 		s++;

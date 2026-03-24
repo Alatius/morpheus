@@ -4,6 +4,7 @@
  */
 
 #include "srchstate.h"
+#include "../greeklib/xstrings.proto.h"
 #if MACINTOSH
 #include  "godzilla_1:lightspeed:automaton:ssearch.h"
 #else
@@ -95,7 +96,8 @@ static ssjump(char * startp, int slen,int separation,int units);
  */
         startp[len++] = ' ';
         startp[len] = 0;
-	strcpy(gksel->gkselbufp, startp );
+	strncpy(gksel->gkselbufp, startp, (size_t)(gksel->gkselnunits * gksel->gkselunits));
+	gksel->gkselbufp[gksel->gkselnunits * gksel->gkselunits] = '\0';
 
 
         gksel->gksellen = len;

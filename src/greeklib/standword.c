@@ -13,6 +13,7 @@
 #include "stripacc.proto.h"
 #include "stripdiaer.proto.h"
 #include "zap2ndbreath.proto.h"
+#include "xstrings.proto.h"
 	/*
 	 * grc 7/6/89
 	 *
@@ -91,7 +92,7 @@ void standword(char *word)
 			a++;
 	}
 	*b = 0;
-	strcpy(word,tmp);
+	Xstrncpy(word,tmp,MAXWORDSIZE);
 }
 
 void zap2acc(char *s)

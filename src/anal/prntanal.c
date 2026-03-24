@@ -13,6 +13,8 @@ static char * pbuf = NULL;
 #include "../greeklib/xstrings.proto.h"
 #include "../greeklib/sprntGkflags.proto.h"
 
+#define PBUF_SIZE (MAXANALYSES * 128)
+
 static char prevlemma[MAXWORDSIZE];
 static char prevword[MAXWORDSIZE];
 static char prevstem[MAXWORDSIZE];
@@ -46,8 +48,8 @@ void PrntAnalyses(gk_word *Gkword, PrntFlags prntflags, FILE *fout)
   if( ! (prntflags & SHOW_LEMMA )  ) {
     snprintf(tmp,sizeof(tmp),"$%s&  %s%s", rawword_of(Gkword) ,
 	    nanals == 1 ? "is" : "could be" , NEWLINE );
-    if( prntflags & KEEP_BETA ) 
-      strcat(pbuf,tmp);
+    if( prntflags & KEEP_BETA )
+      Xstrncat(pbuf,tmp,PBUF_SIZE);
     else
       beta2smarta(tmp,pbuf);
   }
@@ -100,7 +102,7 @@ int GoodAnals(gk_word *Gkword, int lemmflag)
     Anal = analysis_of(Gkword)+i;
     if( strcmp(curlem,lemma_of(Anal) ) ) {
       difflems ++;
-      strcpy(curlem,lemma_of(Anal));
+      Xstrncpy(curlem,lemma_of(Anal),sizeof(curlem));
     }
     if( (strchr(lemma_of(Anal),'-') == NULL ) ) {
       goodanals++;
@@ -133,7 +135,7 @@ void DumpLemmaInfo(gk_word *Gkword, PrntFlags prntflags, FILE *f)
       if( (strchr(lemma_of(Anal),'-') == NULL ) || (goodanals == totanal_of(Gkword)) ) {
 	fprintf(f,"%s\n",  lemma_of(Anal) );
       }
-      strcpy(curlem,lemma_of(Anal));
+      Xstrncpy(curlem,lemma_of(Anal),sizeof(curlem));
     }
   }
 }
@@ -165,7 +167,7 @@ void PrntOneAnalysis(gk_analysis *Gkanal, PrntFlags prntflags, FILE *f)
 	snprintf(wtmp,sizeof(wtmp),"%s\t%s %d\t", rawword_of(Gkanal),  lemma_of(Gkanal) ,curan );
       Xstrncat(pbuf,wtmp,MAXANALYSES * 128);
       curan = 0;
-      strcpy(wtmp,"\n");
+      Xstrncpy(wtmp,"\n",sizeof(wtmp));
     }
     goto finish;
   }
@@ -217,10 +219,10 @@ void PrntOneAnalysis(gk_analysis *Gkanal, PrntFlags prntflags, FILE *f)
   stemtype_of(TmpGstr) = stemtype_of(Gkanal);
   set_geogregion(TmpGstr,geogregion_of(Gkanal));
 
-  SprintGkFlags(TmpGstr,tmp," ",1);
+  SprintGkFlags(TmpGstr,tmp,sizeof(tmp)," ",1);
 
   Xstrncat(tmp,NEWLINE,LONGSTRING);
-  strcat(pbuf,tmp);
+  Xstrncat(pbuf,tmp,PBUF_SIZE);
 
 finish:
   FreeGkString(TmpGstr);
@@ -292,7 +294,7 @@ void dump_all_anals(gk_word *Gkword, PrntFlags prntflags, FILE *fout)
 	if(  strcmp(rawword_of(Anal),workword_of(Anal)) ) {
 	char tmp[MAXWORDSIZE];
 	
-	strcpy(tmp,workword_of(Anal));
+	Xstrncpy(tmp,workword_of(Anal),sizeof(tmp));
 	stripquant(tmp);
 	
 	fprintf(fout,"%s", strcmp(rawword_of(Anal),tmp) ?  tmp : "" );
@@ -305,7 +307,7 @@ void dump_all_anals(gk_word *Gkword, PrntFlags prntflags, FILE *fout)
 	  fprintf(fout,"%s\n",printedwork ? "\t" : "", lemma_of(Anal) );
 	  */
 	DumpPerseusAnalysis(Gkword,prntflags,Anal,fout,i+1);
-	strcpy(curlem,lemma_of(Anal));
+	Xstrncpy(curlem,lemma_of(Anal),sizeof(curlem));
       }
       continue;
     }
@@ -394,7 +396,7 @@ void DumpPerseusAnalysis(
   if(  strcmp(rawword_of(anal),workword_of(anal)) ) {
     char tmp[MAXWORDSIZE];
 
-    strcpy(tmp,workword_of(anal));
+    Xstrncpy(tmp,workword_of(anal),sizeof(tmp));
     /* grc 2/7/97 -- don't punt the quantity
        stripquant(tmp);
        */
@@ -410,7 +412,7 @@ void DumpPerseusAnalysis(
     fprintf(fout,"\t%u</NL>", formval);
   }
   else {
-    GregSprintGkFlags(anal,tmp," "," ",1);
+    GregSprintGkFlags(anal,tmp,sizeof(tmp)," "," ",1);
     fprintf(fout,"%s</NL>", tmp );
   }
 
@@ -425,9 +427,9 @@ void DumpEndingIndex(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FI
   tmp[0] = 0;
   PrntStemtype(stemtype_of(anal),fout);
   fprintf(fout,"%s ", endstring_of(anal) );
-  AddParadigmInfo(tmp,forminfo_of(anal),".");
-  AddPersNumInfo(tmp,forminfo_of(anal),".");
-  AddAdjInfo(tmp,forminfo_of(anal),".");
+  AddParadigmInfo(tmp,sizeof(tmp),forminfo_of(anal),".");
+  AddPersNumInfo(tmp,sizeof(tmp),forminfo_of(anal),".");
+  AddAdjInfo(tmp,sizeof(tmp),forminfo_of(anal),".");
   fprintf(fout,"%s %s %d", tmp+1, workword_of(anal), totanal_of(Gkword) );
   if( strcmp(workword_of(anal),rawword_of(anal)))
     fprintf(fout," %s", rawword_of(anal) );
@@ -446,16 +448,16 @@ void DumpOneAnalysis(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FI
   if( prntflags & LEXICON_OUTPUT ) {
     snprintf(tmp,sizeof(tmp),"%s",  rawword_of(anal));
     if( strcmp( rawword_of(anal), workword_of(anal)) ) {
-      strcat(tmp," ");
-      strcat(tmp, workword_of(anal) );
+      Xstrncat(tmp," ",sizeof(tmp));
+      Xstrncat(tmp, workword_of(anal) ,sizeof(tmp));
     }
-    strcat(tmp," ");
+    Xstrncat(tmp," ",sizeof(tmp));
     if(  preverb_of(anal)[0] ) {
-      strcat(tmp,preverb_of(anal) );
-      strcat(tmp,"-");
+      Xstrncat(tmp,preverb_of(anal) ,sizeof(tmp));
+      Xstrncat(tmp,"-",sizeof(tmp));
     }
-    strcat(tmp,lemma_of(anal));
-    strcat(tmp,"\t");
+    Xstrncat(tmp,lemma_of(anal),sizeof(tmp));
+    Xstrncat(tmp,"\t",sizeof(tmp));
     /*
       beta2smarta(tmp,tmp2);
       */
@@ -476,8 +478,8 @@ void DumpOneAnalysis(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FI
       Parse elements from a set into an (ordered) vector.
       */
 
-    JakeSprintGkFlags(anal,tmp," "," ",1);
-    
+    JakeSprintGkFlags(anal,tmp,sizeof(tmp)," "," ",1);
+
     fprintf(fout,"%s\t", tmp );
     
     fprintf(fout,"%s\t", crasis_of(anal) );
@@ -503,28 +505,28 @@ void DumpOneAnalysis(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FI
     fprintf(fout,"\n:workw %s\n", workword_of(anal) );
     fprintf(fout,":lem %s\n", lemma_of(anal) );
     
-    fprintf(fout,":prvb "); 
-    GregSprintGkFlags(prvb_gstr_of(anal),tmp," ", " ", 1);
+    fprintf(fout,":prvb ");
+    GregSprintGkFlags(prvb_gstr_of(anal),tmp,sizeof(tmp)," ", " ", 1);
     fprintf(fout,"%s\t%s\n", gkstring_of(prvb_gstr_of(anal)),tmp );
     tmp[0] = 0;
 
-    fprintf(fout,":aug1 "); 
-    GregSprintGkFlags(aug1_gstr_of(anal),tmp," ", " ", 1);
+    fprintf(fout,":aug1 ");
+    GregSprintGkFlags(aug1_gstr_of(anal),tmp,sizeof(tmp)," ", " ", 1);
     fprintf(fout,"%s\t%s\n", gkstring_of(aug1_gstr_of(anal)),tmp );
     tmp[0] = 0;
 
-    fprintf(fout,":stem "); 
-    GregSprintGkFlags(stem_gstr_of(anal),tmp," ", " ", 1);
+    fprintf(fout,":stem ");
+    GregSprintGkFlags(stem_gstr_of(anal),tmp,sizeof(tmp)," ", " ", 1);
     fprintf(fout,"%s\t%s\n", gkstring_of(stem_gstr_of(anal)),tmp );
     tmp[0] = 0;
 
-    fprintf(fout,":suff "); 
-    GregSprintGkFlags(suffix_gstr_of(anal),tmp," ", " ", 1);
+    fprintf(fout,":suff ");
+    GregSprintGkFlags(suffix_gstr_of(anal),tmp,sizeof(tmp)," ", " ", 1);
     fprintf(fout,"%s\t%s\n", gkstring_of(suffix_gstr_of(anal)),tmp );
     tmp[0] = 0;
 
-    fprintf(fout,":end "); 
-    GregSprintGkFlags(ends_gstr_of(anal),tmp," ", " ", 1);
+    fprintf(fout,":end ");
+    GregSprintGkFlags(ends_gstr_of(anal),tmp,sizeof(tmp)," ", " ", 1);
     fprintf(fout,"%s\t%s\n", gkstring_of(ends_gstr_of(anal)),tmp );
     tmp[0] = 0;
 
@@ -545,7 +547,7 @@ void DumpOneAnalysis(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FI
       Parse elements from a set into an (ordered) vector.
       */
 
-    JakeSprintGkFlags(anal,tmp,"\t"," ",1);
+    JakeSprintGkFlags(anal,tmp,sizeof(tmp),"\t"," ",1);
     fprintf(fout,"%s\t", tmp );
     fprintf(fout,"%s\t", crasis_of(anal) );
     if( (prntflags) != DBASESHORT ) {
@@ -562,15 +564,15 @@ void DumpOneAnalysis(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FI
   /*
     SprintGkFlags(anal,tmp,"\t",1);
     */
-  JakeSprintGkFlags(anal,tmp," "," ",1);
+  JakeSprintGkFlags(anal,tmp,sizeof(tmp)," "," ",1);
 
   if(preverb_of(anal)[0] )	{
-    strcpy(workw,preverb_of(anal) );
-    strcat(workw,"-");
+    Xstrncpy(workw,preverb_of(anal) ,sizeof(workw));
+    Xstrncat(workw,"-",sizeof(workw));
   }
   if(aug1_of(anal)[0] )	{
-    strcat(workw,aug1_of(anal) );
-    strcat(workw,"-");
+    Xstrncat(workw,aug1_of(anal) ,sizeof(workw));
+    Xstrncat(workw,"-",sizeof(workw));
   }
   fprintf(fout,":summ %d %s %s%s-%s %s %s\n",cura, rawword_of(anal) , workw,
 	  stem_of(anal), endstring_of(anal) , lemma_of(anal) , tmp );
@@ -605,7 +607,7 @@ void DumpGstr(char *tags, gk_string *gstr, FILE *fout, int fullrec)
   tmp[0] = 0;
 	
   fprintf(fout,"%s\t%s\t", tags , gkstring_of(gstr) );
-  SprintGkFlags(gstr,tmp,"\t",1);
+  SprintGkFlags(gstr,tmp,sizeof(tmp),"\t",1);
   if( fullrec ) {
     char *s = tmp;
     while(*s) {
@@ -626,6 +628,6 @@ void DumpDbGkString(gk_string *gstr, FILE *fout)
 	char tmp[LONGSTRING];
 	tmp[0] = 0;
 	fprintf(fout,"%s", gkstring_of(gstr) );
-	SprintGkFlags(gstr,tmp,"\t",1);
+	SprintGkFlags(gstr,tmp,sizeof(tmp),"\t",1);
 	fprintf(fout,"%s\t", tmp );
 }

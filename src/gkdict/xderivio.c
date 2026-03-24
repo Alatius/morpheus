@@ -26,8 +26,8 @@ int checkforderiv(char *stemstr, char *stemkeys)
 	
 	rval2 = checkforredupderiv(stemstr,stemkeys2);
 	if( rval2 ) {
-		if( *stemkeys ) strcat(stemkeys," ");
-		strcat(stemkeys,stemkeys2);
+		if( *stemkeys ) Xstrncat(stemkeys," ",BUFSIZ);
+		Xstrncat(stemkeys,stemkeys2,BUFSIZ);
 	}
 	return(rval+rval2);
 
@@ -199,7 +199,7 @@ int checkcomderiv(char *derivstr, char *suffix, char *lkeys, char *rkeys, int ha
 			s++;
 			while(*s&&*s!=':') s++;
 			if(*s) s++;
-			strcpy(curderiv,s);
+			Xstrncpy(curderiv,s,sizeof(curderiv));
 			
 			p = tmpderivstr;
 			while(*p&&*p!=':') p++;
@@ -242,7 +242,7 @@ int checkcomderiv(char *derivstr, char *suffix, char *lkeys, char *rkeys, int ha
 				Xstrncat(rkeys," ",LONGSTRING);
 			
 			if( had_redupl ) add_morphflag(morphflags_of(&Gstr),REDUPL);
-			SprintGkFlags(&Gstr,tmp1,":",1);
+			SprintGkFlags(&Gstr,tmp1,sizeof(tmp1),":",1);
 			snprintf(tmp2,sizeof(tmp2),"%s:%s%s", stembuf, lemma , tmp1);
 /*
 printf("success on [%s] and [%s]\n", curderiv, keybuf );

@@ -10,7 +10,7 @@ int main(void)
 	while(fgets(line, sizeof line, stdin)) {
 		line[strcspn(line, "\n")] = 0;
 		if( !strncmp(":le:",line,4)) {
-			strcpy(curlem,line+4);
+			strncpy(curlem, line+4, sizeof(curlem)); curlem[sizeof(curlem)-1] = '\0';
 			continue;
 		}
 		if( !strncmp(":no:",line,4) ||  !strncmp(":aj:",line,4)) {

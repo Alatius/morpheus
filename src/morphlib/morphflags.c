@@ -2,6 +2,7 @@
 
 #include "morphflags.proto.h"
 #include "morphkeys.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 void add_morphflags(gk_string *gstr, MorphFlags * Flags)
 {
@@ -258,8 +259,8 @@ void MorphNames(MorphFlags *mf, char *res, char *dels, int pretty)
 					s=NameOfMorphFlags(curnum);
 
 					if( *s ) {
-						if(*res) strcat(res,dels);
-						strcat(res,s);
+						if(*res) Xstrncat(res,dels,BUFSIZ);
+						Xstrncat(res,s,BUFSIZ);
 					}
 				}
 			}

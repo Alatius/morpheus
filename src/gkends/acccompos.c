@@ -1,8 +1,9 @@
 #include <string.h>
 
-#include <gkstring.h> 
+#include <gkstring.h>
 
 #include "acccompos.proto.h"
+#include "../greeklib/xstrings.proto.h"
 #include "../morphlib/fixacc.proto.h"
 #include "../morphlib/gkstring.proto.h"
 #include "../morphlib/morphflags.proto.h"
@@ -52,8 +53,8 @@ printf("start with p [%s]\n", p );
 	 */
 
 	if( s ) {
-		
-		strcpy(prefword,p);
+
+		Xstrncpy(prefword,p,sizeof(prefword));
 		p = s+1;
 		set_gkstring(gstr,"");
 		add_morphflag(morphflags_of(gstr),NEEDS_ACCENT);
@@ -62,7 +63,7 @@ printf("start with p [%s]\n", p );
 		s = strchr(prefword,'!');
 		*(s+1) = 0;
 	} else {
-		strcpy(saveword,p);
+		Xstrncpy(saveword,p,sizeof(saveword));
 		set_gkstring(gstr,"");
 		p = saveword;
 	}
@@ -97,18 +98,18 @@ printf("start with p [%s]\n", p );
 		has_morphflag(morphflags_of(gstr),INDECLFORM) ? 0 : 1 );
 		if(word[0] ) {
 			if( prefword[0] ) {
-				strcat(prefword,word);
-				strcpy(word,prefword);
+				Xstrncat(prefword,word,sizeof(prefword));
+				Xstrncpy(word,prefword,sizeof(word));
 			}
-			strcpy(gkstring_of(gstr),word);
+			Xstrncpy(gkstring_of(gstr),word,sizeof(gkstring_of(gstr)));
 		}
 
 
 	} else if( Is_verbform(gstr) || had_suff_acc ) {
 		FixRecAcc(gkform,morphflags_of(gstr),p);
 		if( prefword[0] ) {
-			strcat(prefword,p);
-			strcpy(p,prefword);
+			Xstrncat(prefword,p,sizeof(prefword));
+			Xstrncpy(p,prefword,MAXWORDSIZE);
 		}
 	}  
 

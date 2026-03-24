@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "../greeklib/xstrings.proto.h"
 
 
 int main(void)
@@ -18,7 +19,7 @@ char * argv[];
 	int i = 0;
 	
 
-	strcpy(filename,"morphfile");
+	Xstrncpy(filename,"morphfile",sizeof filename);
 	if( (f=fopen(filename,"r")) == NULL ) {
 		fprintf(stdout,"Filename?\n" );
 		fgets(filename, sizeof filename, stdin);

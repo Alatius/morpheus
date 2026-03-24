@@ -54,6 +54,7 @@ static char  SCCSID[] = "@(#)gk_sprint.c	2.1  9/26/87";
 #include "filttab.h"
 #include "devices.h"
 #include <stdio.h>
+#include "../greeklib/xstrings.proto.h"
 #define MAX_CELLS 512
 #define  MAXKEY  100
 #define NOTHING 0
@@ -697,7 +698,7 @@ char *s;
 #ifndef SUNTOOL
 			case ':':	/* raised dot */
  				if( cur_device == INTERLEAF && cur_font == GREEK ) {
- 					strcpy(cur_char,"<#1b>");
+ 					Xstrncpy(cur_char,"<#1b>",sizeof(cur_char));
  					add_cur_char(-1);
  					sync_source();
  					s++;
@@ -814,7 +815,7 @@ tlg_punct()
 	skip_num_arg();
 
 	if( n < MAX_PUNCT  ) {
-	 	strcpy(cur_char, cur_punct[n] );
+	 	Xstrncpy(cur_char, cur_punct[n], sizeof(cur_char));
 	} else {
 	    switch( n ) {
 /*
@@ -868,7 +869,7 @@ tlg_punct()
 		case 22:
 /* french circumflex */
 			if( cur_device == FILEFORMAT ) 
-				strcpy(cur_char,"\\*^");
+				Xstrncpy(cur_char,"\\*^",sizeof(cur_char));
 			if( cur_device == AVT ) {
 				if( *Cp == 'e' )
 					snprintf(cur_char,sizeof(cur_char),"\016e\b>\017");
@@ -902,7 +903,7 @@ tlg_punct()
 			break;
 		case 24:
 /* the hell with "~" on an n etc., for now at any rate */
-		 	strcpy(cur_char,"~");
+		 	Xstrncpy(cur_char,"~",sizeof(cur_char));
 			break;
 		case 25:
 /* c cedila */
@@ -951,11 +952,11 @@ int len;
 	
 	if( cur_font == GREEK && in_rev_vid ) {
 		char tmp[128];
-		strcpy( tmp , cur_char );
+		Xstrncpy( tmp , cur_char, sizeof(tmp) );
 		cur_char[0] = 0;
 		in_rev_vid = 0;
 		to_greek();
-		strcpy( cur_char , tmp );
+		Xstrncpy( cur_char , tmp, sizeof(cur_char) );
 	}
 
 #ifndef SUNTOOL
@@ -964,9 +965,9 @@ int len;
 
 	/* don't do anything if the first char is already control char */
 		if( cur_char[0] > ' ' ) {
-			strcpy(tmp,cur_char);
+			Xstrncpy(tmp,cur_char,sizeof(tmp));
 			to_roman();
-			strcpy(cur_char,tmp);
+			Xstrncpy(cur_char,tmp,sizeof(cur_char));
 			add_cur_char(len);
 			to_greek();
 /*
@@ -1010,10 +1011,10 @@ int print_flag;
 			fprintf(fout,"%s", line );
 			return(0);
 		}
-		strcpy(gk_lbuf , line );
+		Xstrncpy(gk_lbuf , line, sizeof(gk_lbuf) );
 		return( strlen(gk_lbuf) );
 	}
-	strcpy(source_buf,line);
+	Xstrncpy(source_buf,line,sizeof(source_buf));
 	s = source_buf;
 	if( *s == '~' ) {
 /*
@@ -1037,7 +1038,7 @@ fprintf(fout,"%s", newline );
 			}
 			return(0);
 		} else {
-			strcpy( gk_lbuf , s+1 );
+			Xstrncpy( gk_lbuf , s+1, sizeof(gk_lbuf) );
 			return( strlen(gk_lbuf) );
 		}
 	}
@@ -1112,7 +1113,7 @@ int len;
 	 * cur_char will fill on the screen
 	 */
 
-	strcat( gk_lbuf , cur_char );
+	Xstrncat( gk_lbuf , cur_char, sizeof(gk_lbuf) );
 
 /*
 printf("col %d len %d cur_char [%s] linked to %d [%s]\n", 
@@ -1295,7 +1296,7 @@ to_bold_greek()
 
 to_greek()
 {
-	strcpy(cur_char, esc_tgreek );
+	Xstrncpy(cur_char, esc_tgreek, sizeof(cur_char));
 	add_cur_char(0);
 	cur_font = GREEK;
 }
@@ -1303,7 +1304,7 @@ to_greek()
 
 to_roman()
 {
-	strcpy(cur_char, esc_troman );
+	Xstrncpy(cur_char, esc_troman, sizeof(cur_char));
 	add_cur_char(0);
 	cur_font = ROMAN;
 }
@@ -1547,7 +1548,7 @@ got_match(val,curc)
 int val;
 int curc;
 {
-	strcpy( match_buf , text_buf );
+	Xstrncpy( match_buf , text_buf, sizeof(match_buf) );
 	match_val = val;
 
 	if( curc == 0 ) {
@@ -1651,9 +1652,9 @@ tlg_quote()
 	
 	/* if number is above MAX_QUOTE, simply print "default" bracket */
 	if( n < MAX_QUOTE )
-		strcpy( cur_char , *(quote_tab + n) );
+		Xstrncpy( cur_char , *(quote_tab + n), sizeof(cur_char) );
 	else
-		strcpy( cur_char , *quote_tab );
+		Xstrncpy( cur_char , *quote_tab, sizeof(cur_char) );
 	
 	add_non_alph(-1);
 	skip_num_arg();
@@ -1677,9 +1678,9 @@ tlg_brackets()
 		brack_tab = rbrack_tab;
 	/* if number is above MAX_BRACKET, simply print "default" bracket */
 	if( n < MAX_BRACKET )
-		strcpy( cur_char , *(brack_tab + n) );
+		Xstrncpy( cur_char , *(brack_tab + n), sizeof(cur_char) );
 	else
-		strcpy( cur_char , *brack_tab );
+		Xstrncpy( cur_char , *brack_tab, sizeof(cur_char) );
 	
 	add_non_alph(-1);
 	skip_num_arg();
@@ -1702,7 +1703,7 @@ tlg_page_formats()
 	cur_char[0] = 0;
 	switch( n ) {
 		case 0:	/* indentation marker */
-		 	strcat(cur_char,"   "); /* three spaces */
+		 	Xstrncat(cur_char,"   ",sizeof(cur_char)); /* three spaces */
 			break;
 		case 1: /* end of page in source doc */
 			break;
@@ -1720,7 +1721,7 @@ tlg_page_formats()
 			break;
 		case 8: /* new reference starts in mid-line */
 			for(i=0;i<lastlen;i++)
-				strcat(cur_char, " " );
+				Xstrncat(cur_char, " ", sizeof(cur_char));
 			break;
 		default:
 			break;

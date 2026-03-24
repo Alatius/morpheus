@@ -4,6 +4,7 @@
  */
 
 #include "srchstate.h"
+#include "../greeklib/xstrings.proto.h"
 #define BYTERANGE 500
 
 
@@ -41,10 +42,10 @@ long * offlist;
 
 
         tlg_seek(sname,startout);
-        strcpy(line,tlg_cur_textline());
+        Xstrncpy(line,tlg_cur_textline(),sizeof(line));
         markwords(get_textoffset(),line,offlist);
 
-        strcpy(Srch.sname,sname);
+        Xstrncpy(Srch.sname,sname,sizeof(Srch.sname));
         workbyoff(&Srch,TxtFtell(Srch.sname));
         printf("\n\n______");
         printf("%s %s\n", Srch.title,tlg_cur_label(' ') );              

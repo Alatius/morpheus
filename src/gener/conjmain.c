@@ -2,6 +2,7 @@
 #include <gkstring.h>
 #include <unistd.h>
 #include "../morphlib/setlang.proto.h"
+#include "../greeklib/xstrings.proto.h"
 #include "conjsys.proto.h"
 
 
@@ -39,7 +40,7 @@ int main(int argc, char *argv[])
 		fullconj = 1;
 	}
 	
-	strcpy(filename,"conjfile");
+	Xstrncpy(filename,"conjfile",sizeof filename);
 	if( (f=fopen(filename,"r")) == NULL ) {
 		fprintf(stdout,"Filename?\n" );
 		fgets(filename, sizeof filename, stdin);

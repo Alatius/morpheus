@@ -24,7 +24,7 @@ int main(void)
         while(fgets(line, sizeof line, stdin)) {
 		line[strcspn(line, "\n")] = '\0';
 		Gstr = Blnk;
-		if( !strncmp(":le:",line,4) ) strcpy(curlemma,line+4);
+		if( !strncmp(":le:",line,4) ) Xstrncpy(curlemma,line+4,sizeof(curlemma));
 		if( strncmp(":aj:",line,4) &&  strncmp(":no:",line,4) ) {
 			continue;
 		}
@@ -47,7 +47,7 @@ int main(void)
 
 		ScanAsciiKeys((char *)s,&GkWord,&Gstr,&AvoidGstr);
 		tmp[0] = 0;
-		SprintGkFlags(&Gstr,tmp," ",0);
+		SprintGkFlags(&Gstr,tmp,sizeof(tmp)," ",0);
 /*printf("line:%s gkstring:%s\n", line , gkstring_of(&Gstr) );*/
 		s = tailp + 1;
 		while(*s) {

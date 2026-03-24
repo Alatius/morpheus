@@ -3,6 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 #include "morphstrcmp.proto.h"
+#include "../greeklib/xstrings.proto.h"
 /*
  * grc's brute force beta search routine
  *
@@ -62,7 +63,7 @@ int main(int argc, char *argv[])
 		}
 		s = (char *) malloc(nlen);
 		*(key_table+nkeys) = s;
-		strcpy(*(key_table+nkeys),line);
+		Xstrncpy(*(key_table+nkeys),line,nlen);
 		nkeys++;
 
 	}

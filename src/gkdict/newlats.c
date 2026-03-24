@@ -1,4 +1,5 @@
 #include <gkstring.h>
+#include "../greeklib/xstrings.proto.h"
 
 int do_simpnom(char *, char*);
 int dump_nom(char *stem,int trunc, char * tags);
@@ -29,29 +30,29 @@ int main(void)
 		if( ! line[0]) continue;
 		if( ! isdigit(line[0])) continue;
 
-		strcpy(savel,line);
+		Xstrncpy(savel,line,sizeof(savel));
 		firstkey[0] = seckey[0] = thrdkey[0] = 0;
 		/* skip tokens 1 and 3, but keep #2 */
 		s = strtok(line," \t");
 		s = strtok((char * )NULL," \t");
-		strcpy(curw,s);
+		Xstrncpy(curw,s,sizeof(curw));
 
 		numsuff[0] = 0;
 		s = curw;
 		while(*s&&*s!='#') s++;
 		if(*s=='#') {
-			strcpy(numsuff,s);
+			Xstrncpy(numsuff,s,sizeof(numsuff));
 			*s = 0;
 		}
 
 		if( is_verb(curw) ) continue;
 		s=strtok((char * )NULL," \t");
 		s=strtok((char * )NULL," \t");
-		if(s) strcpy(firstkey,s);
+		if(s) Xstrncpy(firstkey,s,sizeof(firstkey));
 		s=strtok((char * )NULL," \t");
-		if(s) strcpy(seckey,s);
+		if(s) Xstrncpy(seckey,s,sizeof(seckey));
 		s=strtok((char * )NULL," \t");
-		if(s) strcpy(thrdkey,s);
+		if(s) Xstrncpy(thrdkey,s,sizeof(thrdkey));
 
 		if( ! strncmp(firstkey,"<gen",4)) {
 		/*	printf("%s %s\n", curw , firstkey );*/
@@ -224,27 +225,27 @@ int do_simpnom(char* stem,char* gend)
 		!strcmp(stem+strlen(stem)-3,"o/n"))  {
 		char curg[BUFSIZ], tmptags[BUFSIZ];
 
-		if(!strcmp(gend,"<gen>h(</gen>")) strcpy(curg,"fem");
-		if(!strcmp(gend,"<gen>to/</gen>")) strcpy(curg,"neut");
-		else strcpy(curg,"masc");
+		if(!strcmp(gend,"<gen>h(</gen>")) Xstrncpy(curg,"fem",sizeof(curg));
+		if(!strcmp(gend,"<gen>to/</gen>")) Xstrncpy(curg,"neut",sizeof(curg));
+		else Xstrncpy(curg,"masc",sizeof(curg));
 
 		snprintf(tmptags,sizeof(tmptags),"os_ou suff_acc %s", curg );
 		dump_nom(stem,3,tmptags);
 		return(1);
 	}
 
-	if( (!strcmp(stem+strlen(stem)-2,"oi") || 
+	if( (!strcmp(stem+strlen(stem)-2,"oi") ||
 		!strcmp(stem+strlen(stem)-3,"oi/"))
 		&& !strcmp(gend,"<gen>oi(</gen>")) {
 		int syllno, curacc;
 		char curg[BUFSIZ], tmptags[BUFSIZ];
 
-		strcpy(tmptags,"os_ou masc pl");
+		Xstrncpy(tmptags,"os_ou masc pl",sizeof(tmptags));
 		checkaccent(stem,&syllno,&curacc);
 		if( syllno == ULTIMA ) {
-			strcat(tmptags," suff_acc");
+			Xstrncat(tmptags," suff_acc",sizeof(tmptags));
 		} else if( nsylls(stem)>2 && syllno == PENULT ) {
-			strcat(tmptags, " stem_acc");
+			Xstrncat(tmptags, " stem_acc",sizeof(tmptags));
 		}
 		if( *(stem+strlen(stem)-1) == '/')
 			dump_nom(stem,3,tmptags);
@@ -253,18 +254,18 @@ int do_simpnom(char* stem,char* gend)
 		return(1);
 	}
 
-	if( (!strcmp(stem+strlen(stem)-2,"ai") || 
+	if( (!strcmp(stem+strlen(stem)-2,"ai") ||
 		!strcmp(stem+strlen(stem)-3,"ai/"))
 		&& !strcmp(gend,"<gen>oi(</gen>")) {
 		int syllno, curacc;
 		char curg[BUFSIZ], tmptags[BUFSIZ];
 
-		strcpy(tmptags,"hs_ou masc pl");
+		Xstrncpy(tmptags,"hs_ou masc pl",sizeof(tmptags));
 		checkaccent(stem,&syllno,&curacc);
 		if( syllno == ULTIMA ) {
-			strcat(tmptags," suff_acc");
+			Xstrncat(tmptags," suff_acc",sizeof(tmptags));
 		} else if( nsylls(stem)>2 && syllno == PENULT ) {
-			strcat(tmptags, " stem_acc");
+			Xstrncat(tmptags, " stem_acc",sizeof(tmptags));
 		}
 		if( *(stem+strlen(stem)-1) == '/')
 			dump_nom(stem,3,tmptags);
@@ -279,40 +280,40 @@ int do_simpnom(char* stem,char* gend)
 		int syllno, curacc;
 		char curg[BUFSIZ], tmptags[BUFSIZ];
 
-		strcpy(curg,"masc");
-		
+		Xstrncpy(curg,"masc",sizeof(curg));
+
 		snprintf(tmptags,sizeof(tmptags),"hs_ou %s", curg );
 		checkaccent(stem,&syllno,&curacc);
 		if( nsylls(stem)>2 && syllno == PENULT ) {
-			strcat(tmptags, " stem_acc");
+			Xstrncat(tmptags, " stem_acc",sizeof(tmptags));
 		}
 		dump_nom(stem,2,tmptags);
 		return(1);
 	}
 
-	if( !strcmp(stem+strlen(stem)-1,"a")  
+	if( !strcmp(stem+strlen(stem)-1,"a")
 		&& !strcmp(gend,"<gen>ta/</gen>") ) {
 		int syllno, curacc;
 		char curg[BUFSIZ], tmptags[BUFSIZ];
 
-		strcpy(tmptags,"os_ou neut pl");
+		Xstrncpy(tmptags,"os_ou neut pl",sizeof(tmptags));
 		checkaccent(stem,&syllno,&curacc);
 		if( nsylls(stem)>2 && syllno == PENULT ) {
-			strcat(tmptags, " stem_acc");
+			Xstrncat(tmptags, " stem_acc",sizeof(tmptags));
 		}
 		dump_nom(stem,1,tmptags);
 		return(1);
 	}
 
-	if( !strcmp(stem+strlen(stem)-2,"os")  
+	if( !strcmp(stem+strlen(stem)-2,"os")
 		&& !strcmp(gend,"<gen>to/</gen>") ) {
 		int syllno, curacc;
 		char curg[BUFSIZ], tmptags[BUFSIZ];
 
-		strcpy(tmptags,"hs_eos neut");
+		Xstrncpy(tmptags,"hs_eos neut",sizeof(tmptags));
 		checkaccent(stem,&syllno,&curacc);
 		if( nsylls(stem)>2 && syllno == PENULT ) {
-			strcat(tmptags, " stem_acc");
+			Xstrncat(tmptags, " stem_acc",sizeof(tmptags));
 		}
 		dump_nom(stem,2,tmptags);
 		return(1);
@@ -324,28 +325,28 @@ int do_simpnom(char* stem,char* gend)
 		int syllno, curacc;
 		char curg[BUFSIZ], tmptags[BUFSIZ];
 
-		strcpy(tmptags,"os_ou neut");
+		Xstrncpy(tmptags,"os_ou neut",sizeof(tmptags));
 		checkaccent(stem,&syllno,&curacc);
 		if( nsylls(stem)>2 && syllno == PENULT ) {
-			strcat(tmptags, " stem_acc");
+			Xstrncat(tmptags, " stem_acc",sizeof(tmptags));
 		}
 		dump_nom(stem,2,tmptags);
 		return(1);
 	}
 
-	if( !strcmp(stem+strlen(stem)-2,"os") 
+	if( !strcmp(stem+strlen(stem)-2,"os")
 		&& (!strcmp(gend,"<gen>h(</gen>") ||
 			!strcmp(gend,"<gen>o(</gen>"))) {
 		int syllno, curacc;
 		char curg[BUFSIZ], tmptags[BUFSIZ];
 
-		if(!strcmp(gend,"<gen>h(</gen>")) strcpy(curg,"fem");
-		else strcpy(curg,"masc");
-		
+		if(!strcmp(gend,"<gen>h(</gen>")) Xstrncpy(curg,"fem",sizeof(curg));
+		else Xstrncpy(curg,"masc",sizeof(curg));
+
 		snprintf(tmptags,sizeof(tmptags),"os_ou %s", curg );
 		checkaccent(stem,&syllno,&curacc);
 		if( nsylls(stem)>2 && syllno == PENULT ) {
-			strcat(tmptags, " stem_acc");
+			Xstrncat(tmptags, " stem_acc",sizeof(tmptags));
 		}
 		dump_nom(stem,2,tmptags);
 		return(1);
@@ -383,7 +384,7 @@ int dump_nom(char *stem,int trunc, char * tags)
 int dump_entry(char *stem,int trunc, char * tags,char * etag, FILE * fout)
 {
 	char shorts[BUFSIZ];
-	strcpy(shorts,stem);
+	Xstrncpy(shorts,stem,sizeof(shorts));
 	stripmetachars(stem);
 	shorts[strlen(shorts)-trunc] = 0;
 	if(shorts[strlen(shorts)-1] == '-')
@@ -924,13 +925,13 @@ int do_regnom(char*stem,char*key1,char*key2,char * key3)
 		char skeys[BUFSIZ];
 
 		if( !strcmp(key2,"<gen>o(</gen>") && !strcmp(key3,"<gen>h(</gen>"))
-			strcpy(skeys,"s_qos masc fem");
+			Xstrncpy(skeys,"s_qos masc fem",sizeof(skeys));
 		else if( !strcmp(key2,"<gen>o(</gen>") )
-			strcpy(skeys,"s_qos masc");
+			Xstrncpy(skeys,"s_qos masc",sizeof(skeys));
 		else if( !strcmp(key2,"<gen>h(</gen>") )
-			strcpy(skeys,"s_qos fem");
+			Xstrncpy(skeys,"s_qos fem",sizeof(skeys));
 		else
-			strcpy(skeys,"s_qos fem");
+			Xstrncpy(skeys,"s_qos fem",sizeof(skeys));
 		dump_nom(stem,1,skeys);
 		return(1);
 	}
@@ -942,16 +943,16 @@ int do_regnom(char*stem,char*key1,char*key2,char * key3)
 		int curacc = 0;
 
 		if( !strcmp(key2,"<gen>o(</gen>") && !strcmp(key3,"<gen>h(</gen>"))
-			strcpy(skeys,"gc_ggos masc fem");
+			Xstrncpy(skeys,"gc_ggos masc fem",sizeof(skeys));
 		else if( !strcmp(key2,"<gen>o(</gen>") )
-			strcpy(skeys,"gc_ggos masc");
+			Xstrncpy(skeys,"gc_ggos masc",sizeof(skeys));
 		else if( !strcmp(key2,"<gen>h(</gen>") )
-			strcpy(skeys,"gc_ggos fem");
+			Xstrncpy(skeys,"gc_ggos fem",sizeof(skeys));
 		else
-			strcpy(skeys,"gc_ggos fem");
+			Xstrncpy(skeys,"gc_ggos fem",sizeof(skeys));
 
 		if(nsylls(stem) > 2 ) {
-			if(syllno == PENULT ) strcat(skeys," ant_acc"  );
+			if(syllno == PENULT ) Xstrncat(skeys," ant_acc",sizeof(skeys));
 			checkaccent(stem,&syllno,&curacc);
 		}
 		dump_nom(stem,2,skeys);
@@ -965,16 +966,16 @@ int do_regnom(char*stem,char*key1,char*key2,char * key3)
 		int curacc = 0;
 
 		if( !strcmp(key2,"<gen>o(</gen>") && !strcmp(key3,"<gen>h(</gen>"))
-			strcpy(skeys,"c_ktos masc fem");
+			Xstrncpy(skeys,"c_ktos masc fem",sizeof(skeys));
 		else if( !strcmp(key2,"<gen>o(</gen>") )
-			strcpy(skeys,"c_ktos masc");
+			Xstrncpy(skeys,"c_ktos masc",sizeof(skeys));
 		else if( !strcmp(key2,"<gen>h(</gen>") )
-			strcpy(skeys,"c_ktos fem");
+			Xstrncpy(skeys,"c_ktos fem",sizeof(skeys));
 		else
-			strcpy(skeys,"c_ktos fem");
+			Xstrncpy(skeys,"c_ktos fem",sizeof(skeys));
 
 		if(nsylls(stem) > 2 ) {
-			if(syllno == PENULT ) strcat(skeys," ant_acc"  );
+			if(syllno == PENULT ) Xstrncat(skeys," ant_acc",sizeof(skeys));
 			checkaccent(stem,&syllno,&curacc);
 		}
 		dump_nom(stem,(strcmp(stem+strlen(stem)-2,"ac")? 1 : 2),skeys);
@@ -988,16 +989,16 @@ int do_regnom(char*stem,char*key1,char*key2,char * key3)
 		int curacc = 0;
 
 		if( !strcmp(key2,"<gen>o(</gen>") && !strcmp(key3,"<gen>h(</gen>"))
-			strcpy(skeys,"c_gos masc fem");
+			Xstrncpy(skeys,"c_gos masc fem",sizeof(skeys));
 		else if( !strcmp(key2,"<gen>o(</gen>") )
-			strcpy(skeys,"c_gos masc");
+			Xstrncpy(skeys,"c_gos masc",sizeof(skeys));
 		else if( !strcmp(key2,"<gen>h(</gen>") )
-			strcpy(skeys,"c_gos fem");
+			Xstrncpy(skeys,"c_gos fem",sizeof(skeys));
 		else
-			strcpy(skeys,"c_gos fem");
+			Xstrncpy(skeys,"c_gos fem",sizeof(skeys));
 
 		if(nsylls(stem) > 2 ) {
-			if(syllno == PENULT ) strcat(skeys," ant_acc"  );
+			if(syllno == PENULT ) Xstrncat(skeys," ant_acc",sizeof(skeys));
 			checkaccent(stem,&syllno,&curacc);
 		}
 		dump_nom(stem,1,skeys);
@@ -1025,9 +1026,9 @@ int do_regnom(char*stem,char*key1,char*key2,char * key3)
 	if( (!strcmp("<itype>a_kos</itype>",key1) || !strcmp("<itype>a^kos</itype>",key1))
 	    && (!strcmp(stem+strlen(stem)-2,"ac")) ) {
 		stem[strlen(stem)-1] = key1[8];
-		strcat(stem,"c");
+		Xstrncat(stem,"c",BUFSIZ);
 		if( !strcmp(key2,"<gen>h(</gen>") )
-			dump_nom(stem,1,"c_kos fem");	
+			dump_nom(stem,1,"c_kos fem");
 		else
 			dump_nom(stem,1,"c_kos masc");	
 		return(1);
@@ -1055,16 +1056,16 @@ int do_regnom(char*stem,char*key1,char*key2,char * key3)
 /*
  * kludge to get the long mark in over the last consonant
  */
-		strcpy(tmpstem,stem);
-		strcpy(tmpstem+strlen(stem)-3,"u_/s");
+		Xstrncpy(tmpstem,stem,sizeof(tmpstem));
+		Xstrncpy(tmpstem+strlen(stem)-3,"u_/s",sizeof(tmpstem)-(strlen(stem)-3));
 
-		dump_nom(tmpstem,2,"s_qos fem stem_acc");	
+		dump_nom(tmpstem,2,"s_qos fem stem_acc");
 		return(1);
 	}
 
-	if( !strcmp("<itype>ews</itype>",key1) && 
+	if( !strcmp("<itype>ews</itype>",key1) &&
 	    (!strcmp(stem+strlen(stem)-2,"is")) ) {
-		dump_nom(stem,2,"is_ews fem");	
+		dump_nom(stem,2,"is_ews fem");
 		return(1);
 	}
 
@@ -1334,7 +1335,7 @@ int is_adverb(char *stem,char * key1)
 		char tmp[BUFSIZ];
 
 
-		strcpy(tmp,stem);
+		Xstrncpy(tmp,stem,sizeof(tmp));
 		standword(tmp);
 		printf(":le:%s%s\n:wd:%s adverb\n\n", tmp, numsuff, stem );
 /*
@@ -1352,7 +1353,7 @@ void dump_acc_nom(char * stem,int trunc,char * tag)
 	char tmpstem[BUFSIZ];
 	int syllno, curacc;
 
-	strcpy(tmpstem,stem);
+	Xstrncpy(tmpstem,stem,sizeof(tmpstem));
 	*(tmpstem+strlen(tmpstem)-trunc) = 0;
 
 	checkaccent(tmpstem,&syllno,&curacc);

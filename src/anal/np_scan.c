@@ -7,6 +7,7 @@
 #include "prntanal.proto.h"
 #include "checkstring.proto.h"
 #include "../morphlib/trimwhite.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 #include <time.h>
 int quickflag = 0;
@@ -44,24 +45,24 @@ printf("%d:[%s] [%s]\n", rval, line ,destPath );
 		foutput = stdout;
 		ffailed = stdout;
 	} else {
-		strcpy(fname,argv[1]);
-		strcpy(inpname,fname);
-		strcat(inpname,".words");
+		Xstrncpy(fname,argv[1],sizeof(fname));
+		Xstrncpy(inpname,fname,sizeof(inpname));
+		Xstrncat(inpname,".words",sizeof(inpname));
 		
 /*
 		fprintf(stderr,"destination directory? (press return for same as source)");
 */
 		if (argc == 3) {
-			strcpy(destPath,argv[2]);
-			strcpy(outname,destPath);
-			strcat(outname,":");
-			strcat(outname,fname);
-			strcat(outname,".morph");
+			Xstrncpy(destPath,argv[2],sizeof(destPath));
+			Xstrncpy(outname,destPath,sizeof(outname));
+			Xstrncat(outname,":",sizeof(outname));
+			Xstrncat(outname,fname,sizeof(outname));
+			Xstrncat(outname,".morph",sizeof(outname));
 		} else {
-			strcpy(outname,fname);
-			strcat(outname,".morph");
-			strcpy(failedname,fname);
-			strcat(failedname,".failed");
+			Xstrncpy(outname,fname,sizeof(outname));
+			Xstrncat(outname,".morph",sizeof(outname));
+			Xstrncpy(failedname,fname,sizeof(failedname));
+			Xstrncat(failedname,".failed",sizeof(failedname));
 		}
 		 
 		fprintf(stderr,"Input: %s\nOutput: %s\n",inpname,outname);
@@ -135,7 +136,7 @@ printf("%d:[%s] [%s]\n", rval, line ,destPath );
 			if( string_time >= long_time && nwords > 0 && rval ) {
 			
 				long_time = string_time;
-				strcpy(long_string,line);
+				Xstrncpy(long_string,line,sizeof(long_string));
 				fprintf(stderr,":longtime\t%.2f\t%s\n", long_time, long_string );
 			}
 		}

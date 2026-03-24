@@ -1,6 +1,7 @@
 #include <gkstring.h>
 #include "../morphlib/gkstring.proto.h"
 #include "../morphlib/morphflags.proto.h"
+#include "../greeklib/xstrings.proto.h"
 static gk_word Blnk;
 static char curlemma[LONGSTRING];
 static gk_string BlnkGstr;
@@ -26,10 +27,10 @@ int GenStemLink(FILE * f,FILE * fout)
 		char saveline[BUFSIZ*4];
 
 		fflush(fout);
-		strcpy(saveline,line);
+		Xstrncpy(saveline,line,sizeof saveline);
 		*Gkword = Blnk;
 		if( ! strncmp(line,":le:",4) ) {
-			strcpy(curlemma,line+4);
+			Xstrncpy(curlemma,line+4,sizeof curlemma);
 			if( curlemma[strlen(curlemma)-1] == '\n' )
 				curlemma[strlen(curlemma)-1] = 0;
 			fprintf(fout,"%s", line );

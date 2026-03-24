@@ -1,4 +1,5 @@
 #include "srchstate.h"
+#include "../greeklib/xstrings.proto.h"
 #define WLIST "/text/tlgdb/bigind.ind"
 FILE * fwlist = NULL;
 long int curlno = 0;
@@ -50,8 +51,8 @@ char *s;
 		while(*t) t++; t--; *t = 0;
 		n = gk_strcmp(s,curl);	
 		if( !n && ! strcmp(s,curl) ) {
-			strcpy( TmpSrch->key , curl );
-			strcpy( TmpSrch->gotstr , curl );
+			Xstrncpy( TmpSrch->key , curl, sizeof(TmpSrch->key) );
+			Xstrncpy( TmpSrch->gotstr , curl, sizeof(TmpSrch->gotstr) );
 /*
 printf("%s = %s at %ld\n", s, curl, curlno );
 */

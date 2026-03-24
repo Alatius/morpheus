@@ -8,6 +8,7 @@
 
 #include "beta2rtf.proto.h"
 #include "beta2smarta.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 char * domlist[MAXDOMAINS];
 char lastdom[BUFSIZ];
@@ -84,7 +85,7 @@ void conv_defline(char *s, FILE *fout)
 		levnum = check_deflev(s,res1,sizeof res1);
 		set_roman();
 		beta2smk(res1,res2);
-		strcat(res2,"\t");
+		Xstrncat(res2,"\t",sizeof(res2));
 		if (levnum == 2 )
 			introp = "\\s2\\fi-510\\li1134\\sb80\\sa80\\tx1134 \\f20";
 		else if( levnum == 3 )
@@ -95,7 +96,7 @@ void conv_defline(char *s, FILE *fout)
 			introp = "\\s5\\fi-539\\li2296\\sb80\\sa80\\tx2296 \\f20";
 		else if( levnum == 9 )  {
 			introp = "\\s9\\sb60\\sa60 \\f20";
-			strcpy(res2,"");
+			Xstrncpy(res2,"",sizeof(res2));
 		}
 		fprintf(fout,"\\pard\\plain{%s {%s",  introp, res2 );
 

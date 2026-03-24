@@ -7,6 +7,7 @@
 #include "stdiomorph.proto.h"
 #include "prntanal.proto.h"
 #include "../morphlib/trimwhite.proto.h"
+#include "../greeklib/xstrings.proto.h"
 #include "checkstring.proto.h"
 void crunchfile(char *);
 int quickflag = 0;
@@ -37,11 +38,11 @@ void crunchfile(char *s)
 	long nhits = 0;
 	char * p;
 		
-		strcpy(inpname,s);
-		strcat(inpname,".words");
+		Xstrncpy(inpname,s,sizeof(inpname));
+		Xstrncat(inpname,".words",sizeof(inpname));
 		
-		strcpy(outname,s);
-		strcat(outname,".morph");
+		Xstrncpy(outname,s,sizeof(outname));
+		Xstrncat(outname,".morph",sizeof(outname));
 
 		if((finput=fopen(inpname,"r")) == NULL) {
 			fprintf(stderr,"cannot find [%s]!\n", inpname);

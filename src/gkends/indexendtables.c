@@ -1,6 +1,7 @@
 #include <gkstring.h>
 #include "endfiles.h"
 #include "nextsufftab.proto.h"
+#include "../greeklib/xstrings.proto.h"
 #include "../morphlib/morphkeys.proto.h"
 #include "../morphlib/endio.proto.h"
 #include "../morphlib/errormess.proto.h"
@@ -84,9 +85,9 @@ void indexendtables(Stemtype stype, int is_deriv)
 		while(ReadEnding(finput,&Gstr,maxstring)) {
 			char * sp;
 			sp = gkstring_of(&Gstr);
-			strcpy(savestr,sp);
+			Xstrncpy(savestr,sp,sizeof(savestr));
 			if( has_diaeresis(sp) || hasaccent(sp) || has_quant(sp) ) {
-				strcpy(markedstr,sp);
+				Xstrncpy(markedstr,sp,sizeof(markedstr));
 			} else
 				markedstr[0] = 0;
 if( *sp < ' ' || *sp > 126 ) printf("bad line name [%s] sp [%s]\n", shortname , sp );
@@ -100,12 +101,12 @@ if(  ! *sp ) {
 	continue;
 }
 			if( is_deriv ) {
-				strcpy(tmp,gkstring_of(&Gstr));
-				strcat(tmp,"\t");
+				Xstrncpy(tmp,gkstring_of(&Gstr),sizeof(tmp));
+				Xstrncat(tmp,"\t",sizeof(tmp));
 				if( strcmp(gkstring_of(&Gstr),savestr) ) {
-					strcat(tmp,savestr);
+					Xstrncat(tmp,savestr,sizeof(tmp));
 				}
-				SprintGkFlags(&Gstr,tmp,":",0);
+				SprintGkFlags(&Gstr,tmp,sizeof(tmp),":",0);
 			} else
 				snprintf(tmp, sizeof(tmp), "%s\t%s", gkstring_of(&Gstr) , NameOfStemtype(stemtype_of(&Gstr) ) );
 
@@ -124,7 +125,7 @@ if(  ! *sp ) {
 				fprintf(stderr,"ran out of memory at %d endings!\n", endcount );
 				return;
 			}
-			strcpy(*(endlines+endcount),tmp);
+			Xstrncpy(*(endlines+endcount),tmp,strlen(tmp)+1);
 			endcount++;
 		}
 /*
@@ -171,8 +172,8 @@ printf("output file:%s\n", shortname );
 			 * where the same key is repeated
 			 */
 			fprintf(foutput,"%s%s", DELIMITER, *(endlines+i) );
-		strcpy(prevtag,curtag);
-		strcpy(prevkey,*(endlines+i));
+		Xstrncpy(prevtag,curtag,sizeof(prevtag));
+		Xstrncpy(prevkey,*(endlines+i),sizeof(prevkey));
 	}
 
 	fprintf(foutput,"\n");

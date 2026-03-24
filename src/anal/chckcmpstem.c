@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "checkstem.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 int checkcmpstem(char *s, char *t, FILE *f)
 {
@@ -11,13 +12,13 @@ int checkcmpstem(char *s, char *t, FILE *f)
 	char stemkeys[LONGSTRING];
 	int rval = 0;
 	
-	strcpy(tmp,s);
+	Xstrncpy(tmp,s,sizeof(tmp));
 	p = tmp;
 	while(*p) p++;
 	p--;
 	
 	if( isdigit(*s) ) return(0);
-	strcpy(endkeys,"os_ou os_h_on os_on h_hs a_hs");
+	Xstrncpy(endkeys,"os_ou os_h_on os_on h_hs a_hs",sizeof(endkeys));
 	while(p>tmp) {
 		if( *p == 'o' || *p == 'h' ) {
 			*p = 0;

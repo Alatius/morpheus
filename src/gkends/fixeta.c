@@ -5,6 +5,7 @@
 #include "fixeta.proto.h"
 #include "../morphlib/gkstring.proto.h"
 #include "../morphlib/morphflags.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 /*
  *	ote/rhs	--> ote/ra_s	attic
@@ -36,8 +37,8 @@ PrntGkStr(gstr,stdout);
 
 			*euphs = *gstr;
 			curs = gkstring_of(euphs);
-			strcpy(curs,"a_");
-			strcat(curs,orgstr+1);
+			Xstrncpy(curs,"a_",sizeof(gkstring_of(euphs)));
+			Xstrncat(curs,orgstr+1,sizeof(gkstring_of(euphs)));
 			add_morphflag(morphflags_of(euphs),R_E_I_ALPHA);
 			set_dialect(euphs,ATTIC);
 			return(euphs);
@@ -55,9 +56,9 @@ PrntGkStr(gstr,stdout);
 			orgstr = gkstring_of(euphs);
 			s = is_substring("rh",orgstr);
 			*s = 0; s++; s++;
-			strcpy(tmp,s);
-			strcat(orgstr,"ra_");
-			strcat(orgstr,tmp);
+			Xstrncpy(tmp,s,sizeof(tmp));
+			Xstrncat(orgstr,"ra_",sizeof(gkstring_of(euphs)));
+			Xstrncat(orgstr,tmp,sizeof(gkstring_of(euphs)));
 			set_dialect(euphs,ATTIC);
 			dialect_of(gstr) &= ~(ATTIC);
 			return(euphs);
@@ -71,9 +72,9 @@ PrntGkStr(gstr,stdout);
 			orgstr = gkstring_of(euphs);
 			s = is_substring("ih",orgstr);
 			*s = 0; s++; s++;
-			strcpy(tmp,s);
-			strcat(orgstr,"ia_");
-			strcat(orgstr,tmp);
+			Xstrncpy(tmp,s,sizeof(tmp));
+			Xstrncat(orgstr,"ia_",sizeof(gkstring_of(euphs)));
+			Xstrncat(orgstr,tmp,sizeof(gkstring_of(euphs)));
 			set_dialect(euphs,ATTIC);
 			dialect_of(gstr) &= ~(ATTIC);
 			return(euphs);
@@ -89,13 +90,13 @@ PrntGkStr(gstr,stdout);
 			orgstr = gkstring_of(euphs);
 			s = is_substring("i!h",orgstr);
 			*s = 0; s++; s++; s++;
-			strcpy(tmp,s);
+			Xstrncpy(tmp,s,sizeof(tmp));
 			if(tmp[0] == '=' )
-				strcat(orgstr,"i!a");
+				Xstrncat(orgstr,"i!a",sizeof(gkstring_of(euphs)));
 			else
-				strcat(orgstr,"i!a_");
-			
-			strcat(orgstr,tmp);
+				Xstrncat(orgstr,"i!a_",sizeof(gkstring_of(euphs)));
+
+			Xstrncat(orgstr,tmp,sizeof(gkstring_of(euphs)));
 			set_dialect(euphs,ATTIC);
 			dialect_of(gstr) &= ~(ATTIC);
 			return(euphs);
@@ -107,9 +108,9 @@ PrntGkStr(gstr,stdout);
 			orgstr = gkstring_of(euphs);
 			s = is_substring("i_h",orgstr);
 			*s = 0; s++; s++;s++;
-			strcpy(tmp,s);
-			strcat(orgstr,"i_a_");
-			strcat(orgstr,tmp);
+			Xstrncpy(tmp,s,sizeof(tmp));
+			Xstrncat(orgstr,"i_a_",sizeof(gkstring_of(euphs)));
+			Xstrncat(orgstr,tmp,sizeof(gkstring_of(euphs)));
 			set_dialect(euphs,ATTIC);
 			dialect_of(gstr) &= ~(ATTIC);
 
@@ -122,9 +123,9 @@ PrntGkStr(gstr,stdout);
 			orgstr = gkstring_of(euphs);
 			s = is_substring("i/h",orgstr);
 			*s = 0; s++; s++; s++;
-			strcpy(tmp,s);
-			strcat(orgstr,"i/a_");
-			strcat(orgstr,tmp);
+			Xstrncpy(tmp,s,sizeof(tmp));
+			Xstrncat(orgstr,"i/a_",sizeof(gkstring_of(euphs)));
+			Xstrncat(orgstr,tmp,sizeof(gkstring_of(euphs)));
 			set_dialect(euphs,ATTIC);
 			dialect_of(gstr) &= ~(ATTIC);
 			return(euphs);
@@ -136,9 +137,9 @@ PrntGkStr(gstr,stdout);
 			orgstr = gkstring_of(euphs);
 			s = is_substring("i_/h",orgstr);
 			*s = 0; s++; s++;s++; s++;
-			strcpy(tmp,s);
-			strcat(orgstr,"i_/a_");
-			strcat(orgstr,tmp);
+			Xstrncpy(tmp,s,sizeof(tmp));
+			Xstrncat(orgstr,"i_/a_",sizeof(gkstring_of(euphs)));
+			Xstrncat(orgstr,tmp,sizeof(gkstring_of(euphs)));
 			set_dialect(euphs,ATTIC);
 			dialect_of(gstr) &= ~(ATTIC);
 
@@ -146,15 +147,15 @@ PrntGkStr(gstr,stdout);
 		} 	else if( (is_substring("e/-h",orgstr))) {
 			char tmp[MAXWORDSIZE];
 			char * s;
-	
+
 			*euphs = *gstr;
 			orgstr = gkstring_of(euphs);
 			s = is_substring("e/-h",orgstr);
 			*s = 0;/* s++; s++; s++; */
-			strcpy(tmp,s+strlen("e/-h"));
+			Xstrncpy(tmp,s+strlen("e/-h"),sizeof(tmp));
 
-			strcat(orgstr,"e/-a_");
-			strcat(orgstr,tmp);
+			Xstrncat(orgstr,"e/-a_",sizeof(gkstring_of(euphs)));
+			Xstrncat(orgstr,tmp,sizeof(gkstring_of(euphs)));
 
 			set_dialect(euphs,ATTIC);
 			dialect_of(gstr) &= ~(ATTIC);
@@ -167,9 +168,9 @@ PrntGkStr(gstr,stdout);
 			orgstr = gkstring_of(euphs);
 			s = is_substring("eh",orgstr);
 			*s = 0; s++; s++; 
-			strcpy(tmp,s);
-			strcat(orgstr,"ea_");
-			strcat(orgstr,tmp);
+			Xstrncpy(tmp,s,sizeof(tmp));
+			Xstrncat(orgstr,"ea_",sizeof(gkstring_of(euphs)));
+			Xstrncat(orgstr,tmp,sizeof(gkstring_of(euphs)));
 			set_dialect(euphs,ATTIC);
 			dialect_of(gstr) &= ~(ATTIC);
 			return(euphs);
@@ -181,9 +182,9 @@ PrntGkStr(gstr,stdout);
 			orgstr = gkstring_of(euphs);
 			s = is_substring("i_/h",orgstr);
 			*s = 0; s++; s++; s++; s++;
-			strcpy(tmp,s);
-			strcat(orgstr,"i_/a_");
-			strcat(orgstr,tmp);
+			Xstrncpy(tmp,s,sizeof(tmp));
+			Xstrncat(orgstr,"i_/a_",sizeof(gkstring_of(euphs)));
+			Xstrncat(orgstr,tmp,sizeof(gkstring_of(euphs)));
 			set_dialect(euphs,ATTIC);
 			dialect_of(gstr) &= ~(ATTIC);
 			return(euphs);

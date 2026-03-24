@@ -2,6 +2,7 @@
 #include "../greeklib/binlook.proto.h"
 #include "../greeklib/stripdiaer.proto.h"
 #include "../greeklib/stripquant.proto.h"
+#include "../greeklib/xstrings.proto.h"
 #define LEMMAFILE "vlist"
 static int firstshot = 1;
 char ** lemmentries = NULL;
@@ -15,7 +16,7 @@ int checkforlemma(char *lemmastr)
 	
 	if( ! lemmentries ) 
 		if( ! init_lemmentries() ) return(0);
-	strcpy(tmplemm,lemmastr);
+	Xstrncpy(tmplemm,lemmastr,sizeof tmplemm);
 	stripquant(tmplemm);
 	stripdiaer(tmplemm);
 
@@ -49,7 +50,7 @@ int init_lemmentries(void)
 		
 		p = &line[strlen(line)-1];
 		while(isspace(*p)&&p>line) *p-- = 0;  /* zap newline */
-		strcpy(*(lemmentries+i),line);
+		Xstrncpy(*(lemmentries+i),line,strlen(line)+1);
 	}
 /*
 	fprintf(stderr,"%d lemmas first %s last %s\n", 

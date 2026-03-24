@@ -11,7 +11,7 @@ int main(void)
 		/* Remove trailing newline */
 		line[strcspn(line, "\n")] = 0;
 		if( ! strncmp(":le:",line,4)) {
-			strcpy(curlemma,line+4);
+			strncpy(curlemma, line+4, sizeof(curlemma)); curlemma[sizeof(curlemma)-1] = '\0';
 			continue;
 		}
 		printf("%s\t", curlemma );

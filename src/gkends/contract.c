@@ -7,6 +7,7 @@
 #include <string.h>
 
 #include "contract.proto.h"
+#include "../greeklib/xstrings.proto.h"
 #include "lcontr.proto.h"
 #include "acccompos.proto.h"
 #include "../morphlib/fixacc.proto.h"
@@ -196,8 +197,8 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
 		return(0);
 	} 
 
-	strcpy(savestr, haveseen );
-	strcpy(savecur, curstring );
+	Xstrncpy(savestr, haveseen, sizeof(savestr));
+	Xstrncpy(savecur, curstring, sizeof(savecur));
     curbreath = getbreath(savecur);
     stripbreath(savecur);
 
@@ -205,9 +206,9 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
 			char tmp[MAXWORDSIZE];
 
 			tmp[0] = 0;
-			strcpy(tmp,cooked);
+			Xstrncpy(tmp,cooked,sizeof(tmp));
 			p1 = tmp+strlen(tmp)-1;
-			strcat(tmp,savecur+strlen(raw));
+			Xstrncat(tmp,savecur+strlen(raw),sizeof(tmp));
 			/*
 			 * here is a little beta code kludge:
 			 *   -- if you have a string such as "aoi" contract to "w|", but if you
@@ -229,8 +230,8 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
 			 	if( *p1 == HARDLONG ) /* if  "aoi_" contracts to "w|", strip the "_"*/
 			 		memmove(p1,p1+1,strlen(p1+1)+1);
 			 }
-			strcat(savestr,tmp);
-			strcpy(gkstring_of(gstr),savestr);
+			Xstrncat(savestr,tmp,sizeof(savestr));
+			Xstrncpy(gkstring_of(gstr),savestr,sizeof(gkstring_of(gstr)));
 			if( cur_lang() != LATIN ) addbreath(gkstring_of(gstr),curbreath);
 
 			set_dialect(gstr,curdial);
@@ -261,9 +262,9 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
 	 *
 	 */
 
-			strcpy(tmp,savestr);
-			strcat(tmp,cooked);
-			strcat(tmp,savecur+strlen(raw));
+			Xstrncpy(tmp,savestr,sizeof(tmp));
+			Xstrncat(tmp,cooked,sizeof(tmp));
+			Xstrncat(tmp,savecur+strlen(raw),sizeof(tmp));
 			p1 = tmp;
 			
 			/*
@@ -293,7 +294,7 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
 	 * not i(/esi.
 	 */
 
-			strcpy(gkstring_of(gstr),tmp);
+			Xstrncpy(gkstring_of(gstr),tmp,sizeof(gkstring_of(gstr)));
 			if( cur_lang() != LATIN ) addbreath(gkstring_of(gstr),curbreath);
 			set_dialect(gstr,curdial);
 			add_geogregion(gstr,gregion);

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include "../greeklib/xstrings.proto.h"
 void *malloc( size_t size);
 void *calloc( size_t size, size_t nelems);
 static got_match(char * key,char * listmemb);
@@ -21,7 +22,7 @@ char *s;
 	register char *p;
 	
 	p = curkey;
-	if(*s=='@') strcpy(p,s+1);
+	if(*s=='@') Xstrncpy(p,s+1,sizeof(curkey));
 	while(*p) p++; p--;
 	if(*p == '@' ) *p = 0;
 
@@ -44,12 +45,12 @@ init_common()
 	char curword[128];
 	char libdir[BUFSIZ];
 
-	strcpy(libdir,getenv("LIBDIR"));
+	Xstrncpy(libdir,getenv("LIBDIR"),sizeof(libdir));
 	if( ! libdir[0] ) {
 		fprintf(stderr,"could not initialize LIBDIR!\n");
 		exit(-1);
 	}
-	strcat(libdir,"/irreg.spell");
+	Xstrncat(libdir,"/irreg.spell",sizeof(libdir));
 	if( ! (f=fopen(libdir,"r")) ) {
 		fprintf(stderr,"could not open [%s]\n", libdir );
 		exit(-1);
@@ -73,7 +74,8 @@ init_common()
 			curword[n-1] = 0; /* zap '\n' */
 			n--;
 			*(commonwords+i) = (char *) malloc((size_t)(n+1));
-			strcpy(*(commonwords+i),curword);
+			strncpy(*(commonwords+i),curword,sizeof(curword));
+			(*(commonwords+i))[sizeof(curword) - 1] = '\0';
 		}
 	}
 	fclose(f);

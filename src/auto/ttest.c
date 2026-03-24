@@ -37,7 +37,8 @@ main()
 		if ( !compiled )  {
 		    sval++;
 		    tline = malloc( strlen(cline) + 1);
-		    strcpy( tline, cline);
+		    strncpy( tline, cline, MAXLINE);
+		    tline[MAXLINE - 1] = '\0';
 		    keys[sval] = tline;
 		    if ( tkenter( Tree, tline, sval ) == FAILURE )
 			printf("Can't enter %s\n", tline);

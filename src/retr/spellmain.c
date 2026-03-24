@@ -4,6 +4,7 @@
  */
 
 #include "srchstate.h"
+#include "../greeklib/xstrings.proto.h"
 
 srch_state * srch;
 srch_state Srch;
@@ -30,7 +31,7 @@ char * argv[];
 	srch = &Srch;
 
 	srch->rflags |= SPELL_CHECK;
-	strcpy(srch->sname,argv[2]);
+	Xstrncpy(srch->sname,argv[2],sizeof(srch->sname));
 	
 	while(fgets(curword,sizeof curword,finput) ) {
 		trimnl(curword);
@@ -79,10 +80,11 @@ register char * s;
 {
 	char tmp[256];
 
-	strcpy(tmp,"@");
-	strcat(tmp,s);
-	strcat(tmp,"@");
-	strcpy(s,tmp) ;
+	Xstrncpy(tmp,"@",sizeof(tmp));
+	Xstrncat(tmp,s,sizeof(tmp));
+	Xstrncat(tmp,"@",sizeof(tmp));
+	strncpy(s,tmp,BUFSIZ);
+	s[BUFSIZ - 1] = '\0';
 }
 
 /*

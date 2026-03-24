@@ -1,4 +1,5 @@
 #include <greek.h>
+#include "../greeklib/xstrings.proto.h"
 /*
  * deal with lemmas from the LSJ
  * 10/3/94 grc
@@ -26,7 +27,7 @@ getlem(char *s, char *lem)
 	char *p;
 
 	if(*s == '-' ) {
-		strcpy(lem,firsthalf);
+		Xstrncpy(lem,firsthalf,MAXWORDSIZE);
 		while(*lem) lem++;
 	} else
 		*lem = 0;
@@ -34,7 +35,7 @@ getlem(char *s, char *lem)
 	*lem = 0;
 
 	if((p=strchr(savelem,'-')) && *savelem != '-') {
-		strcpy(firsthalf,savelem);
+		Xstrncpy(firsthalf,savelem,MAXWORDSIZE);
 		*(strchr(firsthalf,'-')) = 0;
 	}
 }

@@ -154,7 +154,7 @@ void beta2mac(char *source, char *res, int xlit)
 			}
 			sp = greekfont(sp);
 			if( xlit == SMK ) {
-				strcpy(rp,GKFONT); 
+				Xstrncpy(rp,GKFONT,BUFSIZ - (size_t)(rp - res));
 				rp += Xstrlen(GKFONT);
 			}
 			continue;
@@ -184,9 +184,9 @@ void beta2mac(char *source, char *res, int xlit)
 					*rp++ = 0137;
 				else {
 					if( charstyle_flag == ITALIC ) {
-						strcpy(rp,ITALICFONT); rp += Xstrlen(ITALICFONT);
+						Xstrncpy(rp,ITALICFONT,BUFSIZ - (size_t)(rp - res)); rp += Xstrlen(ITALICFONT);
 					} else {
-						strcpy(rp,BOLDFONT); rp += Xstrlen(BOLDFONT);
+						Xstrncpy(rp,BOLDFONT,BUFSIZ - (size_t)(rp - res)); rp += Xstrlen(BOLDFONT);
 					}
 				}
 				sp += 2;
@@ -194,7 +194,7 @@ void beta2mac(char *source, char *res, int xlit)
 			}
 			sp = romanfont(sp);
 			if( xlit == SMK && ! charstyle_flag && *(rp-1) != '}' ) {
-				strcpy(rp,ROMANFONT);  rp += Xstrlen(ROMANFONT);
+				Xstrncpy(rp,ROMANFONT,BUFSIZ - (size_t)(rp - res));  rp += Xstrlen(ROMANFONT);
 			}
 			continue;
 		}
@@ -224,11 +224,11 @@ void beta2mac(char *source, char *res, int xlit)
 						*rp++ = EQUALS;
 					else {
 						if( cur_font == GREEK ) {
-							strcpy(rp,ROMANFONT);
+							Xstrncpy(rp,ROMANFONT,BUFSIZ - (size_t)(rp - res));
 							rp += Xstrlen(ROMANFONT);
-							strcpy(rp,"=}{");
+							Xstrncpy(rp,"=}{",BUFSIZ - (size_t)(rp - res));
 							rp += 3;
-							strcpy(rp,GKFONT);
+							Xstrncpy(rp,GKFONT,BUFSIZ - (size_t)(rp - res));
 							rp += Xstrlen(GKFONT);
 						} else
 							*rp++ = '=';
@@ -270,7 +270,7 @@ void beta2mac(char *source, char *res, int xlit)
 				*rp++ = UCASEMARKER;
 			} else if (xlit == SMK ) {
 				sp++;
-				strcpy(rp,sp);
+				Xstrncpy(rp,sp,BUFSIZ - (size_t)(rp - res));
 				if( islower(*rp) ) *rp = toupper(*rp);
 				rp++;
 			}

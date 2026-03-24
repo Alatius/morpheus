@@ -11,6 +11,7 @@
 #define ITALIC 3
 
 #include "smk2beta.proto.h"
+#include "../greeklib/xstrings.proto.h"
 static void conv(char *, char *);
 static void add_acc(char *, int);
 static int smkinited = 0;
@@ -55,10 +56,10 @@ static void conv(char *start, char *result)
 	 * make sure that any unaccented upper case char gets properly converted
 	 */
 	if(isupper(*s) && fromsmk) {
-		strcpy(tmp,s+1);
+		Xstrncpy(tmp,s+1,sizeof(tmp));
 		*(s+1) = tolower(*s);
 		*s = '*';
-		strcpy(s+2,tmp);
+		Xstrncpy(s+2,tmp,BUFSIZ-2);
 	}
 	
 	while(*s) {
@@ -85,7 +86,7 @@ return(0);
 				set_cur_font(ROMAN,result);
 			tmp[0] = tolower(*s);
 			tmp[1] = 0;
-			strcat(result,tmp);
+			Xstrncat(result,tmp,BUFSIZ);
 			s++;
 			continue;
 		}
@@ -103,20 +104,20 @@ return(0);
 			if( ! cur_font || cur_font == GREEK ) {
 				set_cur_font(ROMAN,result);
 			}
-			strcat(result,":");
+			Xstrncat(result,":",BUFSIZ);
 			s++;
 			continue;
 		}
 		
 		if( (*s & 0377) >= 0202 && (*s & 0377) <= 0212 ) {
-			set_cur_font(GREEK,result);	
-			strcat(result,Xlit_table[(int)(*s++ & (0377))]);
-			
+			set_cur_font(GREEK,result);
+			Xstrncat(result,Xlit_table[(int)(*s++ & (0377))],BUFSIZ);
+
 			/*
 			 * we should only have an accented space (0202 thru 0212)
 			 * if we have an upper case vowel following. in this case,
 			 * we want to convert to a slighly different sequence for
-			 * beta. 
+			 * beta.
 			 *
 			 * something like "\0205A" would be "*)/a" in beta
 			 * transliteration
@@ -127,7 +128,7 @@ return(0);
 				tmp[0] = *s;
 			tmp[0] = smk2betachar(tmp[0]);
 			tmp[1] = 0;
-			strcat(result,tmp);
+			Xstrncat(result,tmp,BUFSIZ);
 			s++;	
 		} else {
 			if( ! fromsmk ) {
@@ -135,7 +136,7 @@ return(0);
 				  (cur_font == ROMAN || cur_font == ITALIC || ! cur_font ) )
 					set_cur_font(GREEK,result);	
 			}
-			strcat(result,Xlit_table[(int)(*s++ & (0377))]);
+			Xstrncat(result,Xlit_table[(int)(*s++ & (0377))],BUFSIZ);
 		}
 	}
 }
@@ -192,16 +193,16 @@ void set_cur_font(int n, char *s)
 	if( n != cur_font ) {
 		switch(n) {
 			case GREEK:
-				strcat(s,"$");
+				Xstrncat(s,"$",BUFSIZ);
 				break;
 			case ROMAN:
-				strcat(s,"&");
+				Xstrncat(s,"&",BUFSIZ);
 				break;
 			case ITALIC:
-				strcat(s,"&3");
+				Xstrncat(s,"&3",BUFSIZ);
 				break;
 			default:
-				strcat(s,"?Font?");
+				Xstrncat(s,"?Font?",BUFSIZ);
 				break;
 			}
 		cur_font = n;
@@ -231,7 +232,7 @@ void trap_upper(char *res, char *s)
 		tmp[0] = '*';
 		tmp[1] = tolower(*s);
 		tmp[2] = 0;
-		strcat(res,tmp);
+		Xstrncat(res,tmp,BUFSIZ);
 		return;
 	}
 
@@ -242,53 +243,53 @@ void trap_upper(char *res, char *s)
 		tmp[0] = '*';
 		tmp[1] = *s;
 		tmp[2] = 0;
-		strcat(res,tmp);
+		Xstrncat(res,tmp,BUFSIZ);
 		return;
 	}
 
 	tmp[0] = 0;
 	if( SMK_ALPHA(*s) ) {
 		add_acc(tmp, *s - ALPHA_ACUTE + SPACE_ACUTE);
-		strcat(tmp,"a");
+		Xstrncat(tmp,"a",sizeof(tmp));
 	} else if( SMK_EPSILON(*s) ) {
 		add_acc(tmp, *s - EPSILON_ACUTE + SPACE_ACUTE);
-		strcat(tmp,"e");
+		Xstrncat(tmp,"e",sizeof(tmp));
 	} else if( SMK_IOTA(*s) ) {
 		add_acc(tmp, *s - IOTA_ACUTE + SPACE_ACUTE);
-		strcat(tmp,"i");
+		Xstrncat(tmp,"i",sizeof(tmp));
 	} else if( SMK_OMICRON(*s) ) {
 		add_acc(tmp, *s - OMICRON_ACUTE + SPACE_ACUTE);
-		strcat(tmp,"o");
+		Xstrncat(tmp,"o",sizeof(tmp));
 	} else if( SMK_UPSILON(*s) ) {
 		add_acc(tmp, *s - UPSILON_ACUTE + SPACE_ACUTE);
-		strcat(tmp,"u");
+		Xstrncat(tmp,"u",sizeof(tmp));
 	} else if( SMK_ETA(*s) ) {
 		add_acc(tmp, *s - ETA_ACUTE + SPACE_ACUTE);
-		strcat(tmp,"h");
+		Xstrncat(tmp,"h",sizeof(tmp));
 	} else if( SMK_WMEGA(*s) ) {
 		add_acc(tmp, *s - WMEGA_ACUTE + SPACE_ACUTE);
-		strcat(tmp,"w");
+		Xstrncat(tmp,"w",sizeof(tmp));
 	} else if( SMK_AISUB(*s) ) {
 		add_acc(tmp, *s - AISUB_ACUTE + SPACE_ACUTE);
-		strcat(tmp,"_");
-		strcat(tmp,"a");
+		Xstrncat(tmp,"_",sizeof(tmp));
+		Xstrncat(tmp,"a",sizeof(tmp));
 	} else if( SMK_EISUB(*s) ) {
 		add_acc(tmp, *s - EISUB_ACUTE + SPACE_ACUTE);
-		strcat(tmp,"_");
-		strcat(tmp,"h");
+		Xstrncat(tmp,"_",sizeof(tmp));
+		Xstrncat(tmp,"h",sizeof(tmp));
 	} else if( SMK_WISUB(*s) ) {
 		add_acc(tmp, *s - WISUB_ACUTE + SPACE_ACUTE);
-		strcat(tmp,"_");
-		strcat(tmp,"w");
+		Xstrncat(tmp,"_",sizeof(tmp));
+		Xstrncat(tmp,"w",sizeof(tmp));
 	}
 	if( tmp[0] ) {
 		if( ! cur_font || cur_font == ROMAN || cur_font == ITALIC )
 			set_cur_font(GREEK,res);
-		strcat(res,tmp);
+		Xstrncat(res,tmp,BUFSIZ);
 	}
 }
 
 static void add_acc(char *s, int anum)
 {
-	strcpy(s,Xlit_table[(int)( anum & (0377))]);
+	Xstrncpy(s,Xlit_table[(int)( anum & (0377))],BUFSIZ);
 }

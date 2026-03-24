@@ -49,7 +49,7 @@ int checkdict(gk_word *Gkword, gk_string *stem, char *stemkeys)
 	} else 
 		zap_morphflag(morphflags_of(Gkword),SYLL_AUGMENT);
 
-	strcpy(keyp , GetLemmStem(curkeys,lemma_of(Gkword),stem_of(Gkword)));
+	Xstrncpy(keyp , GetLemmStem(curkeys,lemma_of(Gkword),stem_of(Gkword)),sizeof(keyp));
 	pbptr = is_substring("pb:",keyp);
 	/*
 	 * 
@@ -88,7 +88,7 @@ fprintf(stderr,"checkdict: stem [%s] endstring [%s] keyp [%s]\n", stem_of(Gkword
 		else {
 			char tmppb[LONGSTRING];
 			
-			strcpy(tmppb,pbptr+3);
+			Xstrncpy(tmppb,pbptr+3,sizeof(tmppb));
 			if( *(lastn(tmppb,1)) == ':' ) *(lastn(tmppb,1)) = 0;
 	/*
 	 * grc 6/29/89
