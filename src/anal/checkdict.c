@@ -13,16 +13,12 @@
 #include "../morphlib/is_thirdmono.proto.h"
 #include "../greeklib/issubstring.proto.h"
 extern gk_word *GenStemForms(gk_word *, char *, int);
-static int count = 0;
-
 extern int verbose;
 
 int checkdict(gk_word *Gkword, gk_string *stem, char *stemkeys)
 {
-	int i, j;
 	int hits;
 	gk_word * gkforms = NULL;
-	char tmp[MAXWORDSIZE];
 	gk_word SaveGkword;
 	char * prevb = preverb_of(Gkword);
 	char * pbptr;

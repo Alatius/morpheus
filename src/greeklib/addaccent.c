@@ -16,8 +16,6 @@
 
 void addaccent(char *word, int accent, char *p)
 {
-	register char * t = p-1;
-
 	if(*word == '*' && Is_breath(*(word+1)) ) {
 		if( p == (word+2)) {
 			cinsert(accent,word+2);

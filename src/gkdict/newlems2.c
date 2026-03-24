@@ -25,7 +25,6 @@ int main(void)
 	char seckey[BUFSIZ];
 	char thrdkey[BUFSIZ];
 	char *s;
-	int rval = 0;
 
 	if( ! (fverbs=fopen("/tmp/lsj.vbs","w"))) {
 		fprintf(stderr,"could not open /tmp/lsj.vbs!\n");
@@ -199,11 +198,11 @@ int do_simpnom(char* stem,char* gend)
 		return(1);
 	}
 
-	if( (!strcmp(stem+strlen(stem)-2,"oi") || 
+	if( (!strcmp(stem+strlen(stem)-2,"oi") ||
 		!strcmp(stem+strlen(stem)-3,"oi/"))
 		&& !strcmp(gend,"<gen>oi(</gen>")) {
 		int syllno, curacc;
-		char curg[BUFSIZ], tmptags[BUFSIZ];
+		char tmptags[BUFSIZ];
 
 		strcpy(tmptags,"os_ou masc pl");
 		checkaccent(stem,&syllno,&curacc);
@@ -219,11 +218,11 @@ int do_simpnom(char* stem,char* gend)
 		return(1);
 	}
 
-	if( (!strcmp(stem+strlen(stem)-2,"ai") || 
+	if( (!strcmp(stem+strlen(stem)-2,"ai") ||
 		!strcmp(stem+strlen(stem)-3,"ai/"))
 		&& !strcmp(gend,"<gen>oi(</gen>")) {
 		int syllno, curacc;
-		char curg[BUFSIZ], tmptags[BUFSIZ];
+		char tmptags[BUFSIZ];
 
 		strcpy(tmptags,"hs_ou masc pl");
 		checkaccent(stem,&syllno,&curacc);
@@ -256,10 +255,10 @@ int do_simpnom(char* stem,char* gend)
 		return(1);
 	}
 
-	if( !strcmp(stem+strlen(stem)-1,"a")  
+	if( !strcmp(stem+strlen(stem)-1,"a")
 		&& !strcmp(gend,"<gen>ta/</gen>") ) {
 		int syllno, curacc;
-		char curg[BUFSIZ], tmptags[BUFSIZ];
+		char tmptags[BUFSIZ];
 
 		strcpy(tmptags,"os_ou neut pl");
 		checkaccent(stem,&syllno,&curacc);
@@ -270,10 +269,10 @@ int do_simpnom(char* stem,char* gend)
 		return(1);
 	}
 
-	if( !strcmp(stem+strlen(stem)-2,"os")  
+	if( !strcmp(stem+strlen(stem)-2,"os")
 		&& !strcmp(gend,"<gen>to/</gen>") ) {
 		int syllno, curacc;
-		char curg[BUFSIZ], tmptags[BUFSIZ];
+		char tmptags[BUFSIZ];
 
 		strcpy(tmptags,"hs_eos neut");
 		checkaccent(stem,&syllno,&curacc);
@@ -288,7 +287,7 @@ int do_simpnom(char* stem,char* gend)
 	     !strcmp(stem+strlen(stem)-2,"o/n"))
 		&& !strcmp(gend,"<gen>to/</gen>") ) {
 		int syllno, curacc;
-		char curg[BUFSIZ], tmptags[BUFSIZ];
+		char tmptags[BUFSIZ];
 
 		strcpy(tmptags,"os_ou neut");
 		checkaccent(stem,&syllno,&curacc);

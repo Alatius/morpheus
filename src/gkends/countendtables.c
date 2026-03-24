@@ -2,10 +2,8 @@
 #include "endfiles.h"
 #define MAX_END_TABLE	12000
 static char ** endlines;
-static int endcount = 0;
 static gk_string Gstr;
 static gk_string Blnk;
-static int xstrcmp(char **, char **);
 #define DELIMITER " "
 
 #include "countendtables.proto.h"
@@ -20,20 +18,14 @@ void countendtables(Stemtype stype, int is_deriv)
 {
 
 	int index = 0;
-	int i;
 	int nends = 0;
 	int totends = 0;
-	char * curtable, *basen, * dirp;
+	char * curtable, * dirp;
 	char shortname[LONGSTRING];
 	char curderivname[LONGSTRING];
 	char tmp[LONGSTRING*8];
-	char prevtag[LONGSTRING];
-	char prevkey[LONGSTRING];
-	char curtag[LONGSTRING];
-	char savestr[LONGSTRING];
-	char markedstr[MAXWORDSIZE];
 	gk_string Gstr;
-	FILE * finput, *foutput;
+	FILE * finput;
 	int maxstring = 0;
 	int ntypes = 0;
 	char * typestr;
@@ -95,16 +87,4 @@ void countendtables(Stemtype stype, int is_deriv)
 	}
 
 	printf("grand total: %d types %d endings\n",ntypes, totends );
-}
-
-static int xstrcmp(char **p1, char **p2)
-{
-	int rval;
-	
-	rval = morphstrcmp(*p1,*p2);
-
-/*
-fprintf(stderr,"rval [%d] for [%s] and [%s]\n", rval  , *p1, *p2 );
-*/
-	return(rval);
 }

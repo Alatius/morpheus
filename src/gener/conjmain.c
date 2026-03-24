@@ -11,7 +11,6 @@ int main(int argc, char *argv[])
 	char outfile[80];
 	FILE * f;
 	FILE * fout;
-	int i = 0;
 	int fullconj = 0;
 	
 	

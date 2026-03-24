@@ -12,7 +12,7 @@
 
 int do_dissim(char *s, Stemtype stype)
 {
-	register char *p1, *p2, *cp;
+	register char *p1;
 	
 	/*
 	 * added -- grc 5/10/89: a)riqmh/qhn not a)ritmh/qhn

@@ -21,10 +21,7 @@ static void mk_compend(gk_string *, gk_string *, char *, char *);
 static void update_end(gk_string *, gk_string *, char *, char *, char *);
 static void join_end(gk_string *, char *, int);
 
-static gk_string WantGstr;
 static gk_string AvoidGstr;
-static gk_string CurGstr;
-static gk_string BlankGstr;
 
 void mk_end(char *havestr, gk_string *Have, gk_string *Avoid)
 {
@@ -115,10 +112,8 @@ printf("no contr in: "); PrntGkStr(Have,stdout);
 
 static void mk_compend(gk_string *Have, gk_string *Avoid, char *curstr, char *endtype)
 {
-	char fname[BUFSIZ];
 	FILE * f;
 	FILE * MorphFopen();
-	int i;
 	char line[BUFSIZ];
 	char savestem[MAXWORDSIZE];
 	gk_string TmpHave;
@@ -177,7 +172,7 @@ static void update_end(gk_string *Have, gk_string *Avoid, char *stem, char *ends
 
 static void join_end(gk_string *Have, char *stem, int saw_vowel)
 {
-	gk_string SaveGstr;
+	(void)saw_vowel;
 	set_gkstring(Have,stem);
 /*
 	set_morphflags(&SaveGstr,morphflags_of(Have));
@@ -217,6 +212,7 @@ void CompStemEnd(gk_string *gstr, char *stem, char *endstr)
 {
 	int lastc;
 	char * ep = endstr;
+	(void)gstr;
 
 	lastc = *(stem+strlen(stem)-1);
 	

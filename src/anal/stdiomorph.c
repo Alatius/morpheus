@@ -42,7 +42,6 @@ int main(int argc, char *argv[])
   
   PrntFlags flags = (PERSEUS_FORMAT|STRICT_CASE);
   int rval;
-  long freemem = 0;
   long nwords = 0;
   long nhits = 0;
   char * p;

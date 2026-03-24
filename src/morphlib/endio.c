@@ -6,10 +6,6 @@ static void localtrimwhite(char *, int);
 
 int WriteEnding(FILE *f, gk_string *gstr, int maxend)
 {
-	int32 max;
-
-	max = maxend;
-
 	localtrimwhite(gkstring_of(gstr),maxend);
 	if(vax_fwrite(gkstring_of(gstr), sizeof * gkstring_of(gstr), maxend, f)< 0) 
 		goto outputerr;

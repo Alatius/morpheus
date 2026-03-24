@@ -3,5 +3,5 @@
 
 void seek_compound(char *s)
 {
-	
+	(void)s;
 }

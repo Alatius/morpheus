@@ -20,7 +20,6 @@ void putsimpleacc(char *s)
 {
 	gk_word * gkword;
 	MorphFlags * mflags;
-	char tmpw[MAXWORDSIZE];
 
 	if( cur_lang() == LATIN || cur_lang() == ITALIAN ) return;
 

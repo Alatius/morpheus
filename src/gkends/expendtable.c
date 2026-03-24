@@ -27,12 +27,9 @@ void expendtables(char *tabname, int maintable, int formcode)
 	char line[BUFSIZ];
 	char shortname[MAXWORDSIZE];
 	char fname[MAXPATHNAME];
-	char inpfname[MAXPATHNAME];
-	char outfname[MAXPATHNAME];
 	char curendstr[MAXWORDSIZE];
 	int maxstring = 0;
 	char basename[MAXWORDSIZE];
-	char * typep;
 	char *s;
 	gk_string TmpGstr;
 	Stemtype stype;
@@ -127,8 +124,6 @@ void expendtables(char *tabname, int maintable, int formcode)
 
 	fseek(finput,0L,0);
 	while(fgets(line,sizeof line,finput) ) {
-		char tmp[BUFSIZ];
-
 		if( is_blank(line) )
 			continue;
 		if( Is_comment(line) )
@@ -178,6 +173,7 @@ printf("%s\n", shortname );
 
 int AddEndLine(/*FILE *f,*/ char *el, char *basename, int maxstring)
 {
+	(void)maxstring;
 	char havestr[MAXWORDSIZE];
 	gk_string * Have;
 	gk_string * Avoid;

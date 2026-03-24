@@ -221,8 +221,7 @@ char *
  NextEndTable(int *index, Stemtype mask)
 {
 	Morph_args * morph_args;
-	Dialect oldmask = mask;
-	
+
 	mask &= (PPARTMASK|ADJSTEM|NOUNSTEM);
  
  	if( ! keys_inited )
@@ -363,10 +362,6 @@ void DomainNames(char *domp, char *res, char *dels)
   
 void DialectNames(Dialect di, char *res, char *dels)
 {
-	char * s;
-	int i;
-	Dialect mask = 1;
-	Dialect sofar = 0;
 	Morph_flags mf;
 	Morph_args * morph_args;
 
@@ -392,10 +387,6 @@ void DialectNames(Dialect di, char *res, char *dels)
 
 void GeogRegionNames(GeogRegion gr, char *res, char *dels)
 {
-	char * s;
-	int i;
-	GeogRegion mask = 1;
-	GeogRegion sofar = 0;
 	Morph_flags mf;
 	Morph_args * morph_args;
 
@@ -503,7 +494,7 @@ Morph_args *
 InitStemSuffs(char *fname, void (*curfunc )(), Stemtype (*classfunc )(), int *snum)
 {
 	FILE * f;
-	int i, j;
+	int i;
 	char line[LONGSTRING];
 	Stemtype stemnum = 0;
 	Stemtype declnum = 0;
@@ -575,7 +566,6 @@ int has_octal(char *s)
 void init_keys(void)
 {
 	int sofar = 0;
-	int i;
 	int morph_key_comp();
 	
 	keys_inited++;

@@ -125,14 +125,9 @@ void put_short(short *sword, FILE *f)
 int vax_fread(char *Buffer, size_t size, int nswap, FILE *f)
 {
     register int i;
-    register unsigned t;
     int32 * longp;
     unsigned short * shortp;
-     double * doubp, *sdoubp;
-/*
-     short double * sdoubp;
-*/
-	
+
 	switch( size )  {
 
 	    case 1:
@@ -197,14 +192,9 @@ int vax_fread(char *Buffer, size_t size, int nswap, FILE *f)
 int vax_fwrite(char *Buffer, size_t size, int nswap, FILE *f)
 {
     register int i;
-    register unsigned t;
     register int32 * longp;
     register short * shortp;
-    register double * doubp, *sdoubp;
-/*
-    register short double * sdoubp;
-*/
-	
+
 	switch( size )  {
 	    case 1:
 					/* BYTES */

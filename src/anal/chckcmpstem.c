@@ -4,6 +4,7 @@
 
 int checkcmpstem(char *s, char *t, FILE *f)
 {
+	(void)t;
 	char * p;
 	char tmp[2056];
 	char endkeys[LONGSTRING];

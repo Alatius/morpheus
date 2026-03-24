@@ -8,7 +8,6 @@ static gk_word Gkword;
 
 int main(int argc, char *argv[])
 {
-	FILE * ffname;
 	Stemtype stype;
 	int is_suffix = 0;
 	int c, errflg = 0;

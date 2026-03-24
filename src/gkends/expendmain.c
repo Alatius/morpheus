@@ -1,6 +1,5 @@
 #include <gkstring.h>
 char fname[80];
-static gk_string Gstr;
 #include "compostypes.h"
 
 #include <unistd.h>
@@ -11,7 +10,6 @@ static gk_string Gstr;
 
 int main(int argc, char *argv[])
 {
-	FILE * ffname;
 	char * curtable;
 	int index = 0;
 	int formcode = DOEND;

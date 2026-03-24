@@ -6,6 +6,7 @@
 
 int Xstrncpy(char *s1, const char *s2, size_t len)
 {
+(void)len;
 memmove(s1,s2,strlen(s2)+1);
 return(1);
 }

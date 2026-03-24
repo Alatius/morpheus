@@ -31,7 +31,6 @@ int main(void)
 	char newname[BUFSIZ];
 	
 	int rval;
-	long freemem = 0;
 	long nwords = 0;
 	long nhits = 0;
 	char * p;
@@ -284,13 +283,13 @@ nom_tab Nom_tab[] = {
 
 int checkposs(FILE *fout, char *xlit, char *curs, char *fulls, char *stems, char *ends)
 {
+	(void)fout;
 	char tmpxlit[BUFSIZ];
 	char tmpstem[MAXWORDSIZE];
 	char tmpkeys[MAXWORDSIZE];
 	int i = 0;
 	int hits = 0;
 	int rval = 0;
-	int poss = 0;
 
 	strcpy(tmpstem,stems);
 	stripacc(tmpstem);
@@ -323,7 +322,6 @@ int checkposs(FILE *fout, char *xlit, char *curs, char *fulls, char *stems, char
 					/*fprintf(fout,":ns:%s %s %s %s\n", tmpxlit,  tmpstem, Nom_tab[i].stype, tmpkeys );*/
 					sprintf(tbuf,"%s :ns:%s %s %s %s\n", fulls, tmpxlit, tmpstem, Nom_tab[i].stype, tmpkeys );
 					strcat(possbuf,tbuf);
-					poss++;
 /*
 					printf("%s %s %s %s\n", tmpxlit,  tmpstem, Nom_tab[i].stype, tmpkeys );
 */
@@ -448,7 +446,6 @@ int pnames = 0;
 void init_pnametab(void)
 {
 	char line[BUFSIZ];
-	int i = 0;
 
 	if( pnames ) return;
 	for(pnames=0;pnames<10000;pnames++) {

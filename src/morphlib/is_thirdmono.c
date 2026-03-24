@@ -18,7 +18,6 @@ MorphFlags * morphflags;
 */
 int is_thirdmono(gk_string *stemgstr, gk_string *endgstr, char *stem, char *endstring, word_form form_info, int is_ending)
 {
-	char * p;
 	Stemtype stemtype = stemtype_of(stemgstr);
 	char * getsyll();
 

@@ -3,12 +3,10 @@
 #include "indexendtables.proto.h"
 #include "../morphlib/setlang.proto.h"
 
-static gk_string Gstr;
 char fname[MAXWORDSIZE];
 
 int main(int argc, char *argv[])
 {
-	FILE * ffname;
 	Stemtype stype = 0;
 	int is_deriv = 1;
 	int c, errflg = 0;

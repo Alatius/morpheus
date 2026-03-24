@@ -16,8 +16,6 @@
 #include "../greeklib/stripquant.proto.h"
 #include "../greeklib/xstrings.proto.h"
 static gk_string *RetrCompEnds(gk_string *, gk_string *, int *, Dialect);
-static void ProcEndRecord(char *, gk_string *);
-static char *GetEndString(char *, gk_string *);
 static int NoWantGkEnd(gk_string *, gk_string *, int);
 static void AddNewEnd(gk_string *, gk_string *, int);
 
@@ -26,7 +24,6 @@ static gk_string  Cur_gkend;
 static gk_string WantEnd;
 static gk_string AvoidEnd;
 static gk_string BlankGkend;
-static gk_word BlankGkword;
 static int start_match = 0;
 
 gk_string *
@@ -175,11 +172,10 @@ LPrntGstr(&Cur_gkend,stdout);
 		int case1, case2;
 		int gend1, gend2;
 		int num2, pers2;
-		int voice1, voice2;
+		int voice1;
 		Dialect dial1, dial2;
 
 		voice1 = voice_of(forminfo_of(&Cur_gkend));
-		voice2 = voice_of(forminfo_of(gstr));
 		
 		if( voice1 ) set_voice(forminfo_of(gstr),voice1);
 		
@@ -224,9 +220,8 @@ static gk_string *
 	gk_string * CurrentList;
 	int rval, avoidrval;
 	int lno = 0;
-	int maxend = 0;
-	char fname[BUFSIZ];
 	int i;
+	(void)OrDialect;
 
 	*nends = 0;
 	
@@ -305,33 +300,6 @@ printf("Cur_gkend:"); PrntGkFlags(&Cur_gkend,stdout); printf("\n\n");
 	}
 	
 	return(ListOfEnds);
-}
-
-static void ProcEndRecord(char *s, gk_string *gkend)
-{
-	gk_word * BlnkGkword;
-	
-	BlnkGkword = CreatGkword(1);
-	s=GetEndString(s,gkend);
-	ScanAsciiKeys(s,BlnkGkword,gkend,NULL);
-	FreeGkword(BlnkGkword);
-}
-
-static char * 
- GetEndString(char *s, gk_string *gkend)
-{
-	char tmp[128];
-	char *a;
-
-	a = tmp; 
-	while( isspace( *s ) ) s++;
-	if( ! *s ) return(NULL);
-	while( ! isspace( *s ) && *s ) *a++ = *s++;
-	*a = 0;
-	while( isspace( *s ) ) s++;
-	if( !*s ) return(NULL);
-	set_gkstring(gkend,tmp);
-	return(s);
 }
 
 static int NoWantGkEnd(gk_string *skipend, gk_string *haveend, int strict)
@@ -747,7 +715,7 @@ int endstrcmp(char *wendstr, char *haveendstr)
 	char tmp[MAXWORDSIZE];
 	char *hp, *sp;
 	int i = 0;
-	int wlen, j;
+	int wlen;
 	
 	
 	if( start_match) {

@@ -265,8 +265,6 @@ void set_nocrasis(void)
 int testcrasis(gk_word *Gkword, char *mungedword, char *wordstart, char *preword,Dialect possdial)
 {
 	char saveword[MAXWORDSIZE];
-	char word1[MAXWORDSIZE];
-	char word2[MAXWORDSIZE];
 	Dialect olddial = 0;
 	int rval = 0;
 	gk_word  tmpGkword;

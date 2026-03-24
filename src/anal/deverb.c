@@ -172,6 +172,7 @@ int testcmpstem2(char *needlemma,char *stem,char * stemkeys,char* matchkeys,char
 
 int testcmpstem3(char*needlemma,char *stem,char * stemkeys,char* matchkeys,char*transkeys)
 {
+	(void)transkeys;
 	char savestem[BUFSIZ], tmp[BUFSIZ];
 	int rval = 0;
 	

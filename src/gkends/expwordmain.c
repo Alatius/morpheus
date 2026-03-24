@@ -1,6 +1,5 @@
 #include <gkstring.h>
 char fname[80];
-static gk_string Gstr;
 #include "compostypes.h"
 
 #include <unistd.h>
@@ -33,8 +32,6 @@ int main(int argc, char *argv[])
 
 
 	while(fgets(line,sizeof line,stdin) ) {
-		char tmp[BUFSIZ];
-
 		if( ! strncmp(line,":le:",4) ) {
 			PrntNewGstrings(stdout,0);
 			ResetGstrBuf();

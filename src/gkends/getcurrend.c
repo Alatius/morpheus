@@ -125,8 +125,6 @@ void cacheconsistent(void)
 }
 void InsertEndCache(gk_string *gstr)
 {
-	int i;
-
 	if( EndingCache[curecache] ) {
 		FreeGkString(EndingCache[curecache] );
 		EndingCache[curecache] = NULL;

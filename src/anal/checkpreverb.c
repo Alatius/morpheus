@@ -10,13 +10,9 @@
  */
 int Check_preverb(gk_word *Gkword, gk_string *gstr)
 {
-	char savelemma[MAXWORDSIZE];
-	int rval = 0;
-	int sawstems = 0;
-	int voice;
-	
-	voice = voice_of(forminfo_of(gstr));
-return(1);
+	(void)Gkword;
+	(void)gstr;
+	return(1);
 /*
 	if( ! Should_check_preverb(Gkword) )
 		return(1);

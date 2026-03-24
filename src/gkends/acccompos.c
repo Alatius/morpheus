@@ -137,6 +137,7 @@ finish:
 char *
 skip_to_syll(char *s, int nsyll)
 {
+	(void)nsyll;
 	if( nsylls(s) > 3 || nsylls(s) == 1) {
 		return(s);
 	} else if( nsylls(s) == 3 ) {

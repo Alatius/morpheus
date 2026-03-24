@@ -68,8 +68,6 @@ int morphstrncmp(char *s1, char *s2, size_t n)
 
 int dictstrcmp(char *s1, char *s2)
 {
-	register char * t1, * t2;
-	t1 = s1; t2 = s2;
 	if( ! tabinited ) {
 		init_comptab();
 	}

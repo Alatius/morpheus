@@ -112,6 +112,8 @@ int is_article(gk_word * Gkword)
 
 void end_phrase(gk_word * checkw,gk_word * Gkword)
 {
+	(void)checkw;
+	(void)Gkword;
 }
 void checkstring1(gk_word *Gkword)
 {
@@ -597,7 +599,6 @@ int checkstring3(gk_word *Gkword)
    *
    */
   if( cur_lang() == LATIN ) {
-    char * a = workword;
     strcpy(workword,saveword);
     if( u2v(workword) ) {
       set_workword(Gkword,workword);
@@ -727,7 +728,6 @@ static int checkstring4(gk_word *Gkword)
 	char saveword[MAXWORDSIZE];
 	char wordnoacc[MAXWORDSIZE];
 	char workword[MAXWORDSIZE];
-	register char * a;
 	char * string = workword_of(Gkword);
 	int rval = 0; 
 

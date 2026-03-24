@@ -232,8 +232,6 @@ int StemWorks(gk_word *Gkword, char *posskey, gk_string *possstem)
 	char *workkey = NULL;
 	char *stemkeys = NULL;
 	char *curkey = NULL;
-	gk_string savestemstr;
-	
 
 	workkey = (char *)malloc((size_t)BUFSIZ*2);
 	stemkeys = (char *)malloc((size_t)BUFSIZ*2);

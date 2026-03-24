@@ -20,14 +20,11 @@ void index_list(char *listname, char *tagstring, int modulus)
 	FILE * foutput;
 	char outfile[BUFSIZ];
 	char line[LONGSTRING*4];
-	char curlemma[LONGSTRING];
-	char field[LONGSTRING];
 #ifdef DECALPHA
 	int curoff;
 #else
 	long curoff;
 #endif
-	int i;
 	int taglen;
 	
 	if( modulus > MODULUS ) modulus = MODULUS;
@@ -44,7 +41,7 @@ void index_list(char *listname, char *tagstring, int modulus)
 		return;
 	}
 	if( tagstring ) taglen = Xstrlen(tagstring);
-	for(i=0;;i++) {
+	for(;;) {
 #ifdef DECALPHA
 		curoff = (int)ftell(finput);
 #else
@@ -82,7 +79,6 @@ void prockeyline(char *s, int modulus, int curoff, FILE *f)
 void prockeyline(char *s, int modulus, long curoff, FILE *f)
 #endif
 {
-	char curlemma[LONGSTRING];
 	char * p;
 	int i;
 	int prntflag = 0;

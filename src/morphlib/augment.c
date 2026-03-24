@@ -289,7 +289,7 @@ int unaugment(char *s, gk_string *possibs[], gk_string *qpossibs[], int maxstems
 	int compval;
 	int i;
 	char augnoquant[MAXWORDSIZE];
-	Dialect d;
+	(void)dial;
 
 
 	if( ! Xstrncmp(s,"e)rr",4) ) {

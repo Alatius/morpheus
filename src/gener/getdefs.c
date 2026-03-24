@@ -5,7 +5,6 @@
 
 void _main()
 {
-		int c,hcode;
 		char line[BUFSIZ], *s;
 		char curlemma[BUFSIZ];
 		char number[80], defstr[BUFSIZ*4];

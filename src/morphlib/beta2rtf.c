@@ -16,15 +16,12 @@ void _main(int argc, char *argv[])
 {
 	 char line[BUFSIZ*6];
 	FILE * f, *MorphFopen();
-	char fname[BUFSIZ];
 	char basename[BUFSIZ];
 	char outfname[BUFSIZ];
 	 char *p;
 	FILE *fout = stdout;
-	long nfile = 0;
 	long ftell();
-	int i = 0;
-	unsigned char result[BUFSIZ*6];
+	(void)argc;
 	
 	
 	sprintf(basename,"%s", argv[1]);
@@ -172,8 +169,6 @@ int has_pref(char *s, char *prefs)
 
 int is_greek(char *s)
 {
-	int n = 0;
-	
 	while(*s&&!isspace(*s)) {
 		switch(*s) {
 			case '=':

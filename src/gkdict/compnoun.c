@@ -11,6 +11,7 @@ extern int comstemtypes(char *, char *, char *);
 
 void checkforcompnoun(char * curstem,char * endkeys,char * stemkeys)
 {
+	(void)stemkeys;
 	char *s = curstem;
 	char headkeys[BUFSIZ];
 	int n = 0;

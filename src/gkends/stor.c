@@ -31,7 +31,6 @@ int InitGstrMem(void)
 void AddNewGstr(gk_string *gstr)
 {
 	char * news;
-	Dialect d;
 
 	news = gkstring_of(gstr);
 
@@ -71,14 +70,11 @@ void ResetGstrBuf()
 
 void PrntNewGstrings(FILE *f, int compiled_flag)
 {
-	int rval, i;
+	int i;
 	char tmp[LONGSTRING];
 	char line[LONGSTRING*2];
-	char res[LONGSTRING*2];
-	int deriv, indeclform;
-	
-	indeclform = has_morphflag(morphflags_of(StoreGstr),INDECLFORM);
-	
+	int deriv;
+
 	deriv = has_morphflag(morphflags_of(StoreGstr),IS_DERIV);
 
 	if( compiled_flag ) {
@@ -100,7 +96,7 @@ void PrntNewGstrings(FILE *f, int compiled_flag)
 			if( deriv )
 				zap_morphflag(morphflags_of(StoreGstr+i),IS_DERIV);
 
-			rval =  WriteEnding(f,StoreGstr+i , maxstring );
+			WriteEnding(f,StoreGstr+i , maxstring );
 			if( deriv )
 				add_morphflag(morphflags_of(StoreGstr+i),IS_DERIV);
 		} else {

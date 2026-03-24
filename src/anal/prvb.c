@@ -14,8 +14,6 @@ int strippreverb(gk_word *Gkword, char *endkeys, int rval)
 	register char * a;
 	register char * b;
 	char curstem[MAXWORDSIZE];
-	int foo;
-	
 	gk_word WorkGkword;
 /*
  * let's see if the stem by itself flies without a preverb

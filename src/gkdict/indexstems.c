@@ -54,8 +54,6 @@ char * sptr;
 FILE * ferrfile;
 */
 
-static long curcomp = 0;
-
 int zstrcmp(const void * s1, const void * s2)
    {
 	int rval =0;
@@ -91,6 +89,8 @@ void index_vbs(int wantstem, int wantirrverb, int wantindecl)
 
 void index_stems(int wantstem, int wantirrverb, int wantindecl, char *wlist, char *indexlist, int indfreq)
 {
+	(void)wantirrverb;
+	(void)wantindecl;
 
 	char curlemma[MAXWORDSIZE];
 	char curstem[MAXWORDSIZE];
@@ -101,7 +101,6 @@ void index_stems(int wantstem, int wantirrverb, int wantindecl, char *wlist, cha
 /*
 	char errfile[BIGSTRING];
 */
-	long i;
 	char *s;
 	
 	stemcount = 0;
@@ -241,14 +240,12 @@ static void do_index(char *file, int indfreq)
 	char curtag[BIGSTRING];
 	char prevtag[BIGSTRING];
 */
-	char *curkey;
 	char *prevkey;
 	char *curtag;
 	char *prevtag;
 	long i;
 	char ** table;
-	
-	curkey = malloc(BIGSTRING);
+
 	prevkey = malloc(BIGSTRING);
 	curtag = malloc(BIGSTRING);
 	prevtag = malloc(BIGSTRING);
@@ -343,18 +340,18 @@ int add_newstemkey(char *s)
 
 int do_curstem(char *tag, char *curstem, char *curlemma, char *curline, char *prefix)
 {
+	(void)tag;
 
 	char markedstem[BIGSTRING];
-	int rval = 0;
 
-	
+
 	GkWord = BlnkWord;
 
 	Gstr = Blnk;
-	AvoidGstr = Blnk;	
-	
+	AvoidGstr = Blnk;
+
 	clear_globs(curline);
-	rval = ScanAsciiKeys((char *)curline,&GkWord,&Gstr,&AvoidGstr);
+	ScanAsciiKeys((char *)curline,&GkWord,&Gstr,&AvoidGstr);
 /*
 	if( ! stemtype_of(&Gstr) ) {
 		fprintf(stderr,"no stemtype in:%s\n", curline );

@@ -18,7 +18,6 @@ load_euph_tab(char *filename, int *gotno, int is_contr)
 	char * raw;
 	char * cooked;
 	char line[BUFSIZ];
-	char tmpa[MAXWORDSIZE];
 	char tmp[MAXWORDSIZE];
 	gk_string CurStr;
 	gk_word * TmpGkword;

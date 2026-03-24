@@ -40,7 +40,6 @@ int CheckGenWords(gk_word *Gkword, gk_word *gkforms)
 	char wordnoacc[MAXWORDSIZE];
 	char * checks;
 	char * preverb = preverb_of(gkforms);
-	char * lemma = lemma_of(gkforms);
 /* grc 6/8/89
 	char * origword = rawword_of(gkforms);
 */

@@ -114,13 +114,12 @@ void DumpLemmaInfo(gk_word *Gkword, PrntFlags prntflags, FILE *f)
   int i = 0;
   gk_analysis * Anal;
   int goodanals = 0;
-  int difflems = 0;
   char curlem[MAXWORDSIZE];
-	
+  (void)prntflags;
+
   curlem[0] = 0;
 
   goodanals = GoodAnals(Gkword,0);
-  difflems =  GoodAnals(Gkword,1);
 	
 	
   if(! goodanals ) goodanals = totanal_of(Gkword);
@@ -141,13 +140,11 @@ void DumpLemmaInfo(gk_word *Gkword, PrntFlags prntflags, FILE *f)
 
 void PrntOneAnalysis(gk_analysis *Gkanal, PrntFlags prntflags, FILE *f)
 {
-  PrntFlags showlemma;
+  (void)f;
   gk_string * TmpGstr;
   char tmp[LONGSTRING];
   char wtmp[LONGSTRING];
   char prntlem[MAXWORDSIZE];
-  register char * s;
-  int funnyacc = 0;
 		
 
   TmpGstr = (gk_string *)CreatGkString(1);
@@ -231,6 +228,9 @@ finish:
 
 void near_miss(gk_string *gstr, char *checks, int code)
 {
+	(void)gstr;
+	(void)checks;
+	(void)code;
 /*
 fprintf(stdout,"near miss with code %o checks [%s] and [%s]\n", code, checks , gkstring_of(gstr) );
 PrntAVerb(gstr,"",stdout);
@@ -241,6 +241,7 @@ fputc('\n',stdout);
 
 void odd_morpheme(gk_analysis *Gkanal, gk_string *gstr, char *tag, char *bufp, int showflg)
 {
+  (void)Gkanal;
   char tmp2[128];
   char mflagbuf[256];
 	
@@ -275,15 +276,13 @@ void dump_all_anals(gk_word *Gkword, PrntFlags prntflags, FILE *fout)
   int goodanals = 0;
   gk_analysis * Anal;
   char curlem[MAXWORDSIZE];
-  int printedwork = 0;
-	
+
   goodanals = GoodAnals(Gkword,0);
   if( (prntflags & PERSEUS_FORMAT ) )
     fprintf(fout,"%s\n", rawword_of(Gkword) );
 
   for(i=0;i<nanals;i++) {
     Anal = analysis_of(Gkword)+i;
-    printedwork = 0;
     /*
       if( ! (prntflags & DBASEFORMAT ) )
       fprintf(fout,":raw\t%s\t%d\n", rawword_of(Anal) , i+1 );
@@ -363,11 +362,11 @@ void DumpPerseusAnalysis(
 		    int cura
 		    )
 {
+  (void)Gkword;
+  (void)cura;
   char tmp[LONGSTRING];
-  char tmp2[LONGSTRING];
-  char workw[LONGSTRING];
 
-  tmp[0] = workw[0] = 0;
+  tmp[0] = 0;
 	
   fprintf(fout,"<NL>");
   if( Is_participle(anal )) {
@@ -419,7 +418,8 @@ void DumpPerseusAnalysis(
 
 void DumpEndingIndex(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FILE *fout, int cura)
 {
-  
+  (void)prntflags;
+  (void)cura;
   char tmp[BUFSIZ];
   
   tmp[0] = 0;
@@ -437,10 +437,10 @@ void DumpEndingIndex(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FI
 
 void DumpOneAnalysis(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FILE *fout, int cura)
 {
+  (void)Gkword;
   char tmp[LONGSTRING];
-  char tmp2[LONGSTRING];
   char workw[LONGSTRING];
-  
+
   tmp[0] = workw[0] = 0;
   
   if( prntflags & LEXICON_OUTPUT ) {

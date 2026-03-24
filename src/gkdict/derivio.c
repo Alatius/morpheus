@@ -19,7 +19,6 @@ int checkcomderivs(char * derivs,char * defstem,char * suffix,char * lemmkeys,ch
 int checkcomderiv(char * derivs,char * defstem,char * suffix,char * lemmkeys,char * nkeys,char * had_redupl,char * redupstem);
 int checkcomderiv2(char * asuffkeys,char * dstem,char * dstemkeys,char * suffix,char * lemma,char * lkeys,char * rkeys,char * had_redupl,int markedstem);
 
-static gk_string BlnkGstr;
 void add_deriv_cache(char *s, char *keys);
 int checkedsuffs = 0;
 int checkedderivs = 0;
@@ -28,9 +27,7 @@ int checkforderiv(char *stemstr, char *stemkeys)
 {
 	int rval = 0;
 	int rval2 = 0;
-	char * p, * is_substring();
 	char stemkeys2[LONGSTRING];
-	int oldsuffs = checkedsuffs;
 
 	stemkeys2[0] = 0;
 	checkedderivs++;
@@ -91,7 +88,6 @@ int checkaugredup(char *stemstr, char *stemkeys)
 	int hits = 0;
 	int i;
 	int poss_redupls = 0;
-	int possno = 0;
 	char had_redupl[MAXWORDSIZE];
 	char tmpkeys[LONGSTRING];
 
@@ -370,6 +366,7 @@ int checkcomderiv2(char *asuffkeys, char *dstem, char *dstemkeys, char *suffix, 
 	register char * s;
 	gk_string * gstr;
 	int rval = 0;
+	(void)lkeys;
 	
 	derivsuff = (char *)malloc((size_t)LONGSTRING);
 	tmpdsuff = (char *)malloc((size_t)LONGSTRING);

@@ -153,7 +153,6 @@ int smk2betachar(int c)
 void init_smk(void)
 {
 	int i;
-	char tmp[80];
 
 	for(i=0;i<MAXCHAR;i++) {
 		Xlit_table_smk[i] = malloc((size_t)MAXSUBSTRING);

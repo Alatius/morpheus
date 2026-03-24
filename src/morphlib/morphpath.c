@@ -34,15 +34,16 @@ void NumFilesOpened(void)
  * take a short pathname (e.g. "lib/vowcontr.table") and derive from it a
  * full path name (e.g. "/usr/src/local/morpheus/lib/vowcontr.table")
  */
+#ifdef MACINTOSH
 static char volName[128];
+#endif
 
 void MorphPathName(char *shorts, char *full)
  {
  	char * s;
- 	short vRefNum;
-
 
 #ifdef MACINTOSH
+ 	short vRefNum;
  	if( ! volName[0] ) {
  		GetVol((StringPtr) volName, &vRefNum);
  		PtoCstr((StringPtr)volName);
@@ -89,13 +90,14 @@ void MorphPathName(char *shorts, char *full)
 void SysFolderFile(char *fullname, char *shorts)
  {
  	char * s;
+	(void)shorts;
+
+#ifdef MACINTOSH
  	short vRefNum = 0;
  	char vName[128];
- 	
-#ifdef MACINTOSH
  	GetVol((StringPtr)vName,&vRefNum);
  	PtoCstr((StringPtr)vName);
-  	
+
  	sprintf(fullname,"%s:[System Folder]:%s",volName, shorts );
 #endif
 	

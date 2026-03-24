@@ -13,26 +13,19 @@
 /*int dictstrcmp(), dictstrncmp(), morphstrcmp(), morphstrncmp();*/
 
 endind * DictEntTags = NULL;
-static int ndictenttags = 0;
 
 endind * CmpVbtags = NULL;
-static int ncmpvbtags = 0;
 
 endind * VbEtags = NULL;
-static int nvbetags = 0;
 
 endind * DerEtags = NULL;
-static int nderetags = 0;
 
 endind * NomEtags = NULL;
-static int nnometags = 0;
 
 endind * VstemEtags = NULL;
-static int nvstemetags = 0;
 
 int chcknend(char *endstr, char *keys)
 {
-	long startoff;
 	char tmpendstr[MAXWORDSIZE+1];
 
 	Xstrncpy(tmpendstr,endstr,(int)sizeof  tmpendstr);
@@ -56,7 +49,6 @@ int chcknend(char *endstr, char *keys)
 
 int chckdictent(char * possent, char *keys)
 {
-	long startoff;
 	char tmpendstr[MAXWORDSIZE+1];
 
 	Xstrncpy(tmpendstr,possent,(int)sizeof  tmpendstr);
@@ -79,7 +71,6 @@ int chckdictent(char * possent, char *keys)
 
 int chckcmpvb(char *endstr, char *keys)
 {
-	long startoff;
 	char tmpendstr[MAXWORDSIZE+1];
 
 	Xstrncpy(tmpendstr,endstr,(int)sizeof  tmpendstr);
@@ -111,7 +102,6 @@ int chckend(char *endstring)
 
 int chckvend(char *endstr, char *keys)
 {
-	long startoff;
 	int curhit;
 	
 	if( ! VbEtags ) {
@@ -129,7 +119,6 @@ int chckvend(char *endstr, char *keys)
 
 int chckvstem(char *stemstr, char *keys)
 {
-	long startoff;
 	int curhit;
 	
 	if( ! VstemEtags ) {
@@ -147,7 +136,6 @@ int chckvstem(char *stemstr, char *keys)
 
 int chckdvend(char *endstr, char *keys)
 {
-	long startoff;
 	int curhit;
 	
 	if( ! DerEtags ) {
@@ -169,12 +157,10 @@ init_endind(char *fname, endind *etags)
 {
 	FILE * f;
 	register char * s;
-	register char * t;
 	char ** pp;
 	long flen;
 	int nread;
 	long i;
-	int j;
 	int nlines = 0;
 	long sofar = 0;
 
@@ -250,7 +236,7 @@ int checkendind(endind *etags, char *endstr, char *keys, int (*scmp)())
 	int low = 0;
 	int mid = 0;
 	int comp;
-	int i, ntags;
+	int ntags;
 	char curtag[MAXWORDSIZE];
 	size_t taglen;
 	char ** pp;

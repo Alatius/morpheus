@@ -15,7 +15,6 @@ int checkforderiv(char *stemstr, char *stemkeys)
 {
 	int rval = 0;
 	int rval2 = 0;
-	char * p, * is_substring();
 	char stemkeys2[LONGSTRING];
 	
 	stemkeys2[0] = 0;
@@ -50,7 +49,6 @@ int checkaugredup(char *stemstr, char *stemkeys)
 	int hits = 0;
 	int i;
 	int poss_redupls = 0;
-	int possno = 0;
 	char tmpkeys[LONGSTRING];
 
 

@@ -48,8 +48,7 @@ int CombPbStem(char *curpb, char *restofs, Dialect dial, MorphFlags *pbflags)
 
 int CombPbStemL(char *curpb, char *restofs, Dialect dial, MorphFlags *pbflags)
 {
-	int lastc, lastc2, lastc3, curbreath;
-	char workrest[MAXWORDSIZE], noaccpb[MAXWORDSIZE];
+	(void)dial;
 
 	if( !strcmp("circum",curpb) && *restofs == 'i' ) {
 		add_morphflag(pbflags,RAW_PREVERB);
@@ -60,10 +59,6 @@ int CombPbStemL(char *curpb, char *restofs, Dialect dial, MorphFlags *pbflags)
 		add_morphflag(pbflags,D_PREVB);
 		return(YES);
 	}
-
-
-	lastc = *(curpb + strlen(curpb) - 1);
-	
 
 	if( !strcmp("amb",curpb) && !strchr("aeiou",*restofs) ) return(NO);
 
@@ -189,7 +184,7 @@ int CombPbStemL(char *curpb, char *restofs, Dialect dial, MorphFlags *pbflags)
 int CombPbStemG(char *curpb, char *restofs, Dialect dial, MorphFlags *pbflags)
 {
   int lastc, lastc2, lastc3, curbreath;
-  char workrest[MAXWORDSIZE], noaccpb[MAXWORDSIZE];
+  char noaccpb[MAXWORDSIZE];
   
   
   if( has_morphflag(pbflags,DISSIMILATION) && ! next_cons_rough(restofs) ) 
@@ -474,7 +469,6 @@ static int recursion_level = 0;
  */
 static int exp_prevb2(char *str, char *fullpb, gk_string *gstr)
 {
-  int i;
   char startpb[MAXWORDSIZE];
   char startfpb[MAXWORDSIZE];
   char preverb[MAXWORDSIZE]; /* actual preverb, e.g. "a)f" or "par" */
@@ -494,7 +488,7 @@ static int exp_prevb2(char *str, char *fullpb, gk_string *gstr)
     return(1);
   }
   
-  for(i = 0;;i++) {
+  for(;;) {
     int rval;
 
     rval = nextpreverb(str,preverb,pblemma,gstr); 

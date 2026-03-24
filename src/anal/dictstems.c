@@ -19,9 +19,6 @@ int dictstems(char *lemma, int *nstems, bool wantacc, char *orgstem, char *stemt
 	char *tmp = NULL;
 	char cstem[MAXWORDSIZE];
 	char wantstem[MAXWORDSIZE];
-	char curtarget[MAXWORDSIZE * 2];
-	register char * cp;
-	int slen;
 	long startoff;
 	int gotpparts = 0;
 
@@ -82,7 +79,6 @@ int dictstems(char *lemma, int *nstems, bool wantacc, char *orgstem, char *stemt
 	/*
 	 * now look for stems
 	 */
-	slen = Xstrlen(wantstem);
 	for(gotpparts=0;fgets(line,BUFSIZ*4 , f) && gotpparts <maxpparts;) {
 		if( is_blank(line) ) break;
 		if( Is_comment(line) ) continue;

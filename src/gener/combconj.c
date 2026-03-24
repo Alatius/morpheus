@@ -122,7 +122,6 @@ ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *od
 */
 	char * s;
 	char ppartname[MAXWORDSIZE];
-	char tmp[LONGSTRING];
 	Stemtype stype;
 	
 /*	blnk = (gk_string *) CreatGkString(1);
@@ -193,6 +192,7 @@ ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *od
 int CheckConjPpart(FILE *fout, char *derivstr, gk_string *gstr1, gk_string *gstr2, char *stemstr, char *oddptr, char *preverb)
 {
 	int rval, rpb_flag;
+	(void)derivstr;
 	char word[MAXWORDSIZE];
 	char showbuf[LONGSTRING];
 	Stemtype ppartflag;

@@ -191,7 +191,6 @@ int chckstem(char *stemstr, char *stemkeys, int is_nom)
 	long startoff;
 	int rval = 0;
 	int rval2 = 0;
-	int taglen;
 	int curntags = 0;
 	char tmpkeys[LONGSTRING];
 	char * indfile;
@@ -246,8 +245,6 @@ int chckstem(char *stemstr, char *stemkeys, int is_nom)
 		init_scache();
 	}
 #endif
-
-	taglen = Xstrlen(stemstr);
 
 #if STEMCACHE
 	if( (rval=is_instemcache(stemstr,taglen,stemkeys) ) )
@@ -377,44 +374,6 @@ void add_stemcache(Stemcache *cache, char *stem, char *keys)
 endtags * LemmTags = NULL;
 static int num_of_ltags = 0;
 
-int prntlemmentry(char *lemma, char *preverb, FILE *f)
-{
-	long startoff = 0;
-	char *lemmfile= NULL;
-	char *line = NULL;
-	FILE * fword = NULL;
-
-	if( (fword=getlemmstart(lemma,lemmfile,&startoff)) == NULL ) {
-		sprintf(line,"No Lemma found under [%s]\n", lemma );
-		ErrorMess(line);
-		return(-1);
-	}
-	lemmfile = (char *)malloc((size_t)LONGSTRING);
-	line = (char *)malloc((size_t)LONGSTRING);
-	*line = * lemmfile = 0;
-	while(fgets(line,LONGSTRING, fword) ) {
-		if( is_blank(line) ) {
-			fprintf(f,"\n\n");
-			break;
-		}
-		trimwhite(line);
-		if( *preverb && !Xstrncmp(line,LEMMTAG,Xstrlen(LEMMTAG)) ) {
-			rstprevb(line+Xstrlen(LEMMTAG),preverb,0);
-			fprintf(f,"%s\n", line );
-			continue;
-		}
-		if( preverb && *preverb )
-			fprintf(f,"%s\tpb:%s\n", line , preverb);
-		else
-			fprintf(f,"%s\n", line );
-	}
-	xFclose(fword);
-	fword = NULL;
-	xFree(line,"line prntlem");
-	xFree(lemmfile,"lemmfile prntlem");
-	line = lemmfile = NULL;
-	return(1);
-}
 
 /*
  * given a lemma, find out where in the dictionary it shows up
@@ -436,7 +395,6 @@ FILE *
 {
 	char curtarget[LONGSTRING];
 	char line[LONGSTRING];
-	char tmp[LONGSTRING];
 	long curoff;
 	FILE * f = NULL;
 	long startoff;

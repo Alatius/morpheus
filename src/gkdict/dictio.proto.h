@@ -11,7 +11,6 @@ int chckstem(char *stemstr, char *stemkeys, int is_nom);
 int init_scache(void);
 int is_instemcache(char *tag, int taglen, char *stemkeys);
 int add_stemcache(Stemcache *cache, char *stem, char *keys);
-int prntlemmentry(char *lemma, char *preverb, FILE *f);
 FILE *getlemmstart(char *lemma, char *lemmfile, long *lemmoff);
 int lemma_exists(char *lemma);
 

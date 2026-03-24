@@ -16,6 +16,7 @@ void JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, char *more_dels, 
   char dialbuf[LONGSTRING*2];
   char * s;
   word_form wf;
+  (void)more_dels;
   
   wf = forminfo_of(gstr);
   s=NameOfStemtype(stemtype_of(gstr));
@@ -127,6 +128,7 @@ void GregSprintGkFlags(gk_string *gstr, char *buf, char *dels, char *more_dels, 
   char dialbuf[LONGSTRING*2];
   char * s;
   word_form wf;
+  (void)more_dels;
 		
   wf = forminfo_of(gstr);
 

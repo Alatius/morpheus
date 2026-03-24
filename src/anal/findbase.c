@@ -29,7 +29,6 @@ void check_ew(char *p)
 {
 	char workstem[BUFSIZ];
 	char curbase[BUFSIZ];
-	char stembuf[BUFSIZ];
 	char stemkeys[BUFSIZ];
 	char *s;
 	int rval = 0;

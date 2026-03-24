@@ -6,11 +6,9 @@ int quickflag = 0;
 
 int main(int argc, char *argv[])
 {
-	char filename[80];
 	char outfile[80];
 	FILE * f = NULL;
 	FILE * fout = NULL;
-	int i = 0;
 	
 
 	if( argc == 1 ) {

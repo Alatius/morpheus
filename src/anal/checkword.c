@@ -9,7 +9,6 @@
 extern int quickflag;
 
 long prevmem, curmem;
-static int meminit = 0;
 long startmem;
 int checkword(gk_word *Gkword)
 {

@@ -55,9 +55,6 @@ gk_string *
 {
 	gk_string * euphs;
 	int hits = 0;
-	char * orgstr;
-	char * curs;
-
 	euphs = (gk_string *) CreatGkString(MAXEUPHS);
 	if( ! Cons_euph ) {
 		Cons_euph = load_ccontr(&numeuphs);
@@ -173,8 +170,7 @@ PrntGkStr(poss_subs+sofar,stdout);
 
 int needs_sub(gk_string *gstr, Dialect skipdial, gk_string *matchgstr, char *haveseen, char *curstring, char *raw, char *cooked)
 {
-	register char * p1, *p2;
-	int rval = 0;
+	register char * p1;
 	int syllno;
 	Dialect curdial;
 	Dialect dial;
@@ -254,9 +250,8 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
  	 */
 		else if( (syllno = stripacc(savecur)) && (!strncmp(raw,savecur,strlen(raw)))) {
 			char tmp[MAXWORDSIZE];
-			char accs[MAXWORDSIZE];
 
-			
+
 	/*
 	 * if savestr contains "men",
 	 *    savecur contains "e/omen" 

@@ -9,14 +9,8 @@
 #include "../morphlib/setlang.proto.h"
 
 char fname[80];
-static gk_string Gstr;
-
 int main(int argc, char * argv[])
 {
-	FILE * ffname;
-	char * curtable, * NextEndTable();
-	int index = 0;
-	Stemtype stype = 0;
 	int maintable = 1;
 	int formcode = DODERIV;
 	int c, errflg = 0;

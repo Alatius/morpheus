@@ -15,7 +15,6 @@
 void beta_tolower(char *word)
 {
 	register char * s;
-	register char * t;
 
 	if( *word != BETA_UCASE_MARKER ) return;
 

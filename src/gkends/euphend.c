@@ -31,7 +31,6 @@ int EuphEnd(gk_string *want, gk_string *have, int strict)
 		 */
 
 		if( Is_rho_eta_form(morphflags_of(want)) ) {
-			Dialect dial1;
 /*
 printf("dial %lo anded %lo have %lo\n", dialect_of(want), AndDialect(dialect_of(want) , (Dialect) RHO_ALPHA_DIAL),
 dialect_of(have) );

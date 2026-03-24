@@ -4,7 +4,6 @@
 
 void add_morphflags(gk_string *gstr, MorphFlags * Flags)
 {
-	unsigned char * Mf = morphflags_of(gstr);
 	int i;
 	
 	for(i=0;i<MORPHFLAG_BYTES;i++ ) 
@@ -13,7 +12,6 @@ void add_morphflags(gk_string *gstr, MorphFlags * Flags)
 
 void set_morphflags(gk_string *gstr, MorphFlags *Flags)
 {
-	unsigned char * Mf = morphflags_of(gstr);
 	int i;
 	
 	for(i=0;i<MORPHFLAG_BYTES;i++ ) 
@@ -23,7 +21,6 @@ void set_morphflags(gk_string *gstr, MorphFlags *Flags)
 
 void set_gwmorphflags(gk_word *gkword, MorphFlags *Flags)
 {
-	unsigned char * Mf = morphflags_of(gkword);
 	int i;
 	
 	for(i=0;i<MORPHFLAG_BYTES;i++ ) 
@@ -33,7 +30,6 @@ void set_gwmorphflags(gk_word *gkword, MorphFlags *Flags)
 
 void zap_morphflags(gk_string *gstr, MorphFlags *Flags)
 {
-	unsigned char * Mf = morphflags_of(gstr);
 	int i;
 	
 	for(i=0;i<MORPHFLAG_BYTES;i++ ) 
@@ -42,7 +38,6 @@ void zap_morphflags(gk_string *gstr, MorphFlags *Flags)
 
 int has_morphflags(gk_string *gstr, MorphFlags *Flags)
 {
-	unsigned char * Mf = morphflags_of(gstr);
 	int i;
 	
 	for(i=0;i<MORPHFLAG_BYTES;i++ )
@@ -53,7 +48,6 @@ int has_morphflags(gk_string *gstr, MorphFlags *Flags)
 
 int no_morphflags(gk_string *gstr)
 {
-	MorphFlags * Mf = morphflags_of(gstr);
 	int i;
 	
 	for(i=0;i<MORPHFLAG_BYTES;i++ ) 
@@ -248,7 +242,6 @@ void MorphNames(MorphFlags *mf, char *res, char *dels, int pretty)
 	long j;
 	long curnum;
 	int mask = 1;
-	int hit = 0;
 
 	*res = 0;
 	
@@ -260,8 +253,7 @@ void MorphNames(MorphFlags *mf, char *res, char *dels, int pretty)
 					curnum = (long)mflag_bit_to_num((int)i,(int)j+1);
 				if( ! pretty || is_pretty_morphflag(curnum) ) {
 					/*(i*8) + j + 1;*/
-	
-					hit++;
+
 					s=NameOfMorphFlags(curnum);
 
 					if( *s ) {

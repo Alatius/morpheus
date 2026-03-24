@@ -85,9 +85,8 @@ int checkregnom(gk_word *Gkword)
 	   	rval += gotnom(Gkword);
 
 	}
-	
-	finish:
-		return(rval);
+
+	return(rval);
 }
 
 static int gotnom(gk_word *Gkword)

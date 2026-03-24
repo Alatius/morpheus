@@ -228,7 +228,6 @@ int ChckIrrLemms(gk_word *Gkword, char *irrform, char *irrkey)
 	char stemkeys[LONGSTRING];
 	char curlemma[LONGSTRING];
 	char tmpword[LONGSTRING];
-	char * curkeys;
 	gk_word TmpGkword;
 	int rval = 0;
 	int curval = 0;
@@ -303,9 +302,7 @@ int CheckIrregForm(gk_word *Gkword, char *stem, char *stemkeys)
 
 int chckirrvform(char *form, char *keys)
 {
-	char tmpform[MAXWORDSIZE];
 	int rval;
-	int curacc, cursyll;
 	
 /*
 	if( (rval=chckirrverb(form,keys)) )

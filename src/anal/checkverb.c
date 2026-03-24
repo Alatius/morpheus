@@ -114,9 +114,7 @@ fprintf(stderr,"trying reg stem [%s] [%s] preverb [%s] rval %d\n", stem_of(Gkwor
 
 	}
 
-	finish:
-
-		return(rval);
+	return(rval);
 }
 
 int analyzed_verb(gk_word *Gkword)
@@ -137,7 +135,6 @@ printf("rval %d tmpend %s endkeys %s\n", chckvend(tmpendstring,endkeys),tmpendst
 
 	if( (rval=chckvend(tmpendstring,endkeys)) ) {
 	    gk_word TmpGkword;
-	    char preverbs[MAXWORDSIZE];
 
 	    TmpGkword = * Gkword;
 	    stripacc(stem_of(&TmpGkword));

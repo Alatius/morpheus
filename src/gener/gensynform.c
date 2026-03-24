@@ -45,7 +45,6 @@ int GenSynForms(FILE *f, FILE *fout)
 	int nl = 0;
 	int i;
 	gk_word * Rvals = NULL;
-	char lemmakeys[LONGSTRING];
 	char tmp[LONGSTRING];
 	char baseentry[LONGSTRING];
 	char * stemkeys;
@@ -155,10 +154,6 @@ int GenSynForms(FILE *f, FILE *fout)
 		 * process a regular stem
 		 */
 		if( !strncmp(line,":aj:",4) || ! strncmp(line,":no:",4) || ! strncmp(line,":vs:",4)) {
-			gk_string Gstr;
-			
-			Gstr = BlnkGstr;
-			
 			zap_rootmarker(line);
 			set_baseentry(line,baseentry,(int)sizeof line);
 
@@ -272,9 +267,8 @@ printf("stemkeys [%s]\n", stemkeys );
 		set_endstring(Gkword,"");
 		if( (oddkeys_of(Gkword) ))  *(oddkeys_of(Gkword)) = 0;
 	}
-	finish:
 if( i > 30 ) fprintf(stderr,"out of loop with i %d\n", i );
-		FreeGkword( Gkword ); 
+		FreeGkword( Gkword );
 		Gkword = NULL;
 		return(rval);
 }

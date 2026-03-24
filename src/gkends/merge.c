@@ -9,6 +9,8 @@
 int merge_keys(gk_string *Have, gk_string *Avoid, char *stem, char *endstr, char *newkeys)
 {
 	int rval = 0;
+	(void)stem;
+	(void)endstr;
 
 	if( EndingOk(newkeys,Have,Avoid,0) ) {
 		rval = 1;

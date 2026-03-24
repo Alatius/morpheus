@@ -40,7 +40,6 @@ static	char linebuf[LONGSTRING];
 static	char origline[LONGSTRING];
 static	char stembuf[MAXWORDSIZE];
 static	char derivbuf[LONGSTRING];
-static	char curkeys[LONGSTRING];
 static	char savekeys[LONGSTRING];
 static	char globalkeys[LONGSTRING];
 static	char vsbuf[LONGSTRING];
@@ -139,8 +138,6 @@ void GenConjForms(FILE *fin, FILE *fout, int conjmode)
 	  * with no specific principle parts mentioned, then we
 	  * assume that all principle parts are possible
 	  */
-				int i;
-
 				char tkeys[256];
 				sprintf(tkeys,"%s %s", fullkeys[0] , linebuf );
 /*

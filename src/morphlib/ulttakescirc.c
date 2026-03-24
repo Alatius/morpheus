@@ -5,10 +5,6 @@
 
 int ulttakescirc(gk_string *gstring, word_form form_info)
 {
-	Stemtype stemtype;
-
-	stemtype = stemtype_of(gstring);
-
 	if( has_morphflag(morphflags_of(gstring),NO_CIRCUMFLEX) )
 		return(0);
 		

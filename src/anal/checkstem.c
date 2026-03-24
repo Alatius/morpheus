@@ -40,6 +40,7 @@ static void longeststem(char *s);
 
 int checkstem(char *poss_stem, char *endkeys, gk_string *stemtab[], char *keytab[], int maxstems)
 {
+	(void)maxstems;
 	char *curstemkeys;
 	int i;
 	int hits = 0;

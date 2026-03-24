@@ -19,11 +19,9 @@ init_preind(char *fname, int *maxkeys)
 {
 	FILE * f;
 	endtags * etags;
-	register char * s;
-	register char * t;
 	int flen;
 	long divisor = 0;
-	int i, j;
+	int i;
 	char tmp[LONGSTRING];
 
 
@@ -88,8 +86,6 @@ int ChckFullIndex(char *s, char *keys, char *fname, long offset, int (*scmp )())
 	size_t slen;
 	int comp;
 	int rval = 0;
-	int i;
-int firstline = 1;
 
 	*keys = 0;
 
@@ -139,7 +135,6 @@ firstline = 0;
 fprintf(stderr,"ends comp [%d] s [%s] buf [%s]\n", comp , s , buf );
 getchar();
 */
-	finish:
-		fclose(f);
-		return(rval);
+	fclose(f);
+	return(rval);
 }

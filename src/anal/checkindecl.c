@@ -19,9 +19,6 @@ int checkindecl(gk_word *Gkword)
 {
 	int rval;
 	int hits = 0;
-	int nstems = 0;
-	int i;
-	int sawstems = 0;
 	char *keys;
 	char keybuf[LONGSTRING];
 	char workword[MAXWORDSIZE];
@@ -82,7 +79,6 @@ printf("rval %d workword [%s] keys [%s]\n", rval, workword, keys );
 
 static int IndeclWorks(gk_word *Gkword, char *keys)
 {
-	int i;
 	int rval = 0;
 	gk_word * Forms;
 

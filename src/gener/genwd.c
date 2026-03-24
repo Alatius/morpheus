@@ -72,7 +72,7 @@ void GenDictEntry(gk_word *Gkword, char *dentry)
 int GenNxtWord(FILE *f, int mode, FILE *fout)
 {
 	
-	int rval, i;
+	int rval;
 	gk_word * Rvals = NULL;
 	char lemmakeys[256];
 	char stemkeys[256];
@@ -135,7 +135,7 @@ gk_word *
 	Dialect dial;
 	int nends = 0;
 	int maxforms = 0;
-	
+	(void)mode;
 	stemkeys[0] = 0;
 /*
 	Xstrncpy(stemkeys,keys,LONGSTRING);
@@ -228,12 +228,11 @@ gk_word *
 	gk_string * gstring;
 	gk_word * gkforms;
 	char stemkeys[LONGSTRING];
-	char * preverb;
 	Dialect dial;
 
 	Xstrncpy(stemkeys,keys,LONGSTRING);
 /*
- * note that we allocate an array of at least two members long 
+ * note that we allocate an array of at least two members long
  * -- the calling routine expects a "null-terminated" array
  */
 	gstring = (gk_string *) CreatGkString(2);
@@ -254,28 +253,18 @@ gk_word *
 		FreeGkString(gstring);
 		sprintf(errmess,"GenIrregForm Error: no stemtype seen in [%s:%s]",workword_of(Gkword),
 		 stemkeys );
-		ErrorMess(errmess);	
+		ErrorMess(errmess);
 		return(NULL);
 	}
 
 	add_morphflags(stem_gstr_of(Gkword),morphflags_of(gstring));
-	
+
 	if( mode & INDECL )	{
 		add_morphflag(morphflags_of(Gkword),INDECLFORM);
 		add_morphflag(morphflags_of(gstring),INDECLFORM);
 	}
 	add_morphflag(morphflags_of(Gkword),IRREGFORM);
 	add_morphflag(morphflags_of(gstring),IRREGFORM);
-
-	if( mode & INDECL && preverb_of(Gkword)[0] ) {
-/*
-		fprintf(stderr,"Hey! preverb [%s] with indeclinable form [%s]!\n", preverb_of(Gkword),
-			stem_of(Gkword) );
-*/
-		preverb = NULL;
-	} else {
-		preverb = preverb_of(Gkword);
-	}
 
 	if( ! stemtype_of(gstring) ) {
 		printf("GenIrregForm: could not find a stemtype for [%s] with keys [%s]\n", 
@@ -387,7 +376,6 @@ static void AddWdEndings(gk_word *Gkword, gk_string *Endings, gk_word *Forms, in
 {
 	int i,j,k;
 	gk_word SaveGkWord;
-	Dialect d;
 	int formvars;
 	gk_word * CurBuf;
 	gk_string CurEnd;
@@ -541,7 +529,6 @@ int BuildAVerb(gk_word *Gkword, gk_string *CurEnding, gk_word *CurForms)
 {
 	char tmpstem[MAXWORDSIZE+1];
 	char preverb[MAXWORDSIZE+1];
-	gk_string * prvb_gstr = prvb_gstr_of(CurForms);
 	char * stem = stem_of(Gkword);
 	char * endstring = endstring_of(CurForms);
 	int i;

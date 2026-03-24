@@ -75,8 +75,6 @@ static gk_string BlnkGstr;
 
 void ClearGkstring(gk_string *gstr)
 {
-	gk_string *gstring;
-
 	*gstr = BlnkGstr;
 	return;
 /*
@@ -521,9 +519,6 @@ void PrntStemtype(Stemtype st, FILE *f)
 
 void PrntDialect(Dialect di, FILE *f)
 {
-	char * s;
-	int i;
-	Dialect mask = 1;
 	char dialbuf[MAXWORDSIZE];
 
 	dialbuf[0] = 0;
