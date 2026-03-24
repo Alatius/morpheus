@@ -64,7 +64,7 @@ typedef unsigned int Stemtype;
 /* latin supine */
 #define PP_SU		(060000000)
 
-#define has_passive_stype(stype) ((stype & PPARTMASK ) == PP_AP)
-#define has_middle_stype(stype) (((stype & PPARTMASK ) == PP_FU) || ((stype & PPARTMASK ) == PP_AO))
+#define has_passive_stype(stype) (((stype) & PPARTMASK ) == PP_AP)
+#define has_middle_stype(stype) ((((stype) & PPARTMASK ) == PP_FU) || (((stype) & PPARTMASK ) == PP_AO))
 
 #endif /* STEMTYPE_H */

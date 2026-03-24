@@ -11,7 +11,7 @@
 #define MAXENDSTRING 15
 #define MAXDOMAINS 20
 #define COMMENT_CHAR '#'
-#define Is_comment(S) *(S) == COMMENT_CHAR
+#define Is_comment(S) (*(S) == COMMENT_CHAR)
 /* commented out for ANSI grc 3/12/91
 long fseek();
 */
@@ -86,18 +86,18 @@ typedef struct {
 
 
 #define totanal_of(X)		(X)->gw_totanal
-#define set_totanal(X,Y)	totanal_of(X) = Y
+#define set_totanal(X,Y)	totanal_of(X) = (Y)
 
 #define analysis_of( X ) (X)->gw_analysis
-#define set_analysis( X , Y ) analysis_of(X) = Y
+#define set_analysis( X , Y ) analysis_of(X) = (Y)
 
 #define dialect_of( X ) (X)->gs_dialect
-#define add_dialect( X , Dial ) dialect_of(X) |= Dial
-#define set_dialect( X , Dial ) dialect_of(X) = Dial
+#define add_dialect( X , Dial ) dialect_of(X) |= (Dial)
+#define set_dialect( X , Dial ) dialect_of(X) = (Dial)
 
 #define geogregion_of( X ) (X)->gs_geogregion
-#define add_geogregion( X , Dial ) geogregion_of(X) |= Dial
-#define set_geogregion( X , Dial ) geogregion_of(X) = Dial
+#define add_geogregion( X , Dial ) geogregion_of(X) |= (Dial)
+#define set_geogregion( X , Dial ) geogregion_of(X) = (Dial)
 
 
 #define forminfo_of(X) 	(X)->gs_forminfo
@@ -108,10 +108,10 @@ typedef struct {
 #define	set_gkstring( X , s ) Xstrncpy(gkstring_of(X),s,sizeof gkstring_of(X) )
 
 #define stemtype_of( X ) (X)->gs_steminfo
-#define set_stemtype( X , stemtype ) stemtype_of(X) = stemtype
+#define set_stemtype( X , stemtype ) stemtype_of(X) = (stemtype)
 
 #define derivtype_of( X ) (X)->gs_derivtype
-#define set_derivtype( X , derivtype ) derivtype_of(X) = derivtype
+#define set_derivtype( X , derivtype ) derivtype_of(X) = (derivtype)
 
 #define dictform_of( X ) (X)->st_dictform
 #define	set_dictform( X , s ) Xstrncpy(dictform_of(X),s,sizeof dictform_of(X) )
@@ -156,9 +156,9 @@ typedef struct {
 #define domains_of(X) (X)->st_domains
 #define	set_domains( X , s ) Xstrncpy(domains_of(X),s,sizeof domains_of(X) )
 
-#define add_gender(X, Y) 	gender_of(X) |= Y
-#define add_case(X, Y) 		case_of(X) |= Y
-#define add_voice(X, Y) 	voice_of(X) |= Y
+#define add_gender(X, Y) 	gender_of(X) |= (Y)
+#define add_case(X, Y) 		case_of(X) |= (Y)
+#define add_voice(X, Y) 	voice_of(X) |= (Y)
 
 #define Want_Gender(X,Y)	((gender_of(X))&(gender_of(Y)))
 #define Want_Case(X,Y)		((case_of(X))&(case_of(Y)))
@@ -191,7 +191,7 @@ typedef struct {
  * viewed as s, *, dos, di, da etc.
  */
 #define ZEROEND 	'*'
-#define Is_zeroend(X) (X == ZEROEND)
+#define Is_zeroend(X) ((X) == ZEROEND)
 #define set_zeroend( gs ) sprintf(endstring_of(gs),"%c", ZEROEND )
 
 gk_string * CreatGkString(int);
@@ -211,7 +211,7 @@ FILE * MorphFopen(char *, char *);
 #define MAXANALYSES 25
 
 #define PROSEAUTHOR 0100
-#define LENGTH_OF(X) (sizeof X/sizeof X[0])
+#define LENGTH_OF(X) (sizeof(X)/sizeof((X)[0]))
 
 int Xstrcpy(char *, const char *);
 int Xstrncpy(char *, const char *, size_t);

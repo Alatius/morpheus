@@ -115,8 +115,8 @@ typedef struct {
 #define  number_of(vf)	(vf).f_number
 #define  set_number(vf,val)	number_of(vf) = (val)
 
-#define  pernum_of(vf)	(vf).f_person + (vf).f_number
-#define  set_pernum(vf,val)	number_of(vf) = (val/4); person_of(vf) = (val&03)
+#define  pernum_of(vf)	((vf).f_person + (vf).f_number)
+#define  set_pernum(vf,val)	do { number_of(vf) = ((val)/4); person_of(vf) = ((val)&03); } while(0)
 
 
 /*
@@ -484,13 +484,19 @@ typedef struct {
 /*	LEXICAL MACROS			*/
 /*======================================*/
 
-#define lastn(word,n)	(word + Xstrlen(word) - n)
-		/* returns pointer to last n chars of word */
+int Xstrlen(const char *);
+
+/* returns pointer to last n chars of word */
+static inline char *lastn(char *word, int n)
+{
+	int len = Xstrlen(word);
+	return word + (len >= n ? len - n : 0);
+}
 
 #define elided(word)	(*lastn(word,1) == '\'')
 #define	aphaeresis(word)	(*(word) == '\'')
 
-#define	Is_alph(c)	((isalpha(c))	/*from ctype.h*/   && \
+#define	Is_alph(c)	((isalpha((c)))	/*from ctype.h*/   && \
 				((c)!='j')&&((c)!='v')&&((c)!='J')&&((c)!='V'))
 
 #define	Is_shvwl(c) (((c)=='a')||((c)=='e')||((c)=='i')||((c)=='o')||((c)=='u')\
@@ -562,21 +568,36 @@ grc 8/21/88 added 'c' (xi) to palatals
 /* 
  * grc 6/15/89
  */
-#define Is_rei_char(c) ((c=='r')||(c=='i')||(c=='e'))
+#define Is_rei_char(c) (((c)=='r')||((c)=='i')||((c)=='e'))
 
 /* Smyth 18-21 */
 #define	Is_liquid(c)	(((c)=='l')||((c)=='r'))
 #define	Is_nasal(c)	(((c)=='m')||((c)=='n'))
 #define	Is_double(c)	(((c)=='z')||((c)=='c')||((c)=='y'))
 
-#define	A_CONTR(verb)	((0==strcmp(lastn(verb,3),"a/w")) || \
-			 (0==strcmp(lastn(verb,6),"a/omai") ) )
-#define	E_CONTR(verb)	((0==strcmp(lastn(verb,3),"e/w")) || \
-			 (0==strcmp(lastn(verb,6),"e/omai") ) )
-#define	O_CONTR(verb)	((0==strcmp(lastn(verb,3),"o/w")) || \
-			 (0==strcmp(lastn(verb,6),"o/omai") ) )
-#define	Is_contr(verb)	/* verb opposes the Sandinista government */  \
-			((A_CONTR(verb))||(E_CONTR(verb))||(O_CONTR(verb)))
+static inline int A_CONTR(char *verb)
+{
+	return (0 == strcmp(lastn(verb, 3), "a/w")) ||
+	       (0 == strcmp(lastn(verb, 6), "a/omai"));
+}
+
+static inline int E_CONTR(char *verb)
+{
+	return (0 == strcmp(lastn(verb, 3), "e/w")) ||
+	       (0 == strcmp(lastn(verb, 6), "e/omai"));
+}
+
+static inline int O_CONTR(char *verb)
+{
+	return (0 == strcmp(lastn(verb, 3), "o/w")) ||
+	       (0 == strcmp(lastn(verb, 6), "o/omai"));
+}
+
+/* verb opposes the Sandinista government */
+static inline int Is_contr(char *verb)
+{
+	return A_CONTR(verb) || E_CONTR(verb) || O_CONTR(verb);
+}
 
 /*======================================*/
 /*	EXTERNAL VARIABLES &		*/

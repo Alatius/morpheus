@@ -28,8 +28,8 @@
 typedef int PrntFlags;
 
 #define prntflags_of( X ) (X)->gs_prntflags
-#define add_prntflags( X , Flags ) prntflags_of(X) |= Flags
-#define set_prntflags( X , Flags ) prntflags_of(X) = Flags
+#define add_prntflags( X , Flags ) prntflags_of(X) |= (Flags)
+#define set_prntflags( X , Flags ) prntflags_of(X) = (Flags)
 #define Should_check_preverb(X) (prntflags_of(X) & CHECK_PREVERB)
 
 #endif /* PRNTFLAGS_H */

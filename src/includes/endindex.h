@@ -7,9 +7,9 @@ typedef struct {
 	int nelems;
 } endind;
 
-#define endbuffer_of( X ) (X->ebuf)
-#define endeptr_of( X ) (X->eptr)
-#define endlen_of(X) (X->nelems)
+#define endbuffer_of( X ) ((X)->ebuf)
+#define endeptr_of( X ) ((X)->eptr)
+#define endlen_of(X) ((X)->nelems)
 
 endind *init_endind(char *, endind *);
 

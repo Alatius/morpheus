@@ -173,7 +173,7 @@ if( isalpha( yytext[7] ) && ! strchr("aeioux",yytext[7]) )
 ECHO;
 }
 
-#define LENGTH_OF(X) (sizeof X/sizeof X[0])
+#define LENGTH_OF(X) (sizeof(X)/sizeof((X)[0]))
 int is_spectype()
 {
 	int i;
