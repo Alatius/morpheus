@@ -139,7 +139,7 @@ void GenConjForms(FILE *fin, FILE *fout, int conjmode)
 	  * assume that all principle parts are possible
 	  */
 				char tkeys[256];
-				sprintf(tkeys,"%s %s", fullkeys[0] , linebuf );
+				snprintf(tkeys,sizeof(tkeys),"%s %s", fullkeys[0] , linebuf );
 /*
 				if( ! combine_conj(fout,curlemma,origline,stembuf,derivbuf,globalkeys,tkeys) )
 					fprintf(fout,"error1: nothing found\n");
@@ -147,7 +147,7 @@ void GenConjForms(FILE *fin, FILE *fout, int conjmode)
 /*
 				for(i=0;i<sizeof fullkeys/sizeof fullkeys[0];i++) {
 					char tkeys[256];
-					sprintf(tkeys,"%s %s", fullkeys[i] , linebuf );
+					snprintf(tkeys,sizeof(tkeys),"%s %s", fullkeys[i] , linebuf );
 					combine_conj(fout,curlemma,origline,stembuf,derivbuf,globalkeys,tkeys);
 
 					printf("stembuf [%s] global [%s] deriv [%s] tk [%s]\n", 
@@ -225,7 +225,7 @@ printf("rval %d stembuf [%s] global [%s] deriv [%s] tk [%s]\n", rval,
 				len = strlen(linebuf);
 				if( linebuf[len-1] == '\n') linebuf[len-1] = 0;
 
-				sprintf(tkeys, "%s %s", savekeys, linebuf+1 );
+				snprintf(tkeys, sizeof(tkeys), "%s %s", savekeys, linebuf+1 );
 				if( ! need_ppart(tkeys)  ) 
 					continue;
 				rval = combine_conj(fout,curlemma,origline,stembuf,derivbuf,globalkeys,tkeys);
@@ -253,7 +253,7 @@ void show_defvals(FILE *fout)
 
 	for(i=0;i< DEFPPARTS;i++) {
 		char tkeys[256];
-		sprintf(tkeys,"%s ", fullkeys[i]  );
+		snprintf(tkeys,sizeof(tkeys),"%s ", fullkeys[i]  );
 		combine_conj(fout,curlemma,origline,stembuf,derivbuf,globalkeys,tkeys);
 /*
 		printf("stembuf [%s] global [%s] deriv [%s] tk [%s]\n", 
@@ -335,7 +335,7 @@ int need_ppart(char *s)
 		s++;
 	}
 	
-	sprintf(tmpglobs,"%s %s\n", derivbuf , globalkeys );
+	snprintf(tmpglobs,sizeof(tmpglobs),"%s %s\n", derivbuf , globalkeys );
 	GlobGstr = CurGstr = BlnkGstr;
 	TmpGkword = BlnkGkword;
 	ScanAsciiKeys(tmpglobs,&TmpGkword,&GlobGstr,NULL);
@@ -400,7 +400,7 @@ int check_vsdupl(char *s, FILE *fout)
 	if( has_morphflag(morphflags_of(&CurGstr),SYLL_AUG ) )
 		rval = -1;
 	
-	sprintf(tmpvsbuf2,"%s%s", tmpglobs,s+1);
+	snprintf(tmpvsbuf2,sizeof(tmpvsbuf2),"%s%s", tmpglobs,s+1);
 	
 	p = tmpvsbuf1; while(*p && !isspace(*p)) p++;
 	ScanAsciiKeys(p,&TmpGkword,&GlobGstr,NULL);
@@ -450,7 +450,7 @@ int need_codupl(char *s)
 	}
 	strcpy(tmpcobuf1,tmpglobs);
 	*p = 0;
-	sprintf(tmpcobuf2,"%s%s", tmpglobs,s+1);
+	snprintf(tmpcobuf2,sizeof(tmpcobuf2),"%s%s", tmpglobs,s+1);
 	
 	p = tmpcobuf1; while(*p && !isspace(*p)&& *p !=',' ) p++;
 	if(*p == ',' ) p++;

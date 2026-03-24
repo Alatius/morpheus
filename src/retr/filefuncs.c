@@ -170,7 +170,7 @@ OpAuthorsFile(authname)
 {
         char tmp[128];
 
-        sprintf(tmp,"%cwordlist.index", PATHSEPCHAR );
+        snprintf(tmp,sizeof(tmp),"%cwordlist.index", PATHSEPCHAR );
         if( flistind ) {
                 fprintf(stderr,"flistind not null!\n");
                 return(-1);
@@ -891,7 +891,7 @@ char *
 {
         char full[BUFSIZ];
 
-        sprintf(full,"%s%c%s%s", TlgAuthDirectory(authname) , PATHSEPCHAR, authname , suff );
+        snprintf(full,sizeof(full),"%s%c%s%s", TlgAuthDirectory(authname) , PATHSEPCHAR, authname , suff );
 	*curfp = fopen( full , mode );
 	return( *curfp != NULL );
 }
@@ -906,7 +906,7 @@ char *
 /*
         char full[BUFSIZ];
 
-        sprintf(full,"%s%c%s%s", TlgAuthDirectory(authname) , PATHSEPCHAR, authname , suff );
+        snprintf(full,sizeof(full),"%s%c%s%s", TlgAuthDirectory(authname) , PATHSEPCHAR, authname , suff );
 	*curfp = fopen( full , mode );
 */
 	TlgFopen(authname,suff,mode);
@@ -994,9 +994,9 @@ char *
 	 */
 
 		if( ! strcmp( authname , BIGINDNAME ) )
-			sprintf(cdfname,"%cdbase%c%s%s", PATHSEPCHAR , PATHSEPCHAR, authname , suff );
+			snprintf(cdfname,sizeof(cdfname),"%cdbase%c%s%s", PATHSEPCHAR , PATHSEPCHAR, authname , suff );
 		else
-			sprintf(cdfname,"%c%s%c%s%s", PATHSEPCHAR, authname, PATHSEPCHAR, authname , suff );
+			snprintf(cdfname,sizeof(cdfname),"%c%s%c%s%s", PATHSEPCHAR, authname, PATHSEPCHAR, authname , suff );
 
 		*cdcurfp = cdfopen( cdfname, mode );
 		if( ! *cdcurfp ) {
@@ -1021,7 +1021,7 @@ char *
 {
         char full[BUFSIZ];
 
-        sprintf(full,"%s%s", TlgAuthDirectory(authname) , suff );
+        snprintf(full,sizeof(full),"%s%s", TlgAuthDirectory(authname) , suff );
 
 	*curfp = fopen( full , mode );
 	if( ! *curfp ) {
@@ -1033,9 +1033,9 @@ char *
  * set in AuthFopen()
  */
 		if( ! strcmp( authname , BIGINDNAME ) )
-			sprintf(cdfname,"/dbase%s",  suff );
+			snprintf(cdfname,sizeof(cdfname),"/dbase%s",  suff );
 		else
-			sprintf(cdfname,"/%s%s", authname, suff );
+			snprintf(cdfname,sizeof(cdfname),"/%s%s", authname, suff );
 		*cdcurfp = cdfopen( cdfname , mode );
 		if( ! *cdcurfp ) {
 			if( ! noerrmess )

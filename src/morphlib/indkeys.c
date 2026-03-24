@@ -33,7 +33,7 @@ void index_list(char *listname, char *tagstring, int modulus)
 		fprintf(stderr,"Could not open input %s\n", listname );
 		return;
 	}
-	sprintf(outfile,"%s.lindex",listname);
+	snprintf(outfile, sizeof(outfile), "%s.lindex",listname);
 
 	foutput = MorphFopen(outfile,"wb");
 	if( ! finput ) {

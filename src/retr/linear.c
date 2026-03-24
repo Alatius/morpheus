@@ -935,7 +935,7 @@ char *
         if( ! (srch->rflags&BYTEFLAG) )
                 return(0);
 
-        sprintf(mess,"bytes:%ld ", bytes );
+        snprintf(mess,sizeof(mess),"bytes:%ld ", bytes );
 }
 
  lindex(c)

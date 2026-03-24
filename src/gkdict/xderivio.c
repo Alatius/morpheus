@@ -243,7 +243,7 @@ int checkcomderiv(char *derivstr, char *suffix, char *lkeys, char *rkeys, int ha
 			
 			if( had_redupl ) add_morphflag(morphflags_of(&Gstr),REDUPL);
 			SprintGkFlags(&Gstr,tmp1,":",1);
-			sprintf(tmp2,"%s:%s%s", stembuf, lemma , tmp1);
+			snprintf(tmp2,sizeof(tmp2),"%s:%s%s", stembuf, lemma , tmp1);
 /*
 printf("success on [%s] and [%s]\n", curderiv, keybuf );
 printf("about to add [%s]\n", tmp2 );

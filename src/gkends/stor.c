@@ -123,7 +123,7 @@ void LPrntGstr(gk_string *gstr, FILE *f)
 		zap_morphflag(morphflags_of(gstr),IS_DERIV);
 		zap_morphflag(morphflags_of(gstr),INDECLFORM);
 		SprintGkFlags(gstr,tmp," ",0);
-		sprintf(line,"%s  %s\n", gkstring_of(gstr), tmp );
+		snprintf(line, sizeof(line), "%s  %s\n", gkstring_of(gstr), tmp );
 	
 		if( indecl ) {
 			if( Is_verbform(gstr) ) fprintf(f,":vb:");
@@ -133,9 +133,9 @@ void LPrntGstr(gk_string *gstr, FILE *f)
 	} else {
 		SprintGkFlags(gstr,tmp," ",0);
 		if( cur_lang() == LATIN  || cur_lang() == ITALIAN )
-			sprintf(line,"%s%s\n", gkstring_of(gstr), tmp );
+			snprintf(line, sizeof(line), "%s%s\n", gkstring_of(gstr), tmp );
 		else
-			sprintf(line,"<G>%s</G>%s\n", gkstring_of(gstr), tmp );
+			snprintf(line, sizeof(line), "<G>%s</G>%s\n", gkstring_of(gstr), tmp );
 /*	
 		beta2smarta(line,res);
 		fprintf(f,"%s", res );

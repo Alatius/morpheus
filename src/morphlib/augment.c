@@ -198,7 +198,7 @@ if( d ) set_dialect((gkform+naugs),d);
 			if( tmpstem[wstart] == HARDSHORT ) wstart++;
 			
 			Xstrncat(tmp,tmpstem+wstart ,MAXWORDSIZE);
-			sprintf(aug1_of(gkform+naugs),"%s>%s", SyllAugments[i].noaug,SyllAugments[i].withaug);
+			snprintf(aug1_of(gkform+naugs), sizeof(aug1_of(gkform+naugs)), "%s>%s", SyllAugments[i].noaug,SyllAugments[i].withaug);
 
 /*
 			if(d) set_dialect(aug1_gstr_of((gkform+naugs)),d);
@@ -254,7 +254,7 @@ int do_tempaug(gk_word *gkform, int maxaugs)
 /*			
 			Xstrncat(tmp,tmpstem+wstart ,MAXWORDSIZE);
 */
-			sprintf(aug1_of(gkform+naugs),"%s>%s", TempAugments[i].noaug,TempAugments[i].withaug);
+			snprintf(aug1_of(gkform+naugs), sizeof(aug1_of(gkform+naugs)), "%s>%s", TempAugments[i].noaug,TempAugments[i].withaug);
 
 /*
 			if(d) set_dialect(aug1_gstr_of((gkform+naugs)),d);
@@ -590,7 +590,7 @@ static int augmentit(gk_word *gkform, bool syllabic, int maxaugs)
 				
 		} else if( has_morphflag(morphflags_of(stem_gstr),SYLL_AUGMENT)) {
 			cinsert(*s,s);
-			sprintf(aug1_of(gkform),"%c>e)%c%c", *s, *s , *s );
+			snprintf(aug1_of(gkform), sizeof(aug1_of(gkform)), "%c>e)%c%c", *s, *s , *s );
 		}
 		cinsert (SMOOTHBR,s);
 		cinsert ('e',s);

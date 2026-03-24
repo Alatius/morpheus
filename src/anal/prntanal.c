@@ -44,7 +44,7 @@ void PrntAnalyses(gk_word *Gkword, PrntFlags prntflags, FILE *fout)
 	
 
   if( ! (prntflags & SHOW_LEMMA )  ) {
-    sprintf(tmp,"$%s&  %s%s", rawword_of(Gkword) ,
+    snprintf(tmp,sizeof(tmp),"$%s&  %s%s", rawword_of(Gkword) ,
 	    nanals == 1 ? "is" : "could be" , NEWLINE );
     if( prntflags & KEEP_BETA ) 
       strcat(pbuf,tmp);
@@ -160,9 +160,9 @@ void PrntOneAnalysis(gk_analysis *Gkanal, PrntFlags prntflags, FILE *f)
   if( prntflags & SHOW_LEMMA ) {
     if( strcmp(lemma_of(Gkanal),prevlemma)) {
       if( preverb_of(Gkanal)[0] )
-	sprintf(wtmp,"%s\t%s-%s %d\t", rawword_of(Gkanal), preverb_of(Gkanal) , lemma_of(Gkanal) , curan);
+	snprintf(wtmp,sizeof(wtmp),"%s\t%s-%s %d\t", rawword_of(Gkanal), preverb_of(Gkanal) , lemma_of(Gkanal) , curan);
       else
-	sprintf(wtmp,"%s\t%s %d\t", rawword_of(Gkanal),  lemma_of(Gkanal) ,curan );
+	snprintf(wtmp,sizeof(wtmp),"%s\t%s %d\t", rawword_of(Gkanal),  lemma_of(Gkanal) ,curan );
       Xstrncat(pbuf,wtmp,MAXANALYSES * 128);
       curan = 0;
       strcpy(wtmp,"\n");
@@ -172,7 +172,7 @@ void PrntOneAnalysis(gk_analysis *Gkanal, PrntFlags prntflags, FILE *f)
 	
   if( strcmp(lemma_of(Gkanal),prevlemma)) {
 				
-    sprintf(wtmp,"   &from$  %s", prntlem );
+    snprintf(wtmp,sizeof(wtmp),"   &from$  %s", prntlem );
     Xstrncat(tmp,wtmp,LONGSTRING);
     Xstrncpy(prevlemma,lemma_of(Gkanal),MAXWORDSIZE);
 	
@@ -180,7 +180,7 @@ void PrntOneAnalysis(gk_analysis *Gkanal, PrntFlags prntflags, FILE *f)
     if( preverb_of(Gkanal)[0] /* && funnyacc */) {
       char tmp2[128];
 		
-      sprintf(tmp2," [$%s&+$%s&]", preverb_of(Gkanal) , lemma_of(Gkanal) );
+      snprintf(tmp2,sizeof(tmp2)," [$%s&+$%s&]", preverb_of(Gkanal) , lemma_of(Gkanal) );
       Xstrncat(tmp,tmp2,LONGSTRING);
     }
     Xstrncat(tmp,NEWLINE,LONGSTRING);
@@ -193,10 +193,10 @@ void PrntOneAnalysis(gk_analysis *Gkanal, PrntFlags prntflags, FILE *f)
     Xstrncpy(	wtmp,"      ",MAXWORDSIZE);
     if( crasis_of(Gkanal)[0] ) {
 		
-      sprintf(tmp1,"$%s& + $", crasis_of(Gkanal) );
+      snprintf(tmp1,sizeof(tmp1),"$%s& + $", crasis_of(Gkanal) );
       Xstrncat(wtmp,tmp1,LONGSTRING);
     }
-    sprintf(tmp1,"$%s%s", workword_of(Gkanal), NEWLINE );
+    snprintf(tmp1,sizeof(tmp1),"$%s%s", workword_of(Gkanal), NEWLINE );
     Xstrncat(wtmp,tmp1,LONGSTRING);
     Xstrncat(tmp,wtmp,LONGSTRING);
     Xstrncpy(prevword,workword_of(Gkanal),MAXWORDSIZE);
@@ -252,9 +252,9 @@ void odd_morpheme(gk_analysis *Gkanal, gk_string *gstr, char *tag, char *bufp, i
       mflagbuf[0] || showflg ) {
 		
     if( ! strcmp(tag,"end") ) 
-      sprintf(tmp2,"        [&%s $-%s& ", tag , gkstring_of(gstr));
+      snprintf(tmp2,sizeof(tmp2),"        [&%s $-%s& ", tag , gkstring_of(gstr));
     else
-      sprintf(tmp2,"        [&%s $%s-& ", tag , gkstring_of(gstr));
+      snprintf(tmp2,sizeof(tmp2),"        [&%s $%s-& ", tag , gkstring_of(gstr));
     Xstrncat(bufp,tmp2,LONGSTRING);
     if (dialect_of(gstr)) {
       DialectNames(dialect_of(gstr),tmp2," ");
@@ -444,7 +444,7 @@ void DumpOneAnalysis(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FI
   tmp[0] = workw[0] = 0;
   
   if( prntflags & LEXICON_OUTPUT ) {
-    sprintf(tmp,"%s",  rawword_of(anal));
+    snprintf(tmp,sizeof(tmp),"%s",  rawword_of(anal));
     if( strcmp( rawword_of(anal), workword_of(anal)) ) {
       strcat(tmp," ");
       strcat(tmp, workword_of(anal) );

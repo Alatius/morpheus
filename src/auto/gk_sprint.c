@@ -683,13 +683,13 @@ char *s;
 			case '?':
 				if( cur_device != FILEFORMAT || cur_font != GREEK )
 					break;
-				sprintf(cur_char,"\\%c", *s );
+				snprintf(cur_char,sizeof(cur_char),"\\%c", *s );
 				add_cur_char(1);
 				sync_source(1);
 				s++;
 				continue;
 			case '_':	 /* em dash */
-				sprintf(cur_char,"--");
+				snprintf(cur_char,sizeof(cur_char),"--");
 				add_non_alph(-1);
 				sync_source(1);
 				s++;
@@ -704,14 +704,14 @@ char *s;
  					continue;
  				}
 				if( cur_device == AVT && cur_font == GREEK) {
-					sprintf(cur_char,".\b;");
+					snprintf(cur_char,sizeof(cur_char),".\b;");
 					add_cur_char(-1);
 					sync_source(1);
 					s++;
 					continue;
 				}
 				if( cur_device == VT100 && cur_font == GREEK) {
-					sprintf(cur_char, "~");
+					snprintf(cur_char,sizeof(cur_char),"~");
 					add_cur_char(-1);
 					sync_source(1);
 					s++;
@@ -722,7 +722,7 @@ char *s;
 			default:
 				break;
 		}
-		sprintf(cur_char,"%c", *s );
+		snprintf(cur_char,sizeof(cur_char),"%c", *s );
 		if( !isalpha( *s ) && cur_font == GREEK /* && 
 			(cur_device == AVT || cur_device == VT100 ) */ ) {
 
@@ -830,40 +830,40 @@ tlg_punct()
  */
 		case 20:
 			if( cur_device == FILEFORMAT )
-				sprintf(cur_char,"\\*a%c", *Cp++ );
+				snprintf(cur_char,sizeof(cur_char),"\\*a%c", *Cp++ );
 			if( cur_device == AVT ) {
 			    switch( *Cp++ ) {
 				case 'a':
-				    sprintf(cur_char,"\016\033Q\7\033R\b'\017");
+				    snprintf(cur_char,sizeof(cur_char),"\016\033Q\7\033R\b'\017");
 				    break;
 				case 'e':
-				    sprintf(cur_char,"\016e\b'\017");
+				    snprintf(cur_char,sizeof(cur_char),"\016e\b'\017");
 				    break;
 				default:
-				    sprintf(cur_char,"%%20%c", *(Cp-1) );
+				    snprintf(cur_char,sizeof(cur_char),"%%20%c", *(Cp-1) );
 				    break;
 			    }
 			} else /* give up and spit out the beta code you saw */
-				    sprintf(cur_char,"%%20%c", *(Cp-1) );
+				    snprintf(cur_char,sizeof(cur_char),"%%20%c", *(Cp-1) );
 			break;
 		case 21:
 /* follow same pattern as above, for following drops in the switch */
 			if( cur_device == FILEFORMAT )
-				sprintf(cur_char,"\\*g%c", *Cp++ );
+				snprintf(cur_char,sizeof(cur_char),"\\*g%c", *Cp++ );
 			if( cur_device == AVT ) {
 			     switch( *Cp++ ) {
 				case 'a':
-				     sprintf(cur_char,"\016A\b`\017");
+				     snprintf(cur_char,sizeof(cur_char),"\016A\b`\017");
 				     break;
 				case 'e':
-				     sprintf(cur_char,"\016e\b`\017");
+				     snprintf(cur_char,sizeof(cur_char),"\016e\b`\017");
 				     break;
 				default:
-				     sprintf(cur_char,"%%21%c", *(Cp-1) );
+				     snprintf(cur_char,sizeof(cur_char),"%%21%c", *(Cp-1) );
 				     break;
 			    }
 			} else
-				    sprintf(cur_char,"%%21%c", *(Cp-1) );
+				    snprintf(cur_char,sizeof(cur_char),"%%21%c", *(Cp-1) );
 			break;
 		case 22:
 /* french circumflex */
@@ -871,34 +871,34 @@ tlg_punct()
 				strcpy(cur_char,"\\*^");
 			if( cur_device == AVT ) {
 				if( *Cp == 'e' )
-					sprintf(cur_char,"\016e\b>\017");
+					snprintf(cur_char,sizeof(cur_char),"\016e\b>\017");
 				else {	
-				    sprintf(cur_char,"%%22%c", *Cp++);
+				    snprintf(cur_char,sizeof(cur_char),"%%22%c", *Cp++);
 				}
 			} else
-				    sprintf(cur_char,"%%22%c", *(Cp-1) );
+				    snprintf(cur_char,sizeof(cur_char),"%%22%c", *(Cp-1) );
 			break;
 		case 23:
 /* umlauts */
 			if( cur_device == FILEFORMAT )
-				sprintf(cur_char,"\\*u%c", *Cp++ );
+				snprintf(cur_char,sizeof(cur_char),"\\*u%c", *Cp++ );
 			if( cur_device == AVT ) {
 			     switch( *Cp++ ) {
 				case 'a':
-				     sprintf(cur_char,"\016\033Q\7\033R\b!\017");
+				     snprintf(cur_char,sizeof(cur_char),"\016\033Q\7\033R\b!\017");
 				     break;
 				case 'o':
-				     sprintf(cur_char,"\016o\b!\017");
+				     snprintf(cur_char,sizeof(cur_char),"\016o\b!\017");
 				     break;
 				case 'u':
-				     sprintf(cur_char,"\016\033Q\010\033R\b!\017");
+				     snprintf(cur_char,sizeof(cur_char),"\016\033Q\010\033R\b!\017");
 				     break;
 				default:
-				     sprintf(cur_char,"%%23%c", *(Cp-1) );
+				     snprintf(cur_char,sizeof(cur_char),"%%23%c", *(Cp-1) );
 				     break;
 			    }
 			} else
-				    sprintf(cur_char,"%%23%c", *(Cp-1) );
+				    snprintf(cur_char,sizeof(cur_char),"%%23%c", *(Cp-1) );
 			break;
 		case 24:
 /* the hell with "~" on an n etc., for now at any rate */
@@ -907,18 +907,18 @@ tlg_punct()
 		case 25:
 /* c cedila */
 			if( cur_device == FILEFORMAT )
-				sprintf(cur_char,"\\*c%c", *Cp++ );
+				snprintf(cur_char,sizeof(cur_char),"\\*c%c", *Cp++ );
 			if( cur_device == AVT ) {
 			     switch( *Cp++ ) {
 				case 'c':
-				     sprintf(cur_char,"\016.\bL\017");
+				     snprintf(cur_char,sizeof(cur_char),"\016.\bL\017");
 				     break;
 				default:
-				     sprintf(cur_char,"%%25%c", *(Cp-1) );
+				     snprintf(cur_char,sizeof(cur_char),"%%25%c", *(Cp-1) );
 				     break;
 			    }
 			} else
-				    sprintf(cur_char,"%%25%c", *(Cp-1) );
+				    snprintf(cur_char,sizeof(cur_char),"%%25%c", *(Cp-1) );
 			break;
 		default:
 			cur_char[0] = 0;
@@ -971,9 +971,9 @@ int len;
 			to_greek();
 /*
 			if( cur_device == VT100 )
-				sprintf(cur_char, "\033[m%s\033[0;1m" , tmp );
+				snprintf(cur_char,sizeof(cur_char),"\033[m%s\033[0;1m" , tmp );
 			else
-				sprintf(cur_char,"\17%s\16", tmp );
+				snprintf(cur_char,sizeof(cur_char),"\17%s\16", tmp );
 */
 			return;
 		}
@@ -1066,9 +1066,9 @@ fprintf(fout,"%s", newline );
 add_newline()
 {
 	if (newline) 
-		sprintf( cur_char , "%s", newline  );
+		snprintf( cur_char , sizeof(cur_char),"%s", newline  );
 	else
-		sprintf( cur_char , "\n" );
+		snprintf( cur_char , sizeof(cur_char),"\n" );
 	add_cur_char(0);
 }
 
@@ -1241,7 +1241,7 @@ int ind;
 			ind = tsigma;
 	}
 
-	sprintf(cur_char,"%s", tab[ind]  );
+	snprintf(cur_char,sizeof(cur_char),"%s", tab[ind]  );
 }
 
 end_of_word( s )
@@ -1288,7 +1288,7 @@ int c;
 
 to_bold_greek()
 {
-	sprintf(cur_char, esc_tbgreek );
+	snprintf(cur_char,sizeof(cur_char),esc_tbgreek );
 	add_cur_char(0);
 	cur_font = GREEK;
 }
@@ -1369,7 +1369,7 @@ text_symbol()
 	if( ret <= 0 )
 		my_trim( text_buf );
 	dump_bufs();
-	sprintf(cur_char," "); /* just print a blank space */
+	snprintf(cur_char,sizeof(cur_char)," "); /* just print a blank space */
 	add_cur_char(-1);
 	skip_num_arg();
 	sync_source(cur_len);
@@ -1391,7 +1391,7 @@ tab_nquarter_spaces()
 	sync_source(cur_len);
 
 	for(i=screen_pos;i<len;i++) {
-		sprintf(cur_char," ");
+		snprintf(cur_char,sizeof(cur_char)," ");
 		add_cur_char(1);
 	}
 	

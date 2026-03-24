@@ -61,11 +61,11 @@ void MorphPathName(char *shorts, char *full)
 	}
 	
 	if( cur_lang() == LATIN ) 
-		sprintf(full,"%s/Latin/%s", s , shorts );
+		snprintf(full,BUFSIZ,"%s/Latin/%s", s , shorts );
 	else if ( cur_lang() == ITALIAN ) 
-		sprintf(full,"%s/Italian/%s", s , shorts );
+		snprintf(full,BUFSIZ,"%s/Italian/%s", s , shorts );
 	else
-		sprintf(full,"%s/Greek/%s", s , shorts );
+		snprintf(full,BUFSIZ,"%s/Greek/%s", s , shorts );
 	
  	/*
  	 * this checks to make keep compatibility with the Mac
@@ -98,7 +98,7 @@ void SysFolderFile(char *fullname, char *shorts)
  	GetVol((StringPtr)vName,&vRefNum);
  	PtoCstr((StringPtr)vName);
 
- 	sprintf(fullname,"%s:[System Folder]:%s",volName, shorts );
+ 	snprintf(fullname,BUFSIZ,"%s:[System Folder]:%s",volName, shorts );
 #endif
 	
  	/*

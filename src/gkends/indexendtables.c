@@ -73,7 +73,7 @@ void indexendtables(Stemtype stype, int is_deriv)
 /*
 		printf("about to compile [%s]\n", curtable );
 */
-		sprintf(shortname,"%s%cout%c%s.out", dirp, DIRCHAR, DIRCHAR, curtable );
+		snprintf(shortname, sizeof(shortname), "%s%cout%c%s.out", dirp, DIRCHAR, DIRCHAR, curtable );
 
 		if(! (finput=MorphFopen(shortname,"rb"))) {
 			continue;
@@ -107,7 +107,7 @@ if(  ! *sp ) {
 				}
 				SprintGkFlags(&Gstr,tmp,":",0);
 			} else
-				sprintf(tmp,"%s\t%s", gkstring_of(&Gstr) , NameOfStemtype(stemtype_of(&Gstr) ) );
+				snprintf(tmp, sizeof(tmp), "%s\t%s", gkstring_of(&Gstr) , NameOfStemtype(stemtype_of(&Gstr) ) );
 
 /*
 			if( is_deriv && derivtype_of(&Gstr) ) {
@@ -146,7 +146,7 @@ printf("stype [%o]\n", stype );
 	else
 		basen = "nendind";
 		
-	sprintf(shortname,"%s%cindices%c%s", dirp, DIRCHAR, DIRCHAR , basen );
+	snprintf(shortname, sizeof(shortname), "%s%cindices%c%s", dirp, DIRCHAR, DIRCHAR , basen );
 
 printf("output file:%s\n", shortname );
 	if(! (foutput=MorphFopen(shortname,"w"))) {

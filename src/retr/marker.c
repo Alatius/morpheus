@@ -377,7 +377,7 @@ char *
         if( prnt_gkfield( &y_field , print_ref ) )
                 printed++;
         if( printed )
-                sprintf( print_ref , "%s%c", print_ref, delimc );
+                snprintf( print_ref + strlen(print_ref), MAXLIN - strlen(print_ref), "%c", delimc );
         if( z_field.ch >= 'p' )
                 return(0);
         prnt_gkfield( &z_field , print_ref );
@@ -411,20 +411,20 @@ char *
         char tmp[64];
 
         if( Gk->oddlabel[0] ) {
-                sprintf(tmp,"%c:\"%s\"", field, Gk->oddlabel );
+                snprintf(tmp,sizeof(tmp),"%c:\"%s\"", field, Gk->oddlabel );
                 strcat( s , tmp );
                 return(0);
         }
         if( Gk->ch ) {
                 if( Gk->num ) 
-                        sprintf(tmp,"%c\"%d%c\"", field , Gk->num , Gk->ch );
+                        snprintf(tmp,sizeof(tmp),"%c\"%d%c\"", field , Gk->num , Gk->ch );
                 else
-                        sprintf(tmp,"%c\"%c\"", field , Gk->ch );
+                        snprintf(tmp,sizeof(tmp),"%c\"%c\"", field , Gk->ch );
                 strcat( s , tmp );
                 return(0);
         }
         if( Gk->num ) {
-                sprintf(tmp,"%c%d", field , Gk->num );
+                snprintf(tmp,sizeof(tmp),"%c%d", field , Gk->num );
                 strcat( s , tmp );
                 return(0);
         }
@@ -565,16 +565,16 @@ char *
                 return( 1 );
         }
         if( S->num ) {
-                sprintf(s,"%s%d", s , S->num );
+                snprintf(s + strlen(s), MAXLIN - strlen(s), "%d", S->num );
                 if( S->ch ) {
-                        sprintf(s,"%s%c", s , S->ch );
+                        snprintf(s + strlen(s), MAXLIN - strlen(s), "%c", S->ch );
                         return( 1 );
                 }
 
                 return( 1 );
         }
         if( S->ch ) {
-                sprintf(s,"%s%c", s , S->ch );
+                snprintf(s + strlen(s), MAXLIN - strlen(s), "%c", S->ch );
                 return( 1 );
         }
         return( 0 );
@@ -597,20 +597,20 @@ char *
         }
 
         if( S->oddlabel[0] ) {
-                sprintf( s , "%s\"%s\"", s , S->oddlabel );
+                snprintf( s + strlen(s), MAXLIN - strlen(s), "\"%s\"", S->oddlabel );
                 return( 1 );
         }
-                
+
         if( S->num ) {
                 if( S->ch ) {
-                        sprintf(s,"%s\"%d%c\"", s , S->num , S->ch );
+                        snprintf(s + strlen(s), MAXLIN - strlen(s), "\"%d%c\"", S->num , S->ch );
                         return( 1 );
                 }
-                sprintf(s,"%s%d", s , S->num );
+                snprintf(s + strlen(s), MAXLIN - strlen(s), "%d", S->num );
                 return( 1 );
         }
         if( S->ch ) {
-                sprintf(s,"%s\"%c\"", s , S->ch );
+                snprintf(s + strlen(s), MAXLIN - strlen(s), "\"%c\"", S->ch );
                 return( 1 );
         }
         return( 0 );

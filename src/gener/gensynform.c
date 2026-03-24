@@ -559,7 +559,7 @@ dialect_of(ends_gstr_of(gkform+i) ));
 			Xstrncat(linebuf,"& ",sizeof linebuf);
 	} else {
 		char tmp[LONGSTRING];
-		sprintf(tmp,"$%s, &%s ", workword_of(gkform) , NameOfStemtype(stemtype_of(gkform)) );
+		snprintf(tmp,sizeof(tmp),"$%s, &%s ", workword_of(gkform) , NameOfStemtype(stemtype_of(gkform)) );
 		if( derivtype_of(gkform) ) {
 			Xstrncat(tmp,NameOfDerivtype(derivtype_of(gkform)),sizeof tmp);
 			Xstrncat(tmp," ",sizeof tmp);
@@ -618,7 +618,7 @@ dialect_of(ends_gstr_of(gkform+i) ));
 	if( Has_crasis(Gkword) ) {
 		char tmp[MAXWORDSIZE];
 		
-		sprintf(tmp," crasis $%s& ", crasis_of(Gkword) );
+		snprintf(tmp,sizeof(tmp)," crasis $%s& ", crasis_of(Gkword) );
 		Xstrncat(linebuf, tmp,sizeof linebuf );
 	}
 	dialbuf[0] = 0;

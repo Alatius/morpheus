@@ -38,13 +38,13 @@ char * argv[];
 		exit(-1);
 	}
 */	
-	sprintf(outfile,"%s.out", filename );
+	snprintf(outfile,sizeof(outfile),"%s.out", filename );
 	if( (fout=fopen(outfile,"w")) == NULL) {
 		fprintf(stderr,"could not open [%s]\n", outfile );
 		exit(-1);
 	}
 
-	sprintf(outfile,"%s.needs", filename );
+	snprintf(outfile,sizeof(outfile),"%s.needs", filename );
 	if( (fneed=fopen(outfile,"w")) == NULL) {
 		fprintf(stderr,"could not open [%s]\n", outfile );
 		exit(-1);

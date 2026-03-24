@@ -546,7 +546,7 @@ char * fname;
 {
 	char tmp[256];
 
-	sprintf(tmp,"nota_bene %s\n", fname );
+	snprintf(tmp,sizeof(tmp),"nota_bene %s\n", fname );
 	system( tmp );
 }
 

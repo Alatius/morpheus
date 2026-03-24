@@ -192,7 +192,7 @@ typedef struct {
  */
 #define ZEROEND 	'*'
 #define Is_zeroend(X) ((X) == ZEROEND)
-#define set_zeroend( gs ) sprintf(endstring_of(gs),"%c", ZEROEND )
+#define set_zeroend( gs ) snprintf(endstring_of(gs), sizeof(endstring_of(gs)), "%c", ZEROEND )
 
 gk_string * CreatGkString(int);
 gk_word * CreatGkword(int);

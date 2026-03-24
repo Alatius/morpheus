@@ -286,7 +286,7 @@ int init_scache(void)
 	if( !(scache=(Stemcache *)calloc((size_t)1,(size_t)sizeof * scache))) {
 		char errmess[LONGSTRING];
 		
-		sprintf(errmess,"could not init scache\n");
+		snprintf(errmess,sizeof(errmess),"could not init scache\n");
 		ErrorMess(errmess);
 		cacheflag = 0;
 		return(0);
@@ -295,7 +295,7 @@ int init_scache(void)
 	if( ! scache->citem ) {
 		char errmess[LONGSTRING];
 		
-		sprintf(errmess,"could not init scache->item\n");
+		snprintf(errmess,sizeof(errmess),"could not init scache->item\n");
 		ErrorMess(errmess);
 		cacheflag = 0;
 		return(0);
@@ -421,7 +421,7 @@ FILE *
 	Xstrncpy(shorttag,lemma,MAXWORDSIZE);
 	stripquant(shorttag);
 
-	sprintf(curtarget,":le:%s", shorttag );
+	snprintf(curtarget,sizeof(curtarget),":le:%s", shorttag );
 
 	while(1) {
 		char curlemm[MAXWORDSIZE];

@@ -193,7 +193,7 @@ int do_simpnom(char* stem,char* gend)
 		if(!strcmp(gend,"<gen>to/</gen>")) strcpy(curg,"neut");
 		else strcpy(curg,"masc");
 
-		sprintf(tmptags,"os_ou suff_acc %s", curg );
+		snprintf(tmptags,sizeof(tmptags),"os_ou suff_acc %s", curg );
 		dump_nom(stem,3,tmptags);
 		return(1);
 	}
@@ -246,7 +246,7 @@ int do_simpnom(char* stem,char* gend)
 
 		strcpy(curg,"masc");
 		
-		sprintf(tmptags,"hs_ou %s", curg );
+		snprintf(tmptags,sizeof(tmptags),"hs_ou %s", curg );
 		checkaccent(stem,&syllno,&curacc);
 		if( nsylls(stem)>2 && syllno == PENULT ) {
 			strcat(tmptags, " stem_acc");
@@ -307,7 +307,7 @@ int do_simpnom(char* stem,char* gend)
 		if(!strcmp(gend,"<gen>h(</gen>")) strcpy(curg,"fem");
 		else strcpy(curg,"masc");
 		
-		sprintf(tmptags,"os_ou %s", curg );
+		snprintf(tmptags,sizeof(tmptags),"os_ou %s", curg );
 		checkaccent(stem,&syllno,&curacc);
 		if( nsylls(stem)>2 && syllno == PENULT ) {
 			strcat(tmptags, " stem_acc");
@@ -829,7 +829,7 @@ void dump_acc_nom(char * stem,int trunc,char * tag)
 
 	checkaccent(tmpstem,&syllno,&curacc);
 	if( syllno == ULTIMA ) {
-		sprintf(tmptag,"%s stem_acc", tag );
+		snprintf(tmptag,sizeof(tmptag),"%s stem_acc", tag );
 		dump_nom(stem,trunc,tmptag);
 	} else
 		dump_nom(stem,trunc,tag);

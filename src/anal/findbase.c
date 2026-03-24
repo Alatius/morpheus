@@ -40,15 +40,15 @@ void check_ew(char *p)
 	/*if(isspace(*s) && s!=p) s--;*/
 	*s = 0;
 
-	sprintf(curbase,"%sh", workstem );
+	snprintf(curbase,sizeof(curbase),"%sh", workstem );
 	rval = chckstem(curbase,stemkeys,1);
 	if(rval) printf("%s %s", curbase,stemkeys );
 
-	sprintf(curbase,"%sht", workstem );
+	snprintf(curbase,sizeof(curbase),"%sht", workstem );
 	rval = chckstem(curbase,stemkeys,1);
 	if(rval) printf("%s %s", curbase,stemkeys );
 
-	sprintf(curbase,"%shs", workstem );
+	snprintf(curbase,sizeof(curbase),"%shs", workstem );
 	rval = chckstem(curbase,stemkeys,1);
 	if(rval) printf("%s %s", curbase,stemkeys );
 }

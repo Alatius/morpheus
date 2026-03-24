@@ -32,7 +32,7 @@ GetCurrentEndList(gk_string *gstr, int *lnump)
 		return(CurEndList);
 	}
 
-	sprintf(fname,"%s/out/%s.out", ENDTABLEDIR , NameOfStemtype(stemtype_of(gstr)) );
+	snprintf(fname, sizeof(fname), "%s/out/%s.out", ENDTABLEDIR , NameOfStemtype(stemtype_of(gstr)) );
 
 	if( (f=MorphFopen(fname,"rb")) == NULL ) {
 		fprintf(stderr,"stemtype %o, could not open %s\n", stemtype_of(gstr), fname );

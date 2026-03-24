@@ -64,7 +64,7 @@ int DoConjStem(FILE *fout, char *derivstr, gk_string *gstr, char *suffstr, Stemt
 	gk_string CurGstr;
 	int gotstem = 0;
 
-	sprintf(derivfile,"derivs:out:%s.out", derivstr);
+	snprintf(derivfile,sizeof(derivfile),"derivs:out:%s.out", derivstr);
 
 	if( (fderiv=MorphFopen(derivfile,"rb")) == NULL ) {
 		fprintf(stderr,"could not open [%s] for %s\n", derivfile, derivstr );
@@ -160,7 +160,7 @@ ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *od
 	if( * globalkeys ) {
 		char tmp[LONGSTRING];
 		
-		sprintf(tmp,"%s %s", globalkeys , keytmp);
+		snprintf(tmp,sizeof(tmp),"%s %s", globalkeys , keytmp);
 		strcpy(keytmp,tmp);
 	}
 

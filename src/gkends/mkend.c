@@ -119,7 +119,7 @@ static void mk_compend(gk_string *Have, gk_string *Avoid, char *curstr, char *en
 	gk_string TmpHave;
 	gk_string TmpAvoid;
 
-	sprintf(line,"endtables/basics/%s.end",  endtype );
+	snprintf(line, sizeof(line), "endtables/basics/%s.end",  endtype );
 
 	if( ! (f=MorphFopen(line,"r")) ) {
 		fprintf(stderr,"could not open [%s]\n", endtype );

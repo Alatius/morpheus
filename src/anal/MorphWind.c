@@ -704,7 +704,7 @@ fflush(flog);
 #endif
 
 		if( (**te).teLength > 30000 ) {
-			sprintf(tmp,"Hey! This window almost full. Save contents and start a new one!\r");
+			snprintf(tmp,sizeof(tmp),"Hey! This window almost full. Save contents and start a new one!\r");
 			TEInsert(tmp,(long)strlen(tmp),te);
 		}
 
@@ -735,11 +735,11 @@ fflush(flog);
 				
 				printf("%d %d %s X %2.2f\n", ++nwords, nhits, betastring ,
 				(float)nhits/(float)nwords);
-				sprintf(failmess,"&Could not understand $[%s]& \r\r", betastring);
+				snprintf(failmess,sizeof(failmess),"&Could not understand $[%s]& \r\r", betastring);
 				beta2smarta(failmess,tmpfail);
 				printdump(tmpfail);
 			} else {
-				sprintf(failmess,"&Could not understand $[%s]& \r\r", betastring);
+				snprintf(failmess,sizeof(failmess),"&Could not understand $[%s]& \r\r", betastring);
 				beta2smarta(failmess,tmpfail);
 				TEInsert(tmpfail,(long)strlen(tmpfail),te);
 			}

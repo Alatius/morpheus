@@ -51,9 +51,9 @@ int main(int argc, char *argv[])
 	}
 
 	if( fullconj )
-		sprintf(outfile,"%s.fat", filename );
+		snprintf(outfile,sizeof(outfile),"%s.fat", filename );
 	else
-		sprintf(outfile,"%s.short", filename );
+		snprintf(outfile,sizeof(outfile),"%s.short", filename );
 	if( (fout=fopen(outfile,"w")) == NULL) {
 		fprintf(stderr,"could not open [%s]\n", outfile );
 		exit(-1);

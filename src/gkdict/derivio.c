@@ -403,7 +403,7 @@ int checkcomderiv2(char *asuffkeys, char *dstem, char *dstemkeys, char *suffix, 
 		
 		}
 		
-		if( markedstem ) sprintf(stembuf,"%s%s",dstem,tmpdsuff );
+		if( markedstem ) snprintf(stembuf,MAXWORDSIZE,"%s%s",dstem,tmpdsuff );
 		else stembuf[0] = 0;
 		
 		while(*s) {
@@ -472,7 +472,7 @@ printf("curstemkyes [%s] %o\n", tmp1 , has_morphflag(morphflags_of(gstr),R_E_I_A
 			
 			sprintf(tmp2,"%s:%s%s", ((*had_redupl) ? dstem : stembuf), lemma , tmp1);
 */
-			sprintf(tmp2,"%s:%s%s",  stembuf, lemma , tmp1);
+			snprintf(tmp2,sizeof(tmp2),"%s:%s%s",  stembuf, lemma , tmp1);
 /*
 printf("success on [%s] and [%s]\n", derivsuff, dstemkeys );
 printf("about to add [%s]\n", tmp2 );

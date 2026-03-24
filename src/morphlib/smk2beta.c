@@ -176,10 +176,10 @@ printf("%d) Xlit_table [%s]\n", Beta_SMK[i].keycode , Xlit_table[Beta_SMK[i].key
 	
 	for(i=0;i<256;i++) {
 		if( ! *Xlit_table_smk[i] ) {
-			sprintf(Xlit_table_smk[i] , "%c", i );
+			snprintf(Xlit_table_smk[i] , sizeof(Xlit_table_smk[i]), "%c", i );
 		}
 		if( ! *Xlit_table_smarta[i] ) {
-			sprintf(Xlit_table_smarta[i] , "%c", i );
+			snprintf(Xlit_table_smarta[i] , sizeof(Xlit_table_smarta[i]), "%c", i );
 		}
 	}
 

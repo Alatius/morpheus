@@ -36,7 +36,7 @@ void PrntAWord(gk_word *gkform, gk_word *Gkword, char *lemma, FILE *fout)
 
 	buf[0] = res[0] = 0;
 
-	sprintf(buf,"$%s& ", workword_of(gkform));
+	snprintf(buf,sizeof(buf),"$%s& ", workword_of(gkform));
 	
 printf("geog [%o]\n", geogregion_of(gkform) );
 
@@ -45,7 +45,7 @@ printf("geog [%o]\n", geogregion_of(gkform) );
 	if( Has_crasis(gkform)) {
 		char tmp[MAXWORDSIZE];
 		
-		sprintf(tmp,"$%s& ", crasis_of(Gkword) ) ;
+		snprintf(tmp,sizeof(tmp),"$%s& ", crasis_of(Gkword) ) ;
 		Xstrncat(buf,tmp,BUFSIZ);
 	}
 	
@@ -62,7 +62,7 @@ void PrntAGstr(gk_string *gstr, FILE *fout)
 	char res[512];
 
 	buf[0] = res[0] = 0;
-	sprintf(buf,"$%s& ", gkstring_of(gstr));
+	snprintf(buf,sizeof(buf),"$%s& ", gkstring_of(gstr));
 	SprintGkFlags(gstr,buf," ",1);
 
 	beta2smarta(buf,res);

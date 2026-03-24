@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 			exit(-1);
 		} 
 
-		sprintf(outfile,"%s.out", argv[1] );
+		snprintf(outfile,sizeof(outfile),"%s.out", argv[1] );
 		if( (fout=fopen(outfile,"w")) == NULL) {
 			fprintf(stderr,"could not open [%s]\n", outfile );
 			exit(-1);

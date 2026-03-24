@@ -166,7 +166,7 @@ static char  *
                         break;
                 SetTlgAuthor( field , tauth );
                 }
-        sprintf(tauth->tlgbasename,"%s/%s", tauth->tlgauthdir , tauth->tlgsname );
+        snprintf(tauth->tlgbasename,sizeof(tauth->tlgbasename),"%s/%s", tauth->tlgauthdir , tauth->tlgsname );
 }
 
 
@@ -261,7 +261,7 @@ static
 {
 #if  MACINTOSH
 #else
-        sprintf(dbasdir,"%s", getenv( "DBASDIR" ) );
+        snprintf(dbasdir,sizeof(dbasdir),"%s", getenv( "DBASDIR" ) );
 #endif
 
 }

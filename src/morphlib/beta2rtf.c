@@ -23,8 +23,8 @@ void _main(int argc, char *argv[])
 	(void)argc;
 	
 	
-	sprintf(basename,"%s", argv[1]);
-	sprintf(outfname,"%s.rtf", basename );
+	snprintf(basename, sizeof(basename), "%s", argv[1]);
+	snprintf(outfname, sizeof(outfname), "%s.rtf", basename );
 	if( ! (fout=fopen(outfname,"w")) ) {
 		fprintf(stderr,"could not open [%s]\n", outfname );
 		exit(-1);

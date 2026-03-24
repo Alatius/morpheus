@@ -59,14 +59,14 @@ void expendtables(char *tabname, int maintable, int formcode)
 		if( formcode == DODERIV ) {
 			
 			add_morphflag(morphflags_of(&TmpGstr),IS_DERIV);
-			sprintf(shortname,"%s.deriv", fname );
+			snprintf(shortname, sizeof(shortname), "%s.deriv", fname );
 			if(! (finput=fopen(shortname,"r"))) {
-				sprintf(shortname,"derivs%csource%c%s.deriv",  DIRCHAR, DIRCHAR, fname );
+				snprintf(shortname, sizeof(shortname), "derivs%csource%c%s.deriv",  DIRCHAR, DIRCHAR, fname );
 				if(! (finput=MorphFopen(shortname,"r"))) {
 					printf("could not open [%s.deriv] or [%s]\n", fname,  shortname );
 					return;
 				}
-			sprintf(shortname,"%s%cout%c%s.out", DERIVTABLEDIR,DIRCHAR, DIRCHAR, fname );
+			snprintf(shortname, sizeof(shortname), "%s%cout%c%s.out", DERIVTABLEDIR,DIRCHAR, DIRCHAR, fname );
 			}
 		} else {
 			gk_word * TmpGkword;
@@ -77,15 +77,15 @@ void expendtables(char *tabname, int maintable, int formcode)
 			
 			stype = stemtype_of(&TmpGstr);
 
-			sprintf(shortname,"%s.end", fname );
+			snprintf(shortname, sizeof(shortname), "%s.end", fname );
 			if(! (finput=fopen(shortname,"r"))) {
-				sprintf(shortname,"endtables%csource%c%s.end",  DIRCHAR, DIRCHAR, fname );
+				snprintf(shortname, sizeof(shortname), "endtables%csource%c%s.end",  DIRCHAR, DIRCHAR, fname );
 				if(! (finput=MorphFopen(shortname,"r"))) {
 					printf("could not open [%s.end] or [%s]\n", fname,  shortname );
 					return;
 				}
 			}
-			sprintf(shortname,"%s%cout%c%s.out", ENDTABLEDIR,DIRCHAR, DIRCHAR, fname );
+			snprintf(shortname, sizeof(shortname), "%s%cout%c%s.out", ENDTABLEDIR,DIRCHAR, DIRCHAR, fname );
 		}
 			
 	
@@ -155,7 +155,7 @@ fprintf(stderr,"basenam [%s] line [%s]\n", basename , line );
 			fclose(foutput);
 	}
 	
-	sprintf(shortname,"%s%cascii%c%s.asc", formcode == DODERIV? DERIVTABLEDIR : ENDTABLEDIR,DIRCHAR, DIRCHAR, fname );
+	snprintf(shortname, sizeof(shortname), "%s%cascii%c%s.asc", formcode == DODERIV? DERIVTABLEDIR : ENDTABLEDIR,DIRCHAR, DIRCHAR, fname );
 printf("%s\n", shortname );
 	if( (foutput=MorphFopen(shortname,"w")) == NULL ) {
 		fprintf(stderr,"Could not open [%s]\n", shortname );

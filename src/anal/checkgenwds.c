@@ -244,7 +244,7 @@ int AddAnalysis(gk_word *Gkword, gk_word *gkform)
 		char tmphalf1[MAXWORDSIZE];
 		tmphalf1[0] = tmplem[0] = cmplem[0] = 0;
 		
-		sprintf(tmplem,"%s-%s", preverb_of(gkform) , lemma_of(gkform));
+		snprintf(tmplem,sizeof(tmplem),"%s-%s", preverb_of(gkform) , lemma_of(gkform));
 		for(;;) {
 			/*
 			 * grc 6/12/94

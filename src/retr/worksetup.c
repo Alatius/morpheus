@@ -278,7 +278,7 @@ static char  SCCSID[] = "@(#)worksetup.c	2.1  9/26/87";
  */
 	if ( swk->wkname[0] == '\0' )  {
 		strcpy( swk->wkname, "wk" );
-		sprintf( swk->wkname+2, "%03d", swk->wknum );
+		snprintf( swk->wkname+2, sizeof(swk->wkname)-2, "%03d", swk->wknum );
 	}
 }
 

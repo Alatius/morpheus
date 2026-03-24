@@ -68,7 +68,7 @@ void countendtables(Stemtype stype, int is_deriv)
 	/*
 		printf("about to compile [%s]\n", curtable );
 	*/
-		sprintf(shortname,"%s%cout%c%s.out", dirp, DIRCHAR, DIRCHAR, curtable );
+		snprintf(shortname, sizeof(shortname), "%s%cout%c%s.out", dirp, DIRCHAR, DIRCHAR, curtable );
 
 		if(! (finput=MorphFopen(shortname,"rb"))) {
 			continue;

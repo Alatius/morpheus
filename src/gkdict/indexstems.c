@@ -264,7 +264,7 @@ fprintf(stderr,"out of qsort\n");
 	if(! (foutput=MorphFopen(file,"w"))) {
 		char tmp[256];
 		
-		sprintf(tmp,"Could not open %s!", file );
+		snprintf(tmp,sizeof(tmp),"Could not open %s!", file );
 		ErrorMess(tmp);
 		return;
 	}
@@ -462,14 +462,14 @@ printf("numovable is [%s]\n", gkstring_of(&TmpGstr));
 	}
 
 
-	sprintf(tmp,"%s%s %s:%s", prefix , curstem, markedstem , curlemma );
+	snprintf(tmp,sizeof(tmp),"%s%s %s:%s", prefix , curstem, markedstem , curlemma );
 	SprintGkFlags(gstr,tmp,":",0);
 	if( *preverb ) {
 		char tmp2[128];
 		if( has_morphflag(morphflags_of(gstr),ROOT_PREVERB ) ) 
-			sprintf(tmp2,":rpb:%s:", preverb);
+			snprintf(tmp2,sizeof(tmp2),":rpb:%s:", preverb);
 		else
-			sprintf(tmp2,":pb:%s:", preverb);
+			snprintf(tmp2,sizeof(tmp2),":pb:%s:", preverb);
 		
 		strcat(tmp,tmp2);
 	}

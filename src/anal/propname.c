@@ -299,9 +299,9 @@ int checkposs(FILE *fout, char *xlit, char *curs, char *fulls, char *stems, char
 			strcpy(tmpxlit,xlit);
 			strcat(tmpxlit,Nom_tab[i].suffix);
 			if( is_propname(tmpxlit) ) {
-				sprintf(tmpkeys,"%s", Nom_tab[i].keys );
+				snprintf(tmpkeys,sizeof(tmpkeys),"%s", Nom_tab[i].keys );
 				rval = stem_can_work(tmpxlit,fulls, tmpstem, ends, Nom_tab[i].stype, tmpkeys );
-/*			
+/*
 				sprintf(stemkeys,"%s %s %s %s",tmpxlit, tmpstem, Nom_tab[i].stype, Nom_tab[i].keys );
 				subchar(stemkeys,' ',':');
 				set_stem(Gkword,tmpstem);
@@ -311,16 +311,16 @@ int checkposs(FILE *fout, char *xlit, char *curs, char *fulls, char *stems, char
 				rval = checkdict(Gkword,curstem,stemkeys );
 */
 				if( ! rval ) {
-					sprintf(tmpkeys,"%s suff_acc", Nom_tab[i].keys );
+					snprintf(tmpkeys,sizeof(tmpkeys),"%s suff_acc", Nom_tab[i].keys );
 					rval = stem_can_work(tmpxlit, fulls,tmpstem, ends, Nom_tab[i].stype, tmpkeys );
 				}
 				if( ! rval ) {
-					sprintf(tmpkeys,"%s stem_acc", Nom_tab[i].keys );
+					snprintf(tmpkeys,sizeof(tmpkeys),"%s stem_acc", Nom_tab[i].keys );
 					rval = stem_can_work(tmpxlit, fulls,tmpstem, ends, Nom_tab[i].stype, tmpkeys );
 				}
 				if( rval && is_propname(tmpxlit) == 1 ) {
 					/*fprintf(fout,":ns:%s %s %s %s\n", tmpxlit,  tmpstem, Nom_tab[i].stype, tmpkeys );*/
-					sprintf(tbuf,"%s :ns:%s %s %s %s\n", fulls, tmpxlit, tmpstem, Nom_tab[i].stype, tmpkeys );
+					snprintf(tbuf,sizeof(tbuf),"%s :ns:%s %s %s %s\n", fulls, tmpxlit, tmpstem, Nom_tab[i].stype, tmpkeys );
 					strcat(possbuf,tbuf);
 /*
 					printf("%s %s %s %s\n", tmpxlit,  tmpstem, Nom_tab[i].stype, tmpkeys );
@@ -349,7 +349,7 @@ int stem_can_work(char *englem, char *fulls, char *stem, char *ends, char *stype
 	curstem = CreatGkString(1);
 	stemkeys[0] = 0;
 
-	sprintf(stemkeys,"%s %s %s %s",englem, stem, stype, keys );
+	snprintf(stemkeys,sizeof(stemkeys),"%s %s %s %s",englem, stem, stype, keys );
 	subchar(stemkeys,' ',':');
 	set_stem(Gkword,stem);
 	set_endstring(Gkword,ends);

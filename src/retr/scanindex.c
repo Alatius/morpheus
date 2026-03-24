@@ -551,7 +551,7 @@ static
         if( ! authtab[ n ][ 0 ]  ) {
                 char mess[MAXMESS];
 
-                sprintf(mess,"no author listed under %d", n );
+                snprintf(mess,sizeof(mess),"no author listed under %d", n );
                 prerror(mess);
                 return( ERROR );
         }
@@ -582,7 +582,7 @@ static
         }
         if( OpDbaslist(BIGINDNAME) <= 0 ) {
 
-                sprintf(mess,"authsetup: could not open %s/dbaslist\n",
+                snprintf(mess,sizeof(mess),"authsetup: could not open %s/dbaslist\n",
                         TlgAuthDirectory(BIGINDNAME) );
                 prerror(mess);
                 return( ERROR );
@@ -596,7 +596,7 @@ static
                 if( c == EOF )
                         break;
                 if( c != 2 ) {
-                        sprintf(mess,"authsetup:read in %d args!\n", c );
+                        snprintf(mess,sizeof(mess),"authsetup:read in %d args!\n", c );
                         prerror(mess);
                         return(ERROR);
                 }

@@ -543,7 +543,7 @@ char * fname;
 {
 	char tmp[256];
 
-	sprintf(tmp,"ileaf %s\n", fname );
+	snprintf(tmp,sizeof(tmp),"ileaf %s\n", fname );
 	system( tmp );
 }
 

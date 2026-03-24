@@ -116,8 +116,8 @@ int main(int argc, char *argv[])
 	fstats = ffailed = stderr;
       } else {
 	strcpy(outname,optarg);
-	sprintf(failedname,"%s.failed",outname);
-	sprintf(statsname,"%s.stats",outname);
+	snprintf(failedname,sizeof(failedname),"%s.failed",outname);
+	snprintf(statsname,sizeof(statsname),"%s.stats",outname);
 printf("outname [%s]\n", outname );
       }
       break;
@@ -138,14 +138,14 @@ printf("outname [%s]\n", outname );
     
     if (optind >= argc) {
       if (outname[0] == '\0') {
-	sprintf(outname,"%s.morph",fname);
-	sprintf(failedname,"%s.failed",fname);
-	sprintf(statsname,"%s.stats",fname);
+	snprintf(outname,sizeof(outname),"%s.morph",fname);
+	snprintf(failedname,sizeof(failedname),"%s.failed",fname);
+	snprintf(statsname,sizeof(statsname),"%s.stats",fname);
       }
 fprintf(stdout,"files: [%s] [%s]\n", outname, failedname);
     } else {
       strcpy(destPath,argv[optind]);
-      sprintf(outname,"%s%c%s.morph",destPath, PATH_SEP, fname);
+      snprintf(outname,sizeof(outname),"%s%c%s.morph",destPath, PATH_SEP, fname);
     }
     
     fprintf(stderr,"Input: %s\nOutput: %s\n",inpname,outname);

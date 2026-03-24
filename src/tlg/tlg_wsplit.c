@@ -189,7 +189,7 @@ printf("toocommon(%s) %d\n", outline , toocommon(outline) );
 			{
 			sawchar = 0;
 			zap2ndacc(outline);
-			sprintf(outline, "%s\t%0.8ld\n", outline , start );
+			snprintf(outline + strlen(outline), sizeof(outline) - strlen(outline), "\t%0.8ld\n", start );
 			if( broken ) {
 				if( worthit( outline ) ) 
 					fprintf(fbroken, "%s",outline );
@@ -533,7 +533,7 @@ tabsetup()
 		return(-1);
 	}
 
-	sprintf(common,"%s/common.sort", libp );
+	snprintf(common,sizeof(common),"%s/common.sort", libp );
 
 	if( (f=fopen(common,"r"))==NULL) {
 		fprintf(stderr,"could not open %s\n", common );

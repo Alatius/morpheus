@@ -43,7 +43,7 @@ printf("%d) Xlit_table [%s]\n", Beta_SMK[i].keycode , Xlit_table[Beta_SMK[i].key
 		
 	for(i=0;i<256;i++) {
 		if( ! Xlit_table[i][0] )
-			sprintf(Xlit_table[i] , "%c", i );
+			snprintf(Xlit_table[i] , sizeof(Xlit_table[i]), "%c", i );
 	}
 
 }

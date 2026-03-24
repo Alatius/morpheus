@@ -24,7 +24,7 @@ init_preind(char *fname, int *maxkeys)
 	char tmp[LONGSTRING];
 
 
-	sprintf(tmp,"%s.%s", fname , LINDEXSUFFIX );
+	snprintf(tmp, sizeof(tmp), "%s.%s", fname , LINDEXSUFFIX );
 	
 	if( (f=MorphFopen(tmp,"rb"))==NULL) {
 		fprintf(stderr,"init_preind: could not open %s\n", tmp );
