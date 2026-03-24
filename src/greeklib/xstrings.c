@@ -6,34 +6,12 @@
 
 int Xstrncpy(char *s1, const char *s2, size_t len)
 {
-(void)len;
-memmove(s1,s2,strlen(s2)+1);
-return(1);
-}
-	
-int Ystrncpy(char *s1, const char *s2, size_t len)
-{
-	if( Xstrlen(s2) >= len ) {
-		char * p;
-		if( len  < 5 || len > BUFSIZ*4 ) {
-			fprintf(stderr,"Xstrncpy: hey! len %zu for [%s] \n", len, s2 );
-		}
-
-		
-		p = (char *)malloc((size_t)(len+1));
-		if( ! p ) {
-			fprintf(stderr,"could not allocate %zu byte buf in Xstrncpy!\n", len+1);
-			*s1 = 0;
-			return(0);
-		}
-		strncpy(p,s2,(size_t)len);
-		*(p+len-1) = 0;
-		strcpy(s1,p);
-		xFree(p,"Xstrncpy buffer");
-		fprintf(stderr,"%d bytes into %zu:%s\n", Xstrlen(s2), len ,s2);
-	} else
-		strcpy(s1,s2);
-	return(1);
+	if (len == 0) return 1;
+	size_t slen = strlen(s2);
+	if (slen >= len) slen = len - 1;
+	memmove(s1, s2, slen);
+	s1[slen] = '\0';
+	return 1;
 }
 
 
