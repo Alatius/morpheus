@@ -230,7 +230,7 @@ init_endind(char *fname, endind *etags)
 	return(etags);
 }
 
-int checkendind(endind *etags, char *endstr, char *keys, int (*scmp)())
+int checkendind(endind *etags, char *endstr, char *keys, int (*scmp)(const char *, const char *, size_t))
 {
 	int high = 0;
 	int low = 0;

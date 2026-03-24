@@ -1,4 +1,4 @@
-%option noyywrap main
+%option noyywrap main nounput noinput
 
 %{
 #include <ctype.h>
@@ -95,9 +95,7 @@ void set_lemma()
 
 void doderiv(char * tag,int trimn)
 {
-	unsigned char *t;
-
-
+	(void)trimn;
 	if( orthstem[0] ) printf("\north: [%s] [%s]\n", stem, orthstem);
 	orthstem[0] = 0;
 	printf("\n:le:%s\n", lemma );
@@ -128,7 +126,7 @@ printf("\nstem:[%s] + [%s] = [%s]\n", stem , yytext+6, orthstem );
 
 void doverb(char * vtag, int trimn )
 {
-
+	(void)trimn;
 	printf("\n:le:%s\n", lemma );
 	printf(":vs:%s\t%s\n", stem, vtag );
 }

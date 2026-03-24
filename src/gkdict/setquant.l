@@ -1,4 +1,4 @@
-%option noyywrap main
+%option noyywrap main nounput noinput
 
 %{
 #include <ctype.h>
@@ -25,7 +25,6 @@ void addquant(char *s, int c);
 
 void set_quant()
 {
-	char cmps[BUFSIZ];
 	char * s;
 	int curquant = 0;
 
@@ -89,6 +88,7 @@ int quantcmp(char *want,char * got,int curquant)
 
 int is_match(char *want, char *got,int curquant)
 {
+	(void)curquant;
 	int sawdiac  = 0;
 
 	while(*want) {

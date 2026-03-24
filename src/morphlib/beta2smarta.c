@@ -54,7 +54,6 @@ static int gktab[256];
 static int accenttab[256];
 static int gkinit = 0;
 static int cur_font = GREEK;
-char * greekfont(),  * romanfont();
 
 static void init_gktab(void)
 {

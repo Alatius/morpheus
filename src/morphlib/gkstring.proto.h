@@ -33,7 +33,7 @@ void PrntStemtype(Stemtype, FILE *);
 void PrntDialect(Dialect, FILE *);
 void AddDialect(Dialect, char *, char *);
 Dialect AndDialect(Dialect, Dialect);
-int xInsertGstr(gk_string *, gk_string *, int, int (*compare )(), int);
+int xInsertGstr(gk_string *, gk_string *, int, int (*compare)(gk_string *, gk_string *), int);
 int GetTableLine(char *, int, FILE *);
 int eq_forminfo(word_form, word_form);
 void SprintGkFlags(gk_string *, char *, char *, int);

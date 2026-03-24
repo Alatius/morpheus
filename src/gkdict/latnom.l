@@ -1,4 +1,4 @@
-%option noyywrap main
+%option noyywrap main nounput noinput
 
 %{
 #include <ctype.h>
@@ -183,7 +183,6 @@ void dump_nom(int trimn,char * stype,char *glab,char * nlab)
 void dump_ent(int trimn,char *etag,char * stype,char *glab,char * nlab)
 {
 
-	unsigned char * s;
 	char tmp[BUFSIZ];
 	int i;
 	
@@ -384,8 +383,6 @@ ECHO;
 
 int is_itype(unsigned char *s,unsigned char *ends)
 {
-	int n;
-
 	if( strcmp(s,curitype)) return(0);
 
 	if( ! * ends ) return(1);
@@ -534,7 +531,6 @@ void dump_form3(int n)
 
 void trimstem(unsigned char * curs, int trimn)
 {
-	int n;
 	unsigned char * s;
 
 	if( trimn > 0 ) {

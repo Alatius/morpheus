@@ -20,7 +20,6 @@ void _main(int argc, char *argv[])
 	char outfname[BUFSIZ];
 	 char *p;
 	FILE *fout = stdout;
-	long ftell();
 	(void)argc;
 	
 	

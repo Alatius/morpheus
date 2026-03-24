@@ -14,6 +14,7 @@
 #include "../morphlib/nextkey.proto.h"
 #include "../morphlib/numovable.proto.h"
 #include "../morphlib/setlang.proto.h"
+#include "../morphlib/morphpath.proto.h"
 #include "../greeklib/isblank.proto.h"
 #include "../greeklib/nsylls.proto.h"
 #include "../greeklib/xstrings.proto.h"
@@ -113,7 +114,6 @@ printf("no contr in: "); PrntGkStr(Have,stdout);
 static void mk_compend(gk_string *Have, gk_string *Avoid, char *curstr, char *endtype)
 {
 	FILE * f;
-	FILE * MorphFopen();
 	char line[BUFSIZ];
 	char savestem[MAXWORDSIZE];
 	gk_string TmpHave;

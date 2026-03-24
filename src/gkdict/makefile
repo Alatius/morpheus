@@ -13,7 +13,7 @@ CC=cc
 CC=gcc
 #CFLAGS= -O -I${INCLUDE}   -g
 #CFLAGS= -O -I${INCLUDE}   -Wstrict-prototypes   -Wmissing-prototypes
-CFLAGS= -O2 -I${INCLUDE}   -Wno-implicit-int   -Wno-implicit-function-declaration
+CFLAGS= -O2 -I${INCLUDE} -Wall -Wextra -Wno-pointer-sign -Wno-missing-braces -Wno-sign-compare -Wno-missing-field-initializers -Wno-incompatible-pointer-types
 LINTFLAGS= -I${INCLUDE} -DDEBUG
 RM=/bin/rm -f
 

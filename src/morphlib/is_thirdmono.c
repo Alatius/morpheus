@@ -6,6 +6,7 @@
 #include "../greeklib/nsylls.proto.h"
 #include "../greeklib/stripquant.proto.h"
 #include "../greeklib/xstrings.proto.h"
+#include "../greeklib/getsyll.proto.h"
 
 /*
  * do we have a third declension monosyllabic stem in the genitive or dative?
@@ -19,7 +20,6 @@ MorphFlags * morphflags;
 int is_thirdmono(gk_string *stemgstr, gk_string *endgstr, char *stem, char *endstring, word_form form_info, int is_ending)
 {
 	Stemtype stemtype = stemtype_of(stemgstr);
-	char * getsyll();
 
 	if( is_ending && ! *stem) return(0);
 /*

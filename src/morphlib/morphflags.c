@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "morphflags.proto.h"
+#include "morphkeys.proto.h"
 
 void add_morphflags(gk_string *gstr, MorphFlags * Flags)
 {
@@ -237,7 +238,7 @@ void xfer_prvbflags(MorphFlags *word_mf, MorphFlags *prvb_mf)
 
 void MorphNames(MorphFlags *mf, char *res, char *dels, int pretty)
 {
-	char * s, * NameOfMorphFlags();
+	char *s;
 	long i;
 	long j;
 	long curnum;

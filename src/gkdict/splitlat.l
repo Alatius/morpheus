@@ -1,4 +1,4 @@
-%option noyywrap main
+%option noyywrap main nounput noinput
 
 %{
 void newentr2(void);

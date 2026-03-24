@@ -4,7 +4,7 @@
 
 /* retrentry.c */
 endtags *init_preind(char *, int *);
-long ChckPreIndex(endtags *, char *, int, int, int (*scmp )());
-int ChckFullIndex(char *, char *, char *, long, int (*scmp )());
+long ChckPreIndex(endtags *, char *, int, int, int (*scmp)(const char *, const char *));
+int ChckFullIndex(char *, char *, char *, long, int (*scmp)(const char *, const char *, size_t));
 
 #endif /* MORPHLIB_RETRENTRY_PROTO_H */

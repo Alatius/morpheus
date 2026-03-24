@@ -1,4 +1,4 @@
-%option noyywrap main
+%option noyywrap main nounput noinput
 
 %%
 

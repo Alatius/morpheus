@@ -466,8 +466,8 @@ MatchMorphKey(char *field)
 Stemtype
 GetStemNum(char *field)
 {
-	Morph_args * mp, *MatchMorphKey();
-	
+	Morph_args *mp;
+
 	mp = MatchMorphKey(field);
 	if( ! mp )
 		return((Stemtype)0);
@@ -487,11 +487,11 @@ static char *
 	}
 	return("");
 }
-Morph_args * InitStemSuffs(char * fname,void 	(*curfunc)(),Stemtype 	(*classfunc)(),int * snum);
+Morph_args * InitStemSuffs(char * fname,void 	(*curfunc)(gk_string *, unsigned long),Stemtype 	(*classfunc)(char *),int * snum);
 
 
-Morph_args * 
-InitStemSuffs(char *fname, void (*curfunc )(), Stemtype (*classfunc )(), int *snum)
+Morph_args *
+InitStemSuffs(char *fname, void (*curfunc)(gk_string *, unsigned long), Stemtype (*classfunc)(char *), int *snum)
 {
 	FILE * f;
 	int i;

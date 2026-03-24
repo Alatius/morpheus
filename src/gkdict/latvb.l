@@ -1,4 +1,4 @@
-%option noyywrap main
+%option noyywrap main nounput noinput
 
 %{
 #include <ctype.h>
@@ -263,7 +263,6 @@ void set_lemma()
 
 void doderiv(char * tag)
 {
-	unsigned char *t;
 	char addi[BUFSIZ], deptag[BUFSIZ];
 
 

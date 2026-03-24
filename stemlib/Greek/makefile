@@ -1,5 +1,5 @@
 CC= gcc
-CFLAGS= -O2 -Wno-implicit-int -Wno-implicit-function-declaration
+CFLAGS= -O2 -Wall -Wextra
 LSJDIR=/local/text/lsj
 
 STEMPROG= stemsrc/stripref stemsrc/zapfirstf stemsrc/headnolen \

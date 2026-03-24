@@ -21,8 +21,6 @@ load_euph_tab(char *filename, int *gotno, int is_contr)
 	char tmp[MAXWORDSIZE];
 	gk_string CurStr;
 	gk_word * TmpGkword;
-	int RevCompByStr();
-
 
 	if( (f=MorphFopen(filename,"r")) == NULL ) {
 		fprintf(stderr,"Could not open [%s]\n", filename );

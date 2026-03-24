@@ -2,6 +2,7 @@
 
 #include "addninfix.proto.h"
 #include "../greeklib/nsylls.proto.h"
+#include "../greeklib/getaccp.proto.h"
 
 /*
  * grc 9/17/88
@@ -13,7 +14,6 @@
 int addninfix(char *word)
 {
 	char * syllp;
-	char *getaccp();
 	int c = 'n';
 	
 

@@ -1,5 +1,5 @@
 INCLUDE=../includes
-CFLAGS= -O2 -I${INCLUDE}  -Wno-implicit-int   -Wno-implicit-function-declaration
+CFLAGS= -O2 -I${INCLUDE} -Wall -Wextra -Wno-pointer-sign -Wno-missing-braces -Wno-sign-compare -Wno-missing-field-initializers -Wno-incompatible-pointer-types
 RM=rm
 ENDLIB=gkends.a
 CC=cc

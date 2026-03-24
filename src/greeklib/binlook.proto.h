@@ -3,6 +3,6 @@
 
 
 /* binlook.c */
-int binlook(char *, char *, int, int, bool, int (*compare )());
+int binlook(char *, char *, int, int, bool, int (*compare)(const char *, const char *));
 
 #endif /* BINLOOK_PROTO_H */

@@ -7,12 +7,11 @@
 #include "../greeklib/binlook.proto.h"
 #include "../greeklib/keyio.proto.h"
 #include "../greeklib/xstrings.proto.h"
+#include "morphpath.proto.h"
 /*
 long fseek();
 long ftell();
 */
-int morphstrcmp();
-FILE * MorphFopen();
 	
 endtags *
 init_preind(char *fname, int *maxkeys)
@@ -56,7 +55,7 @@ printf("flen %d i %d last tags [%s]\n", flen, i , tagstring_of(etags+i) );
 }
 
 long
-ChckPreIndex(endtags *etags, char *tag, int ntags, int exact_match, int (*scmp )())
+ChckPreIndex(endtags *etags, char *tag, int ntags, int exact_match, int (*scmp)(const char *, const char *))
 {
 	int rval;
 	long roff;
@@ -78,7 +77,7 @@ return( roff  );
 }
 
 
-int ChckFullIndex(char *s, char *keys, char *fname, long offset, int (*scmp )())
+int ChckFullIndex(char *s, char *keys, char *fname, long offset, int (*scmp)(const char *, const char *, size_t))
 {
 	FILE * f;
 	register char * a;
