@@ -1,11 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <ctype.h>
 #include <prntflags.h>
 #include <gkdict.h>
-FILE * MorphFopen();
 #include "stdiomorph.proto.h"
+#include "chckcmpstem.proto.h"
+#include "../morphlib/morphpath.proto.h"
+#include "../morphlib/trimwhite.proto.h"
 int quickflag = 0;
-char * anal_buf();
 long prevmemory = 0;
 
 main(void)

@@ -7,8 +7,9 @@
 #define MAXENDTAGS 100
 
 #include "endindex.proto.h"
-
-long matchendtag();
+#include "../greeklib/stripquant.proto.h"
+#include "../greeklib/vaxwords.proto.h"
+#include "../greeklib/xstrings.proto.h"
 /*int dictstrcmp(), dictstrncmp(), morphstrcmp(), morphstrncmp();*/
 
 endind * DictEntTags = NULL;
@@ -28,8 +29,6 @@ static int nnometags = 0;
 
 endind * VstemEtags = NULL;
 static int nvstemetags = 0;
-
-endind * init_endind();
 
 int chcknend(char *endstr, char *keys)
 {
@@ -245,7 +244,7 @@ init_endind(char *fname, endind *etags)
 	return(etags);
 }
 
-int checkendind(endind *etags, char *endstr, char *keys, int (*scmp )())
+int checkendind(endind *etags, char *endstr, char *keys, int (*scmp)())
 {
 	int high = 0;
 	int low = 0;

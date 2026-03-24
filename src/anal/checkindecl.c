@@ -1,10 +1,18 @@
+#include <ctype.h>
 #include <gkstring.h>
 #include <modes.h>
 #define MAXSTEMS 10
 
 #include "checkindecl.proto.h"
+#include "checkgenwds.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "../greeklib/subchar.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "checkstem.proto.h"
+
+extern int chckindecl(char *, char *);
 static int IndeclWorks(gk_word *, char *);
-long matchendtag();
+extern gk_word *GenIrregForm(gk_word *, char *, int);
 
 
 int checkindecl(gk_word *Gkword)
@@ -17,7 +25,6 @@ int checkindecl(gk_word *Gkword)
 	char *keys;
 	char keybuf[LONGSTRING];
 	char workword[MAXWORDSIZE];
-	char * parsefield();
 	char stemkeys[LONGSTRING];
 	char tmpword[MAXWORDSIZE];
 	register char * sp;
@@ -77,7 +84,6 @@ static int IndeclWorks(gk_word *Gkword, char *keys)
 {
 	int i;
 	int rval = 0;
-	gk_word * GenIrregForm();
 	gk_word * Forms;
 
 /*
@@ -87,7 +93,7 @@ printf("keys [%s] workword [%s]\n", keys, workword ); getchar();
 
 	if( Forms ) {
 		rval += CheckGenWords(Gkword,Forms);
-		FreeGkString(Forms);
+		FreeGkString((gk_string *)Forms);
 	} /* else
 		ErrorMess("Forms was null!"); 
 	*/

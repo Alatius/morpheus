@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "penultform.proto.h"
+#include "morphflags.proto.h"
 
 int penult_form(gk_string *gstring, word_form form_info)
 {

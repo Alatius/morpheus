@@ -1,7 +1,11 @@
 #include <stdio.h>
+#include <string.h>
 #define LOCBUF 256
 
 #include "endsinstr.proto.h"
+#include "stripacc.proto.h"
+#include "stripdiaer.proto.h"
+#include "xstrings.proto.h"
 
 /*
  * s1 ends with s2?

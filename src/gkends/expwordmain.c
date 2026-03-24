@@ -3,7 +3,12 @@ char fname[80];
 static gk_string Gstr;
 #include "compostypes.h"
 
+#include <unistd.h>
 #include "expendmain.proto.h"
+#include "expendtable.proto.h"
+#include "stor.proto.h"
+#include "../morphlib/setlang.proto.h"
+#include "../greeklib/isblank.proto.h"
 
 int main(int argc, char *argv[])
 {

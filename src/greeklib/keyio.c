@@ -2,6 +2,7 @@
 #include <endtags.h>
 
 #include "keyio.proto.h"
+#include "vaxwords.proto.h"
 
 int WriteKey(char *key, int *offp, FILE *f)
 {

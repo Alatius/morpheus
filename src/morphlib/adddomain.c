@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "adddomain.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 int add_domain(gk_string *gstr, int n)
 {

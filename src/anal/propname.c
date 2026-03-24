@@ -1,8 +1,24 @@
+#include <stdlib.h>
+#include <ctype.h>
 #include <gkstring.h>
 
 #include "propname.proto.h"
+#include "checkdict.proto.h"
+#include "checkstring.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripdiaer.proto.h"
+#include "../greeklib/stripbreath.proto.h"
+#include "../greeklib/getbreath.proto.h"
+#include "../greeklib/subchar.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../morphlib/trimwhite.proto.h"
+
+#include "prntanal.proto.h"
+
+extern int chcknend(char *, char *);
 int quickflag = 0;
-char * anal_buf();
 long prevmemory = 0;
 FILE * fpnames = NULL;
 char tbuf[5000], possbuf[10000];

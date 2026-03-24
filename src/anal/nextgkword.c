@@ -7,6 +7,7 @@
 #define INSCR_LINE '|'
 
 #include "nextgkword.proto.h"
+#include "../morphlib/smk2beta.proto.h"
 
 char *
 NextGkWord(char *bufp, char *word)

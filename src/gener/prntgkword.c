@@ -1,9 +1,9 @@
 #include <gkstring.h>
+#include "../morphlib/beta2smarta.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
-void PrntGkWord(Gkword,gstring,fout)
-gk_word * Gkword;
-gk_string * gstring;
-FILE * fout;
+void PrntGkWord(gk_word *Gkword, gk_string *gstring, FILE *fout)
 {
 	int i;
 
@@ -29,11 +29,7 @@ printf("crasis [%s]\n", crasis_of(Gkword) );
 	}
 }
 
-void PrntAWord(gkform,Gkword,lemma,fout)
-gk_word * gkform;
-gk_word * Gkword;
-char * lemma;
-FILE * fout;
+void PrntAWord(gk_word *gkform, gk_word *Gkword, char *lemma, FILE *fout)
 {
 	char buf[BUFSIZ];
 	char res[BUFSIZ];
@@ -60,9 +56,7 @@ printf("geog [%o]\n", geogregion_of(gkform) );
 
 }
 
-void PrntAGstr(gstr,fout)
-gk_string * gstr;
-FILE * fout;
+void PrntAGstr(gk_string *gstr, FILE *fout)
 {
 	char buf[512];
 	char res[512];

@@ -12,6 +12,7 @@
 
 #include <greek.h>
 
+#include "strsqz.proto.h"
 
 void addaccent(char *word, int accent, char *p)
 {

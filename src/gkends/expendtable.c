@@ -12,7 +12,12 @@
 #include "compostypes.h"
 
 #include "expendtable.proto.h"
-gk_string * CreatGkString();
+#include "mkend.proto.h"
+#include "stor.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../greeklib/isblank.proto.h"
 static gk_string Blnk;
 
 void expendtables(char *tabname, int maintable, int formcode)

@@ -1,6 +1,8 @@
 %option noyywrap main
 
 %{
+#include <ctype.h>
+#include <string.h>
 void set_quant(void);
 void set_quant2(void);
 int quantcmp(char *want, char *got, int curquant);

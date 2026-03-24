@@ -1,6 +1,19 @@
 #include <gkstring.h>
+#include <endtags.h>
+#include <gkdict.h>
 
 #include "derivio.proto.h"
+#include "dictio.proto.h"
+#include "../morphlib/augment.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../morphlib/setlang.proto.h"
+#include <endindex.h>
+#include "../gkends/endindex.proto.h"
+#include "../gkends/retrends.proto.h"
+#include "../greeklib/hasdiaer.proto.h"
+#include "../greeklib/xstrings.proto.h"
 static int checkforderiv2(char *stemstr, char *stemkeys, char *had_redupl, char *redupstem);
 int checkcomderivs(char * derivs,char * defstem,char * suffix,char * lemmkeys,char * nkeys,char * had_redupl,char * redupstem);
 int checkcomderiv(char * derivs,char * defstem,char * suffix,char * lemmkeys,char * nkeys,char * had_redupl,char * redupstem);

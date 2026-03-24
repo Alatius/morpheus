@@ -3,7 +3,11 @@
 #include <gkstring.h> 
 
 #include "acccompos.proto.h"
-char * skip_to_syll();
+#include "../morphlib/fixacc.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../greeklib/hasaccent.proto.h"
+#include "../greeklib/nsylls.proto.h"
 
 void AccComposForm(gk_string *gstr)
 {

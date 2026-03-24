@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "ulttakescirc.proto.h"
+#include "morphflags.proto.h"
 
 int ulttakescirc(gk_string *gstring, word_form form_info)
 {

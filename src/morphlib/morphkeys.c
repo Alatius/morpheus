@@ -10,6 +10,9 @@
 #include "../greeklib/xstrings.proto.h"
 #include "gkstring.proto.h"
 #include "morphkeys.proto.h"
+#include "morphflags.proto.h"
+#include "nextkey.proto.h"
+#include "../greeklib/binlook.proto.h"
 #ifdef LIGHTSPEED
 
 /*

@@ -9,6 +9,8 @@
 #include <greek.h>
 
 #include "stripquant.proto.h"
+#include "strsqz.proto.h"
+#include "xstrings.proto.h"
 
 void stripquant(char *word)
 {

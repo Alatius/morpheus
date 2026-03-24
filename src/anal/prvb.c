@@ -1,7 +1,13 @@
 #include <stdio.h>
 #include <gkstring.h>
+#include <contract.h>
 
 #include "prvb.proto.h"
+#include "checkhalf1.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/preverb2.proto.h"
 
 int strippreverb(gk_word *Gkword, char *endkeys, int rval)
 {

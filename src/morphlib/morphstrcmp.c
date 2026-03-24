@@ -1,6 +1,7 @@
 #include <greek.h>
 
 #include "morphstrcmp.proto.h"
+#include "gktoasc.proto.h"
 
 static char comptab[128];
 static char betatab[128];

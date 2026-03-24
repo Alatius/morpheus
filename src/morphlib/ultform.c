@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "ultform.proto.h"
+#include "morphflags.proto.h"
 
 /*
  * check to see if this form takes an accent on its ending

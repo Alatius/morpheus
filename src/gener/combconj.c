@@ -1,4 +1,26 @@
 #include <gkstring.h>
+#include <contract.h>
+#include <greek.h>
+#include "../morphlib/addninfix.proto.h"
+#include "../morphlib/augment.proto.h"
+#include "../morphlib/conjstem.proto.h"
+#include "../morphlib/endio.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/morphkeys.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../morphlib/pres_redup.proto.h"
+#include "../gkends/retrends.proto.h"
+#include "../greeklib/addbreath.proto.h"
+#include "../greeklib/do_dissim.proto.h"
+#include "../greeklib/stripquant.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "ppasstype.proto.h"
+
+int DoConjStem(FILE *, char *, gk_string *, char *, Stemtype, char *, char *, char *);
+int CheckConjPpart(FILE *, char *, gk_string *, gk_string *, char *, char *, char *);
+int MatchSuff(char *, char *);
+int conjoinX(gk_string *, char *, char *);
 
 static	char origformula[LONGSTRING];
 static	char curlemma[LONGSTRING];
@@ -37,7 +59,7 @@ printf("ppartflag %o\n", ppartflag );
 int DoConjStem(FILE *fout, char *derivstr, gk_string *gstr, char *suffstr, Stemtype ppartflag, char *stemstr, char *oddptr, char *preverb)
 {
 	char derivfile[MAXPATHNAME];
-	FILE * fderiv, *MorphFopen();
+	FILE * fderiv;
 	int lno, maxend, i, rval;
 	gk_string CurGstr;
 	int gotstem = 0;
@@ -88,8 +110,6 @@ printf("suffstr [%s] gkstring [%s]\n", suffstr , gkstring_of(&CurGstr) );
 	return(gotstem);
 }
 
-gk_string *  CreatGkString();
-gk_word *  CreatGkword();
 gk_string blnk;
 
 Stemtype
@@ -199,8 +219,7 @@ printf("pflag %o stype %o vstem %o\n", ppartflag , stemtype_of(gstr2) , PPARTMAS
 printf("str1 [%s] str2 [%s] rval %d\n", gkstring_of(gstr1), gkstring_of(gstr2), rval );
 */
 	if( rval ) {
-		Dialect d, AndDialect();
-		char *getaccp();
+		Dialect d;
 		
 		strcpy(word,stemstr);
 

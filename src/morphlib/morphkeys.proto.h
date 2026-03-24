@@ -16,6 +16,7 @@ char *NameOfMood(word_form);
 char *NameOfVoice(word_form);
 char *NameOfDialect(Dialect);
 */
+char *NameOfDomain(Stemtype);
 void DomainNames(char *, char *, char *);
 void DialectNames(Dialect, char *, char *);
 void GeogRegionNames(GeogRegion, char *, char *);

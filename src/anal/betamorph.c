@@ -1,9 +1,10 @@
 #include <gkstring.h>
 
 #include "betamorph.proto.h"
+#include "prntanal.proto.h"
+#include "checkstring.proto.h"
 
 int quickflag;
-extern char * anal_buf();
 
 _main(void)
 {

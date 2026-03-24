@@ -3,6 +3,16 @@
 #include <gkstring.h>
 
 #include "preverb2.proto.h"
+#include "gkstring.proto.h"
+#include "morphflags.proto.h"
+#include "preverb3.proto.h"
+#include "setlang.proto.h"
+#include "../greeklib/addbreath.proto.h"
+#include "../greeklib/do_dissim.proto.h"
+#include "../greeklib/getbreath.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripbreath.proto.h"
+#include "../greeklib/xstrings.proto.h"
 static int exp_prevb2(char *, char *, gk_string *);
 
 

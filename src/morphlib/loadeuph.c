@@ -1,6 +1,11 @@
 #include <contract.h>
 
 #include "loadeuph.proto.h"
+#include "gkstring.proto.h"
+#include "morphflags.proto.h"
+#include "nextkey.proto.h"
+#include "../greeklib/Fclose.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 gk_string * Euph_table;
 gk_string *

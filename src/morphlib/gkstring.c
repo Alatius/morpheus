@@ -1,6 +1,11 @@
 #include <gkstring.h>
 
 #include "gkstring.proto.h"
+#include "morphflags.proto.h"
+#include "morphkeys.proto.h"
+#include "morphstrcmp.proto.h"
+#include "../greeklib/Fclose.proto.h"
+#include "../greeklib/isblank.proto.h"
 
 gk_string *
 CreatGkString(int num)

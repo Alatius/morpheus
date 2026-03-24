@@ -3,12 +3,16 @@ char fname[80];
 static gk_string Gstr;
 #include "compostypes.h"
 
+#include <unistd.h>
 #include "expendmain.proto.h"
+#include "../morphlib/morphkeys.proto.h"
+#include "expendtable.proto.h"
+#include "../morphlib/setlang.proto.h"
 
 int main(int argc, char *argv[])
 {
 	FILE * ffname;
-	char * curtable, * NextEndTable();
+	char * curtable;
 	int index = 0;
 	int formcode = DOEND;
 	Stemtype stype = 0;

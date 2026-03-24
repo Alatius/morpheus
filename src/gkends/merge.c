@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "merge.proto.h"
+#include "retrends.proto.h"
 
 /*
  *

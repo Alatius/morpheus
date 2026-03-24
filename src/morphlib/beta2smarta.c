@@ -34,6 +34,7 @@ static int charstyle_flag = 0;
 #define BOLD '1'
 
 #include "beta2smarta.proto.h"
+#include "../greeklib/xstrings.proto.h"
 static void init_gktab(void);
 static int acctab[] = {
 	ACUTEFLAG,

@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "morphpath.proto.h"
+#include "setlang.proto.h"
 static int filesopened = 0;
 
 FILE *

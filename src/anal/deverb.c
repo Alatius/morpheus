@@ -1,7 +1,29 @@
+#include <ctype.h>
 #include <gkstring.h>
+
+#include "../greeklib/xstrings.proto.h"
+#include "../greeklib/addbreath.proto.h"
+#include "../greeklib/getbreath.proto.h"
+#include "../greeklib/stripquant.proto.h"
+#include "../greeklib/stripstemsep.proto.h"
+#include "../greeklib/stripmeta.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/preverb2.proto.h"
+#include "../morphlib/setlang.proto.h"
+#include "../gkdict/derivio.proto.h"
+
+extern int chckstem(char *, char *, int);
+extern int chckvstem(char *, char *);
+
 int quickflag = 0;
 int comstemtypes1(char *,char *, char *, char *);
 int comstemtypes(char *, char *, char *);
+int testcmpstem(char *, char *, char *, char *, char *);
+int testcmpstem2(char *, char *, char *, char *, char *);
+int testcmpstem3(char *, char *, char *, char *, char *);
+int checkvcomp(char *, char *, char *, char *);
+int chcknstem(char *, char *);
+int comNomstemtypes(char *, char *, char *, char *);
 static void zaptabs(char *s);
 static void firstkey(char *s);
 #define VERBMATCH 1

@@ -1,6 +1,8 @@
 #include	<gkstring.h>
 
 #include "sprntGkflags.h"
+#include "morphflags.proto.h"
+#include "morphkeys.proto.h"
 
 /*
   Created:	04.24.92
@@ -9,7 +11,7 @@
   a second delimiter for the lists of Dialects,regions,domains and morph names.
 	
 */
-void JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, int more_dels, int pretty)
+void JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, char *more_dels, int pretty)
 {
   char dialbuf[LONGSTRING*2];
   char * s;
@@ -120,7 +122,7 @@ void JakeSprintGkFlags(gk_string *gstr, char *buf, char *dels, int more_dels, in
   }
 }
 
-void GregSprintGkFlags(gk_string *gstr, char *buf, char *dels, int more_dels, int pretty)
+void GregSprintGkFlags(gk_string *gstr, char *buf, char *dels, char *more_dels, int pretty)
 {
   char dialbuf[LONGSTRING*2];
   char * s;

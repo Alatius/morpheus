@@ -10,6 +10,9 @@
 	X == '>' || X == '[' || X == ']' || X == '^' || X ==  '-')
 
 #include "standword.proto.h"
+#include "stripacc.proto.h"
+#include "stripdiaer.proto.h"
+#include "zap2ndbreath.proto.h"
 	/*
 	 * grc 7/6/89
 	 *

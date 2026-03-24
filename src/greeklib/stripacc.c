@@ -6,6 +6,9 @@
 #include <greek.h>
 
 #include "stripacc.proto.h"
+#include "nsylls.proto.h"
+#include "strsqz.proto.h"
+#include "xstrings.proto.h"
 
 int stripacc(char *word)
 {

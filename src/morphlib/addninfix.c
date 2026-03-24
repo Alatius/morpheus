@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "addninfix.proto.h"
+#include "../greeklib/nsylls.proto.h"
 
 /*
  * grc 9/17/88

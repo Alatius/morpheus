@@ -2,9 +2,6 @@
 #include <gkdict.h>
 #include <endtags.h>
 #define STEMCACHE 0
-FILE * getlemmstart();
-endtags * init_preind(), *init_dict();
-FILE * MorphFopen();
 
 /*int dictstrcmp(), dictstrncmp(), morphstrcmp(), morphstrncmp();*/
 
@@ -27,6 +24,21 @@ int cacheflag = 1;
 #endif
 
 #include "dictio.proto.h"
+#include "xderivio.proto.h"
+#include "../morphlib/errormess.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../morphlib/preverb.proto.h"
+#include "../morphlib/retrentry.proto.h"
+#include "../morphlib/trimwhite.proto.h"
+#include <endindex.h>
+#include "../gkends/endindex.proto.h"
+#include "../greeklib/Fclose.proto.h"
+#include "../greeklib/isblank.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripdiaer.proto.h"
+#include "../greeklib/stripmeta.proto.h"
+#include "../greeklib/stripquant.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 
 endtags *
@@ -426,7 +438,6 @@ FILE *
 	char line[LONGSTRING];
 	char tmp[LONGSTRING];
 	long curoff;
-	long ftell();
 	FILE * f = NULL;
 	long startoff;
 	int comp = 0;

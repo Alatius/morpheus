@@ -1,12 +1,26 @@
 #include <gkstring.h>
+#include <contract.h>
+#include "../morphlib/beta2smarta.proto.h"
+#include "../morphlib/morphkeys.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../gkdict/indexstems.proto.h"
+#include "../greeklib/isblank.proto.h"
+#include "../greeklib/stripdiaer.proto.h"
+#include "../greeklib/stripquant.proto.h"
+#include "../greeklib/stripmeta.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "genmisc.proto.h"
+#include "gensynform.proto.h"
+#include "../greeklib/standalpha.proto.h"
 
 #define NextStem(f,stem,stemkeys) NextDictLine(f,stem,stemkeys,":")
 #define NextLemma(f,lemma,lemmakeys) NextDictLine(f,lemma,lemmakeys,":le:")
 
-gk_string * chckendings();
-gk_word * GenStemForms();
-gk_word * GenIrregForm();
-static gk_word Blnk;
+extern gk_string *chckendings(char *, char *, char *, char *, Dialect, int *);
+extern gk_word *GenStemForms(gk_word *, char *, int);
+extern gk_word *GenIrregForm(gk_word *, char *, int);
+static gk_word BlnkGkword;
 static gk_string BlnkGstr;
 static int showdialect;
 static char defbuf[8000];
@@ -136,7 +150,7 @@ int GenSynForms(FILE *f, FILE *fout)
 		}
 		
 		
-		* Gkword = Blnk;
+		* Gkword = BlnkGkword;
 		/*
 		 * process a regular stem
 		 */
@@ -269,7 +283,7 @@ void paradigm_keys(char *keys)
 {
 	gk_string * gstr;
 	gk_string * avoidgstr;
-	Stemtype GetStemNum(), snum;
+	Stemtype snum;
 	word_form  wf;
 	gk_word * dummyword;
 
@@ -441,7 +455,7 @@ void PrntSynForms(gk_word *Gkword, gk_word *gkform, FILE *fout)
 	char linebuf[LONGSTRING*2];
 	char tmp[LONGSTRING];
 	Dialect d;
-	int num, formcnt, CompGkForms();
+	int num, formcnt;
 	
 	num = number_of(forminfo_of(gkform));
 	for(formcnt=0;workword_of((gkform+formcnt))[0];formcnt++) ;

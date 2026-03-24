@@ -1,4 +1,6 @@
 #include <gkstring.h>
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
 static gk_word Blnk;
 static char curlemma[LONGSTRING];
 static gk_string BlnkGstr;

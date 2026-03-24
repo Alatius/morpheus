@@ -2,6 +2,21 @@
 #include "endfiles.h"
 
 #include "mkend.proto.h"
+#include "contract.proto.h"
+#include "fixeta.proto.h"
+#include "../greeklib/do_dissim.proto.h"
+#include "acccompos.proto.h"
+#include "checkforbreath.proto.h"
+#include "merge.proto.h"
+#include "stor.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../morphlib/numovable.proto.h"
+#include "../morphlib/setlang.proto.h"
+#include "../greeklib/isblank.proto.h"
+#include "../greeklib/nsylls.proto.h"
+#include "../greeklib/xstrings.proto.h"
 static void mk_compend(gk_string *, gk_string *, char *, char *);
 static void update_end(gk_string *, gk_string *, char *, char *, char *);
 static void join_end(gk_string *, char *, int);
@@ -17,9 +32,6 @@ void mk_end(char *havestr, gk_string *Have, gk_string *Avoid)
 	char savestr[MAXWORDSIZE];
 	gk_string * contr_forms;
 	gk_string * euph_forms;
-	gk_string * poss_contracts();
-	gk_string * do_euph();
-	gk_string * fix_eta();
 	int saw_vowel = 0;
 
 	strcpy(savestr,havestr);
@@ -91,7 +103,7 @@ printf("no contr in: "); PrntGkStr(Have,stdout);
 			mk_end(gkstring_of(&TmpGstr),&TmpGstr,&AvoidGstr);
 		}
 
-		if( do_dissim(gkstring_of(Have))) {
+		if( do_dissim(gkstring_of(Have), stemtype_of(Have))) {
 			add_morphflag(morphflags_of(Have),DISSIMILATION);
 		}
 		AddNewGstr(Have);

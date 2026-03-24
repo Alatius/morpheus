@@ -1,4 +1,10 @@
 #include <gkstring.h>
+
+#include "../greeklib/issubstring.proto.h"
+#include "../greeklib/stripmeta.proto.h"
+
+extern int chckstem(char *, char *, int);
+
 int quickflag = 0;
 static void check_ew(char *p);
 static void check_ih(char *p);

@@ -1,5 +1,7 @@
 #include <gkstring.h>
 
+#include "checkstem.proto.h"
+
 int checkcmpstem(char *s, char *t, FILE *f)
 {
 	char * p;

@@ -1,4 +1,8 @@
 #include <contract.h>
+#include "../morphlib/morphkeys.proto.h"
+#include "../greeklib/endsinstr.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "ppasstype.proto.h"
 
 gk_string * ppass_table = NULL;
 static int nppass = 0;
@@ -7,7 +11,6 @@ void makeppass(char *origstem, gk_string *gstr)
 {
 	char newstem[MAXWORDSIZE];
 	char stemname[MAXWORDSIZE];
-	Stemtype GetStemNum();
 
 
 	if( ! get_ppasstype(origstem,newstem,stemname) ) return;
@@ -25,7 +28,7 @@ int get_ppasstype(char *stem, char *newstem, char *stemname)
 	strcpy(newstem,stem);
 	strcpy(stemname,"perfp_vow");
 	if( ! ppass_table ) {
-		ppass_table = load_euph_tab(PPASSLIST,&nppass);
+		ppass_table = load_euph_tab(PPASSLIST,&nppass,NO);
 
 		if( ! ppass_table)  return(0);
 	}

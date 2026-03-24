@@ -3,6 +3,7 @@
 #include <gkstring.h>
 
 #include <gkdict.h>
+#include "../morphlib/gkstring.proto.h"
 #define MAX_END_TABLE 50000
 
 gk_word GkWord;

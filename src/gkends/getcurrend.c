@@ -3,13 +3,13 @@
 #define ENDCACHESIZE 45
 
 #include "getcurrend.proto.h"
+#include "../morphlib/endio.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../greeklib/Fclose.proto.h"
 static int curecache = 0;
 static int prevcache = 0;
 
 gk_string * EndingCache[ENDCACHESIZE+1];
-
-gk_string * CreatGkString();
-gk_string * CheckEndCache();
 
 gk_string *
 GetCurrentEndList(gk_string *gstr, int *lnump)

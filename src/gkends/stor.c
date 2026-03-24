@@ -4,10 +4,15 @@ static gk_string * StoreGstr;
 #define MAXENDINGS 	10000
 
 #include "stor.proto.h"
+#include "../morphlib/morphstrcmp.proto.h"
+#include "../morphlib/endio.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/setlang.proto.h"
+#include "../greeklib/stripchar.proto.h"
+#include "../greeklib/stripzeroend.proto.h"
 static int cur_endcnt = 0;
 static int maxstring = 0;
-gk_string * CreatGkString();
-int dictstrcmp();
 int CompByDictStr(const void *gstr1, const void *gstr2);
  int
  CompGkString(const void *gstr1, const void *gstr2);

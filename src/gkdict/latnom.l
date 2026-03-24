@@ -1,6 +1,7 @@
 %option noyywrap main
 
 %{
+#include <ctype.h>
 void dump_adv(void);
 void set_lemma(char *p);
 void set_orth(int tlen);

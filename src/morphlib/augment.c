@@ -3,6 +3,15 @@
 #define TEMP_AUGMENT SYLL_AUGMENT * 2
 
 #include "augment.proto.h"
+#include "gkstring.proto.h"
+#include "morphflags.proto.h"
+#include "morphstrcmp.proto.h"
+#include "setlang.proto.h"
+#include "../greeklib/standword.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripbreath.proto.h"
+#include "../greeklib/stripquant.proto.h"
+#include "../greeklib/xstrings.proto.h"
 static int augmentit(gk_word *, bool, int);
 typedef struct {
 	char noaug[MAXAUG];

@@ -1,4 +1,9 @@
 #include <gkstring.h>
+#include "../greeklib/checkaccent.proto.h"
+#include "../greeklib/nsylls.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripmeta.proto.h"
+#include "../greeklib/standword.proto.h"
 
 int do_simpnom(char *, char*);
 int dump_nom(char *stem,int trunc, char * tags);
@@ -6,6 +11,9 @@ int probe_fem(char *);
 int do_regnom(char*stem,char*key1,char*key2,char*key3);
 int dump_entry(char *stem,int trunc, char * tags,char * etag,FILE *);
 void dump_acc_nom(char *stem, int trunc, char *tag);
+int is_verb(char *);
+int is_adverb(char *, char *);
+int is_teos(char *);
 FILE * fverbs;
 
 int main(void)

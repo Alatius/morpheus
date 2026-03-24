@@ -1,4 +1,5 @@
 #include <greek.h>
+#include "../greeklib/xstrings.proto.h"
 
 void set_baseentry(char *source, char *baseentry, int n)
 {

@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "antepenform.proto.h"
+#include "morphflags.proto.h"
 
 int antepen_form(gk_string *gstring, word_form form_info)
 {

@@ -1,11 +1,12 @@
 #include <contract.h>
 
 #include "preverb3.proto.h"
+#include "morphflags.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 static int previndex = 0;
 static char prevprevb[MAXWORDSIZE];
 static gk_string * PrevbTable;
-gk_string * load_euph_tab();
 static int numprevb = 0;
 
 int nextpreverb(char *word, char *oldprevb, char *pblemma, gk_string *gstr)

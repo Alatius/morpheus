@@ -1,6 +1,8 @@
 #include <gkstring.h>
 
 #include "euphend.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
 
 int EuphEnd(gk_string *want, gk_string *have, int strict)
 {

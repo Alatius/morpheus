@@ -2,6 +2,8 @@
 #include <gkstring.h>
 
 #include "conjstem.proto.h"
+#include "../greeklib/strsqz.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 
 void fixcontr(char *stem, char *verb)

@@ -2,13 +2,18 @@
 #include <gkdict.h>
 
 #include "dictstems.proto.h"
-
-char * is_substring();
+#include "../greeklib/xstrings.proto.h"
+#include "../greeklib/isblank.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripquant.proto.h"
+#include "../greeklib/Fclose.proto.h"
+#include "../morphlib/morphstrcmp.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../greeklib/issubstring.proto.h"
 
 int dictstems(char *lemma, int *nstems, bool wantacc, char *orgstem, char *stemtype, char *pparttab[], int maxpparts)
 {
 	FILE * f;
-	FILE * getlemmstart();
 	char *line = NULL;
 	char *lemmfile = NULL;
 	char *tmp = NULL;

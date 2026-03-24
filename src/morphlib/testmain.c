@@ -6,6 +6,7 @@
 #define HASHLEN 10000
 
 #include "testmain.proto.h"
+#include "errormess.proto.h"
 /*
 int hashtab[HASHLEN];
 */

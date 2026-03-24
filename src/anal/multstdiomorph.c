@@ -1,11 +1,15 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <prntflags.h>
 
 #include "stdiomorph.proto.h"
+#include "prntanal.proto.h"
+#include "../morphlib/trimwhite.proto.h"
+#include "checkstring.proto.h"
+void crunchfile(char *);
 int quickflag = 0;
-char * anal_buf();
 long prevmemory = 0;
 
 main(void)

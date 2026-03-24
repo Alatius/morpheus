@@ -1,11 +1,13 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stdlib.h>
 #include "libfiles.h"
 #define SEGSIZE 100000
 #define MAXDOMAINS 256
 
 #include "beta2rtf.proto.h"
+#include "beta2smarta.proto.h"
 
 char * domlist[MAXDOMAINS];
 char lastdom[BUFSIZ];

@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "endio.proto.h"
+#include "../greeklib/vaxwords.proto.h"
 static void localtrimwhite(char *, int);
 
 int WriteEnding(FILE *f, gk_string *gstr, int maxend)

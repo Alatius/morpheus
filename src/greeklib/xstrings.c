@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "xstrings.proto.h"
+#include "Fclose.proto.h"
 
 int Xstrncpy(char *s1, const char *s2, size_t len)
 {

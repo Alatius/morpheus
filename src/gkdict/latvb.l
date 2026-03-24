@@ -1,6 +1,7 @@
 %option noyywrap main
 
 %{
+#include <ctype.h>
 void set_lemma(void);
 void do_itype(void);
 void set_orth(void);

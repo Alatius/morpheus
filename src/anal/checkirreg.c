@@ -1,12 +1,29 @@
 #include <gkstring.h>
+#include <contract.h>
 #define MAXIRREGS 10
 #define MAXIRR 3
 
 #include "checkirreg.proto.h"
+#include "checkgenwds.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "../greeklib/addbreath.proto.h"
+#include "../greeklib/getbreath.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripdiaer.proto.h"
+#include "../greeklib/stripquant.proto.h"
+#include "../greeklib/subchar.proto.h"
+#include "../greeklib/Fclose.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../morphlib/preverb2.proto.h"
+#include "../morphlib/setlang.proto.h"
+#include "checkstem.proto.h"
 
-long matchendtag();
+extern int chckirrverb(char *, char *);
+extern gk_word *GenIrregForm(gk_word *, char *, int);
 
-static	char *IrrForms[MAXIRR]; 
+static	char *IrrForms[MAXIRR];
 static	char *IrrKeys[MAXIRR];
 static int init_stor = 0;
 
@@ -208,7 +225,6 @@ printf("rval b %d irrform [%s] irkkeys [%s]\n", rval , irrform, IrrKeys[0] );
 int ChckIrrLemms(gk_word *Gkword, char *irrform, char *irrkey)
 {
 	register char * sp;
-	char * parsefield();
 	char stemkeys[LONGSTRING];
 	char curlemma[LONGSTRING];
 	char tmpword[LONGSTRING];
@@ -249,10 +265,8 @@ int ChckIrrLemms(gk_word *Gkword, char *irrform, char *irrkey)
 int CheckIrregForm(gk_word *Gkword, char *stem, char *stemkeys)
 {
 	gk_word * Forms = NULL;
-	gk_word * GenIrregForm();
 	gk_word StemForms;
 	gk_string Gstr;
-	char * is_substring();
 	char * prevb = preverb_of(Gkword);
 	char * pbptr;
 	int rval = 0;
@@ -281,7 +295,7 @@ int CheckIrregForm(gk_word *Gkword, char *stem, char *stemkeys)
 	set_morphflags(&Gstr,morphflags_of(Gkword));
 	if( Forms ) {
 		rval = CheckGenWords(Gkword,Forms);
-		FreeGkString(Forms);
+		FreeGkString((gk_string *)Forms);
 	}
 	set_gwmorphflags(Gkword,morphflags_of(&Gstr));
 	return(rval);

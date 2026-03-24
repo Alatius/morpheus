@@ -1,6 +1,8 @@
 #include <gkstring.h>	
 
 #include "new_val.proto.h"
+#include "adddomain.proto.h"
+#include "morphflags.proto.h"
 
 void new_person(gk_string *gstr, unsigned long val)
 {

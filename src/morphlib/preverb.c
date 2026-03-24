@@ -12,6 +12,17 @@
 #include <gkstring.h>
 
 #include "preverb.proto.h"
+#include "augment.proto.h"
+#include "morphflags.proto.h"
+#include "preverb2.proto.h"
+#include "setlang.proto.h"
+#include "../greeklib/addbreath.proto.h"
+#include "../greeklib/aspirate.proto.h"
+#include "../greeklib/getbreath.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripbreath.proto.h"
+#include "../greeklib/strsqz.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 /* Greek preverbs, from Smyth #s 1681-1698 */
 static char	prevbs [][MAXPRVBSIZE] = {

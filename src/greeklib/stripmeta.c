@@ -1,5 +1,9 @@
 
 #include "stripmeta.proto.h"
+#include "stripquant.proto.h"
+#include "stripstemsep.proto.h"
+#include "stripzeroend.proto.h"
+#include "zap2ndbreath.proto.h"
 /*
  * gregory crane
  *  

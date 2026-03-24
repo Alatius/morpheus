@@ -194,10 +194,10 @@ typedef struct {
 #define Is_zeroend(X) (X == ZEROEND)
 #define set_zeroend( gs ) sprintf(endstring_of(gs),"%c", ZEROEND )
 
-gk_string * CreatGkString();
-gk_word * CreatGkword();
-gk_analysis * CreatGkAnal();
-FILE * getlemmstart();
+gk_string * CreatGkString(int);
+gk_word * CreatGkword(int);
+gk_analysis * CreatGkAnal(int);
+FILE * getlemmstart(char *, char *, long *);
 FILE * MorphFopen(char *, char *);
 
 #ifdef LIGHTSPEED
@@ -219,21 +219,21 @@ int GetTableLine(char *,int,FILE *);
 int ScanAsciiKeys(char *,gk_word *, gk_string *, gk_string * );
 
 
-void new_degree();
-void new_person();
-void new_morphflags();
-void new_gender();
-void new_case();
-void new_number();
-void new_tense();
-void new_voice();
-void new_mood();
-void new_dialect();
-void new_region();
-void new_stemtype();
-void new_stemclass();
-void new_derivtype();
-void new_domain();
+void new_degree(gk_string *, unsigned long);
+void new_person(gk_string *, unsigned long);
+void new_morphflags(gk_string *, unsigned long);
+void new_gender(gk_string *, unsigned long);
+void new_case(gk_string *, unsigned long);
+void new_number(gk_string *, unsigned long);
+void new_tense(gk_string *, unsigned long);
+void new_voice(gk_string *, unsigned long);
+void new_mood(gk_string *, unsigned long);
+void new_dialect(gk_string *, unsigned long);
+void new_region(gk_string *, unsigned long);
+void new_stemtype(gk_string *, unsigned long);
+void new_stemclass(gk_string *, unsigned long);
+void new_derivtype(gk_string *, unsigned long);
+void new_domain(gk_string *, unsigned long);
 
 char * NameOfTense(word_form vf);
 char * NameOfMood(word_form vf);

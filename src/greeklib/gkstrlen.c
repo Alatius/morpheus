@@ -6,6 +6,7 @@
 #include <greek.h>
 
 #include "gkstrlen.proto.h"
+#include "xstrings.proto.h"
 
 int gkstrlen(char *s)
 {

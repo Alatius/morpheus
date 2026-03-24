@@ -2,6 +2,15 @@
 #include <gkstring.h>
 
 #include "checknom.proto.h"
+#include "checkhalf1.proto.h"
+#include "checkstem.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/Fclose.proto.h"
+#include "../morphlib/gkstring.proto.h"
+
+extern int chcknend(char *, char *);
+extern void checkforcompnoun(char *, char *, char *);
 static int gotnom(gk_word *);
 
 int checknom(gk_word *Gkword)

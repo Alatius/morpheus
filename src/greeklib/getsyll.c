@@ -6,6 +6,8 @@
 #include <greek.h>
 
 #include "getsyll.proto.h"
+#include "nsylls.proto.h"
+#include "xstrings.proto.h"
 
 char *getsyll(char *word, int syll)
 /* return pointer to vowel of corresponding syllable */

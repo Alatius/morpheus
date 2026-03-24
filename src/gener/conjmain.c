@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <gkstring.h>
+#include <unistd.h>
+#include "../morphlib/setlang.proto.h"
+#include "conjsys.proto.h"
 
 
 int main(int argc, char *argv[])

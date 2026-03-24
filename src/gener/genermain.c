@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include "../greeklib/Fclose.proto.h"
+int GenSynForms(FILE *, FILE *);
 int quickflag = 0;
 
 int main(int argc, char *argv[])

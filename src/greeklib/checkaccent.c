@@ -5,6 +5,7 @@
 #include <greek.h>
 
 #include "checkaccent.proto.h"
+#include "getaccent.proto.h"
 
 
 int checkaccent(char *word, int *syll, int *acc)

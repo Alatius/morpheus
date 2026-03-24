@@ -3,9 +3,17 @@
 #define MAXPPARTS 12
 
 #include "checkdict.proto.h"
-gk_word * GenStemForms();
+#include "checkgenwds.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "../greeklib/nsylls.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/subchar.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/is_thirdmono.proto.h"
+#include "../greeklib/issubstring.proto.h"
+extern gk_word *GenStemForms(gk_word *, char *, int);
 static int count = 0;
-char * 	GetLemmStem();
 
 extern int verbose;
 
@@ -20,7 +28,6 @@ int checkdict(gk_word *Gkword, gk_string *stem, char *stemkeys)
 	char * pbptr;
 	char curkeys[LONGSTRING+1];
 	char keyp[LONGSTRING+1];
-	char *is_substring();
 
 	hits = 0;
 	
@@ -146,7 +153,7 @@ fprintf(stderr,"checkdict: stem [%s] endstring [%s] keyp [%s]\n", stem_of(Gkword
 		* ends_gstr_of(Gkword) = * ends_gstr_of(&SaveGkword);
 	
 		if( gkforms ) {
-			FreeGkString(gkforms);
+			FreeGkString((gk_string *)gkforms);
 			gkforms = NULL;
 		}
 	

@@ -9,6 +9,12 @@ static int xstrcmp(char **, char **);
 #define DELIMITER " "
 
 #include "countendtables.proto.h"
+#include "nextsufftab.proto.h"
+#include "../morphlib/morphkeys.proto.h"
+#include "../morphlib/endio.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphstrcmp.proto.h"
+#include "../morphlib/nextkey.proto.h"
 
 void countendtables(Stemtype stype, int is_deriv)
 {
@@ -31,7 +37,6 @@ void countendtables(Stemtype stype, int is_deriv)
 	int maxstring = 0;
 	int ntypes = 0;
 	char * typestr;
-	char * NextEndTable(), *NextSuffTable();
 	
 	if( is_deriv ) 
 		dirp = DERIVTABLEDIR;

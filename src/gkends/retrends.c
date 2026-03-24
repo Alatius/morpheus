@@ -2,12 +2,19 @@
 #include <modes.h>
 #include "endfiles.h" 
 
-#ifdef LIGHTSPEED
-char * GetEndString();
-
-#endif
-
 #include "retrends.proto.h"
+#include "getcurrend.proto.h"
+#include "euphend.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/markstem.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/morphstrcmp.proto.h"
+#include "../morphlib/setlang.proto.h"
+#include "../greeklib/hasaccent.proto.h"
+#include "../greeklib/hasquant.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripquant.proto.h"
+#include "../greeklib/xstrings.proto.h"
 static gk_string *RetrCompEnds(gk_string *, gk_string *, int *, Dialect);
 static void ProcEndRecord(char *, gk_string *);
 static char *GetEndString(char *, gk_string *);
@@ -20,7 +27,6 @@ static gk_string WantEnd;
 static gk_string AvoidEnd;
 static gk_string BlankGkend;
 static gk_word BlankGkword;
-gk_string * CreatGkString();
 static int start_match = 0;
 
 gk_string *
@@ -215,7 +221,7 @@ static gk_string *
  RetrCompEnds(gk_string *wantgkend, gk_string *avoidgkend, int *nends, Dialect OrDialect)
 {
 	gk_string * ListOfEnds;
-	gk_string * CurrentList, *GetCurrentEndList();
+	gk_string * CurrentList;
 	int rval, avoidrval;
 	int lno = 0;
 	int maxend = 0;

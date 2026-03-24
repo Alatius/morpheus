@@ -1,6 +1,9 @@
 #include <gkstring.h>
+#include <unistd.h>
 
 #include "indexstems.main.proto.h"
+#include "indexstems.proto.h"
+#include "../morphlib/setlang.proto.h"
 int verbose = 0;
 
 
@@ -21,7 +24,7 @@ int main(int argc, char *argv[])
                 }
         }
 
-	index_vbs(3,0,0,0);
+	index_vbs(3,0,0);
 
 	return 0;
 }

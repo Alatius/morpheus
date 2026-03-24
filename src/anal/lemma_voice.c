@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "lemma_voice.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 has_act_lemma(gk_word *Gkword)
 {

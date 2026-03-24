@@ -4,6 +4,14 @@ static char * pbuf = NULL;
 #define NEWLINE "\r"
 
 #include "prntanal.proto.h"
+#include "../morphlib/beta2smarta.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/morphkeys.proto.h"
+#include "../morphlib/setlang.proto.h"
+#include "../morphlib/sprntGkflags.h"
+#include "../greeklib/xstrings.proto.h"
+#include "../greeklib/sprntGkflags.proto.h"
 
 static char prevlemma[MAXWORDSIZE];
 static char prevword[MAXWORDSIZE];

@@ -1,16 +1,23 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <unistd.h>
-#include <prntflags.h>
+#include <gkstring.h>
 #include "stdiomorph.proto.h"
+#include "checkstring.proto.h"
+#include "checkgenwds.proto.h"
+#include "../greeklib/addbreath.proto.h"
+#include "../greeklib/stripbreath.proto.h"
+#include "../morphlib/setlang.proto.h"
+#include "../morphlib/trimwhite.proto.h"
 #ifndef CLOCKS_PER_SEC
 #define CLOCKS_PER_SEC  1000000         /* ANSI C clock ticks per sec */
 #endif
 
 #include <time.h>
+#include "prntanal.proto.h"
 int quickflag = 0;
-char * anal_buf();
 long prevmemory = 0;
 time_t start_time = 0;
 time_t prev_time = 0;

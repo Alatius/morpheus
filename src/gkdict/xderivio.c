@@ -1,6 +1,15 @@
 #include <gkstring.h>
 
 #include "xderivio.proto.h"
+#include "dictio.proto.h"
+#include "../morphlib/augment.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include <endindex.h>
+#include "../gkends/endindex.proto.h"
+#include "../gkends/retrends.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 int checkforderiv(char *stemstr, char *stemkeys)
 {

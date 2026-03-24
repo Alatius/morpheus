@@ -12,6 +12,7 @@
 #include <stdio.h>
 
 #include "issubstring.proto.h"
+#include "xstrings.proto.h"
 char * 
 is_substring(char *s1, char *s2)
 {

@@ -601,14 +601,14 @@ extern char genders[][MAXWORDSIZE];
 extern char degrees[][MAXWORDSIZE];
 extern char prefl_types[][MAXWORDSIZE];
 
-char *getsyll(), *getsyll2(), *getaccp();
+char *getsyll(char *, int);
+char *getsyll2(char *, int);
+char *getaccp(char *, int);
 /*
 char getaccent(),getbreath();
 */
-bool Is_diphth();
-char *skipwhite();
-char *parse_nounform(),*parse_verbform(),*parse_adjform(), *next_cons();
-ext_type calc_vbext(),calc_adjext(),findhyp();
+bool is_diphth(char *, char *);
+char *next_cons(char *);
 /*#include "binlook.proto.h"*/
 
 /* addaccent.c */

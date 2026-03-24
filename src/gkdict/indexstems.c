@@ -28,6 +28,22 @@ static long stemcount = 0;
 #define DELIMITER " "
 
 #include "indexstems.proto.h"
+#include "../morphlib/errormess.proto.h"
+#include "../morphlib/indkeys.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/morphstrcmp.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../greeklib/hasdiaer.proto.h"
+#include "../greeklib/hasaccent.proto.h"
+#include "../greeklib/hasquant.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripquant.proto.h"
+#include "../greeklib/stripstemsep.proto.h"
+#include "../morphlib/numovable.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../greeklib/issubstring.proto.h"
+#include "../greeklib/sprntGkflags.proto.h"
+#include "../greeklib/stripdiaer.proto.h"
 static void do_index(char *file, int indfreq);
 long bufsiz =  0;
 long bufcount = 0;
@@ -381,7 +397,7 @@ if(preverb_of(&GkWord)[0] )
 
 int dumpaccstem(char *prefix, char *curstem, char *markedstem, char *curlemma, gk_string *gstr, gk_string *avoidgstr, int syllnum, char *preverb)
 {
-	char * p, * getsyll();
+	char * p;
 	char tmpmarked[MAXWORDSIZE];
 	char tmpstem[MAXWORDSIZE];
 

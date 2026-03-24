@@ -1,6 +1,7 @@
 #include <gkstring.h>
 
 #include "countendmain.proto.h"
+#include "countendtables.proto.h"
 static gk_string Gstr;
 char fname[MAXWORDSIZE];
 static gk_word Gkword;

@@ -10,4 +10,6 @@ void LPrntGstr(gk_string *, FILE *);
 int new_parad(gk_string *, gk_string *);
 void hyphtodiaer(char *);
 
+void ResetGstrBuf(void);
+
 #endif /* STOR_PROTO_H */

@@ -1,8 +1,15 @@
 #include <greek.h>
-
+#include <gkstring.h>
+#include <morphflags.h>
+#include "../morphlib/fixacc.proto.h"
+#include "../greeklib/hasaccent.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripmeta.proto.h"
 
 char half1[BUFSIZ];
 static void buildw(char *targ, char *h1, char *h2);
+int checkcurw(char *);
+int chckdictent(char *, char *);
 
 int main(void)
 {

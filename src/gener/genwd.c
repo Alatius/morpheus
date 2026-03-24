@@ -1,7 +1,23 @@
 #include <gkstring.h>
+#include <contract.h>
 #include <stdlib.h>
 #include <string.h>
 #include <modes.h>
+#include "../morphlib/augment.proto.h"
+#include "../morphlib/errormess.proto.h"
+#include "../morphlib/fixacc.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../morphlib/preverb.proto.h"
+#include "../greeklib/isblank.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripacute.proto.h"
+#include "../greeklib/stripmeta.proto.h"
+#include "../greeklib/nsylls.proto.h"
+#include "../greeklib/stripstemsep.proto.h"
+#include "genwd.proto.h"
 #define SKIPLINE  100
 static void AddWdEndings( gk_word * , gk_string * , gk_word * , int );
 static void MonoSyllVb(gk_word *CurForms, word_form winfo, char *preverb);
@@ -9,19 +25,16 @@ static void MonoSyllVb(gk_word *CurForms, word_form winfo, char *preverb);
 #define NextStem(f,stem,stemkeys) NextDictLine(f,stem,stemkeys,":")
 #define NextLemma(f,lemma,lemmakeys) NextDictLine(f,lemma,lemmakeys,":le:")
 
-gk_string * chckendings();
-gk_word * GenStemForms(gk_word *, char *, int);
-gk_word * GenIrregForm(gk_word *, char *, int);
+gk_string *chckendings(char *, char *, char *, char *, Dialect, int *);
+gk_word *GenStemForms(gk_word *, char *, int);
+gk_word *GenIrregForm(gk_word *, char *, int);
 
-Dialect AndDialect();
 int CompGkForms(const void *a, const void *b);
 
 gk_string BlankGstr;
 gk_word TmpGkword;
 
-void GenDictEntry(Gkword,dentry)
- gk_word *Gkword;
- char * dentry;
+void GenDictEntry(gk_word *Gkword, char *dentry)
 {
 	
 	gk_word * gkforms;
@@ -56,10 +69,7 @@ void GenDictEntry(Gkword,dentry)
 	FreeGkword(gkforms);
 }
 
-int GenNxtWord(f,mode,fout)
-  FILE * f;
-  int mode;
-  FILE * fout;
+int GenNxtWord(FILE *f, int mode, FILE *fout)
 {
 	
 	int rval, i;
@@ -115,10 +125,7 @@ int GenNxtWord(f,mode,fout)
 }
 
 gk_word *
- GenStemForms(Gkword,keys,mode)
-  gk_word * Gkword;
-  char * keys;
-  int mode;
+ GenStemForms(gk_word *Gkword, char *keys, int mode)
 {
 	gk_string * stem_gstring;
 	gk_string * gstring;
@@ -216,10 +223,7 @@ printf("maxforms %d stem %s\n", maxforms, NameOfStemtype(stemtype_of(gstring)) )
 }
 
 gk_word *
- GenIrregForm(Gkword,keys,mode)
-  gk_word * Gkword;
-  char * keys;
-  int mode;
+ GenIrregForm(gk_word *Gkword, char *keys, int mode)
 {
 	gk_string * gstring;
 	gk_word * gkforms;
@@ -321,11 +325,7 @@ gk_word *
 	return(gkforms);
 }
 
-int NextDictLine(f,word,wordkeys,starts)
-  FILE * f;
-  char * word;
-  char * wordkeys;
-  char * starts;
+int NextDictLine(FILE *f, char *word, char *wordkeys, char *starts)
 {
 	char tmp[LONGSTRING];
 	register char * s;
@@ -383,11 +383,7 @@ int NextDictLine(f,word,wordkeys,starts)
 }
 
 #define MAX_FORM_VARIANTS 12
-static void AddWdEndings(Gkword,Endings,Forms,maxforms)
-  gk_word * Gkword;
-  gk_string * Endings;
-  gk_word * Forms;
-  int maxforms;
+static void AddWdEndings(gk_word *Gkword, gk_string *Endings, gk_word *Forms, int maxforms)
 {
 	int i,j,k;
 	gk_word SaveGkWord;
@@ -481,10 +477,7 @@ static void AddWdEndings(Gkword,Endings,Forms,maxforms)
 	CurBuf = NULL;
 }
 
-int BuildAWord(Gkword,CurEnding,CurForms)
-  gk_word * Gkword;
-  gk_string * CurEnding;
-  gk_word * CurForms;
+int BuildAWord(gk_word *Gkword, gk_string *CurEnding, gk_word *CurForms)
 {
 	Dialect dial;
 
@@ -508,10 +501,7 @@ printf("failing on stem [%s] end [%s] [%o] [%o]\n", stem_of(Gkword) ,gkstring_of
 	}
 }
 
-int BuildANoun(Gkword,CurEnding,CurForms)
-  gk_word * Gkword;
-  gk_string * CurEnding;
-  gk_word * CurForms;
+int BuildANoun(gk_word *Gkword, gk_string *CurEnding, gk_word *CurForms)
 {
 	char tmp[MAXWORDSIZE];
 
@@ -547,10 +537,7 @@ printf("result [%s]\n", workword_of(CurForms) );
 }
 
 
-int BuildAVerb(Gkword,CurEnding,CurForms)
-  gk_word * Gkword;
-  gk_string * CurEnding;
-  gk_word * CurForms;
+int BuildAVerb(gk_word *Gkword, gk_string *CurEnding, gk_word *CurForms)
 {
 	char tmpstem[MAXWORDSIZE+1];
 	char preverb[MAXWORDSIZE+1];

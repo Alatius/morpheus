@@ -1,6 +1,18 @@
 #include <gkstring.h>
 
 #include "fixacc.proto.h"
+#include "antepenform.proto.h"
+#include "gkstring.proto.h"
+#include "is_thirdmono.proto.h"
+#include "morphflags.proto.h"
+#include "penultform.proto.h"
+#include "setlang.proto.h"
+#include "ulttakescirc.proto.h"
+#include "../greeklib/getquantity.proto.h"
+#include "../greeklib/naccents.proto.h"
+#include "../greeklib/nsylls.proto.h"
+#include "../greeklib/quantprim.proto.h"
+#include "../greeklib/xstrings.proto.h"
 static void fixnacc2(char *, gk_string *, word_form, int, bool);
 
 
@@ -41,7 +53,7 @@ void FixRecAcc(gk_word *gkform, MorphFlags *mflags, char *word)
 		if (Is_accent(*p))
 			return;
 
-	if (getsyll(word,ULTIMA,0) == P_ERR)
+	if (getsyll(word,ULTIMA) == P_ERR)
 		return;		/* avoid core dumps */
 
 /*
@@ -51,10 +63,10 @@ void FixRecAcc(gk_word *gkform, MorphFlags *mflags, char *word)
 
 	
 	if (getquantity(word,ULTIMA,NULL_P, YES,NO) == LONG) {
-		p = getsyll(word,PENULT,0);
+		p = getsyll(word,PENULT);
 
 		if (p == P_ERR ) {
-			p = getsyll(word,ULTIMA,0);
+			p = getsyll(word,ULTIMA);
 
 			if( Accent_optional(mflags) )
 				return;
@@ -67,15 +79,15 @@ void FixRecAcc(gk_word *gkform, MorphFlags *mflags, char *word)
 			addaccent(word,ACUTE,p);
 		}
 	} else {		/* short ultima */
-		p = getsyll(word,ANTEPENULT,0);
+		p = getsyll(word,ANTEPENULT);
 		if (p != P_ERR && ! penult_form(ends_gstr_of(gkform),form_info))
 			addaccent(word,ACUTE,p);
 		else {		/* no antepenult */
 			if( Accent_optional(mflags) )
 				return;
-			p = getsyll(word,PENULT,0);
+			p = getsyll(word,PENULT);
 			if (p == P_ERR)
-				p = getsyll(word,ULTIMA,0);
+				p = getsyll(word,ULTIMA);
 
 			/*
 			 * note that proclitics are indeclinable, so we don't deal with accenting them
@@ -187,7 +199,7 @@ void FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, ch
 					Xstrncat(word,endstring,MAXWORDSIZE);
 					return;
 			}
-			ep = getsyll(endstring,ULTIMA,0);
+			ep = getsyll(endstring,ULTIMA);
 			if( is_diphth(ep,endstring)) {
 				ep--;
 			}
@@ -226,7 +238,7 @@ void FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, ch
 			Xstrncpy(tmp,stem,MAXWORDSIZE);
 			Xstrncat(tmp,endstring,MAXWORDSIZE);
 			
-			p = getsyll2(tmp,ULTIMA,0);
+			p = getsyll2(tmp,ULTIMA);
 
 			if( p != P_ERR ) {
 				fixnacc2(p,gstring,form_info,is_ending,is_oblique);
@@ -246,7 +258,7 @@ void FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, ch
 	else if( penult_form(stemgstr,form_info)  || 
 		has_morphflag(morphflags_of(gstring),STEM_ACC) || nsylls(stem) == 1  )  {
 		
-		p = getsyll(workstem,ULTIMA,0);
+		p = getsyll(workstem,ULTIMA);
 		if( nsylls(endstring) == 1 && 
 /*
  * "poli-t + ai" becomes "poli=tai"
@@ -289,7 +301,7 @@ void FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, ch
  * :no:ai)gonu c_xos ant_acc masc fem
  */
 	else if( antepen_form(stemgstr,form_info) ) {
-		p = getsyll(workstem,PENULT,0);
+		p = getsyll(workstem,PENULT);
 
 		if( nsylls(endstring) == 0 && 
 			(getquantity(workstem,PENULT,NULL_P,NO,is_oblique)==LONG) &&
@@ -304,7 +316,7 @@ void FixPersAcc2(gk_string *gstring, MorphFlags *mflags, gk_string *stemgstr, ch
  * diwru + xwn   --> diwru/xwn
  * diwru + xessi --> diwru/xessi
  */
-				p = getsyll(workstem,ULTIMA,0);
+				p = getsyll(workstem,ULTIMA);
 			 	addaccent(workstem,ACUTE,p);
 		} else
 /* 
@@ -359,12 +371,12 @@ static void fixnacc2(char *targstring, gk_string *gstring, word_form form_info, 
 
 	if (getquantity(targstring,ULTIMA,NULL_P,is_ending,is_oblique) == LONG||
 			((nsylls(targstring) ==1 ) && (is_ending&&is_contr))) {
-		p = getsyll(targstring,PENULT,is_ending);
+		p = getsyll(targstring,PENULT);
 		if (p == P_ERR) {
 			if( Accent_optional(mflags) ) {
 				return;
 			}
-			p = getsyll(targstring,ULTIMA,is_ending);
+			p = getsyll(targstring,ULTIMA);
 			if( ulttakescirc(gstring,form_info) ) {
 				addaccent(targstring,CIRCUMFLEX,p);
 			} else {
@@ -374,16 +386,16 @@ static void fixnacc2(char *targstring, gk_string *gstring, word_form form_info, 
 			addaccent(targstring,ACUTE,p);
 		}
 	}  else {		/* short ultima */
-		p = getsyll(targstring,ANTEPENULT,is_ending);
+		p = getsyll(targstring,ANTEPENULT);
 		if (p != P_ERR) /* if it has an antepenult */
 			addaccent(targstring,ACUTE,p);
 		else {		/* no antepenult */
 			if( Accent_optional(mflags) ) {
 				return;
 			}
-			p = getsyll(targstring,PENULT,is_ending);
+			p = getsyll(targstring,PENULT);
 			if (p == P_ERR)
-				p = getsyll(targstring,ULTIMA,is_ending);
+				p = getsyll(targstring,ULTIMA);
 			if (getquantity(targstring,PENULT,NULL_P,is_ending,is_oblique&&!is_contr) == LONG && ! Is_enclitic(mflags) ) {
 				addaccent(targstring,CIRCUMFLEX,p);
 			} else { 	/* short penult or none at all */

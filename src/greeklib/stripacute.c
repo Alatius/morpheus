@@ -1,6 +1,7 @@
 #include <greek.h>
 
 #include "stripacute.proto.h"
+#include "strsqz.proto.h"
 
 /*
  * gregory crane

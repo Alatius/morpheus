@@ -5,6 +5,7 @@
 
 #include <greek.h>
 
+#include "xstrings.proto.h"
 
 void cinsert (int c, char *p)
 /* insert char c before point p */

@@ -1,5 +1,9 @@
 %option noyywrap main
 
+%{
+#include <ctype.h>
+%}
+
 %%
 
 

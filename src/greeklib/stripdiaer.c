@@ -7,6 +7,8 @@
 #include <greek.h>
 
 #include "stripdiaer.proto.h"
+#include "strsqz.proto.h"
+#include "xstrings.proto.h"
 
 void stripdiaer(char *word)
 {

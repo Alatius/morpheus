@@ -6,6 +6,8 @@
 #include <greek.h>
 
 #include "stripbreath.proto.h"
+#include "strsqz.proto.h"
+#include "xstrings.proto.h"
 
 void stripbreath(char *word)
 {

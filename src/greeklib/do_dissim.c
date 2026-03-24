@@ -8,6 +8,7 @@
 #include <gkstring.h>
 
 #include "do_dissim.proto.h"
+#include "xstrings.proto.h"
 
 int do_dissim(char *s, Stemtype stype)
 {

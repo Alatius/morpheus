@@ -1,6 +1,22 @@
 #include <gkstring.h>
 #include <string.h>
+#include "../morphlib/beta2rtf.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../gkends/retrends.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "combconj.proto.h"
 /* #define FULLKEYS "pr fu ao pf pp ap"*/
+int irreg_conj(void);
+int regular_entry(char *);
+int noppart(char *);
+int is_empty(char *);
+int need_ppart(char *);
+int check_vsdupl(char *, FILE *);
+int need_codupl(char *);
+int has_alpha(char *);
+
 #define DEFPPARTS 1
 char *fullkeys[] = {
 		"pr",	

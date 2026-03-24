@@ -1,7 +1,16 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <gkstring.h>
 
 #include "checkverb.proto.h"
+#include "checkirreg.proto.h"
+#include "prvb.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripquant.proto.h"
+#include "../morphlib/gkstring.proto.h"
+
+extern int chckvend(char *, char *);
 
 int checkverb(gk_word *Gkword)
 {

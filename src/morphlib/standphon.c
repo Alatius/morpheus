@@ -1,6 +1,8 @@
 #include <gkstring.h>
 
 #include "standphon.proto.h"
+#include "morphflags.proto.h"
+#include "../greeklib/addbreath.proto.h"
 
 /*
  * this module looks for fairly simple graphic variations.

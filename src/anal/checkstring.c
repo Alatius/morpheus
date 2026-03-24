@@ -1,5 +1,28 @@
+#include <ctype.h>
 #include <gkstring.h>
+#include <contract.h>
 #include "checkstring.proto.h"
+#include "checkcrasis.proto.h"
+#include "checkindecl.proto.h"
+#include "checknom.proto.h"
+#include "checkword.proto.h"
+#include "prntanal.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/hasaccent.proto.h"
+#include "../greeklib/naccents.proto.h"
+#include "../greeklib/nsylls.proto.h"
+#include "../greeklib/beta_tolower.proto.h"
+#include "../greeklib/checkaccent.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/cmpend.proto.h"
+#include "../morphlib/setlang.proto.h"
+#include "../morphlib/preverb3.proto.h"
+
+extern int chckend(char *);
+int cntlems(gk_word *);
+int u2v(char *);
 static int checkstring4(gk_word *);
 static void add_apostrvowel(char *, char *, char *);
 /*
@@ -992,7 +1015,6 @@ GetWantDialect(void)
 
 int updateDialect(Dialect dial)
 {
-	Dialect GetWantDialect();
 	Dialect curdial;
 	
 	curdial = GetWantDialect();

@@ -7,12 +7,20 @@
 #include <string.h>
 
 #include "contract.proto.h"
+#include "lcontr.proto.h"
+#include "acccompos.proto.h"
+#include "../morphlib/fixacc.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/setlang.proto.h"
+#include "../greeklib/addbreath.proto.h"
+#include "../greeklib/getbreath.proto.h"
+#include "../greeklib/nsylls.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripbreath.proto.h"
 
 gk_string * Vow_contr;
 gk_string * Cons_euph;
-gk_string * load_ccontr();
-gk_string * load_vcontr();
-gk_string * CreatGkString();
 
 static int numcontr = 0;
 static int numeuphs = 0;
@@ -47,7 +55,6 @@ gk_string *
 {
 	gk_string * euphs;
 	int hits = 0;
-	char * is_substring();
 	char * orgstr;
 	char * curs;
 
@@ -166,7 +173,6 @@ PrntGkStr(poss_subs+sofar,stdout);
 
 int needs_sub(gk_string *gstr, Dialect skipdial, gk_string *matchgstr, char *haveseen, char *curstring, char *raw, char *cooked)
 {
-	char * getaccp();
 	register char * p1, *p2;
 	int rval = 0;
 	int syllno;

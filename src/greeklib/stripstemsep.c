@@ -5,6 +5,8 @@
 #include <greek.h>
 
 #include "stripstemsep.proto.h"
+#include "strsqz.proto.h"
+#include "xstrings.proto.h"
 
 void stripstemsep(char *word)
 {

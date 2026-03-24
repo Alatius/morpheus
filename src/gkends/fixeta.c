@@ -1,8 +1,10 @@
 #include <gkstring.h>
+#include <contract.h>
 #define MAXEUPHS 5
 
 #include "fixeta.proto.h"
-gk_string * CreatGkString();
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
 
 /*
  *	ote/rhs	--> ote/ra_s	attic
@@ -12,7 +14,6 @@ gk_string *
 fix_eta(gk_string *gstr)
 {
 	gk_string * euphs;
-	char * is_substring();
 	char * orgstr;
 	char * curs;
 	Dialect d;

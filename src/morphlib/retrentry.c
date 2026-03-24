@@ -4,6 +4,9 @@
 
 #include "retrentry.proto.h"
 #include "morphstrcmp.proto.h"
+#include "../greeklib/binlook.proto.h"
+#include "../greeklib/keyio.proto.h"
+#include "../greeklib/xstrings.proto.h"
 /*
 long fseek();
 long ftell();

@@ -2,6 +2,10 @@
 #include "is_thirdmono.h"
 
 #include "is_thirdmono.proto.h"
+#include "morphflags.proto.h"
+#include "../greeklib/nsylls.proto.h"
+#include "../greeklib/stripquant.proto.h"
+#include "../greeklib/xstrings.proto.h"
 
 /*
  * do we have a third declension monosyllabic stem in the genitive or dative?

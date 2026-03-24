@@ -1,8 +1,13 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 #include <gkdict.h>
 #include <gkstring.h>
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripquant.proto.h"
 
 int is_nomhead(char * heads,char * headkeys);
+extern int comstemtypes(char *, char *, char *);
 
 void checkforcompnoun(char * curstem,char * endkeys,char * stemkeys)
 {
@@ -42,7 +47,7 @@ char *headtab[MAXTAILS];
 static int init_headtab = 0;
 static int nheads = 0;
 
-int setup_headtab()
+int setup_headtab(void)
 {
 	FILE * fheads;
 	char line[1000];

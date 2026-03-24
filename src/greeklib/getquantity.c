@@ -6,6 +6,8 @@
 #include <greek.h>
 
 #include "getquantity.proto.h"
+#include "getaccent.proto.h"
+#include "quantprim.proto.h"
 
 int getquantity(char *word, int syll, char *nom, bool is_ending, bool is_oblique)
 {

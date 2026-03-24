@@ -2,6 +2,17 @@
 #include "endfiles.h"
 #include "nextsufftab.proto.h"
 #include "../morphlib/morphkeys.proto.h"
+#include "../morphlib/endio.proto.h"
+#include "../morphlib/errormess.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphstrcmp.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../greeklib/hasdiaer.proto.h"
+#include "../greeklib/hasaccent.proto.h"
+#include "../greeklib/hasquant.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripdiaer.proto.h"
+#include "../greeklib/stripquant.proto.h"
 #define MAX_END_TABLE	20000
 static char ** endlines;
 static int endcount = 0;

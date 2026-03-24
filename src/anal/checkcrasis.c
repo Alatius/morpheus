@@ -1,7 +1,13 @@
+#include <ctype.h>
 #include <gkstring.h>
+#include <contract.h>
 #define MAXCRASIS 12
 
 #include "checkcrasis.proto.h"
+#include "checkstring.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/setlang.proto.h"
 typedef struct {
  	char crasis[MAXWORDSIZE];
  	char curstring[MAXWORDSIZE];

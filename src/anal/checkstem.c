@@ -2,12 +2,18 @@
 #define MAXAUGSTEMS 12
 
 #include "checkstem.proto.h"
+#include "../greeklib/issubstring.proto.h"
+#include "../morphlib/augment.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include <endtags.h>
+#include <gkdict.h>
+#include "../gkdict/dictio.proto.h"
+#include "../greeklib/Fclose.proto.h"
+#include "../greeklib/xstrings.proto.h"
 int comstemtypes(char *, char *, char *);
 static int wantcurstemtype(char *, char *);
 extern int verbose;
 static int digstem = 0;
-
-char * is_substring();
 
 /*
  * this routine takes a possible verb stem (poss_stem) and tries
@@ -195,7 +201,7 @@ int comstemtypes(char *stem, char *stemkeys, char *endkeys)
 
 static int wantcurstemtype(char *curst, char *stlist)
 {
-	char * is_substring(), *s;
+	char *s;
 	int rval = 0;
 	
 	s = is_substring(curst,stlist);
@@ -207,7 +213,6 @@ static int wantcurstemtype(char *curst, char *stlist)
 
 void setstemvars(char *s, char *cstem, char *clemma, char *cstemtype, char *cstemkeys)
 {
-	char * parsefield();
 	*cstemkeys = *cstem = *clemma = *cstemtype = 0;
 
 	s = parsefield(s,cstem,':',MAXWORDSIZE);

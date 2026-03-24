@@ -2,7 +2,11 @@
 #include <libfiles.h>
 #include "compostypes.h"
 
+#include <unistd.h>
 #include "expsuffmain.proto.h"
+#include "expendtable.proto.h"
+#include "../morphlib/nextkey.proto.h"
+#include "../morphlib/setlang.proto.h"
 
 char fname[80];
 static gk_string Gstr;

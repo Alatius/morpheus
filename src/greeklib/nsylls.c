@@ -6,6 +6,7 @@
 #include <greek.h>
 
 #include "nsylls.proto.h"
+#include "xstrings.proto.h"
 
 int nsylls(char *word)
 {

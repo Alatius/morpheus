@@ -1,12 +1,12 @@
 #include <gkstring.h>
+#include "../greeklib/binlook.proto.h"
+#include "../greeklib/stripdiaer.proto.h"
+#include "../greeklib/stripquant.proto.h"
 #define LEMMAFILE "vlist"
 static int firstshot = 1;
-/*
-char * calloc();
-*/
 char ** lemmentries = NULL;
 static	int nlines = 0;
-int xstrcmp();
+static int xstrcmp(char *, char **);
 
 int checkforlemma(char *lemmastr)
 {
@@ -24,7 +24,7 @@ int checkforlemma(char *lemmastr)
 	return(rval);
 }
 
-int init_lemmentries()
+int init_lemmentries(void)
 {
 	FILE * flemm;
 	char line[LONGSTRING], *p;
@@ -60,9 +60,7 @@ int init_lemmentries()
 
 }
 
-int xstrcmp(p1,p2)
-  char * p1;
-  char ** p2;
+static int xstrcmp(char *p1, char **p2)
 {
 	int rval;
 	

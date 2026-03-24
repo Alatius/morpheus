@@ -1,6 +1,25 @@
 #include <gkstring.h>
+#include <contract.h>
 
 #include "checkgenwds.proto.h"
+#include "docrasis.proto.h"
+#include "prntanal.proto.h"
+#include "../greeklib/xstrings.proto.h"
+#include "../greeklib/stripacc.proto.h"
+#include "../greeklib/stripacute.proto.h"
+#include "../greeklib/stripdiaer.proto.h"
+#include "../greeklib/stripmeta.proto.h"
+#include "../greeklib/stripquant.proto.h"
+#include "../greeklib/getbreath.proto.h"
+#include "../greeklib/hasaccent.proto.h"
+#include "../greeklib/zap2ndbreath.proto.h"
+#include "../morphlib/gkstring.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/morphstrcmp.proto.h"
+#include "../morphlib/setlang.proto.h"
+
+extern void zap2acc(char *);
+extern int chckcmpvb(char *, char *);
 
 static int anals_seen = 0;
 static int lems_seen = 0;
@@ -129,12 +148,12 @@ fprintf(stderr,"onwards\n");
 		if( !morphstrcmp( curform , checks )) {
 /*
 			if(*preverb && !Check_preverb(Gkword,gkforms+i) ) {
-					near_miss(gkforms+i,checks,0);
+					near_miss((gk_string *)(gkforms+i),checks,0);
 					continue;
 			}
 */
 			if( Comp_only(morphflags_of(stem_gstr_of(gkforms+i))) && ! * preverb ) {
-				near_miss(gkforms+i,checks,COMP_ONLY);
+				near_miss((gk_string *)(gkforms+i),checks,COMP_ONLY);
 /*
 				printf("could be--[%s]",workword_of(gkforms+i));
 				PrntAVerb(gkforms+i,lemma,stdout);
@@ -144,7 +163,7 @@ fprintf(stderr,"onwards\n");
 				continue;
 			} 
 			if( Not_in_compos(morphflags_of(stem_gstr_of(gkforms+i))) && *preverb ) {
-				near_miss(gkforms+i,checks,NOT_IN_COMPOSITION);
+				near_miss((gk_string *)(gkforms+i),checks,NOT_IN_COMPOSITION);
 /*
 				printf("could be--[%s]",workword_of(gkforms+i));
 				PrntAVerb(gkforms+i,lemma,stdout);
@@ -163,7 +182,7 @@ printf("liked [%s] hits [%d]\n", checks , hits);
 
 			continue;
 		} 
-		near_miss(gkforms+i,checks,0);
+		near_miss((gk_string *)(gkforms+i),checks,0);
 /*
 		printf("wanted [%s] and got ", checks );
 		PrntAVerb(gkforms+i,lemma,stdout);
@@ -215,7 +234,7 @@ int AddAnalysis(gk_word *Gkword, gk_word *gkform)
 	
 	if( crasis_of(gkform)[0] ) {
 		set_crasis(curanal,crasis_of(gkform));
-		if( ! do_crasis(gkform,crasis_of(curanal)))
+		if( ! do_crasis((gk_string *)gkform,crasis_of(curanal)))
 			return(0);
 	}
 
@@ -345,10 +364,10 @@ printf("lemam now [%s]\n", lemma_of(curanal) );
 	}
 	set_stemtype(curanal,stemtype_of(gkform));
 	set_derivtype(curanal,derivtype_of(gkform));
-	set_morphflags(curanal,morphflags_of(gkform));
-	add_morphflags(curanal,morphflags_of(prvb_gstr_of(gkform)));
-	add_morphflags(curanal,morphflags_of(stem_gstr_of(gkform)));
-	add_morphflags(curanal,morphflags_of(ends_gstr_of(gkform)));
+	set_morphflags((gk_string *)curanal,morphflags_of(gkform));
+	add_morphflags((gk_string *)curanal,morphflags_of(prvb_gstr_of(gkform)));
+	add_morphflags((gk_string *)curanal,morphflags_of(stem_gstr_of(gkform)));
+	add_morphflags((gk_string *)curanal,morphflags_of(ends_gstr_of(gkform)));
 /*
 printf("analysis [%s] [%o]", rawword_of(curanal), dialect_of(curanal) );
 PrntAWord(curanal,Gkword,lemma_of(curanal),stdout);

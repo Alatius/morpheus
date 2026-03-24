@@ -1,6 +1,10 @@
 #include <gkstring.h>
 
 #include "checkforbreath.proto.h"
+#include "../morphlib/morphflags.proto.h"
+#include "../morphlib/setlang.proto.h"
+#include "../greeklib/addbreath.proto.h"
+#include "../greeklib/getbreath.proto.h"
 
 void CheckForBreathing(gk_string *gstr)
 {
