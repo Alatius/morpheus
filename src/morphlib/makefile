@@ -1,5 +1,5 @@
 INCLUDE=../includes
-CFLAGS= -O2 -I${INCLUDE} -Wall -Wextra -Wno-missing-braces -Wno-sign-compare -Wno-missing-field-initializers
+CFLAGS= -O2 -I${INCLUDE} -Wall -Wextra -Wno-missing-braces -Wno-sign-compare
 MORPHLIB=morphlib.a
 RM=rm
 CC=cc

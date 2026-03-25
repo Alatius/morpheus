@@ -37,7 +37,7 @@ struct {
 		"prim_deriv",	(VERBSTEM|PRIM_CONJ),
 		"reg_deriv",	(VERBSTEM|REG_CONJ),
 		"indecl",		INDECL,
-		0,
+		{0},
 };
 
 Morph_args arg_degree[] = {
@@ -45,7 +45,7 @@ Morph_args arg_degree[] = {
 	"comparative",	COMPARATIVE, new_degree,
 	"superl",	SUPERLATIVE, new_degree,
 	"superlative",	SUPERLATIVE, new_degree,
-	0,
+	{0},
 };
 
 Morph_args arg_person[] = {
@@ -58,7 +58,7 @@ Morph_args arg_person[] = {
 	"3rd",		PERS3, new_person,
 	"third",	PERS3, new_person,
 	"pers3",	PERS3, new_person,
-	0,
+	{0},
 };
 
 Morph_args arg_morphflags[] = {
@@ -161,7 +161,7 @@ Morph_args arg_morphflags[] = {
 	"a_priv",			A_PRIV,		new_morphflags,
 	"a_copul",			A_COPUL,	new_morphflags,
 	"metrical_long",			METRICAL_LONG,	new_morphflags,
-	0,
+	{0},
 };
 
 
@@ -177,7 +177,7 @@ Morph_args arg_gender[] = {
 	"masc/fem/neut",	MASCULINE|FEMININE|NEUTER,		new_gender,
 	"common",		MASCULINE|FEMININE|NEUTER,		new_gender,
 	"adverbial",	ADVERBIAL,		new_gender,
-	0,
+	{0},
 };
 
 Morph_args arg_case[] = {
@@ -201,7 +201,7 @@ Morph_args arg_case[] = {
 	"accusative",	ACCUSATIVE,		new_case,
 	"voc",		VOCATIVE,		new_case,
 	"voctive",	VOCATIVE,		new_case,
-	0,
+	{0},
 };
 
 Morph_args arg_number[] = {
@@ -211,7 +211,7 @@ Morph_args arg_number[] = {
 	"pl",		PLURAL,	new_number,
 	"plural",	PLURAL,	new_number,
 	"dual",		DUAL,	new_number,
-	0,
+	{0},
 };
 
 Morph_args arg_tense[] = {
@@ -231,7 +231,7 @@ Morph_args arg_tense[] = {
 	"futperfect",		FUTPERF,	new_tense,
 	"pastabs",		PASTABSOLUTE,	new_tense,
 	"pastabsolute",		PASTABSOLUTE,	new_tense,
-	0,
+	{0},
 };
 
 Morph_args arg_voice[] = {
@@ -245,7 +245,7 @@ Morph_args arg_voice[] = {
 	"mp",			MEDIO_PASS,	new_voice,
 	"medio_pass",		MEDIO_PASS,	new_voice,
 	"medio-pass",		MEDIO_PASS,	new_voice,
-	0,
+	{0},
 };
 
 Morph_args arg_mood[] = {
@@ -270,7 +270,7 @@ Morph_args arg_mood[] = {
 	"supine",		SUPINE,				new_mood,
 	"cond",		CONDITIONAL,				new_mood,
 	"conditional",		CONDITIONAL,				new_mood,
-	0,
+	{0},
 
 };
 
@@ -304,7 +304,7 @@ Morph_args arg_dialect[] = {
 /*
 	"laconian",		LACONIAN,		new_dialect,
 */
-	0,
+	{0},
 };
 
 /* Geographical Regions */
@@ -326,7 +326,7 @@ Morph_args arg_geogregion[] = {
 	"arcadia",		ARCADIA,	new_region,
 	"cyprus",		CYPRUS,		new_region,
 	"boeotia",		BOEOTIA,		new_region,
-	0,
+	{0},
 
 };
 

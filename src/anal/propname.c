@@ -277,7 +277,7 @@ nom_tab Nom_tab[] = {
 	"os_h_on",		"ian",	"",		"",
 	"os_h_on",		"an",	"",		"",
 	"os_h_on",		"ans",	"",		"",
-	0,
+	{0},
 };
 
 
@@ -396,7 +396,7 @@ xlit_tab Xlit_list[] = {
 	"gg",	"ng",
 	"gx",	"nch",
 	"gk",	"nc",
-	0,
+	{0},
 	};
 	
 void reliterate(char *s)

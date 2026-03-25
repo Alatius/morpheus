@@ -95,7 +95,7 @@ augtable TempAugments[] = {
 
 	"ou)",	"ou)",	(Dialect)ALL_DIAL,   0,
 	"ou(",	"ou(",	(Dialect)ALL_DIAL,   0,
-	0,
+	{0},
 };
 
 /*
@@ -165,7 +165,7 @@ augtable SyllAugments[] = {
 
 	"ou)",	"e)ou",	(Dialect)ALL_DIAL,   0,
 	"ou(",	"e(ou",	(Dialect)ALL_DIAL,   0,
-	0,
+	{0},
 };
 
 int do_syllaug(gk_word *gkform, int maxaugs)
