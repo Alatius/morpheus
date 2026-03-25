@@ -154,6 +154,7 @@ int smk2betachar(int c)
 void init_smk(void)
 {
 	int i;
+	size_t j;
 
 	for(i=0;i<MAXCHAR;i++) {
 		Xlit_table_smk[i] = malloc((size_t)MAXSUBSTRING);
@@ -162,17 +163,17 @@ void init_smk(void)
 		Xlit_table_smarta[i] = malloc((size_t)MAXSUBSTRING);
 		*Xlit_table_smarta[i] = 0;
 	}
-		
-	for(i=0;i<sizeof Beta_SMK/sizeof Beta_SMK[0];i++) {
-		strncpy(Xlit_table_smk[Beta_SMK[i].keycode],Beta_SMK[i].keystring,MAXSUBSTRING);
-		strncpy(Xlit_table_smarta[Beta_SMK[i].keycode],Beta_SMK[i].keystring,MAXSUBSTRING);
-		smarta_char[Beta_SMK[i].keycode] =1;
+
+	for(j=0;j<sizeof Beta_SMK/sizeof Beta_SMK[0];j++) {
+		strncpy(Xlit_table_smk[Beta_SMK[j].keycode],Beta_SMK[j].keystring,MAXSUBSTRING);
+		strncpy(Xlit_table_smarta[Beta_SMK[j].keycode],Beta_SMK[j].keystring,MAXSUBSTRING);
+		smarta_char[Beta_SMK[j].keycode] =1;
 /*
-printf("%d) Xlit_table [%s]\n", Beta_SMK[i].keycode , Xlit_table[Beta_SMK[i].keycode] );
+printf("%d) Xlit_table [%s]\n", Beta_SMK[j].keycode , Xlit_table[Beta_SMK[j].keycode] );
 */
 	}
-	for(i=0;i<sizeof Beta_Smarta/sizeof Beta_Smarta[0];i++) {
-		strncpy(Xlit_table_smarta[Beta_Smarta[i].keycode],Beta_Smarta[i].keystring,MAXSUBSTRING);
+	for(j=0;j<sizeof Beta_Smarta/sizeof Beta_Smarta[0];j++) {
+		strncpy(Xlit_table_smarta[Beta_Smarta[j].keycode],Beta_Smarta[j].keystring,MAXSUBSTRING);
 	}
 	
 	for(i=0;i<256;i++) {

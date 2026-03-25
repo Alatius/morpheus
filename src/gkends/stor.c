@@ -12,7 +12,7 @@ static gk_string * StoreGstr;
 #include "../greeklib/stripchar.proto.h"
 #include "../greeklib/stripzeroend.proto.h"
 static int cur_endcnt = 0;
-static int maxstring = 0;
+static size_t maxstring = 0;
 int CompByDictStr(const void *gstr1, const void *gstr2);
  int
  CompGkString(const void *gstr1, const void *gstr2);

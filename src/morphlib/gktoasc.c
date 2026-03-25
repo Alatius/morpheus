@@ -1,3 +1,5 @@
+#include <stddef.h>
+
 char gktoasc[]= {
 /*	alpha */	'a',	'a' + 01,
 /*	beta */		'b',	'a' + 02,
@@ -31,7 +33,7 @@ char gktoasc[]= {
 
 void set_gkorder(register char *s)
 {
-	int i;
+	size_t i;
 
 	for(i=0;i< sizeof gktoasc;) {
 		s[ (unsigned char)gktoasc[ i ] ] = gktoasc[ i+1 ] ;

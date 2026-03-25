@@ -218,6 +218,7 @@ int nocrasis = 0;
 int checkcrasis(gk_word *Gkword)
 {
 	int i;
+	size_t j;
 	char saveword[MAXWORDSIZE];
 	char* string = workword_of(Gkword);
 	char* mungedword;
@@ -234,21 +235,21 @@ int checkcrasis(gk_word *Gkword)
 				break;
 			string[i] = tolower(string[i]);
 		}
-		for(i=0;i<LENGTH_OF(LatSync);i++) {
-			mungedword = LatSync[i].mungedword;
-		
+		for(j=0;j<LENGTH_OF(LatSync);j++) {
+			mungedword = LatSync[j].mungedword;
+
 			if( *string == * mungedword && !Xstrncmp(mungedword , string , Xstrlen(mungedword) ) ) {
-				rval += testcrasis(Gkword,mungedword,LatSync[i].wordstart,LatSync[i].preword, LatSync[i].possdial);
+				rval += testcrasis(Gkword,mungedword,LatSync[j].wordstart,LatSync[j].preword, LatSync[j].possdial);
 			}
 		}
 		return(rval);
 	}
 
-	for(i=0;i<LENGTH_OF(PossCras);i++) {
-		mungedword = PossCras[i].mungedword;
-		
+	for(j=0;j<LENGTH_OF(PossCras);j++) {
+		mungedword = PossCras[j].mungedword;
+
 		if( *string == * mungedword && !Xstrncmp(mungedword , string , Xstrlen(mungedword) ) ) {
-			rval += testcrasis(Gkword,mungedword,PossCras[i].wordstart,PossCras[i].preword, PossCras[i].possdial);
+			rval += testcrasis(Gkword,mungedword,PossCras[j].wordstart,PossCras[j].preword, PossCras[j].possdial);
 			/*
 			if( rval ) return(rval);
 			*/

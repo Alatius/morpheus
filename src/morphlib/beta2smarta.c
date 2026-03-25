@@ -512,8 +512,8 @@ printf(" *rp [%o] n [%o] ", *rp , n  );
 
 int accnum(int n)
 {
-	int i;
-	
+	size_t i;
+
 	for(i=0;i<sizeof acctab/sizeof acctab[0];i++ )
 		if( n == acctab[i] )
 			return(i);

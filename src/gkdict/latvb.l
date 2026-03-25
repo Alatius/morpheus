@@ -176,7 +176,7 @@ ECHO;
 #define LENGTH_OF(X) (sizeof(X)/sizeof((X)[0]))
 int is_spectype()
 {
-	int i;
+	size_t i;
 
 	for(i=0;i<LENGTH_OF(spectypes);i++) {
 		if( ! strcmp(yytext,spectypes[i]) ) {

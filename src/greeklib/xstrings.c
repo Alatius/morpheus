@@ -23,7 +23,7 @@ void Xstrncat(char *s1, const char *s2, size_t len)
 		fprintf(stderr,"Xstrncat: hey! len %zu for [%s] \n", len, s2 );
 	}
 
-	if( Xstrlen(s1) + Xstrlen(s2) > len - 1 ) {
+	if( (size_t)(Xstrlen(s1) + Xstrlen(s2)) > len - 1 ) {
 		fprintf(stderr,"limit: %zu; tacking [%s] + [%s] is too big!\n", len , s1 , s2 );
 		nlen = len - Xstrlen(s1) - 1;
 		fprintf(stderr,"nlen %zu\n", nlen );

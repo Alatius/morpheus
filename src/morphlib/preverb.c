@@ -69,7 +69,7 @@ bool checkprevb(char *word, char *prevb, bool *brflg)
 /* found preverb returned in prevb */
 /* brflg = YES -> questionable breathing on word. Must try both types */
 {
-	int i;
+	size_t i;
 
 /*
  * this loop allows you to come back to the list of preverbs

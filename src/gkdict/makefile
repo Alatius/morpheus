@@ -13,7 +13,7 @@ CC=cc
 CC=gcc
 #CFLAGS= -O -I${INCLUDE}   -g
 #CFLAGS= -O -I${INCLUDE}   -Wstrict-prototypes   -Wmissing-prototypes
-CFLAGS= -O2 -I${INCLUDE} -Wall -Wextra -Wno-missing-braces -Wno-sign-compare
+CFLAGS= -O2 -I${INCLUDE} -Wall -Wextra -Wno-missing-braces
 LINTFLAGS= -I${INCLUDE} -DDEBUG
 RM=/bin/rm -f
 
@@ -52,6 +52,14 @@ xx:	x.o  ${MORPHLIB} ${GREEKLIB}
 ${DICTLIB}: ${DICTOBJ}
 	ar rv ${DICTLIB} ${DICTOBJ}
 	ranlib ${DICTLIB}
+
+# Flex-generated code has a known sign-compare warning in yy_get_next_buffer().
+# Suppress it only for flex targets; all hand-written code compiles without it.
+FLEX_PROGS = setquant splitlems splitlat latvb conj1 combitype latnom fixhesc fixgend
+$(FLEX_PROGS): %: %.l
+	$(LEX) -t $< > $*.c
+	$(CC) $(CFLAGS) -Wno-sign-compare -o $@ $*.c
+	$(RM) $*.c
 
 clean:
 	rm -f *.o ${ALL}

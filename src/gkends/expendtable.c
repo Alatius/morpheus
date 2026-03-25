@@ -29,7 +29,7 @@ void expendtables(char *tabname, int maintable, int formcode)
 	char shortname[MAXWORDSIZE];
 	char fname[MAXPATHNAME];
 	char curendstr[MAXWORDSIZE];
-	int maxstring = 0;
+	size_t maxstring = 0;
 	char basename[MAXWORDSIZE];
 	char *s;
 	gk_string TmpGstr;

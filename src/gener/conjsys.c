@@ -273,8 +273,8 @@ int noppart(char *s)
 {
 	char buf1[256];
 	char buf2[256];
-	int i;
-	
+	size_t i;
+
 	if(is_empty(s) ) return(1);
 	
 	Xstrncpy(buf1,s,sizeof buf1);

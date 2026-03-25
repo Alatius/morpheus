@@ -1,5 +1,5 @@
 INCLUDE=../includes
-CFLAGS= -O2 -I${INCLUDE} -Wall -Wextra -Wno-missing-braces -Wno-sign-compare
+CFLAGS= -O2 -I${INCLUDE} -Wall -Wextra -Wno-missing-braces
 LIB=greeklib.a
 RM=rm
 CC=cc
