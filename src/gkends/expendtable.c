@@ -100,7 +100,6 @@ void expendtables(char *tabname, int maintable, int formcode)
 		basename[0] = 0;
 		if(! (finput=fopen(fname,"r"))) {
 			fprintf(stderr,"could not open %s for reading\n", fname );
-			fclose(finput);
 			return;
 		}
 	}
@@ -150,8 +149,10 @@ fprintf(stderr,"basenam [%s] line [%s]\n", basename , line );
 	}
 
 	fclose(finput);
-	if( maintable && formcode != DOWORD ) {
-		PrntNewGstrings(foutput,1);
+	if( maintable ) {
+		if( formcode != DOWORD ) {
+			PrntNewGstrings(foutput,1);
+		}
 		if( foutput != stdout )
 			fclose(foutput);
 	}

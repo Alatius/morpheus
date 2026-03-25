@@ -62,6 +62,7 @@ int setup_headtab(void)
 	while(fgets(line,sizeof line,fheads) ) {
 		if( line[0] != '#' ) continue;
 		headtab[nheads] = malloc(strlen(line));
+		if( !headtab[nheads] ) break;
 		line[strlen(line)-1] = 0;
 		Xstrncpy(headtab[nheads],line+1,strlen(line));
 		nheads++;

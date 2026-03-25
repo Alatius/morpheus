@@ -68,4 +68,5 @@ void do_all_derivs(int maintable, int formcode)
 		expendtables(derivname,maintable,formcode);
 
 	}
+	fclose(finput);
 }

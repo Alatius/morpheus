@@ -455,6 +455,7 @@ void init_pnametab(void)
 		}
 		if(line[strlen(line)-1] == '\n') line[strlen(line)-1] = 0;
 		pnametab[pnames] = (char*) malloc((size_t)strlen(line)+1);
+		if( !pnametab[pnames] ) break;
 		Xstrncpy(pnametab[pnames],line,BUFSIZ);
 	}
 

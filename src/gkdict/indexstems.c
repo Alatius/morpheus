@@ -264,9 +264,12 @@ fprintf(stderr,"out of qsort\n");
 
 	if(! (foutput=MorphFopen(file,"w"))) {
 		char tmp[256];
-		
+
 		snprintf(tmp,sizeof(tmp),"Could not open %s!", file );
 		ErrorMess(tmp);
+		free(prevkey);
+		free(curtag);
+		free(prevtag);
 		return;
 	}
 	
@@ -295,16 +298,14 @@ if( ! (i % 5000 ) ) printf("processing %ld: %s\n", i , *(table+i) );
 fprintf(stderr,"done with i=%ld, %ld\n", i , stemcount-i);
 	fclose(foutput);
 fprintf(stderr,"about to index [%s]\n", file);
-/*
-	free(bufptr);
-*/
 	index_list(file,"",indfreq);
 fprintf(stderr,"have just indexed [%s]\n", file);
 
-/*
-	for(i=0;i<stemcount;i++) free(*(table+i));
-*/
 	free(table);
+	free(bufptr);
+	free(prevkey);
+	free(curtag);
+	free(prevtag);
 
 }
 

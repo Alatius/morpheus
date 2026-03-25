@@ -47,7 +47,10 @@ int init_lemmentries(void)
 	
 	for(i=0;fgets(line,sizeof line,flemm);i++) {
 		*(lemmentries+i) = (char *)calloc(strlen(line)+1,sizeof **lemmentries);
-		
+		if( !*(lemmentries+i) ) {
+			fclose(flemm);
+			return(0);
+		}
 		p = &line[strlen(line)-1];
 		while(isspace(*p)&&p>line) *p-- = 0;  /* zap newline */
 		Xstrncpy(*(lemmentries+i),line,strlen(line)+1);
