@@ -15,8 +15,8 @@ int unique_lastc(char *s, int n, int maxc);
 void dump_adj(int trimn, char *stype, char *glab, char *nlab);
 void dump_nom(int trimn, char *stype, char *glab, char *nlab);
 void dump_ent(int trimn, char *etag, char *stype, char *glab, char *nlab);
-int is_itype(unsigned char *s, unsigned char *ends);
-void trimstem(unsigned char *curs, int trimn);
+int is_itype(const char *s, const char *ends);
+void trimstem(char *curs, int trimn);
 int is_prevborth(char *s);
 %}
 
@@ -39,10 +39,10 @@ int is_prevborth(char *s);
 
 #include <string.h>
 #define MAXORTH 12
-unsigned char orthtab[MAXORTH][BUFSIZ];
+char orthtab[MAXORTH][BUFSIZ];
 
-unsigned char curlemma[BUFSIZ], curstem[BUFSIZ], stemnoacc[BUFSIZ], curitype[BUFSIZ];
-unsigned char curpat[BUFSIZ];
+char curlemma[BUFSIZ], curstem[BUFSIZ], stemnoacc[BUFSIZ], curitype[BUFSIZ];
+char curpat[BUFSIZ];
 int dumped_stem = 0;
 
 
@@ -80,8 +80,8 @@ void set_lemma(char *p)
 
 void set_orth(int tlen)
 {
-	unsigned char curpat[BUFSIZ], *s;
-	
+	char curpat[BUFSIZ], *s;
+
 	ECHO;
 	yytext[yyleng-tlen-3] = 0;
 
@@ -112,7 +112,7 @@ int sameend(char *s1, char *s2)
 
 void set_orthalt(int tlen)
 {
-	unsigned char curpat[BUFSIZ], *s;
+	char curpat[BUFSIZ], *s;
 	int rval;
 	int lastc;
 
@@ -381,7 +381,7 @@ if( is_itype("i^inis","men") )	{ dump_nom('m',"men_minis",gendlab,numlab); retur
 ECHO;
 }
 
-int is_itype(unsigned char *s,unsigned char *ends)
+int is_itype(const char *s, const char *ends)
 {
 	if( strcmp(s,curitype)) return(0);
 
@@ -529,9 +529,9 @@ void dump_form3(int n)
 	dump_form2(n);
 }
 
-void trimstem(unsigned char * curs, int trimn)
+void trimstem(char *curs, int trimn)
 {
-	unsigned char * s;
+	char *s;
 
 	if( trimn > 0 ) {
 		s = curs;

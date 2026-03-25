@@ -30,7 +30,7 @@ int sawpass = 0;
 
 char orthstem[BUFSIZ];
 
-unsigned char stem[BUFSIZ], lemma[BUFSIZ];
+char stem[BUFSIZ], lemma[BUFSIZ];
 
 char *spectypes[] = {
 "<itype>po^su^i, po^si^tum, 3</itype>",
@@ -197,7 +197,7 @@ int is_spectype()
 
 void set_lemma()
 {
-	unsigned char *t;
+	char *t;
 
 	ECHO;
 	sawi = sawpass = orthstem[0] = 0;
@@ -283,8 +283,8 @@ void doderiv(char * tag)
 
 void set_orth()
 {
-	unsigned char * t = yytext + 6;
-	unsigned char * p = orthstem;
+	char *t = yytext + 6;
+	char *p = orthstem;
 	ECHO;
 
 	strcpy(orthstem,stem);
@@ -361,9 +361,9 @@ void doverb(char * vtag)
 
 void do_vstems(char * vtag, int trimn )
 {
-	unsigned char tmpstem[BUFSIZ], perfsuff[BUFSIZ] , supsuff[BUFSIZ];
-	unsigned char tmporths[BUFSIZ];
-	unsigned char * t;
+	char tmpstem[BUFSIZ], perfsuff[BUFSIZ], supsuff[BUFSIZ];
+	char tmporths[BUFSIZ];
+	char *t;
 
 	doverb(vtag);
 

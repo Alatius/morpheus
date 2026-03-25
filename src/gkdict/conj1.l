@@ -52,11 +52,11 @@
 
 char orthstem[BUFSIZ];
 
-unsigned char stem[BUFSIZ], lemma[BUFSIZ];
+char stem[BUFSIZ], lemma[BUFSIZ];
 
 void set_lemma()
 {
-	unsigned char *t;
+	char *t;
 
 	orthstem[0] = 0;
 	strcpy(lemma,yytext);
@@ -104,8 +104,8 @@ void doderiv(char * tag,int trimn)
 
 void set_orth()
 {
-	unsigned char * t = yytext + 6;
-	unsigned char * p = orthstem;
+	char *t = yytext + 6;
+	char *p = orthstem;
 	ECHO;
 
 	strcpy(orthstem,stem);

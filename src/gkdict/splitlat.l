@@ -30,7 +30,7 @@ void newentr2()
 
 void newentr()
 {
-	unsigned char * t;
+	char *t;
 
 	t = yytext;
 

@@ -19,7 +19,7 @@ void add_lemma(void);
 %%
 
 #include <string.h>
-unsigned char curlemma[BUFSIZ];
+char curlemma[BUFSIZ];
 
 void add_lemma()
 {
@@ -34,7 +34,7 @@ void set_lemma()
 
 void dump_orth()
 {
-	unsigned char * t;
+	char *t;
 	yytext[yyleng-7] = 0;
 	
 	t = yytext;
