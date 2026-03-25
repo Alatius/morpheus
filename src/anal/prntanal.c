@@ -412,7 +412,7 @@ void DumpPerseusAnalysis(
     fprintf(fout,"\t%u</NL>", formval);
   }
   else {
-    GregSprintGkFlags(anal,tmp,sizeof(tmp)," "," ",1);
+    GregSprintGkFlags((gk_string *)anal,tmp,sizeof(tmp)," "," ",1);
     fprintf(fout,"%s</NL>", tmp );
   }
 
@@ -478,10 +478,10 @@ void DumpOneAnalysis(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FI
       Parse elements from a set into an (ordered) vector.
       */
 
-    JakeSprintGkFlags(anal,tmp,sizeof(tmp)," "," ",1);
+    JakeSprintGkFlags((gk_string *)anal,tmp,sizeof(tmp)," "," ",1);
 
     fprintf(fout,"%s\t", tmp );
-    
+
     fprintf(fout,"%s\t", crasis_of(anal) );
     /*
       if( prntflags != DBASESHORT ) {
@@ -547,7 +547,7 @@ void DumpOneAnalysis(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FI
       Parse elements from a set into an (ordered) vector.
       */
 
-    JakeSprintGkFlags(anal,tmp,sizeof(tmp),"\t"," ",1);
+    JakeSprintGkFlags((gk_string *)anal,tmp,sizeof(tmp),"\t"," ",1);
     fprintf(fout,"%s\t", tmp );
     fprintf(fout,"%s\t", crasis_of(anal) );
     if( (prntflags) != DBASESHORT ) {
@@ -564,7 +564,7 @@ void DumpOneAnalysis(gk_word *Gkword, PrntFlags prntflags, gk_analysis *anal, FI
   /*
     SprintGkFlags(anal,tmp,"\t",1);
     */
-  JakeSprintGkFlags(anal,tmp,sizeof(tmp)," "," ",1);
+  JakeSprintGkFlags((gk_string *)anal,tmp,sizeof(tmp)," "," ",1);
 
   if(preverb_of(anal)[0] )	{
     Xstrncpy(workw,preverb_of(anal) ,sizeof(workw));

@@ -337,7 +337,7 @@ Morph_args * arg_domain = NULL;
 
 Morph_args *MatchMorphKey(char *);
 Morph_args *InitStemSuffs(char *, void (*curfunc )(), Stemtype (*classfunc )(), int *);
-int keycomp2(char *, Morph_args **);
+int keycomp2(const char *, const char *);
 int add_keyarr(Morph_args **, Morph_args *);
 
 #endif /* MORPHKEYS_H */

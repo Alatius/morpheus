@@ -3,9 +3,9 @@
 
 
 /* morphstrcmp.c */
-int morphstrcmp(char *, char *);
+int morphstrcmp(const char *, const char *);
 int betastrcmp(char *, char *);
-int morphstrncmp(char *, char *, size_t);
+int morphstrncmp(const char *, const char *, size_t);
 int dictstrcmp(char *, char *);
 int dictstrncmp(char *, char *, size_t);
 void init_comptab(void);

@@ -11,7 +11,7 @@ static int betatabinited = 0;
 /*
  * Compare strings:  s1>s2: >0  s1==s2: 0  s1<s2: <0
  */
-int morphstrcmp(char *s1, char *s2)
+int morphstrcmp(const char *s1, const char *s2)
 {
 	if( ! tabinited ) {
 		init_comptab();
@@ -53,7 +53,7 @@ int betastrcmp(char *s1, char *s2)
 
 }
 
-int morphstrncmp(char *s1, char *s2, size_t n)
+int morphstrncmp(const char *s1, const char *s2, size_t n)
 {
 	if( ! tabinited ) {
 		init_comptab();

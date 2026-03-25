@@ -595,18 +595,18 @@ static int (*gkCompare)(gk_string *, gk_string *);
 
 int xInsertGstr(gk_string *oldgstr, gk_string *newgstr, int len, int (*compare)(gk_string *, gk_string *), int backwards)
 {
-	char * news, *olds;
+	gk_string * news, *olds;
 	int i;
 	
 	gkCompare = compare;
 
-	news = gkstring_of(newgstr);
+	news = newgstr;
 
 	if( len == 0 ) {
 		*oldgstr = * newgstr;
 	} else {
 		for(i=len;i>0;i--) {
-			olds = gkstring_of(oldgstr+i-1);
+			olds = oldgstr+i-1;
 			*(oldgstr+i) = *(oldgstr+i-1);
 			if( backwards == NO ) {
 				if(((*gkCompare)(olds,news)) <= 0 )  {

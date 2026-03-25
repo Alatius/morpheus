@@ -620,11 +620,11 @@ int keycomp1(const void *k1, const void *k2)
 	return(strcmp( (*m1)->morph_key, (*m2)->morph_key ));
 }
 
-int keycomp2(char *s, Morph_args **kp)
+int keycomp2(const char *s, const char *kp)
 {
 	Morph_args * m;
 	int rval = 0;
-	m = *kp;
+	m = *(Morph_args *const *)kp;
 
 	rval = strcmp(s,m->morph_key);
 

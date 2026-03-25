@@ -203,7 +203,7 @@ printf("stemkeys [%s]\n", stemkeys );
 
 			paradigm_keys(stemkeys);
 			ScanAsciiKeys(stemkeys,Gkword,&Gstr,NULL);
-			set_morphflags(Gkword, morphflags_of(&Gstr));
+			set_gwmorphflags(Gkword, morphflags_of(&Gstr));
 			if( !strncmp(line,":wd:",4) ) {
 				mode = INDECL;
 			}
@@ -606,10 +606,10 @@ dialect_of(ends_gstr_of(gkform+i) ));
 		
 
 	dialbuf[0] = 0;
-	add_morphflags(gkform,morphflags_of(stem_gstr_of(gkform)));
-	add_morphflags(gkform,morphflags_of(prvb_gstr_of(gkform)));
-	add_morphflags(gkform,morphflags_of(aug1_gstr_of(gkform)));
-	add_morphflags(gkform,morphflags_of(ends_gstr_of(gkform)));
+	add_morphflags((gk_string *)gkform,morphflags_of(stem_gstr_of(gkform)));
+	add_morphflags((gk_string *)gkform,morphflags_of(prvb_gstr_of(gkform)));
+	add_morphflags((gk_string *)gkform,morphflags_of(aug1_gstr_of(gkform)));
+	add_morphflags((gk_string *)gkform,morphflags_of(ends_gstr_of(gkform)));
 	MorphNames(morphflags_of(gkform),dialbuf," ",1);
 	if( dialbuf[0] ) {
 			Xstrncat(linebuf," ",sizeof linebuf);
