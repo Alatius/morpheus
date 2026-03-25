@@ -315,12 +315,6 @@ printf("str [%s] skipdial %o match d [%o]\n", curstring, skipdial, dialect_of(ma
  * put this back in because we were getting
  * -a=s instead of -a/s for forms such as kata-ba/s
  */
-				if( Is_verbform(gstr) && (mood_of(forminfo_of(gstr)) != PARTICIPLE) && !strchr(gkstring_of(gstr),'!'))
-					FixRecAcc((gk_word *)gstr,morphflags_of(gstr),gkstring_of(gstr));
-				else
-/*
- * end 3/17/91 mod
- */
 					AccComposForm(gstr);
 				zap_morphflag(morphflags_of(gstr),LOST_ACC);
 			}

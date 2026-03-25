@@ -18,34 +18,27 @@ static void fixnacc2(char *, gk_string *, word_form, int, bool);
 
 void putsimpleacc(char *s)
 {
-	gk_word * gkword;
-	MorphFlags * mflags;
+	gk_string ending = {0};
+	word_form form_info;
+	MorphFlags mflags[MORPHFLAG_BYTES];
+	char workword[MAXWORDSIZE];
 
 	if( cur_lang() == LATIN || cur_lang() == ITALIAN ) return;
 
-	gkword = (gk_word *) CreatGkword(1);
-
-	if( ! gkword ) {
-		fprintf(stderr,"no memory for gstring in putsimpleacc\n");
-		return;
-	}
-	mflags = (MorphFlags *)calloc(1,sizeof * mflags);
-	
-	set_workword(gkword,s);
-	FixRecAcc(gkword,mflags,workword_of(gkword));
-	Xstrncpy(s,workword_of(gkword),MAXWORDSIZE);
-	FreeGkword(gkword);
+	memset(&form_info, 0, sizeof form_info);
+	memset(mflags, 0, sizeof mflags);
+	Xstrncpy(workword, s, sizeof workword);
+	FixRecAcc(form_info, &ending, mflags, workword);
+	Xstrncpy(s, workword, MAXWORDSIZE);
 }
 
-void FixRecAcc(gk_word *gkform, MorphFlags *mflags, char *word)
+void FixRecAcc(word_form form_info, gk_string *ending, MorphFlags *mflags, char *word)
   /* add recessive accent */
 {
 	register char *p;
-	word_form form_info;
 
 
 	if( cur_lang() == LATIN || cur_lang() == ITALIAN ) return;
-	form_info = forminfo_of(gkform);
 
 	/* if accent's already there, forget it */
 	for (p=word;*p;p++)
@@ -56,11 +49,11 @@ void FixRecAcc(gk_word *gkform, MorphFlags *mflags, char *word)
 		return;		/* avoid core dumps */
 
 /*
- * see if this word must be accented on the final syllable of the stem 
+ * see if this word must be accented on the final syllable of the stem
  * (which is actually not always the penult: e.g. stratiw/ths, stratiw/taisi)
  */
 
-	
+
 	if (getquantity(word,ULTIMA,NULL_P, YES,NO) == LONG) {
 		p = getsyll(word,PENULT);
 
@@ -69,7 +62,7 @@ void FixRecAcc(gk_word *gkform, MorphFlags *mflags, char *word)
 
 			if( Accent_optional(mflags) )
 				return;
-			if( ulttakescirc(ends_gstr_of(gkform),forminfo_of(ends_gstr_of(gkform))) ) {
+			if( ulttakescirc(ending,forminfo_of(ending)) ) {
 				addaccent(word,CIRCUMFLEX,p);
 			} else {
 				addaccent(word,ACUTE,p);
@@ -79,7 +72,7 @@ void FixRecAcc(gk_word *gkform, MorphFlags *mflags, char *word)
 		}
 	} else {		/* short ultima */
 		p = getsyll(word,ANTEPENULT);
-		if (p != P_ERR && ! penult_form(ends_gstr_of(gkform),form_info))
+		if (p != P_ERR && ! penult_form(ending,form_info))
 			addaccent(word,ACUTE,p);
 		else {		/* no antepenult */
 			if( Accent_optional(mflags) )

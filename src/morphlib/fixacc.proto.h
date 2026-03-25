@@ -4,7 +4,7 @@
 
 /* fixacc.c */
 void putsimpleacc(char *);
-void FixRecAcc(gk_word *, MorphFlags *, char *);
+void FixRecAcc(word_form, gk_string *, MorphFlags *, char *);
 void FixPersAcc(gk_string *, MorphFlags *, gk_string *, char *, char *, word_form, int);
 void FixPersAcc2(gk_string *, MorphFlags *, gk_string *, char *, char *, word_form, int);
 

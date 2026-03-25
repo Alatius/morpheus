@@ -70,6 +70,7 @@ printf("start with p [%s]\n", p );
 	
 	*ends_gstr_of(gkform) = * gstr;
 	set_morphflags((gk_string *)gkform,morphflags_of(gstr));
+	forminfo_of(gkform) = forminfo_of(gstr);
 
 /*
  * if the ending is accented or if it is more than one syllable long,
@@ -92,9 +93,8 @@ printf("start with p [%s]\n", p );
 		zap_morphflag(morphflags_of(gstr),SUFF_ACC);
 	}
 
-	if( Is_adjform(gstr) || Is_nounform(gstr) || Is_participle(gstr) || (stemtype_of(gstr)|INDECL) ||  has_morphflag(morphflags_of(gstr),INDECLFORM) ) {
-
-		FixPersAcc(gstr,morphflags_of(gstr),gstr,p,word,forminfo_of(gstr), 
+	if( Is_adjform(gstr) || Is_nounform(gstr) || Is_participle(gstr) || (stemtype_of(gstr)&INDECL) ||  has_morphflag(morphflags_of(gstr),INDECLFORM) ) {
+		FixPersAcc(gstr,morphflags_of(gstr),gstr,p,word,forminfo_of(gstr),
 		has_morphflag(morphflags_of(gstr),INDECLFORM) ? 0 : 1 );
 		if(word[0] ) {
 			if( prefword[0] ) {
@@ -106,12 +106,14 @@ printf("start with p [%s]\n", p );
 
 
 	} else if( Is_verbform(gstr) || had_suff_acc ) {
-		FixRecAcc(gkform,morphflags_of(gstr),p);
+		FixRecAcc(forminfo_of(gstr),ends_gstr_of(gkform),morphflags_of(gstr),p);
 		if( prefword[0] ) {
 			Xstrncat(prefword,p,sizeof(prefword));
-			Xstrncpy(p,prefword,MAXWORDSIZE);
+			Xstrncpy(gkstring_of(gstr),prefword,sizeof(gkstring_of(gstr)));
+		} else {
+			Xstrncpy(gkstring_of(gstr),p,sizeof(gkstring_of(gstr)));
 		}
-	}  
+	}
 
 finish:
 	if( had_suff_acc ) 

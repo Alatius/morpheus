@@ -630,7 +630,7 @@ int BuildAVerb(gk_word *Gkword, gk_string *CurEnding, gk_word *CurForms)
 			if( has_morphflag(morphflags_of(stem_gstr_of(CurForms)) ,NO_CIRCUMFLEX))
 				add_morphflag(morphflags_of(ends_gstr_of(CurForms)),NO_CIRCUMFLEX);
 			add_morphflags(&TmpGstr,morphflags_of(stem_gstr_of(CurForms)));
-			FixRecAcc(CurForms,morphflags_of(&TmpGstr),workword_of(CurForms));
+			FixRecAcc(forminfo_of(CurForms),ends_gstr_of(CurForms),morphflags_of(&TmpGstr),workword_of(CurForms));
 			stripstemsep(workword_of(CurForms));
 		} else {
 
@@ -674,11 +674,11 @@ int BuildAVerb(gk_word *Gkword, gk_string *CurEnding, gk_word *CurForms)
 /*
 				check_double_augment(CurForms+i);
 */
-				FixRecAcc(CurForms+i,morphflags_of(ends_gstr_of(CurForms+i)),workword_of(CurForms+i));
+				FixRecAcc(forminfo_of(CurForms+i),ends_gstr_of(CurForms+i),morphflags_of(ends_gstr_of(CurForms+i)),workword_of(CurForms+i));
 				stripstemsep(workword_of(CurForms+i));
 			} else {
 
-				FixRecAcc(CurForms+i,morphflags_of(ends_gstr_of(CurForms+i)),workword_of(CurForms+i));
+				FixRecAcc(forminfo_of(CurForms+i),ends_gstr_of(CurForms+i),morphflags_of(ends_gstr_of(CurForms+i)),workword_of(CurForms+i));
 
 				stripstemsep(workword_of(CurForms));
 /*
@@ -705,7 +705,7 @@ int BuildAVerb(gk_word *Gkword, gk_string *CurEnding, gk_word *CurForms)
  ending (for some reason) had the accent optional flag set...
 		FixRecAcc(CurForms,morphflags_of(ends_gstr_of(CurForms)),workword_of(CurForms));
 */
-		FixRecAcc(CurForms,morphflags_of(stem_gstr_of(CurForms)),workword_of(CurForms));
+		FixRecAcc(forminfo_of(CurForms),ends_gstr_of(CurForms),morphflags_of(stem_gstr_of(CurForms)),workword_of(CurForms));
 		stripstemsep(workword_of(CurForms));
 
 	}
@@ -731,7 +731,7 @@ void MonoSyllVb(gk_word *CurForms, word_form winfo, char *preverb)
 			/*
 			 * this makes sure that "pro" + "qou" --> "proqou="
 			 */
-				FixRecAcc(CurForms,morphflags_of(ends_gstr_of(CurForms)),workword_of(CurForms));
+				FixRecAcc(forminfo_of(CurForms),ends_gstr_of(CurForms),morphflags_of(ends_gstr_of(CurForms)),workword_of(CurForms));
 				rstprevb(workword_of(CurForms),preverb,prvb_gstr_of(CurForms));
 		}
 		/*
@@ -739,9 +739,9 @@ void MonoSyllVb(gk_word *CurForms, word_form winfo, char *preverb)
 		 * the preverb, which will be the penult of the overall
 		 * verb form.
 		 */
-		else { 
+		else {
 			rstprevb(workword_of(CurForms),preverb,prvb_gstr_of(CurForms));
 			add_morphflag(morphflags_of(ends_gstr_of(CurForms)),STEM_ACC);
-			FixRecAcc(CurForms,morphflags_of(ends_gstr_of(CurForms)),workword_of(CurForms));
+			FixRecAcc(forminfo_of(CurForms),ends_gstr_of(CurForms),morphflags_of(ends_gstr_of(CurForms)),workword_of(CurForms));
 		}
 }
