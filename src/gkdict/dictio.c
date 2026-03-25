@@ -1,7 +1,6 @@
 #include <gkstring.h>
 #include <gkdict.h>
 #include <endtags.h>
-#define STEMCACHE 0
 
 /*int dictstrcmp(), dictstrncmp(), morphstrcmp(), morphstrncmp();*/
 
@@ -16,12 +15,6 @@ char * vbindex = VBINDEX;
 char * nomindex = NOMINDEX;
 #include "retrentry.proto.h"
  int Use_hqdict = 0;
-
-#if STEMCACHE
-Stemcache * scache;
-int cacheflag = 1;
-#define CACHESIZE 48
-#endif
 
 #include "dictio.proto.h"
 #include "xderivio.proto.h"
@@ -60,36 +53,13 @@ int chckirrverb(char *irregstr, char *lemmas)
 {
 	char workstem[MAXWORDSIZE];
 	int rval;
-	long startoff;
-	
+
 	workstem[0] = '1';
 	Xstrncpy(workstem+1,irregstr,MAXWORDSIZE);
 	stripmetachars(workstem);
 	stripacc(workstem);
 	rval = chckvstem(workstem,lemmas);
 	return(rval);
-
-	if( ! VbTags ) {
-		VbTags = init_dict(vbindex,&num_of_vtags);
-	}
-#if STEMCACHE
-	if( ! scache ) {
-		init_scache();
-	}
-	if( (rval=is_instemcache(workstem,Xstrlen(workstem),lemmas) ) )
-		return(rval);
-#endif
-
-	startoff = ChckPreIndex(VbTags,workstem,num_of_vtags,YES,morphstrcmp);
-
-	if( startoff < 0 ) return(0);
-	if( ChckFullIndex(workstem,lemmas,vbindex,startoff,morphstrncmp) ) {
-#if STEMCACHE
-		add_stemcache(scache,workstem,lemmas);
-#endif
-		return(1);
-	}
-	return(0);
 }
 
 
@@ -115,14 +85,6 @@ int chckindecl(char *indeclstr, char *lemmas)
 	stripdiaer(tmpindecl);
 	stripacc(tmpindecl);
 
-#if STEMCACHE
-	if( ! scache ) {
-		init_scache();
-	}
-	if( (rval=is_instemcache(tmpindecl,Xstrlen(tmpindecl),lemmas) ) )
-		return(rval);
-#endif
-
 /*
 	printf("will look for [%s] in indecl\n", tmpindecl );
 */
@@ -132,9 +94,6 @@ printf("startoff [%ld]\n", startoff );
 */
 	if( startoff < 0 ) return(0);
 	if( ChckFullIndex(tmpindecl,lemmas,nomindex,startoff,morphstrncmp) ) {
-#if STEMCACHE
-		add_stemcache(scache,tmpindecl,lemmas);
-#endif
 		return(1);
 	}
 
@@ -149,10 +108,9 @@ printf("startoff [%ld]\n", startoff );
  */
 int chckderiv(char *derivstr, char *derivkeys)
 {
-	long startoff;
 	int rval = 0;
 	char tmpderivstr[MAXWORDSIZE];
-	
+
 /*
 	*derivkeys = 0;
 */
@@ -162,27 +120,6 @@ int chckderiv(char *derivstr, char *derivkeys)
 	stripdiaer(tmpderivstr);
 	rval = chckvstem(tmpderivstr,derivkeys);
 	return(rval);
-	
-	if( ! VbTags ) {
-		VbTags = init_dict(vbindex,&num_of_vtags);
-	}
-
-
-/*
-	printf("will look for [%s] in indecl\n", derivstr );
-*/
-	startoff = ChckPreIndex(VbTags,tmpderivstr,num_of_vtags,YES,morphstrcmp);
-/*
-printf("startoff [%ld]\n", startoff );
-*/
-	if( startoff < 0 ) return(0);
-	if( ChckFullIndex(tmpderivstr,derivkeys,vbindex,startoff,morphstrncmp) ) {
-#if STEMCACHE
-		add_stemcache(scache,tmpderivstr,derivkeys);
-#endif
-		return(1);
-	}
-	return(0);
 }
 
 
@@ -220,8 +157,6 @@ int chckstem(char *stemstr, char *stemkeys, int is_nom)
 		}
 	
 		return(rval+rval2);
-
-		indfile = vbindex;
 	}
 	if( ! *stemstr ) return(0);
 	
@@ -240,25 +175,11 @@ int chckstem(char *stemstr, char *stemkeys, int is_nom)
 		curntags = num_of_vtags;
 	}
 	
-#if STEMCACHE
-	if( ! scache ) {
-		init_scache();
-	}
-#endif
-
-#if STEMCACHE
-	if( (rval=is_instemcache(stemstr,taglen,stemkeys) ) )
-		return(rval);
-#endif
 	startoff = ChckPreIndex(CurTags,stemstr,curntags,is_nom? NO : YES,morphstrcmp);
 
 	if( startoff >= 0 ) 
 		rval = ChckFullIndex(stemstr,stemkeys,indfile,startoff,morphstrncmp);
 
-#if STEMCACHE
-	if(rval)
-		add_stemcache(scache,stemstr,stemkeys);
-#endif
 /*
 	if( ! rval ) {
 		rval = checkforderiv(stemstr,stemkeys);
@@ -276,100 +197,6 @@ int chckstem(char *stemstr, char *stemkeys, int is_nom)
 */
 	return(rval);
 }
-
-#if STEMCACHE
-int init_scache(void)
-{
-	char ** pp, *s;
-	int i;
-
-	if( !(scache=(Stemcache *)calloc((size_t)1,(size_t)sizeof * scache))) {
-		char errmess[LONGSTRING];
-		
-		snprintf(errmess,sizeof(errmess),"could not init scache\n");
-		ErrorMess(errmess);
-		cacheflag = 0;
-		return(0);
-	}
-	scache->citem = (char **) calloc((size_t)CACHESIZE, (size_t)sizeof * scache->citem );
-	if( ! scache->citem ) {
-		char errmess[LONGSTRING];
-		
-		snprintf(errmess,sizeof(errmess),"could not init scache->item\n");
-		ErrorMess(errmess);
-		cacheflag = 0;
-		return(0);
-	}	
-		
-	pp = scache->citem;
-	scache->curindex = 0;
-	for(i=0;i<CACHESIZE;i++) {
-		*(pp+i) = (char *) calloc((size_t)MAXWORDSIZE+1,(size_t)sizeof *(*pp) );
-		if( ! *(pp+i) ) {
-			fprintf(stderr,"ran out of memory in cache!\n");
-			return(0);
-		}
-	}
-}
-
-int is_instemcache(char *tag, size_t taglen, char *stemkeys)
-{
-	char ** pp, *s;
-	int i;
-	char worktag[MAXWORDSIZE];
-	
-	Xstrncpy(worktag,tag,MAXWORDSIZE);
-	Xstrncat(worktag," ",MAXWORDSIZE);
-	taglen++;
-	
-	pp = scache->citem;
-	for(i=0;i<CACHESIZE;i++) {
-		s = *(pp+i);
-
-		if( ! *s )
-				break;
-		if( !morphstrncmp(worktag,s,taglen) ) {
-			Xstrncpy(stemkeys,s+taglen,MAXWORDSIZE);
-
-			return( 1 );
-		}
-	}
-	return(0);
-}
-		
-void add_stemcache(Stemcache *cache, char *stem, char *keys)
-{
-	char *tmp = NULL;
-	char * s = NULL;
-	char ** pp;
-	int slen;
-	
-	tmp = malloc((size_t)LONGSTRING);
-	if( cache->curindex >= CACHESIZE ) {
-		cache->curindex = 0;
-	}
-	Xstrncpy(tmp,stem,LONGSTRING);
-	Xstrncat(tmp," ",LONGSTRING);
-	Xstrncat(tmp,keys,LONGSTRING);
-
-	slen = Xstrlen(tmp);
-	pp = cache->citem+cache->curindex;
-	if( slen > MAXWORDSIZE ) {
-		xFree(*(pp),"pp");
-		*(pp) = NULL;
-		*(pp) = (char *)calloc((size_t)slen+1,(size_t)sizeof * s);
-		if( ! * pp ) {
-			fprintf(stderr,"out of memory in cache routine\n");
-		}
-	}
-
-	s = *(pp);
-	Xstrncpy(s,tmp,LONGSTRING);
-	xFree(tmp,"scache tmp");
-	tmp = NULL;
-	cache->curindex++;
-}
-#endif
 
 endtags * LemmTags = NULL;
 static int num_of_ltags = 0;

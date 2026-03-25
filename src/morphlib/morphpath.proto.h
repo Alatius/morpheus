@@ -6,6 +6,5 @@
 FILE *MorphFopen(char *, char *);
 void NumFilesOpened(void);
 void MorphPathName(char *, char *);
-void SysFolderFile(char *, char *);
 
 #endif /* MORPHPATH_PROTO_H */

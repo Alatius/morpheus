@@ -5,35 +5,16 @@
 /*	1985-86				*/
 /*	Joshua Kosman			*/
 /*	David Neel Smith		*/
-#define ANSI 1
-/*
-#define LIGHTSPEED 1
-*/
-
 /*======================================*/
 /*	INCLUDES			*/
 /*======================================*/
 
-#define DECALPHA 1
-#ifdef DECALPHA
 typedef unsigned int int32;
-#else
-typedef unsigned long int32;
-#endif
 
-#ifdef SYS5
-#include <sys/types.h>
-#endif
-#ifndef LIGHTSPEED
 #include <sys/file.h>
-#endif
 #include <ctype.h>
 #include <stdio.h>
-#ifdef ANSI
 #include <string.h>
-#else
-#include <strings.h>
-#endif
 
 #include <stdlib.h>
 /*======================================*/

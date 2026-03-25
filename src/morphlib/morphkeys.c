@@ -13,25 +13,8 @@
 #include "morphflags.proto.h"
 #include "nextkey.proto.h"
 #include "../greeklib/binlook.proto.h"
-#ifdef LIGHTSPEED
-
-/*
- char * p_eq_morph_keys();
-*/
-#else
-
-/*
-static char * NextEndTable();
-static char * p_eq_morph_keys();
-*/
-
-#endif
 Stemtype GetStemClass(char * );
 Stemtype GetIsProse(char *);
-
-#ifndef LIGHTSPEED
-static int GetGkFlag(char *, gk_string *, char *, char *, char *);
-#endif
 
 static void RearrangeMorphflags(gk_word *, gk_string *);
 static int GetGkFlag(char *, gk_string *, char *, char *, char *);

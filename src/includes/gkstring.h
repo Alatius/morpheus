@@ -200,14 +200,8 @@ gk_analysis * CreatGkAnal(int);
 FILE * getlemmstart(char *, char *, long *);
 FILE * MorphFopen(char *, char *);
 
-#ifdef LIGHTSPEED
-#define MorpheusDir "herbert:Utilities Folder:LSC:Morpheus"
-#define DIRCHAR ':'
-#else
-#define MorpheusDir "/usr/src/local/Morpheus"
 #define DIRCHAR '/'
 
-#endif
 #define MAXANALYSES 25
 
 #define PROSEAUTHOR 0100

@@ -5,7 +5,6 @@
  */
 #include <greek.h>
 
-#define DECALPHA 1
 #include "vaxwords.proto.h"
 
 /*
@@ -154,7 +153,6 @@ int vax_fread(char *Buffer, size_t size, int nswap, FILE *f)
 		return(nswap);
 
 		case 8: /* DOUBLES */
-#ifdef DECALPHA
 		longp = ( int32 *)Buffer;
 		for ( i=1; i <= nswap; i++)  {
 			get_int32(longp,f);
@@ -162,7 +160,6 @@ int vax_fread(char *Buffer, size_t size, int nswap, FILE *f)
 		}
 		return(nswap);
 
-#endif
 /*			
 		sdoubp = (double *)Buffer;
 		for ( i=1; i <= nswap; i++)  {
@@ -220,14 +217,13 @@ int vax_fwrite(char *Buffer, size_t size, int nswap, FILE *f)
 		return(nswap);
 
 	    case 8:			/* DOUBLES */
-#ifdef DECALPHA
 		longp = (int32 *)Buffer;
 		for ( i=1; i <= nswap; i++)  {
 			put_int32(longp,f);
 			longp++;
 		}
 		return(nswap);
-#endif
+
 
 /*
 		sdoubp = (double *)Buffer;

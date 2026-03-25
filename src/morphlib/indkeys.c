@@ -1,8 +1,6 @@
 #include <gkstring.h>
 #include <endfiles.h>
 #include <endtags.h>
-#define DECALPHA 1
-
 #include "indkeys.proto.h"
 #include "morphstrcmp.proto.h"
 #include "../greeklib/isblank.proto.h"
@@ -20,11 +18,7 @@ void index_list(char *listname, char *tagstring, int modulus)
 	FILE * foutput;
 	char outfile[BUFSIZ];
 	char line[LONGSTRING*4];
-#ifdef DECALPHA
 	int curoff;
-#else
-	long curoff;
-#endif
 	int taglen;
 	
 	if( modulus > MODULUS ) modulus = MODULUS;
@@ -42,11 +36,7 @@ void index_list(char *listname, char *tagstring, int modulus)
 	}
 	if( tagstring ) taglen = Xstrlen(tagstring);
 	for(;;) {
-#ifdef DECALPHA
 		curoff = (int)ftell(finput);
-#else
-		curoff = ftell(finput);
-#endif
 		if( ! fgets(line,sizeof line,finput) )
 			break;
 		if( Xstrlen(line) >= LONGSTRING ) {
@@ -73,11 +63,7 @@ void index_list(char *listname, char *tagstring, int modulus)
 
 static int count = 0;
 
-#ifdef DECALPHA
 void prockeyline(char *s, int modulus, int curoff, FILE *f)
-#else
-void prockeyline(char *s, int modulus, long curoff, FILE *f)
-#endif
 {
 	char * p;
 	int i;

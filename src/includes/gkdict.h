@@ -19,10 +19,4 @@
 
 #define LEMMTAG		":le:"
 
-typedef struct {
-	int clen;
-	char **citem;
-	int curindex;
-} Stemcache;
-
 #endif /* GKDICT_H */

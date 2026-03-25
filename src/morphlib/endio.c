@@ -86,20 +86,11 @@ int ReadEnding(FILE *f, gk_string *gstr, int maxend)
  */
 int set_endheader(FILE *f, int maxstring)
 {
-#ifdef DECALPHA
 	unsigned int morph_version;
 	int len;
-#else
-	unsigned long morph_version;
-	long len;
-#endif
 
 	morph_version = MORPH_VERSION;
-#ifdef DECALPHA
 	len = maxstring;
-#else
-	len = (long)maxstring;
-#endif
 
 	if( vax_fwrite((char *)&morph_version, sizeof morph_version,  1 , f ) < 0 )
 		return(-1);
@@ -113,17 +104,10 @@ int set_endheader(FILE *f, int maxstring)
  */
 int get_endheader(FILE *f, int *maxp)
 {
-#ifdef DECALPHA
 	int morph_version;
 	int len;
 	int curpos, filelen;
 	int endlen;
-#else
-	long morph_version;
-	long len;
-	long curpos, filelen;
-	long endlen;
-#endif
 	int gstrsize = 0;
 
 	int nendings;
@@ -142,26 +126,16 @@ int get_endheader(FILE *f, int *maxp)
 	if( vax_fread((char *)&len, sizeof len, 1, f ) < 0 )
 		return(-1);
 	*maxp = (int) len;
-	
+
 	curpos = ftell(f);
 	fseek(f,0L,2);
 	filelen = ftell(f);
 	fseek(f,curpos,0);
 
-#ifdef DECALPHA
 	unitsize = gstrsize - (sizeof gkstring_of(fred)) + *maxp /*- 1*/;
 	endlen = filelen - (sizeof morph_version+ sizeof len);
 	nendings = (int)(endlen / unitsize);
-#else
-	unitsize = (sizeof * fred) - (sizeof gkstring_of(fred)) + *maxp - 1;
-	endlen = filelen - (long)(sizeof morph_version+ sizeof len);
-	nendings = (int)(endlen / (long) unitsize);
-#endif
-#ifdef DECALPHA
 	if( endlen % unitsize ) {
-#else
-	if( endlen % (long) unitsize ) {
-#endif
 printf("gstrsize %d endlen %d unitsize %d, mod %d, nendings %d filelen %d\n", gstrsize, endlen, unitsize, ( endlen % unitsize ), nendings, filelen );
 		fprintf(stderr,"Error in endio!\n");
 		return(0);

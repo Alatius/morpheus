@@ -4,21 +4,7 @@
 
 void ErrorMess(char *s)
 {
-#ifdef LIGHTSPEED
-/*
-	char tmp[LONGSTRING];
-	char * CtoPstr();
-	
-	Xstrncpy(tmp,s,LONGSTRING);
-	CtoPstr(tmp);
-	ErrMesg(tmp);*/
 	fprintf(stderr,"%s\n", s );
-/*
-	DebugStr(tmp);
-*/
-#else
-	fprintf(stderr,"%s\n", s );
-#endif
 }
 
 /*
