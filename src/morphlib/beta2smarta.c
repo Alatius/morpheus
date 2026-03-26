@@ -248,6 +248,7 @@ void beta2mac(char *source, char *res, int xlit)
 						*rp++ = SMARTA_SHORTMARK;
 						break;
 					}
+				/* fall through */
 				case 41:
 					if( xlit == SMK ) {
 						*rp++ = ' ';
@@ -256,7 +257,7 @@ void beta2mac(char *source, char *res, int xlit)
 					} else if( xlit == SMARTA ) {
 						*rp++ = SMARTA_LONGMARK;
 					}
-					
+				/* fall through */
 				default:
 					np = numbuf;
 					*rp ++ = '%';

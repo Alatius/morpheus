@@ -258,7 +258,8 @@ void longeststem(char *s)
 	stemkeys[0] = 0;
 	p = tmp;
 	
-	while(*p) p++; p--;
+	while(*p) p++;
+	p--;
 	while(p>=tmp) {
 		Xstrncpy(tmp2,p,sizeof(tmp2));
 		*p = 0;

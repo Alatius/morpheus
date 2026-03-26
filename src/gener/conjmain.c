@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 	Xstrncpy(filename,"conjfile",sizeof filename);
 	if( (f=fopen(filename,"r")) == NULL ) {
 		fprintf(stdout,"Filename?\n" );
-		fgets(filename, sizeof filename, stdin);
+		if (!fgets(filename, sizeof filename, stdin)) exit(1);
 		filename[strcspn(filename, "\n")] = '\0';
 		if( (f=fopen(filename,"r")) == NULL ) {
 			fprintf(stderr,"Could not open [%s]\n", filename );

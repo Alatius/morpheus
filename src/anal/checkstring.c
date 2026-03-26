@@ -845,7 +845,8 @@ int checkapostr(gk_word *Gkword)
 	
 	Xstrncpy(saveword,workword_of(Gkword),MAXWORDSIZE );
 	p = workword_of(Gkword);
-	while(*p) p++; p--;
+	while(*p) p++;
+	p--;
 	if(  *p != '\'' ) return(0);
 	if( p>workword_of(Gkword) && (*(p-1) == 'q' || *(p-1) == 'x' || *(p-1) == 'f' ) ) {
 	/*

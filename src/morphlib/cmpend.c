@@ -15,8 +15,10 @@ int cmpend(char *word, char *ending, char *stem)
 
 	if( ! *s1  || ! *s2 ) return(0);
 
-	while(*s1) s1++; s1--;
-	while(*s2) s2++; s2--;
+	while(*s1) s1++;
+	s1--;
+	while(*s2) s2++;
+	s2--;
 
 	while(s2 >= ending) {
 		if( s1 <= word ) return(0);

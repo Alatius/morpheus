@@ -310,7 +310,7 @@ int do_crasis(gk_string *gstring, char *crasis)
 {
 	int gend, num, wcase;
 	int saw_this_crasis = 0;
-	int i;
+	size_t i;
 	
 	num = number_of(forminfo_of(gstring));
 	gend = gender_of(forminfo_of(gstring));

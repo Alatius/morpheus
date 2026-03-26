@@ -71,8 +71,6 @@ void ResetGstrBuf()
 void PrntNewGstrings(FILE *f, int compiled_flag)
 {
 	int i;
-	char tmp[LONGSTRING];
-	char line[LONGSTRING*2];
 	int deriv;
 
 	deriv = has_morphflag(morphflags_of(StoreGstr),IS_DERIV);
@@ -91,7 +89,6 @@ void PrntNewGstrings(FILE *f, int compiled_flag)
 	
 		
 	for(i=0;i<cur_endcnt;i++) {
-		line[0] = tmp[0] = 0;
 		if( compiled_flag ) {
 			if( deriv )
 				zap_morphflag(morphflags_of(StoreGstr+i),IS_DERIV);

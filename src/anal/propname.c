@@ -37,7 +37,7 @@ int main(void)
 	fname[0] = 0;
 
 	fprintf(stderr,"use stdout? ");
-	fgets(line, sizeof line, stdin);
+	if (!fgets(line, sizeof line, stdin)) exit(1);
 	line[strcspn(line, "\n")] = '\0';
 
 	if(line[0] == 'y' ) {
@@ -46,9 +46,9 @@ int main(void)
 		finput = stdin;
 	} else {
 		fprintf(stderr,"word file? ");
-		fgets(fname, sizeof fname, stdin);
+		if (!fgets(fname, sizeof fname, stdin)) exit(1);
 		fname[strcspn(fname, "\n")] = '\0';
-		
+
 		Xstrncpy(inpname,fname,sizeof(inpname));
 		Xstrncat(inpname,".words",sizeof(inpname));
 		
@@ -76,7 +76,7 @@ int main(void)
 			
 			if( ! fname[0] ) {
 				printf("basename? ");
-				fgets(fname, sizeof fname, stdin);
+				if (!fgets(fname, sizeof fname, stdin)) exit(1);
 				fname[strcspn(fname, "\n")] = '\0';
 			}
 			Xstrncpy(tmp,fname,sizeof(tmp));

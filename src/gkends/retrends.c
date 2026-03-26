@@ -151,7 +151,7 @@ int EndingOk(char *keys, gk_string *gstr, gk_string *avoidgstr, int wantderiv)
 	FreeGkword(BlnkGkword);
 	
 	if( wantderiv ) {
-		if( ! derivtype_of(gstr) || derivtype_of(gstr) < 0 ) return(0);
+		if( ! derivtype_of(gstr) ) return(0);
 		
 		if( derivtype_of(gstr) != derivtype_of(&Cur_gkend)) 
 			return(0);

@@ -253,11 +253,11 @@ int chcknstem(char * stem,char *stemkeys)
 
 int comNomstemtypes(char * needlemma,char * stem,char * stemkeys,char * matchkeys)
 {
-	char tmpkeys[BUFSIZ], mbuf[BUFSIZ];
+	char mbuf[BUFSIZ];
 	char tmpstem[BUFSIZ];
 	int rval = 0;
 
-	tmpkeys[0] =  tmpstem[0] =  0;
+	tmpstem[0] = 0;
 	Xstrncpy(mbuf,matchkeys,sizeof(mbuf));
 	Xstrncpy(tmpstem,stemkeys,sizeof(tmpstem));
 	rval = comstemtypes1(needlemma,stem,stemkeys,mbuf);

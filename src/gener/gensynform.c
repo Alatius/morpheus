@@ -377,22 +377,22 @@ keys );
 			}
 			if( ! tense_of(wf) ) {
 				snum = stemtype_of(gstr);
-				if( (snum & VERBSTEM) == PP_PR ) {
+				if( (snum & PPARTMASK) == PP_PR ) {
 					Xstrncat(keys," pres",LONGSTRING);
 				} else 
-				if( (snum & VERBSTEM) == PP_FU ) {
+				if( (snum & PPARTMASK) == PP_FU ) {
 					Xstrncat(keys," fut",LONGSTRING);
 				} else 
-				if( (snum & VERBSTEM) == PP_AO ) {
+				if( (snum & PPARTMASK) == PP_AO ) {
 					Xstrncat(keys," aor",LONGSTRING);
 				} else 
-				if( (snum & VERBSTEM) == PP_AP ) {
+				if( (snum & PPARTMASK) == PP_AP ) {
 					Xstrncat(keys," aor",LONGSTRING);
 				} else 
-				if( (snum & VERBSTEM) == PP_PF ) {
+				if( (snum & PPARTMASK) == PP_PF ) {
 					Xstrncat(keys," perf",LONGSTRING);
 				} else 
-				if( (snum & VERBSTEM) == PP_FP ) {
+				if( (snum & PPARTMASK) == PP_FP ) {
 					Xstrncat(keys," futperf",LONGSTRING);
 				} 
 			}
@@ -426,7 +426,7 @@ int is_pass_stem(Stemtype stype)
 /*
 		if( stype == GetStemNum("aor_pass") || stype == GetStemNum("aor2_pass") )
 */
-		if( (stype & VERBSTEM ) == PP_AP )
+		if( (stype & PPARTMASK) == PP_AP )
 			return(1);
 		return(0);
 }
@@ -436,7 +436,7 @@ int is_mp_stem(Stemtype stype)
 /*
 		if( stype >= GetStemNum("perfp_g") && stype <= GetStemNum("perfp_r") )
 */
-		if( (stype & VERBSTEM ) == PP_PP )
+		if( (stype & PPARTMASK) == PP_PP )
 			return(1);
 		return(0);
 		

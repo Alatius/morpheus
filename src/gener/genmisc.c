@@ -10,8 +10,10 @@ void set_baseentry(char *source, char *baseentry, int n)
 	/*
 	 * grab the first two words
 	 */
-	while(*s&&!isspace(*s)) s++; while(isspace(*s)) s++;
-	while(*s&&!isspace(*s)) s++; *s = 0;
+	while(*s&&!isspace(*s)) s++;
+	while(isspace(*s)) s++;
+	while(*s&&!isspace(*s)) s++;
+	*s = 0;
 	
 }
 
