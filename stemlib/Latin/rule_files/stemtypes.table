@@ -44,7 +44,6 @@ uLs_uLris 040 noun3
 es_eLtis 041 noun3
 as_antis 042 noun3
 on_ontis 043 noun3
-er_eris	044 noun3
 s_nis 045 noun3
 o_inis 046 noun3
 x_ctis 047 noun3
@@ -68,7 +67,7 @@ eLs_eris 070 noun3
 ur_oris 071 noun3
 es_idis 072 noun3
 aLs_aris 073 noun3
-as_anis 073 noun3
+as_anis 077 noun3
 al_aLlis 074 noun3
 ar_aLris 075 noun3
 eLs_etis 076 noun3
@@ -119,7 +118,6 @@ adverb 015 indecl
 alphabetic 021 indecl
 abbrev 022 indecl
 article 05 indecl1
-demonstr 06 indecl1
 conj 014 indecl
 connect  01 indecl
 exclam 017 indecl
@@ -130,7 +128,6 @@ indecl_adj 074 indecl3
 indef 07 indecl3
 indef_pron 07 indecl3
 indef_rel_pron 012 indecl3
-interrog 016 indecl3
 irreg_adj1  077 adj1
 irreg_adj2  077 adj2
 irreg_nom2 077 indecl2
