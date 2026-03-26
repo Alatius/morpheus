@@ -6,10 +6,10 @@ int binlook(char *table, char *tag, int nelems, int size, bool exact_match, int 
 {
 	int high;
 	int low;
-	int mid;
+	int mid = 0;
 	int comp;
 	int i;
-	long offset;
+	long offset = 0;
 
 	high = nelems-1;
 	low = 0 ;

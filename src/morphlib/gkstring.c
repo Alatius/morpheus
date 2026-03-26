@@ -363,7 +363,7 @@ void PrntGkStrings(gk_string *gstr, FILE *f)
  */
 void PrntGkParadigm(gk_string *gstr, FILE *f)
 {
-	Stemtype stemtype;
+	Stemtype stemtype = 0;
 	int tense, mood, voice;
 	word_form winfo;
 

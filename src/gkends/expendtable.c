@@ -24,7 +24,7 @@ static gk_string Blnk;
 void expendtables(char *tabname, int maintable, int formcode)
 {
 	FILE * finput;
-	FILE * foutput;
+	FILE * foutput = NULL;
 	char line[BUFSIZ];
 	char shortname[MAXWORDSIZE];
 	char fname[MAXPATHNAME];

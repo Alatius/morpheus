@@ -25,7 +25,7 @@ char tbuf[5000], possbuf[10000];
 
 int main(void)
 {
-	FILE * finput, *foutput, *fnew;
+	FILE * finput, *foutput, *fnew = NULL;
 	char line[BUFSIZ*4];
 	char fname[BUFSIZ],inpname[BUFSIZ], outname[BUFSIZ];
 	char newname[BUFSIZ];
