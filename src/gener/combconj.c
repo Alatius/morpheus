@@ -158,7 +158,7 @@ ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *od
 		memmove(suffstr,suffstr+1,strlen(suffstr+1)+1);
 	}
 	if( * globalkeys ) {
-		char tmp[LONGSTRING];
+		char tmp[LONGSTRING * 2 + 16];
 		
 		snprintf(tmp,sizeof(tmp),"%s %s", globalkeys , keytmp);
 		Xstrncpy(keytmp,tmp,sizeof keytmp);

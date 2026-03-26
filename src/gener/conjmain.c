@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
 	char filename[80];
-	char outfile[80];
+	char outfile[96];
 	FILE * f;
 	FILE * fout;
 	int fullconj = 0;

@@ -198,7 +198,7 @@ if( d ) set_dialect((gkform+naugs),d);
 			if( tmpstem[wstart] == HARDSHORT ) wstart++;
 			
 			Xstrncat(tmp,tmpstem+wstart ,MAXWORDSIZE);
-			snprintf(aug1_of(gkform+naugs), sizeof(aug1_of(gkform+naugs)), "%s>%s", SyllAugments[i].noaug,SyllAugments[i].withaug);
+			snprintf(aug1_of(gkform+naugs), sizeof(aug1_of(gkform+naugs)), "%.*s>%.*s", (int)(MAXAUG-1), SyllAugments[i].noaug, (int)(MAXAUG-1), SyllAugments[i].withaug);
 
 /*
 			if(d) set_dialect(aug1_gstr_of((gkform+naugs)),d);
@@ -254,7 +254,7 @@ int do_tempaug(gk_word *gkform, int maxaugs)
 /*			
 			Xstrncat(tmp,tmpstem+wstart ,MAXWORDSIZE);
 */
-			snprintf(aug1_of(gkform+naugs), sizeof(aug1_of(gkform+naugs)), "%s>%s", TempAugments[i].noaug,TempAugments[i].withaug);
+			snprintf(aug1_of(gkform+naugs), sizeof(aug1_of(gkform+naugs)), "%.*s>%.*s", (int)(MAXAUG-1), TempAugments[i].noaug, (int)(MAXAUG-1), TempAugments[i].withaug);
 
 /*
 			if(d) set_dialect(aug1_gstr_of((gkform+naugs)),d);

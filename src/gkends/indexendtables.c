@@ -28,7 +28,7 @@ void indexendtables(Stemtype stype, int is_deriv)
 	int index = 0;
 	int i;
 	char * curtable, *basen, * dirp;
-	char shortname[LONGSTRING];
+	char shortname[LONGSTRING + 32];
 	char curderivname[LONGSTRING];
 	char tmp[LONGSTRING*8];
 	char prevtag[LONGSTRING];

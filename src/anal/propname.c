@@ -21,7 +21,7 @@ extern int chcknend(char *, char *);
 int quickflag = 0;
 long prevmemory = 0;
 FILE * fpnames = NULL;
-char tbuf[5000], possbuf[10000];
+char tbuf[BUFSIZ * 2 + 256], possbuf[10000];
 
 int main(void)
 {

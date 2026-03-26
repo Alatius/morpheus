@@ -413,7 +413,7 @@ int checkcomderiv2(char *asuffkeys, char *dstem, char *dstemkeys, char *suffix, 
 		}
 
 		if( DstemTakesDsuff(derivsuff,dstemkeys,gstr,dstem,tmpdsuff))  {
-			char tmp1[LONGSTRING*2], tmp2[LONGSTRING*2];
+			char tmp1[LONGSTRING*2], tmp2[LONGSTRING*3];
 			
 			/*
 			 * grc 5/30/89

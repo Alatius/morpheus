@@ -138,7 +138,7 @@ void GenConjForms(FILE *fin, FILE *fout, int conjmode)
 	  * with no specific principle parts mentioned, then we
 	  * assume that all principle parts are possible
 	  */
-				char tkeys[256];
+				char tkeys[LONGSTRING * 2];
 				snprintf(tkeys,sizeof(tkeys),"%s %s", fullkeys[0] , linebuf );
 /*
 				if( ! combine_conj(fout,curlemma,origline,stembuf,derivbuf,globalkeys,tkeys) )
@@ -206,7 +206,7 @@ printf("rval %d stembuf [%s] global [%s] deriv [%s] tk [%s]\n", rval,
 				continue;
 		}
 		if( linebuf[0] == '@') {
-				char tkeys[256];
+				char tkeys[LONGSTRING * 2];
 				int len;
 				int rval;
 				
@@ -313,7 +313,7 @@ int need_ppart(char *s)
 	gk_string  GlobGstr, CurGstr;
 	gk_word TmpGkword;
 	char tmpkeys[LONGSTRING];
-	char tmpglobs[LONGSTRING];
+	char tmpglobs[LONGSTRING * 2 + 16];
 	int rval;
 	
 	if( fullconj ) 

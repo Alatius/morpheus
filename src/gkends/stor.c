@@ -114,7 +114,7 @@ void PrntNewGstrings(FILE *f, int compiled_flag)
 
 void LPrntGstr(gk_string *gstr, FILE *f)
 {
-	char tmp[256], res[256], line[256];
+	char tmp[256], res[256], line[384];
 	int indecl;
 	
 	tmp[0] = line[0] = res[0] = 0;

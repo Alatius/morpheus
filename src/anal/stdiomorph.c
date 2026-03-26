@@ -38,7 +38,8 @@ int main(int argc, char *argv[])
 
 	finput = foutput = ffailed = fstats = NULL;
   char line[BUFSIZ*4];
-  char fname[BUFSIZ],inpname[BUFSIZ], outname[BUFSIZ], failedname[BUFSIZ], statsname[BUFSIZ];
+  char fname[BUFSIZ], inpname[BUFSIZ];
+  char outname[BUFSIZ * 2 + 16], failedname[BUFSIZ * 2 + 24], statsname[BUFSIZ * 2 + 24];
   char destPath[BUFSIZ];
   
   PrntFlags flags = (PERSEUS_FORMAT|STRICT_CASE);

@@ -18,7 +18,7 @@ void _main(int argc, char *argv[])
 	 char line[BUFSIZ*6];
 	FILE * f, *MorphFopen();
 	char basename[BUFSIZ];
-	char outfname[BUFSIZ];
+	char outfname[BUFSIZ + 8];
 	 char *p;
 	FILE *fout = stdout;
 	(void)argc;

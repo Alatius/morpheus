@@ -197,8 +197,8 @@ int AddAnalysis(gk_word *Gkword, gk_word *gkform)
 	gk_analysis * curanal;
 	int i;
 	int newlem = 1;
-	char tmplem[MAXWORDSIZE];
-	char cmplem[MAXWORDSIZE];
+	char tmplem[MAXWORDSIZE * 2 + 4];
+	char cmplem[MAXWORDSIZE * 2 + 4];
 
 	if (analerror) {
 		fprintf(stderr,"something wrong with the analysis storage!\n");

@@ -46,7 +46,8 @@ int main(void)
 
 void buildw(char *targ,char *h1, char *h2)
 {
-	snprintf(targ,BUFSIZ,"%s%s", h1 , h2);
+	Xstrncpy(targ, h1, BUFSIZ);
+	Xstrncat(targ, h2, BUFSIZ);
 	if( !hasaccent(targ)) putsimpleacc(targ);
 }
 

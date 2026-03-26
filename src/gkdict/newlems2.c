@@ -188,7 +188,7 @@ int do_simpnom(char* stem,char* gend)
 
 	if(!strcmp(stem+strlen(stem)-3,"o/s") ||
 		!strcmp(stem+strlen(stem)-3,"o/n"))  {
-		char curg[BUFSIZ], tmptags[BUFSIZ];
+		char curg[BUFSIZ], tmptags[BUFSIZ + 32];
 
 		if(!strcmp(gend,"<gen>h(</gen>")) Xstrncpy(curg,"fem",sizeof(curg));
 		if(!strcmp(gend,"<gen>to/</gen>")) Xstrncpy(curg,"neut",sizeof(curg));
@@ -243,7 +243,7 @@ int do_simpnom(char* stem,char* gend)
 	     !strcmp(stem+strlen(stem)-2,"as"))
 		&& !strcmp(gend,"<gen>o(</gen>")) {
 		int syllno, curacc;
-		char curg[BUFSIZ], tmptags[BUFSIZ];
+		char curg[BUFSIZ], tmptags[BUFSIZ + 32];
 
 		Xstrncpy(curg,"masc",sizeof(curg));
 
@@ -303,7 +303,7 @@ int do_simpnom(char* stem,char* gend)
 		&& (!strcmp(gend,"<gen>h(</gen>") ||
 			!strcmp(gend,"<gen>o(</gen>"))) {
 		int syllno, curacc;
-		char curg[BUFSIZ], tmptags[BUFSIZ];
+		char curg[BUFSIZ], tmptags[BUFSIZ + 32];
 
 		if(!strcmp(gend,"<gen>h(</gen>")) Xstrncpy(curg,"fem",sizeof(curg));
 		else Xstrncpy(curg,"masc",sizeof(curg));

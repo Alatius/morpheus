@@ -21,7 +21,7 @@ void countendtables(Stemtype stype, int is_deriv)
 	int nends = 0;
 	int totends = 0;
 	char * curtable, * dirp;
-	char shortname[LONGSTRING];
+	char shortname[LONGSTRING + 32];
 	char curderivname[LONGSTRING];
 	char tmp[LONGSTRING*8];
 	gk_string Gstr;

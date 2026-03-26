@@ -26,7 +26,7 @@ void expendtables(char *tabname, int maintable, int formcode)
 	FILE * finput;
 	FILE * foutput = NULL;
 	char line[BUFSIZ];
-	char shortname[MAXWORDSIZE];
+	char shortname[MAXPATHNAME + 32];
 	char fname[MAXPATHNAME];
 	char curendstr[MAXWORDSIZE];
 	size_t maxstring = 0;
