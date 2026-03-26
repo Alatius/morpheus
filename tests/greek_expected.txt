@@ -19,7 +19,7 @@ timh=s
 tima/s
 <NL>N ti_ma_/s,timh/  fem acc pl			h_hs</NL>
 timw=n
-<NL>P ti_mw=n,tima/w  pres part act masc voc sg		contr	aw_pr,aw_denom</NL><NL>P ti_mw=n,tima/w  pres part act neut nom/voc/acc sg		contr	aw_pr,aw_denom</NL><NL>P ti_mw=n,tima/w  pres part act masc nom sg	attic epic ionic	contr	aw_pr,aw_denom</NL><NL>P ti_mw=n,tima/w  pres part act masc nom sg	attic epic doric ionic	contr	ew_pr,aw_denom</NL><NL>P time/w  pres part act masc nom sg	attic epic doric	contr	ew_pr,ew_denom</NL><NL>N ti_mw=n,timh/  fem gen pl			h_hs</NL><NL>P timo/w  pres part act masc nom sg		contr	ow_pr,ow_denom</NL><NL>V timo/w  pres inf act	doric		ow_pr,ow_denom</NL><NL>P timo/w  pres part act masc voc sg	doric aeolic	contr	ow_pr,ow_denom</NL><NL>P timo/w  pres part act neut nom/voc/acc sg	doric aeolic	contr	ow_pr,ow_denom</NL>
+<NL>P ti_mw=n,tima/w  pres part act masc voc sg		contr	aw_pr,aw_denom</NL><NL>P ti_mw=n,tima/w  pres part act neut nom/voc/acc sg		contr	aw_pr,aw_denom</NL><NL>P ti_mw=n,tima/w  pres part act masc nom sg	attic epic ionic	contr	aw_pr,aw_denom</NL><NL>P ti_mw=n,tima/w  pres part act masc nom sg	attic epic doric ionic	contr	ew_pr,aw_denom</NL><NL>P time/w  pres part act masc nom sg	attic epic doric	contr	ew_pr,ew_denom</NL><NL>N ti_mw=n,timh/  fem gen pl			h_hs</NL><NL>P timo/w  pres part act masc nom sg		contr	ow_pr,ow_denom</NL><NL>V timo/w  pres inf act	doric	contr	ow_pr,ow_denom</NL><NL>P timo/w  pres part act masc voc sg	doric aeolic	contr	ow_pr,ow_denom</NL><NL>P timo/w  pres part act neut nom/voc/acc sg	doric aeolic	contr	ow_pr,ow_denom</NL>
 poli/ths
 <NL>N poli_/ths,poli/ths  masc nom sg			hs_ou</NL>
 polite/wn
@@ -265,7 +265,7 @@ a)gaqo/n
 a)gaqoi/
 <NL>N a)gaqo/s  masc nom/voc pl			os_h_on</NL><NL>V a)gaqo/w  pres ind mp 2nd sg		contr	ow_pr,ow_denom</NL><NL>V a)gaqo/w  pres subj act 3rd sg		contr	ow_pr,ow_denom</NL><NL>V a)gaqo/w  pres subj mp 2nd sg		contr	ow_pr,ow_denom</NL>
 a)gaqw=n
-<NL>N a)gaqo/s  fem gen pl			os_h_on</NL><NL>N a)gaqo/s  masc/neut gen pl			os_h_on</NL><NL>P a)gaqo/w  pres part act masc nom sg		contr	ow_pr,ow_denom</NL><NL>V a)gaqo/w  pres inf act	doric		ow_pr,ow_denom</NL><NL>P a)gaqo/w  pres part act masc voc sg	doric aeolic	contr	ow_pr,ow_denom</NL><NL>P a)gaqo/w  pres part act neut nom/voc/acc sg	doric aeolic	contr	ow_pr,ow_denom</NL>
+<NL>N a)gaqo/s  fem gen pl			os_h_on</NL><NL>N a)gaqo/s  masc/neut gen pl			os_h_on</NL><NL>P a)gaqo/w  pres part act masc nom sg		contr	ow_pr,ow_denom</NL><NL>V a)gaqo/w  pres inf act	doric	contr	ow_pr,ow_denom</NL><NL>P a)gaqo/w  pres part act masc voc sg	doric aeolic	contr	ow_pr,ow_denom</NL><NL>P a)gaqo/w  pres part act neut nom/voc/acc sg	doric aeolic	contr	ow_pr,ow_denom</NL>
 a)mei/nwn
 <NL>N a)mei/nwn  masc/fem nom comp sg			wn_on_comp</NL>
 a)/ristos
