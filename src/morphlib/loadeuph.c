@@ -45,7 +45,7 @@ load_euph_tab(char *filename, int *gotno, int is_contr)
 			FreeGkword(TmpGkword);
 			return(NULL);
 		}
-		CurStr = Blnk;
+		ClearGkstring(&CurStr);
 		s = gkstring_of(&CurStr);
 /*
 printf("line:%s\n", line );

@@ -155,7 +155,7 @@ PrntGkStr(poss_subs+sofar,stdout);
 */
 			sofar++;
 		} else  {
-			*(poss_subs+sofar) = Blnk;
+			ClearGkstring(poss_subs+sofar);
 		}
 	}
 	if( sofar ) {
