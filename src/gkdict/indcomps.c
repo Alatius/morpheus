@@ -34,7 +34,7 @@ int main(void)
 			if(*s==',') *s = ' ';
 			s++;
 		}
-		strncpy(gkstring_of(&Gstr),line,MAXWORDSIZE );
+		set_gkstring(&Gstr, line);
 		s = gkstring_of(&Gstr);
 		while(*s&&!isspace(*s)) s++;
 		*s = 0;

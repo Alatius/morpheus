@@ -479,8 +479,8 @@ static int exp_prevb2(char *str, char *fullpb, gk_string *gstr)
   
   set_morphflag(morphflags_of(&Gstr),0);
   
-  strncpy(startpb,str,MAXWORDSIZE);
-  strncpy(startfpb,fullpb,MAXWORDSIZE);
+  Xstrncpy(startpb,str,MAXWORDSIZE);
+  Xstrncpy(startfpb,fullpb,MAXWORDSIZE);
   SaveGstr = * gstr;
   preverb[0] = 0;
   
@@ -514,8 +514,8 @@ static int exp_prevb2(char *str, char *fullpb, gk_string *gstr)
      * ok, trying that preverb must not have worked, so let's reset preverblist
      * to what it was when we first entered this routine
      */
-    strncpy(str,startpb,MAXWORDSIZE);
-    strncpy(fullpb,startfpb,MAXWORDSIZE);
+    Xstrncpy(str,startpb,MAXWORDSIZE);
+    Xstrncpy(fullpb,startfpb,MAXWORDSIZE);
     *gstr = SaveGstr;
   }
   printf("broke out of loop\n");

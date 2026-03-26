@@ -165,15 +165,15 @@ void init_smk(void)
 	}
 
 	for(j=0;j<sizeof Beta_SMK/sizeof Beta_SMK[0];j++) {
-		strncpy(Xlit_table_smk[Beta_SMK[j].keycode],Beta_SMK[j].keystring,MAXSUBSTRING);
-		strncpy(Xlit_table_smarta[Beta_SMK[j].keycode],Beta_SMK[j].keystring,MAXSUBSTRING);
+		Xstrncpy(Xlit_table_smk[Beta_SMK[j].keycode],Beta_SMK[j].keystring,MAXSUBSTRING);
+		Xstrncpy(Xlit_table_smarta[Beta_SMK[j].keycode],Beta_SMK[j].keystring,MAXSUBSTRING);
 		smarta_char[Beta_SMK[j].keycode] =1;
 /*
 printf("%d) Xlit_table [%s]\n", Beta_SMK[j].keycode , Xlit_table[Beta_SMK[j].keycode] );
 */
 	}
 	for(j=0;j<sizeof Beta_Smarta/sizeof Beta_Smarta[0];j++) {
-		strncpy(Xlit_table_smarta[Beta_Smarta[j].keycode],Beta_Smarta[j].keystring,MAXSUBSTRING);
+		Xstrncpy(Xlit_table_smarta[Beta_Smarta[j].keycode],Beta_Smarta[j].keystring,MAXSUBSTRING);
 	}
 	
 	for(i=0;i<256;i++) {

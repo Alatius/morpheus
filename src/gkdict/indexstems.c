@@ -178,8 +178,8 @@ void index_stems(int wantstem, int wantirrverb, int wantindecl, char *wlist, cha
 			! strncmp(line,":aj:",4) ||
 			! strncmp(line,":no:",4)) ) {
 			char tag[12];
-			
-			strncpy(tag,line,4);
+
+			memcpy(tag, line, 4); tag[4] = '\0';
 			if( ! strncmp(line,":aj:",4) || ! strncmp(line,":no:",4) ) {
 				char * t = basename;
 				Xstrncpy(basename,line,sizeof(basename));
@@ -193,23 +193,23 @@ void index_stems(int wantstem, int wantirrverb, int wantindecl, char *wlist, cha
  				break;
 		} else if( ! strncmp(line,":vb:",4)) {
 			char tag[12];
-			strncpy(tag,line,4);
+			memcpy(tag, line, 4); tag[4] = '\0';
 			nextkey(line+4,curstem);
  			if( ! do_curstem(tag,curstem,curlemma,line+4,"1") ) 
  				break;
 
 		} else if( ! strncmp(line,":wd:",4) ) {
 			char tag[12];
-			
 
-			strncpy(tag,line,4);
+
+			memcpy(tag, line, 4); tag[4] = '\0';
 			nextkey(line+4,curstem);
  			if( ! do_curstem(tag,curstem,curlemma,line+4,"2") ) 
  				break;
 
 		} else if( ! strncmp(line,":de:",4) ) {
 			char tag[12];
-			strncpy(tag,line,4);
+			memcpy(tag, line, 4); tag[4] = '\0';
 			nextkey(line+4,curstem);
 /*
  * grc 7/6/89
