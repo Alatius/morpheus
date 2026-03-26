@@ -182,9 +182,9 @@ ConjGkstr(gk_string *gstr, char *suffstr, char *globalkeys, char *keys, char *od
 	
 	FreeGkword(TmpGkword);
 
-	if(stype >= 0)
+	if(stype != (Stemtype)-1)
 		return(stype);
-	else 
+	else
 		return(0);
 
 }

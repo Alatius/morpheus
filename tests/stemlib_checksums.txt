@@ -182,8 +182,8 @@
 3387992265 241513 stemlib/Greek/steminds/entitylist.txt
 2625223656 4120357 stemlib/Greek/steminds/nomind
 791328322 103824 stemlib/Greek/steminds/nomind.lindex
-4022815262 836381 stemlib/Greek/steminds/vbind
-4110671900 24696 stemlib/Greek/steminds/vbind.lindex
+203302113 836458 stemlib/Greek/steminds/vbind
+2582936930 24696 stemlib/Greek/steminds/vbind.lindex
 3081586139 68333 stemlib/Greek/stemsrc/nom.irreg
 273057676 74052 stemlib/Greek/stemsrc/vbs.irreg
 2736155662 117 stemlib/Latin/derivs/indices/derivind
