@@ -187,11 +187,10 @@ printf("output file:%s\n", shortname );
 static int xstrcmp(char **p1, char **p2)
 {
 	int rval;
-	
-	rval = morphstrcmp(*p1,*p2);
 
-/*
-fprintf(stderr,"rval [%d] for [%s] and [%s]\n", rval  , *p1, *p2 );
-*/
+	rval = morphstrcmp(*p1,*p2);
+	if( ! rval )
+		rval = strcmp(*p1,*p2);
+
 	return(rval);
 }

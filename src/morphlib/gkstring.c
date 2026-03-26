@@ -260,6 +260,28 @@ printf("1 [%s] 2 [%s] rval %d\n", gkstring_of((gk_string *)gstr1), gkstring_of((
 
 			rval = strcmp(gkstring_of((gk_string *)gstr1), gkstring_of((gk_string *)gstr2));
 		}
+
+		/*
+		 * Final tiebreakers: the conditional comparisons above skip
+		 * case/gender/person/number when either operand has that field
+		 * as zero.  Compare remaining fields unconditionally so that
+		 * records which differ only in skipped fields get a
+		 * deterministic order regardless of the qsort implementation.
+		 */
+		if( ! rval ) rval = case_of(f1) - case_of(f2);
+		if( ! rval ) rval = gender_of(f1) - gender_of(f2);
+		if( ! rval ) rval = number_of(f1) - number_of(f2);
+		if( ! rval ) rval = person_of(f1) - person_of(f2);
+		if( ! rval ) {
+			Stemtype st1 = stemtype_of((gk_string *)gstr1);
+			Stemtype st2 = stemtype_of((gk_string *)gstr2);
+			if( st1 != st2 ) rval = (st1 > st2) ? 1 : -1;
+		}
+		if( ! rval ) rval = (int)(derivtype_of((gk_string *)gstr1) - derivtype_of((gk_string *)gstr2));
+		if( ! rval ) rval = (int)(geogregion_of((gk_string *)gstr1) - geogregion_of((gk_string *)gstr2));
+		if( ! rval ) rval = memcmp(morphflags_of((gk_string *)gstr1), morphflags_of((gk_string *)gstr2), sizeof ((gk_string *)0)->gs_morphflags);
+		if( ! rval ) rval = memcmp(domains_of((gk_string *)gstr1), domains_of((gk_string *)gstr2), sizeof ((gk_string *)0)->st_domains);
+
 		return(rval);
 }
 
@@ -316,7 +338,10 @@ int low_bit_of(int n)
 
 int CompByDictStr(const void *gstr1, const void *gstr2)
 {
-	return(dictstrcmp(gkstring_of((gk_string *)gstr1),gkstring_of((gk_string *)gstr2)));
+	int rval = dictstrcmp(gkstring_of((gk_string *)gstr1),gkstring_of((gk_string *)gstr2));
+	if( ! rval )
+		rval = CompGkString(gstr1, gstr2);
+	return(rval);
 }
 
 int RevCompByStr(gk_string *gstr1, gk_string *gstr2)
