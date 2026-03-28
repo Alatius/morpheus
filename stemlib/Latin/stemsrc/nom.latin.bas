@@ -333,11 +333,11 @@
 :le:astutus
 :aj:astu_t	us_a_um
 
-:le:assiduus
+:le:assiduus#1
 :no:assidu us_i masc
 :no:ad-sidu us_i masc
 
-:le:assiduus
+:le:assiduus#1
 :aj:assidu us_a_um
 :aj:ad-sidu us_a_um
 
@@ -399,7 +399,7 @@
 :le:canis
 :no:can is_is_C	masc fem
 
-:le:casus
+:le:casus#1
 :no:ca_s	us_us masc
 :no:cass	us_us masc
 
@@ -460,7 +460,7 @@
 :le:Climachias
 :no:Climachi as_ae masc
 
-:le:coitus
+:le:coitus#2
 :no:coet	us_us masc
 
 :le:cohors
@@ -505,9 +505,11 @@
 :le:Culleo
 :no:Culle	o_oLnis masc
 
-:le:cum
-:wd:cum		conj
+:le:cum#1
 :wd:cum		prep
+
+:le:cum#2
+:wd:cum		conj
 :wd:quom	conj
 :wd:quum	conj
 
@@ -552,7 +554,7 @@
 :aj:dexter	0_a_um
 :aj:dext	er_ra_rum
 
-:le:dextera
+:le:dextera#1
 :no:dexte^r 	a_ae fem
 :no:dextr 	a_ae fem
 
@@ -668,7 +670,7 @@
 :wd:ma_terfamilia_s	irreg_decl3 nom fem sg
 :wd:ma_tre_sfamilia_s	irreg_decl3 nom fem pl
 
-:le:famulus
+:le:famulus#1
 :no:fa^mu^l	us_i masc
 
 :le:famula
@@ -694,7 +696,7 @@
 :le:fides#2
 :no:fid is_is fem
 
-:le:foris
+:le:foris#1
 :no:for is_is fem
 
 :le:fors
@@ -910,7 +912,7 @@
 :le:Magius
 :no:Mag	ius_i masc
 
-:le:magnus
+:le:magnus#1
 :aj:magn	us_a_um no_comp
 :aj:maxi^m	us_a_um irreg_superl
 :aj:maxu^m	us_a_um irreg_superl
@@ -985,7 +987,7 @@
 #:vs:na_t	us_i masc
 #:vs:gna_t	us_i masc
 
-:le:ne
+:le:ne#1
 :wd:ne_	adverb
 :wd:ne_	conj
 
@@ -1057,7 +1059,7 @@
 :no:Nymph	o_oLnis masc
 :no:Nymph	o_ontis masc
 
-:le:o
+:le:o#2
 :wd:o_	exclam
 
 :le:ob
@@ -1119,10 +1121,10 @@
 :le:pater
 :no:pa^t	er_ris masc
 
-:le:pecus
+:le:pecus#1
 :no:pec 	or_oris	neut
 
-:le:pecus
+:le:pecus#2
 :no:pecu 	s_dis masc fem
 
 :le:Penates
@@ -1172,7 +1174,7 @@
 :le:plebs
 :no:ple_b s_is fem
 
-:le:polus
+:le:polus#1
 :no:po^l	us_i masc
 
 :le:Polus
@@ -1225,11 +1227,11 @@
 :le:prior
 :wd:priusquam	adverb
 
-:le:pro
+:le:pro#1
 :wd:pro_	prep
 :wd:pro_	adverb
 
-:le:pro
+:le:pro#2
 :wd:pro_	exclam
 
 :le:propter
@@ -1239,7 +1241,7 @@
 :le:prudenter
 :wd:pru_denter	adverb
 
-:le:promptus
+:le:promptus#1
 :aj:pro_mpt	us_a_um
 
 :le:pubes#1
@@ -1273,7 +1275,7 @@
 :le:quia
 :wd:quia	conj
 
-:le:quies
+:le:quies#1
 :no:qui 	es_eLtis fem
 :wd:quie 	irreg_nom3 abl fem sg early
 
@@ -1289,11 +1291,11 @@
 :le:quinque
 :wd:qui_nque	numeral
 
-:le:quintus
+:le:quintus#1
 :aj:qui_nt	us_a_um
 :aj:qui_nct	us_a_um
 
-:le:quintus	
+:le:quintus#2
 :no:Qui_nt	us_i masc
 :no:Qui_nt	a_ae fem
 
@@ -1432,7 +1434,7 @@
 :le:stirps
 :no:stirp	s_is fem
 
-:le:super
+:le:super#2
 :wd:super	prep
 :wd:super	adverb
 
@@ -1512,10 +1514,10 @@
 :le:Turpio
 :no:Turpi	o_oLnis masc
 
-:le:uber
+:le:uber#1
 :no:u_b 		er_eris neut
 
-:le:uber
+:le:uber#1
 :aj:u_ber	0_adj3
 :aj:u_beri	or_us_comp	comp
 :aj:u_berrim	us_a_um	irreg_superl

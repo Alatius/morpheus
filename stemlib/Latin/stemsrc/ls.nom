@@ -32880,8 +32880,8 @@ ca^su^la
 
 ca_sus#1		<orth>cassus</orth>	
 :le:casus#1
-:no:ca_s	us_i masc
-:no:cass	us_i masc orth
+:no:ca_s	us_us masc
+:no:cass	us_us masc orth
 
 
 
@@ -77446,7 +77446,7 @@ fo^ri^o^lus
 
 fo^ris#1		
 :le:foris#1
-:aj:fo^r	is_e
+:no:fo^r	is_is fem
 
 
 fo^res		

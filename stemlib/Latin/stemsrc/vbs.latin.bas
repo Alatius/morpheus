@@ -90,7 +90,7 @@
 :vs:ad-ole_v	perfstem
 :vs:ad-ult	pp4
 
-:le:appello
+:le:appello#2
 :de:ap-pell are_vb
 :de:ad-pell are_vb
 
@@ -192,7 +192,7 @@
 :vs:capessi	perfstem
 :vs:capessi_t	pp4
 
-:le:capio
+:le:capio#1
 :vs:cap	conj3_io no_comp
 :vs:cip	conj3_io comp_only
 :vs:ce_p	perfstem
@@ -248,7 +248,7 @@
 :vs:contemps	perfstem
 :vs:contempt	pp4
 
-:le:creo
+:le:creo#1
 :de:cre	are_vb
 
 :le:crepo

@@ -4,7 +4,7 @@
 :le:porta
 :no:port a_ae fem
 
-:le:amicus
+:le:amicus#2
 :no:ami_c us_i masc
 
 :le:ager
@@ -69,12 +69,12 @@
 :aj:mel ior_ius_comp 
 :aj:optim us_a_um irreg_superl
 
-:le:magnus
+:le:magnus#1
 :aj:magn us_a_um no_comp
 :aj:maj	or_us_comp
 :aj:maxim	us_a_um irreg_superl
 
-:le:malus
+:le:malus#1
 :aj:mal us_a_um no_comp
 :aj:pej	or_us_comp
 :aj:pessim	us_a_um irreg_superl

@@ -305,7 +305,7 @@ h@decl2 demonstr neut abl pl
 :wd:hascine	demonstr fem acc pl
 :wd:hancine	demonstr fem acc sg
 
-:le:illic
+:le:illic#1
 :wd:illic demonstr masc nom sg
 :wd:illaec demonstr fem nom sg
 :wd:illoc demonstr neut nom/acc sg
@@ -541,7 +541,7 @@ ali@quis indef
 :wd:qua_svi_s   indef fem acc pl
 :wd:quibusvi_s   indef masc/fem/neut abl pl
 
-:le:ecqui
+:le:ecqui#1
 :wd:ecqui_ rel_pron masc nom sg
 :wd:ecquei rel_pron masc nom sg
 :wd:ecquae rel_pron fem nom sg
@@ -941,7 +941,7 @@ volg@decl2	irreg_nom2 neut sg orth
 :wd:ut-cumque	adverb
 :wd:ut-cumque	conj
 
-:le:magnus
+:le:magnus#1
 :wd:magis adverb irreg_comp
 
 :le:nequam
