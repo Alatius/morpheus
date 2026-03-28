@@ -1,20 +1,11 @@
 :le:idus
 :no:i_d us_us fem pl
 
-:le:porta
-:no:port a_ae fem
-
-:le:amicus#2
-:no:ami_c us_i masc
-
 :le:ager
 :no:ag er_ri masc
 
 :le:puer
 :no:puer 0_i masc
-
-:le:magnus#1
-:aj:magn us_a_um
 
 :le:pulcher#1
 :no:pulch er_ra_rum
@@ -25,26 +16,14 @@
 :le:corpus
 :no:corp or_oris neut
 
-:le:civis
-:no:ci_v is_is masc
-
 :le:urbs
 :no:urb s_is fem
 
 :le:mare
 :no:mar e_is neut
 
-:le:fluctus
-:no:flu_ct us_us masc
-
-:le:cornu
-:no:corn  us_us neut
-
 :le:dies
 :no:di es_eLi masc fem
-
-:le:fortis
-:aj:fort is_e
 
 :le:potens
 :aj:pot ens_adj
@@ -65,38 +44,29 @@
 :aj:nu_ll us_ius_adj
 
 :le:bonus
-:aj:bon us_a_um no_comp
 :aj:mel ior_ius_comp 
 :aj:optim us_a_um irreg_superl
 
 :le:magnus#1
-:aj:magn us_a_um no_comp
 :aj:maj	or_us_comp
 :aj:maxim	us_a_um irreg_superl
 
 :le:malus#1
-:aj:mal us_a_um no_comp
 :aj:pej	or_us_comp
 :aj:pessim	us_a_um irreg_superl
 :aj:pessum	us_a_um irreg_superl
 
 :le:multus
-:aj:mult us_a_um no_comp
 :aj:plu_rim us_a_um irreg_superl
 
 :le:parvus
-:aj:parv us_a_um no_comp
 :aj:min  or_us_comp
 :aj:minim us_a_um irreg_superl
 
 :le:prior
 :aj:pr ior_ius_comp
 
-:le:primus
-:aj:pri_m us_a_um irreg_superl
-
 :le:superus
-:aj:super us_a_um no_comp
 :aj:super ior_ius_comp
 :aj:summ us_a_um irreg_superl
 :aj:supre_m us_a_um irreg_superl

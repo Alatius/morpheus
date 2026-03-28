@@ -52,9 +52,6 @@
 :le:transmontanus
 :aj:transmonta_n	us_a_um
 
-:le:tricesimus
-:aj:tri_ce_si^m	us_a_um
-
 :le:abacus
 :no:a^ba^c	us_i masc
 
@@ -123,11 +120,9 @@
 :no:con-lu^vi^	o_oLnis fem orth
 
 :le:clades
-:no:cla_d	es_is fem
 :wd:cla_dium	es_is fem gen pl
 
 :le:suus
-:aj:su^	us_a_um
 :wd:su^o_met us_a_um dat abl masc neut sg
 :wd:su^a_met us_a_um dat abl fem sg
 :wd:su^o_pte us_a_um dat abl masc neut sg
@@ -171,9 +166,6 @@
 :le:summus
 :wd:summopere adverb
 
-:le:septentriones
-:no:septentri^	o_oLnis masc 
-
 :le:semimas
 :no:se_mim aLs_aris masc
 
@@ -206,11 +198,9 @@
 :no:ops es_idis masc fem
 
 :le:maritimus
-:aj:ma^ri^ti^m	us_a_um
 :aj:ma^ri^tu^m	us_a_um
 
 :le:introrsum
-:wd:intro_rsum	adverb
 :wd:intro_rsus	adverb
 
 :le:infrequens
@@ -235,9 +225,6 @@
 :le:abhinc
 :wd:abhinc adverb
 
-:le:academia
-:no:acade_mi_^ 	a_ae fem
-
 :le:Academia
 :no:Acade_mi_^ 	a_ae fem geog_name
 
@@ -251,15 +238,10 @@
 :no:adule_sc ens_entis masc
 
 :le:aether
-:no:aeth        er_eris masc
 :wd:aetheros	irreg_nom3	gen sg masc
 :wd:aethera	irreg_nom3	acc sg masc
 
-:le:Aethiops
-:no:Aethiop	s_is masc fem
-
 :le:Agamemnon
-:no:A^ga^memn	oLn_onis masc
 :wd:A^ga^memno	oLn_onis masc voc sg
 
 :le:agedum
@@ -290,14 +272,8 @@
 :le:amens
 :aj:a_m	ens_adj
 
-:le:amor
-:no:am or_oLris masc
-
 :le:an
 :wd:an	conj
-
-:le:anceps
-:aj:anc	eps_ipitis 
 
 :le:ante
 :wd:ante	prep
@@ -334,7 +310,6 @@
 :aj:astu_t	us_a_um
 
 :le:assiduus#1
-:no:assidu us_i masc
 :no:ad-sidu us_i masc
 
 :le:assiduus#1
@@ -356,15 +331,9 @@
 :wd:at-qui_	conj
 :wd:ad-qui_	conj
 
-:le:aula
-:no:aul	a_ae fem
-
 :le:Aulis
 :no:Aul	is_is fem
 :no:Aul	is_idis fem
-
-:le:auris
-:no:aur is_is	fem
 
 :le:aut
 :wd:aut	conj
@@ -382,7 +351,6 @@
 :wd:bis		adverb
 
 :le:bonus
-:aj:bon		us_a_um		no_comp
 :aj:meli	or_us_comp irreg_comp
 :aj:optim	us_a_um	irreg_superl
 :aj:optum	us_a_um	irreg_superl
@@ -390,18 +358,11 @@
 :le:Caepio
 :no:Caepi	o_oLnis masc
 
-:le:Caesar
-:no:Caesar	0_is masc
-
 :le:Calidius
 :aj:Calid	ius_ia_ium
 
 :le:canis
 :no:can is_is_C	masc fem
-
-:le:casus#1
-:no:ca_s	us_us masc
-:no:cass	us_us masc
 
 :le:celeber
 :aj:celeb er_ris_re
@@ -436,19 +397,11 @@
 :wd:Chai_	irreg_nom3 masc gen sg
 :wd:Chai_	irreg_nom3 masc dat sg
 
-:le:circum
-:wd:circum	prep
-:wd:circum	adverb
-
 :le:cis
 :wd:cis		prep
 
 :le:citer
-:aj:cit	er_ra_rum no_comp
 :aj:citer ior_ius_comp 
-
-:le:clam
-:wd:clam 	adverb
 
 :le:Claudius
 :aj:Claud	ius_ia_ium
@@ -460,9 +413,6 @@
 :le:Climachias
 :no:Climachi as_ae masc
 
-:le:coitus#2
-:no:coet	us_us masc
-
 :le:cohors
 :no:cohor	s_tis fem
 
@@ -472,23 +422,16 @@
 :no:conju^g	a_ae fem masc
 
 :le:collegium
-:no:colle_g     ius_i neut
 :no:conle_g     ius_i neut orth
-
 
 :le:consul
 :no:consul	0_is masc
-
-:le:contra
-:wd:contra_	adverb
-:wd:contra_	prep
 
 :le:cottidianus
 :aj:coti_di^a_n        us_a_um
 
 :le:cottidie
 :wd:coti_-di^e_        adverb
-:wd:cotti_-di^e_        adverb
 :wd:quotti_-di^e_        adverb
 :wd:quoti_-di^e_        adverb
 
@@ -530,7 +473,6 @@
 :aj:de_-gener	0_adj3
 
 :le:deinde
-:wd:deinde	adverb
 :wd:dein	adverb
 
 :le:demens
@@ -544,7 +486,6 @@
 :aj:de_t		er_era_erum superl
 
 :le:deus
-:no:de	us_i masc
 :wd:di_s	irreg_nom2 masc dat pl
 :wd:di_s	irreg_nom2 masc abl pl
 :wd:di_	irreg_nom2	masc nom/voc pl
@@ -553,10 +494,6 @@
 :le:dexter
 :aj:dexter	0_a_um
 :aj:dext	er_ra_rum
-
-:le:dextera#1
-:no:dexte^r 	a_ae fem
-:no:dextr 	a_ae fem
 
 :le:dibaphus
 :aj:dibaph	us_a_um
@@ -582,7 +519,6 @@
 :aj:di_juncti	o_oLnis fem
 
 :le:diu
-:wd:di^u_tius       adverb comp
 :wd:di^u_tissimus       adverb superl
 
 :le:domus
@@ -616,12 +552,6 @@
 
 :le:enim
 :wd:enim	conj
-
-:le:ensis
-:no:ens 	is_is masc
-
-:le:Epicrates
-:no:Epi_crat	es_ae fem
 
 :le:erga
 :wd:erga_	conj
@@ -660,8 +590,6 @@
 :aj:exper	s_tis_adj
 
 :le:facilis
-:aj:fa^ci^l     is_e no_comp
-:aj:fa^ci^l	is_e comp
 :aj:fa^ci^llim	us_a_um irreg_superl
 
 :le:familia
@@ -669,12 +597,6 @@
 :wd:patre_sfamilia_s	irreg_decl3 nom masc pl
 :wd:ma_terfamilia_s	irreg_decl3 nom fem sg
 :wd:ma_tre_sfamilia_s	irreg_decl3 nom fem pl
-
-:le:famulus#1
-:no:fa^mu^l	us_i masc
-
-:le:famula
-:no:fa^mu^l	a_ae fem
 
 :le:fas
 :wd:fa_s	indecl
@@ -693,12 +615,6 @@
 :no:fid	es_ei	fem
 :no:fid is_is	fem poetic
 
-:le:fides#2
-:no:fid is_is fem
-
-:le:foris#1
-:no:for is_is fem
-
 :le:fors
 :no:for 	s_tis fem
 
@@ -713,9 +629,6 @@
 
 :le:Frugi
 :wd:Fru_gi_	irreg_nom3 masc nom sg pers_name
-
-:le:funis
-:no:fu_n is_is	masc
 
 :le:Furfanius
 :no:Furfan	ius_i masc pers_name
@@ -742,7 +655,6 @@
 :no:Hannibal 0_is masc
 
 :le:Hercules
-:no:Hercu^l 	es_is nom
 :wd:hercu^le_s	exclam
 :wd:me^hercu^le_s	exclam
 :wd:hercu^le	exclam
@@ -751,7 +663,6 @@
 :wd:me^hercle	exclam
 
 :le:hem
-:wd:hem	exclam
 :wd:em	exclam
 
 :le:heres
@@ -782,21 +693,13 @@
 :no:I_d		us_us fem pl is_month
 :no:Eid		us_us fem pl is_month
 
-:le:jam
-:wd:jam	adverb
-
 :le:Iarba
 :no:Iarb	as_ae masc
 :no:Hiarb	as_ae masc
 
 :le:imber
-:no:imb	er_ris masc
 :wd:imbri er_ris masc abl sg
 :wd:imbrium er_ris masc gen pl
-
-:le:imperator
-:no:impe^ra_t	or_oLris masc
-:no:inpe^ra_t	or_oLris masc
 
 :le:in
 :wd:in	prep
@@ -818,13 +721,9 @@
 
 :le:inter
 :wd:inter	prep
-:wd:inter	adverb
 
 :le:interior
 :aj:inter	ior_ius_comp
-
-:le:insolenter
-:wd:insolenter	adverb
 
 :le:igitur
 :wd:igitur	conj
@@ -832,15 +731,6 @@
 :le:Iris
 :no:I_r	is_idis fem
 :no:I_r	is_is fem
-
-:le:istoc
-:wd:isto_c 	adverb
-
-:le:istuc
-:wd:istu_c 	adverb
-
-:le:jam
-:wd:jam		adverb
 
 :le:jamdudum
 :wd:jamdu_dum	adverb
@@ -856,12 +746,7 @@
 :aj:I^u_l	ius_ia_ium
 
 :le:juvenis
-:aj:juven 	is_e 
 :no:juven 	is_is_C masc
-
-:le:juxta
-:wd:juxta_	prep
-:wd:juxta_	adverb
 
 :le:lacrima
 :no:lacrim 	a_ae fem
@@ -876,9 +761,6 @@
 :le:Laevus
 :no:Laev	us_i masc pers_name
 
-:le:Laterensis
-:no:Laterens	is_is masc
-
 :le:laus
 :no:lau	s_dis fem
 
@@ -890,7 +772,6 @@
 :aj:lu^b ens_adj
 
 :le:Libya
-:no:Liby	a_ae fem
 :no:Liby	a_es fem
 
 :le:Lupus
@@ -913,7 +794,6 @@
 :no:Mag	ius_i masc
 
 :le:magnus#1
-:aj:magn	us_a_um no_comp
 :aj:maxi^m	us_a_um irreg_superl
 :aj:maxu^m	us_a_um irreg_superl
 
@@ -933,7 +813,6 @@
 :no:ma_t	er_ris fem
 
 :le:mensis
-:no:mens	is_is masc
 :wd:mensum	irreg_nom3 masc gen pl
 :wd:mensuum	irreg_nom3 masc gen pl
 
@@ -955,27 +834,18 @@
 :no:Metell	a_ae	fem
 
 :le:millies
-:wd:mi_llie_s adverb
 :wd:mi_lie_s adverb
 :wd:mi_lliens adverb
 :wd:mi_liens adverb
 
 :le:Minturnae
-:no:Minturn	a_ae fem pl
 :no:Menturn	a_ae fem pl
-
 
 :le:Mnestheus
 :no:Mnesth	eus_ei masc
 
 :le:Mustius
 :no:Must	ius_i masc
-
-:le:moechus
-:no:moech	us_i masc
-
-:le:mons
-:no:mon		s_tis masc
 
 :le:nam
 :wd:nam	conj
@@ -988,11 +858,7 @@
 #:vs:gna_t	us_i masc
 
 :le:ne#1
-:wd:ne_	adverb
 :wd:ne_	conj
-
-:le:Neapolis
-:no:Nea_pol	is_is fem
 
 :le:nempe
 :wd:nempe 	conj
@@ -1045,12 +911,7 @@
 :aj:novemdia_l	is_e
 
 :le:nox
-:no:no x_ctis fem
 :wd:noctu_	x_ctis abl fem sg
-
-:le:numquam
-:wd:numquam	adverb
-:wd:nunquam	adverb orth
 
 :le:numquid
 :wd:numquid	adverb
@@ -1099,9 +960,6 @@
 :le:Panhormus
 :no:Panhorm	us_i masc
 
-:le:parens#2
-:no:par	ens_entis masc fem
-
 :le:pars
 :no:par		s_tis fem
 :wd:partim	adverb
@@ -1110,8 +968,6 @@
 :no:Patr	o_oLnis masc
 
 :le:Paulus
-:no:Paul	us_i masc pers_name
-:no:Paull	us_i masc pers_name
 :no:Paul	a_ae fem pers_name
 :no:Paull	a_ae fem pers_name
 
@@ -1133,17 +989,11 @@
 :le:per
 :wd:per	prep
 
-:le:perceleriter
-:wd:perceleriter adverb
-
 :le:Perga
 :no:Perg	a_ae fem
 
 :le:pestifer
 :aj:pestifer	0_a_um
-
-:le:pestis
-:no:pest	is_is fem
 
 :le:Phamea
 :no:Phame	a_ae fem
@@ -1174,22 +1024,12 @@
 :le:plebs
 :no:ple_b s_is fem
 
-:le:polus#1
-:no:po^l	us_i masc
-
-:le:Polus
-:no:Po^l	us_i masc
-
 :le:Pompeius
 :aj:Pompe_	ius_i masc pers_name
 :aj:Pompe_j	us_i masc pers_name
 
 :le:Populianus
 :aj:Populian	us_a_um
-
-:le:post
-:wd:post	prep
-:wd:post	adverb
 
 :le:posterus
 :aj:poster	us_a_um no_comp
@@ -1206,8 +1046,6 @@
 :aj:pot is_e	superl
 
 :le:praesaepe
-:no:praesaep	is_is neut
-:no:praesaep	is_is fem
 :no:praesaepi	a_ae fem
 :no:praesaep	ius_i neut
 :no:praese_p	is_is neut
@@ -1227,19 +1065,8 @@
 :le:prior
 :wd:priusquam	adverb
 
-:le:pro#1
-:wd:pro_	prep
-:wd:pro_	adverb
-
 :le:pro#2
 :wd:pro_	exclam
-
-:le:propter
-:wd:propter	adverb
-:wd:propter	prep
-
-:le:prudenter
-:wd:pru_denter	adverb
 
 :le:promptus#1
 :aj:pro_mpt	us_a_um
@@ -1257,9 +1084,6 @@
 :wd:qua_li^bet	adverb
 :wd:qua_lu^bet	adverb
 
-:le:qualis
-:aj:qua_l	is_e
-
 :le:quamquam
 :wd:quamquam	conj
 :wd:quanquam	conj orth
@@ -1276,7 +1100,6 @@
 :wd:quia	conj
 
 :le:quies#1
-:no:qui 	es_eLtis fem
 :wd:quie 	irreg_nom3 abl fem sg early
 
 :le:quin
@@ -1290,10 +1113,6 @@
 
 :le:quinque
 :wd:qui_nque	numeral
-
-:le:quintus#1
-:aj:qui_nt	us_a_um
-:aj:qui_nct	us_a_um
 
 :le:quintus#2
 :no:Qui_nt	us_i masc
@@ -1333,10 +1152,6 @@
 :le:sacer
 :aj:sac	er_ra_rum
 
-:le:saepis
-:aj:saep	is_e comp adverbial
-:aj:saep	is_e superl
-
 :le:Salvius
 :no:Salv	ius_i masc
 
@@ -1362,7 +1177,6 @@
 :wd:semel	adverb
 
 :le:semianimis
-:aj:se_mi^-a^ni^m	is_e
 :aj:se_m-a^ni^m		is_e
 :aj:se_mi^-a^ni^m	us_a_um
 
@@ -1371,7 +1185,6 @@
 :aj:se_miss	is_e
 
 :le:senatus
-:no:se^na_t	us_us masc
 :wd:se^na_ti	us_i masc gen sg
 
 :le:septem
@@ -1401,7 +1214,6 @@
 :wd:si_cut	conj
 
 :le:similis
-:aj:simil is_e no_comp
 :aj:simill	ior_ius_comp 
 :aj:simillim	us_a_um irreg_comp
 
@@ -1422,7 +1234,6 @@
 :aj:son	s_tis
 
 :le:sors
-:no:sor	s_tis fem
 :no:sort	is_is fem
 
 :le:spes
@@ -1433,10 +1244,6 @@
 
 :le:stirps
 :no:stirp	s_is fem
-
-:le:super#2
-:wd:super	prep
-:wd:super	adverb
 
 :le:supra
 :wd:supra_	prep
@@ -1515,9 +1322,6 @@
 :no:Turpi	o_oLnis masc
 
 :le:uber#1
-:no:u_b 		er_eris neut
-
-:le:uber#1
 :aj:u_ber	0_adj3
 :aj:u_beri	or_us_comp	comp
 :aj:u_berrim	us_a_um	irreg_superl
@@ -1530,7 +1334,6 @@
 :wd:uti_	conj
 
 :le:ulter
-:aj:ult	er_ra_rum no_comp
 :aj:ulter	ior_ius_comp irreg_comp
 :aj:ultim	us_a_um irreg_superl
 :aj:ultum	us_a_um irreg_superl
@@ -1538,9 +1341,6 @@
 :le:umquam
 :wd:umquam	adverb
 :wd:unquam	adverb orth
-
-:le:undecim
-:wd:u_ndecim	numeral
 
 :le:undique
 :wd:undique	adverb
@@ -1566,14 +1366,7 @@
 :wd:velut	adverb
 :wd:veluti_	adverb
 
-:le:vester
-:aj:vest	er_ra_rum
-
-:le:vestis
-:no:vest	is_is fem
-
 :le:vicesimus
-:aj:vi_ce_sim us_a_um
 :aj:vi_censim us_a_um
 :aj:vi_censum us_a_um
 
@@ -1590,9 +1383,6 @@
 :le:vinculum
 :no:vincul	us_i neut
 :no:vincl	us_i neut
-
-:le:vir
-:no:vir	0_i masc
 
 :le:vox
 :no:vo_	x_cis fem

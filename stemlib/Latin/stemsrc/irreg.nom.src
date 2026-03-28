@@ -248,7 +248,6 @@ farr@decl3	irreg_nom3	neut
 :wd:istaec	demonstr neut nom acc pl
 ist@ille demonstr
 
-
 :le:iter
 iter	irreg_nom3 neut nom/voc/acc sg
 itiner@decl3	irreg_nom3 neut
@@ -381,7 +380,6 @@ ali@quis indef
 :wd:qua_sdam   indef fem acc pl
 :wd:quibusdam   indef masc/fem/neut abl pl
 
-
 :le:quisnam
 :wd:quisnam indef masc nom sg
 :wd:quaenam indef fem nom sg
@@ -432,7 +430,6 @@ ali@quis indef
 :wd:quo_sque   indef masc acc pl
 :wd:qua_sque   indef fem acc pl
 :wd:quibusque   indef masc/fem/neut abl pl
-
 
 :le:qualiscumque
 :wd:qua_liscumque	indef masc fem nom sg
@@ -936,10 +933,6 @@ volg@decl2	irreg_nom2 neut sg orth
 :le:satis
 :wd:satis	adverb
 :wd:satis	neut indecl
-
-:le:utcumque
-:wd:ut-cumque	adverb
-:wd:ut-cumque	conj
 
 :le:magnus#1
 :wd:magis adverb irreg_comp
