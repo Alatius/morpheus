@@ -36,16 +36,22 @@ fi
 run_cruncher_test() {
     local label="$1" lang_flag="$2" words="$3" expected="$4"
 
-    local actual
-    actual=$(MORPHLIB="$PROJECT_DIR/stemlib" "$CRUNCHER" $lang_flag < "$words" 2>/dev/null)
+    if ! MORPHLIB="$PROJECT_DIR/stemlib" "$CRUNCHER" $lang_flag \
+            < "$words" > /tmp/morpheus_test_$$.txt 2>/dev/null; then
+        echo "FAIL: $label (cruncher crashed)"
+        rm -f /tmp/morpheus_test_$$.txt
+        FAILURES=$((FAILURES + 1))
+        return
+    fi
 
-    if diff -u "$expected" - <<< "$actual" > /dev/null 2>&1; then
+    if diff -u "$expected" /tmp/morpheus_test_$$.txt > /dev/null 2>&1; then
         echo "PASS: $label"
     else
         echo "FAIL: $label"
-        diff -u "$expected" - <<< "$actual" | head -40
+        diff -u "$expected" /tmp/morpheus_test_$$.txt | head -40
         FAILURES=$((FAILURES + 1))
     fi
+    rm -f /tmp/morpheus_test_$$.txt
 }
 
 # Test cruncher output against baselines

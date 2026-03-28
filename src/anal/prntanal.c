@@ -1,7 +1,7 @@
 #include <string.h>
 #include <gkstring.h>
 static char * pbuf = NULL;
-#define NEWLINE "\r"
+#define NEWLINE "\n"
 
 #include "prntanal.proto.h"
 #include "../morphlib/beta2smarta.proto.h"
@@ -71,7 +71,7 @@ void PrntAnalyses(gk_word *Gkword, PrntFlags prntflags, FILE *fout)
     if( prntflags & SHOW_LEMMA ) 
       Xstrncat(pbuf,"\n",MAXANALYSES * 128);
     else
-      Xstrncat(pbuf,"\r",MAXANALYSES * 128);
+      Xstrncat(pbuf,"\n",MAXANALYSES * 128);
   }
   /*	puts(pbuf);*/
 }

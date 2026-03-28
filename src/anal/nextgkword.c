@@ -75,5 +75,5 @@ printdump(char *s)
 		fdumpout = fopen("dumpfile","w");
 	}
 	if( ! fdumpout ) return(0);
-	fprintf(fdumpout,"%s\r", s );
+	fprintf(fdumpout,"%s\n", s );
 }
