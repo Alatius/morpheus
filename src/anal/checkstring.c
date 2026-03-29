@@ -256,17 +256,17 @@ enclitic_word GreekSuff[] = {
 };
 
 enclitic_word LatinSuff[] = {
-  //"que", 0,
+  "que", 0,
   "cumque", 0,
   "cunque", 0,
-  //"ne", 0,
-  //"ve", 0,
-  //"ue", 0,
+  "ne", 0,
+  "ve", 0,
+  "ue", 0,
   "libet", 0,
-  //"vis", 0, /* quantusvis */
-  //"piam", 0, /* quempiam */
-  //"dem", 0,
-  //"dum", 0,
+  "vis", 0, /* quantusvis */
+  "piam", 0, /* quempiam */
+  "dem", 0,
+  "dum", 0,
   "met", PRONOUN|PERS_PRON,
   "", 0				/* sentinel */
 };
