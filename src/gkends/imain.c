@@ -64,7 +64,6 @@ int main(int argc, char *argv[])
 		if( stype & (NOUNSTEM|ADJSTEM) ) stype = NOUNSTEM|ADJSTEM;
 		else if ( stype & PPARTMASK )  stype = PPARTMASK;
 	}
-printf("stype %o\n", stype );
 	indexendtables(stype,is_suffix);
 	return(0);
 }

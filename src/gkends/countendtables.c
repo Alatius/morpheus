@@ -58,7 +58,6 @@ void countendtables(Stemtype stype, int is_deriv)
 			FreeGkString(gstring);
 			FreeGkword(tmpGkword);
 			if( ! rconj ) {
-				printf("[%s] not a regular conj\n", curtable );
 				continue;
 			}
 		} else 

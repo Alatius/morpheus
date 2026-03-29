@@ -64,7 +64,6 @@ void indexendtables(Stemtype stype, int is_deriv)
 			FreeGkString(gstring);
 			FreeGkword(tmpGkword);
 			if( ! rconj ) {
-				printf("[%s] not a regular conj [%o] [%o]\n", curtable , derivtype_of(gstring), REG_DERIV);
 				continue;
 			}
 		} else 
@@ -139,8 +138,7 @@ NameOfDerivtype(derivtype_of(&Gstr)) );
 
 	qsort(endlines,endcount,sizeof * endlines, (int (*)(const void *, const void *))xstrcmp );
 	
-printf("stype [%o]\n", stype );
-	if( is_deriv ) 
+	if( is_deriv )
 		basen = "derivind";
 	else if( stype & PPARTMASK ) 
 		basen = "vbendind";
@@ -149,7 +147,6 @@ printf("stype [%o]\n", stype );
 		
 	snprintf(shortname, sizeof(shortname), "%s%cindices%c%s", dirp, DIRCHAR, DIRCHAR , basen );
 
-printf("output file:%s\n", shortname );
 	if(! (foutput=MorphFopen(shortname,"w"))) {
 		ErrorMess("Could not open nendind!");
 		return;
