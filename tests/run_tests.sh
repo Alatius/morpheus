@@ -2,19 +2,27 @@
 #
 # Regression test for the Morpheus cruncher and build pipeline.
 #
+# Usage:
+#   tests/run_tests.sh           Run tests, comparing against baselines.
+#   tests/run_tests.sh --update  Regenerate baselines from current state.
+#
 # Baseline files (tests/*_expected.txt, tests/*_probe_*.txt, etc.) are not
-# tracked in git.  Run "tests/update_baselines.sh" to generate them from the
-# current stemlib state.  If baselines exist, this script compares against
-# them and shows diffs, but a diff alone does not count as a failure -- only
-# crashes and build errors do.
+# tracked in git.  If baselines exist, this script compares against them and
+# shows diffs, but a diff alone does not count as a failure -- only crashes
+# and build errors do.
 #
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 CRUNCHER="$PROJECT_DIR/bin/cruncher"
+UPDATE=0
+
+if [ "$1" = "--update" ]; then
+    UPDATE=1
+fi
 
 if [ ! -x "$CRUNCHER" ]; then
-    echo "FAIL: cruncher not found (run 'cd src && make && make install' first)"
+    echo "FAIL: cruncher not found (run 'make' first)"
     exit 1
 fi
 
@@ -24,27 +32,19 @@ export PATH="$PROJECT_DIR/bin:$PATH"
 FAILURES=0
 DIFFS=0
 
-# Build stemlibs if needed (ensures test works from a clean checkout)
-if [ ! -f "$PROJECT_DIR/stemlib/Greek/steminds/nomind" ]; then
-    echo "     (building Greek stemlib ...)"
-    if ! (cd "$PROJECT_DIR/stemlib/Greek" && MORPHLIB=.. make -B all) \
-            > /dev/null 2>&1; then
-        echo "FAIL: Greek stemlib build"
-        FAILURES=$((FAILURES + 1))
-    fi
-fi
-
-if [ ! -f "$PROJECT_DIR/stemlib/Latin/steminds/nomind" ]; then
-    echo "     (building Latin stemlib ...)"
-    if ! (cd "$PROJECT_DIR/stemlib/Latin" && MORPHLIB=.. make -B all) \
-            > /dev/null 2>&1; then
-        echo "FAIL: Latin stemlib build"
-        FAILURES=$((FAILURES + 1))
-    fi
-fi
+# ── Test matrix ──────────────────────────────────────────────────────────
+#
+# Each entry: label, cruncher flags, input word list, baseline file.
+# Adding a test here is all that is needed -- both test and baseline
+# generation use this table.
 
 run_cruncher_test() {
     local label="$1" flags="$2" words="$3" baseline="$4"
+
+    if [ "$UPDATE" -eq 1 ]; then
+        "$CRUNCHER" $flags < "$words" > "$baseline" 2>/dev/null
+        return
+    fi
 
     if ! "$CRUNCHER" $flags < "$words" > /tmp/morpheus_test_$$.txt 2>/dev/null; then
         echo "FAIL: $label (cruncher crashed)"
@@ -54,7 +54,7 @@ run_cruncher_test() {
     fi
 
     if [ ! -f "$baseline" ]; then
-        echo "SKIP: $label (no baseline; run tests/update_baselines.sh)"
+        echo "SKIP: $label (no baseline; run $0 --update)"
         rm -f /tmp/morpheus_test_$$.txt
         return
     fi
@@ -69,90 +69,70 @@ run_cruncher_test() {
     rm -f /tmp/morpheus_test_$$.txt
 }
 
-# Test cruncher output against baselines
+GP="$SCRIPT_DIR/greek_probe.txt"
+LP="$SCRIPT_DIR/latin_probe.txt"
+
+# Main cruncher tests (full word lists)
 run_cruncher_test "Greek cruncher" "" \
-    "$SCRIPT_DIR/greek_words.txt" \
-    "$SCRIPT_DIR/greek_expected.txt"
-
+    "$SCRIPT_DIR/greek_words.txt" "$SCRIPT_DIR/greek_expected.txt"
 run_cruncher_test "Latin cruncher" "-L" \
-    "$SCRIPT_DIR/latin_words.txt" \
-    "$SCRIPT_DIR/latin_expected.txt"
+    "$SCRIPT_DIR/latin_words.txt" "$SCRIPT_DIR/latin_expected.txt"
 
-# Flag-variant tests using small probe word lists
-run_cruncher_test "Greek -d (dbase)" "-d" \
-    "$SCRIPT_DIR/greek_probe.txt" \
-    "$SCRIPT_DIR/greek_probe_d.txt"
+# Output format flags
+run_cruncher_test "Greek -d (dbase)"        "-d"   "$GP" "$SCRIPT_DIR/greek_probe_d.txt"
+run_cruncher_test "Latin -d (dbase)"        "-Ld"  "$LP" "$SCRIPT_DIR/latin_probe_d.txt"
+run_cruncher_test "Greek -l (lemma)"        "-l"   "$GP" "$SCRIPT_DIR/greek_probe_l.txt"
+run_cruncher_test "Latin -l (lemma)"        "-Ll"  "$LP" "$SCRIPT_DIR/latin_probe_l.txt"
+run_cruncher_test "Greek -Px (lexicon)"     "-Px"  "$GP" "$SCRIPT_DIR/greek_probe_Px.txt"
+run_cruncher_test "Latin -Px (lexicon)"     "-LPx" "$LP" "$SCRIPT_DIR/latin_probe_Px.txt"
+run_cruncher_test "Greek -Pp (parse)"       "-Pp"  "$GP" "$SCRIPT_DIR/greek_probe_Pp.txt"
+run_cruncher_test "Latin -Pp (parse)"       "-LPp" "$LP" "$SCRIPT_DIR/latin_probe_Pp.txt"
+run_cruncher_test "Greek -e (ending index)" "-e"   "$GP" "$SCRIPT_DIR/greek_probe_e.txt"
+run_cruncher_test "Latin -e (ending index)" "-Le"  "$LP" "$SCRIPT_DIR/latin_probe_e.txt"
+run_cruncher_test "Greek -Pk (keep beta)"   "-Pk"  "$GP" "$SCRIPT_DIR/greek_probe_Pk.txt"
 
-run_cruncher_test "Latin -d (dbase)" "-Ld" \
-    "$SCRIPT_DIR/latin_probe.txt" \
-    "$SCRIPT_DIR/latin_probe_d.txt"
+# Analysis flags
+run_cruncher_test "Greek -V (verbs only)"       "-V"  "$GP" "$SCRIPT_DIR/greek_probe_V.txt"
+run_cruncher_test "Latin -V (verbs only)"       "-LV" "$LP" "$SCRIPT_DIR/latin_probe_V.txt"
+run_cruncher_test "Greek -S (non-strict case)"  "-S"  \
+    "$SCRIPT_DIR/greek_probe_upper.txt" "$SCRIPT_DIR/greek_probe_S.txt"
+run_cruncher_test "Latin -S (non-strict case)"  "-LS" \
+    "$SCRIPT_DIR/latin_probe_upper.txt" "$SCRIPT_DIR/latin_probe_S.txt"
+run_cruncher_test "Greek -n (ignore accents)"   "-n"  \
+    "$SCRIPT_DIR/greek_probe_noaccent.txt" "$SCRIPT_DIR/greek_probe_n.txt"
 
-run_cruncher_test "Greek -l (lemma)" "-l" \
-    "$SCRIPT_DIR/greek_probe.txt" \
-    "$SCRIPT_DIR/greek_probe_l.txt"
+# ── Baseline update mode ────────────────────────────────────────────────
 
-run_cruncher_test "Latin -l (lemma)" "-Ll" \
-    "$SCRIPT_DIR/latin_probe.txt" \
-    "$SCRIPT_DIR/latin_probe_l.txt"
+if [ "$UPDATE" -eq 1 ]; then
+    echo "Baselines written to $SCRIPT_DIR/"
+    exit 0
+fi
 
-run_cruncher_test "Greek -Px (lexicon)" "-Px" \
-    "$SCRIPT_DIR/greek_probe.txt" \
-    "$SCRIPT_DIR/greek_probe_Px.txt"
+# ── Stemlib rebuild verification ─────────────────────────────────────────
 
-run_cruncher_test "Latin -Px (lexicon)" "-LPx" \
-    "$SCRIPT_DIR/latin_probe.txt" \
-    "$SCRIPT_DIR/latin_probe_Px.txt"
-
-run_cruncher_test "Greek -e (ending index)" "-e" \
-    "$SCRIPT_DIR/greek_probe.txt" \
-    "$SCRIPT_DIR/greek_probe_e.txt"
-
-run_cruncher_test "Latin -e (ending index)" "-Le" \
-    "$SCRIPT_DIR/latin_probe.txt" \
-    "$SCRIPT_DIR/latin_probe_e.txt"
-
-run_cruncher_test "Greek -Pk (keep beta)" "-Pk" \
-    "$SCRIPT_DIR/greek_probe.txt" \
-    "$SCRIPT_DIR/greek_probe_Pk.txt"
-
-run_cruncher_test "Greek -V (verbs only)" "-V" \
-    "$SCRIPT_DIR/greek_probe.txt" \
-    "$SCRIPT_DIR/greek_probe_V.txt"
-
-run_cruncher_test "Latin -V (verbs only)" "-LV" \
-    "$SCRIPT_DIR/latin_probe.txt" \
-    "$SCRIPT_DIR/latin_probe_V.txt"
-
-run_cruncher_test "Latin -S (non-strict case)" "-LS" \
-    "$SCRIPT_DIR/latin_probe_upper.txt" \
-    "$SCRIPT_DIR/latin_probe_S.txt"
-
-run_cruncher_test "Greek -S (non-strict case)" "-S" \
-    "$SCRIPT_DIR/greek_probe_upper.txt" \
-    "$SCRIPT_DIR/greek_probe_S.txt"
-
-run_cruncher_test "Greek -n (ignore accents)" "-n" \
-    "$SCRIPT_DIR/greek_probe_noaccent.txt" \
-    "$SCRIPT_DIR/greek_probe_n.txt"
+# Build stemlibs if needed (ensures test works from a clean checkout)
+for lang in Greek Latin; do
+    dir="$PROJECT_DIR/stemlib/$lang"
+    if [ ! -f "$dir/steminds/nomind" ]; then
+        echo "     (building $lang stemlib ...)"
+        if ! (cd "$dir" && MORPHLIB=.. make -B all) > /dev/null 2>&1; then
+            echo "FAIL: $lang stemlib build"
+            FAILURES=$((FAILURES + 1))
+        fi
+    fi
+done
 
 # Rebuild stemlibs from source and verify the build succeeds
-echo "     (rebuilding Greek stemlib ...)"
-if ! (cd "$PROJECT_DIR/stemlib/Greek" && MORPHLIB=.. make -B all) \
-        > /dev/null 2>&1; then
-    echo "FAIL: Greek stemlib rebuild"
-    FAILURES=$((FAILURES + 1))
-else
-    echo "PASS: Greek stemlib rebuild"
-fi
-
-echo "     (rebuilding Latin stemlib ...)"
-if ! (cd "$PROJECT_DIR/stemlib/Latin" && MORPHLIB=.. make -B all) \
-        > /dev/null 2>&1; then
-    echo "FAIL: Latin stemlib rebuild"
-    FAILURES=$((FAILURES + 1))
-else
-    echo "PASS: Latin stemlib rebuild"
-fi
+for lang in Greek Latin; do
+    dir="$PROJECT_DIR/stemlib/$lang"
+    echo "     (rebuilding $lang stemlib ...)"
+    if ! (cd "$dir" && MORPHLIB=.. make -B all) > /dev/null 2>&1; then
+        echo "FAIL: $lang stemlib rebuild"
+        FAILURES=$((FAILURES + 1))
+    else
+        echo "PASS: $lang stemlib rebuild"
+    fi
+done
 
 echo ""
 if [ "$FAILURES" -gt 0 ]; then

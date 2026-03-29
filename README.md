@@ -1,24 +1,43 @@
 morpheus
 ========
 
-Morpheus parser code.
+Morpheus parser code — a morphological analyzer for Greek and Latin.
 
-Compiling and installing morpheus
----------------------------------
+Building
+--------
 
-By default morpheus installs into bin/
+Build everything (cruncher, tools, and stem libraries) from the project root:
 ```
-  cd src
-  make
-  make install
+make
 ```
-Compiling a stem library
-------------------------
+
+This compiles the C source in `src/`, installs binaries to `bin/`, and builds
+the Greek and Latin stem libraries in `stemlib/`.
+
+To rebuild just the C source without the stem libraries:
 ```
-  cd stemlib/Latin
-  export PATH=$PATH:../../bin
-  MORPHLIB=.. make
+make build
 ```
+
+Testing
+-------
+
+```
+make test
+```
+
+This runs the full test suite: cruncher output tests for all supported flag
+combinations, followed by a from-scratch rebuild of both stem libraries to
+verify the build pipeline. Test baselines are not tracked in git. To generate
+or update them:
+```
+make baselines
+```
+
+Baselines capture the current cruncher output so that future changes show up
+as diffs. A diff is reported but does not count as a failure — only crashes
+and build errors do.
+
 Running the cruncher
 --------------------
 ```
