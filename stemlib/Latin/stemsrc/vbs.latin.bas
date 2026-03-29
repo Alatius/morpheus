@@ -26,7 +26,7 @@
 :de:praeped	ire_vb
 
 :le:apiscor
-:vs:a^pi_sc	conj3
+:vs:a^pi_sc	conj3 dep
 :vs:apt	pp4
 
 :le:disicio
@@ -55,9 +55,9 @@
 :vs:transi^li	perfstem
 
 :le:comminiscor
-:vs:com-mi^ni_sc	conj3
+:vs:com-mi^ni_sc	conj3 dep
 :vs:com-ment	pp4
-:vs:con-mi^ni_sc	conj3
+:vs:con-mi^ni_sc	conj3 dep
 :vs:con-ment	pp4
 
 :le:resipisco
@@ -101,7 +101,7 @@
 :vs:a^li^t	pp4
 
 :le:amplector
-:vs:amplect	conj3
+:vs:amplect	conj3 dep
 :vs:amplex	pp4
 
 :le:ango
@@ -283,7 +283,7 @@
 :vs:e_rept	pp4
 
 :le:experior
-:vs:exper	conj4
+:vs:exper	conj4 dep
 :vs:expert	pp4
 
 :le:exsilio
@@ -494,7 +494,7 @@
 :de:mu_n	ire_vb
 
 :le:nanciscor
-:vs:nanci_sc	conj3
+:vs:nanci_sc	conj3 dep
 :vs:nanct	pp4
 :vs:nact	pp4
 
@@ -572,7 +572,7 @@
 @	inf
 
 :le:ordior
-:vs:o_rd		conj4
+:vs:o_rd		conj4 dep
 :vs:o_rs		pp4
 
 :le:orior
@@ -830,8 +830,8 @@
 :vs:tu_t pp4
 
 :le:obtueor
-:vs:ob-tu^	conj2
-:vs:optu^	conj2 orth
+:vs:ob-tu^	conj2 dep
+:vs:optu^	conj2 dep orth
 :vs:obtui^t	pp4
 :vs:obtui^t	pp4 orth
 :vs:obtu_t	pp4

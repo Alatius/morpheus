@@ -2,7 +2,6 @@
 #include "endfiles.h"
 #define MAX_END_TABLE	12000
 static char ** endlines;
-static gk_string Gstr;
 static gk_string Blnk;
 #define DELIMITER " "
 

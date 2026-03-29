@@ -31,8 +31,8 @@ gk_word *GenIrregForm(gk_word *, char *, int);
 
 int CompGkForms(const void *a, const void *b);
 
-gk_string BlankGstr;
-gk_word TmpGkword;
+static gk_string BlankGstr;
+static gk_word TmpGkword;
 
 void GenDictEntry(gk_word *Gkword, char *dentry)
 {

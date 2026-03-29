@@ -98,7 +98,7 @@ int main(void)
 	}
 }
 
-gk_string Gstr, BlankGstr;
+static gk_string Gstr, BlankGstr;
 int testcmpstem(char *needlemma,char *stem,char * stemkeys,char* matchkeys,char * transkeys)
 {
 	char rawprvb[BUFSIZ], fullprevb[BUFSIZ], half2[BUFSIZ];
