@@ -7,7 +7,7 @@
 
 typedef struct {
 	char tagstring[MAXTAG];
-	long tagoffset;
+	int tagoffset;
 } endtags;
 
 #define tagstring_of(X) (X)->tagstring
