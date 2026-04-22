@@ -254,7 +254,7 @@ void rstprevb(char *word, char *prevb, gk_string *gstr)
 			Xstrncat(work,"d",sizeof(work));
 		}
 
-		if( has_morphflag(oddpb,T_PREVB) && !strcmp(prevb,"re") ) {
+		if( has_morphflag(oddpb,T_PREVB) && !strcmp(prevb,"re^") ) {
 			Xstrncpy(work,"ret",sizeof(work));
 		}
 
@@ -282,7 +282,7 @@ void rstprevb(char *word, char *prevb, gk_string *gstr)
 			}
 		}
 
-		if( !strcmp(prevb,"trans") ) {
+		if( !strcmp(prevb,"tra_ns") ) {
 
 			switch(*word) {
 				case 'i':
@@ -301,8 +301,15 @@ void rstprevb(char *word, char *prevb, gk_string *gstr)
 			}
 		}
 
-/* 
- * dis- unchanged before "di" but loses 's' before 'd' otherwise 
+/*
+ * intro-, retro-: final o_ shortens to o^ before a vowel (vocalis ante vocalem)
+ */
+		if( !strcmp(prevb,"intro_") || !strcmp(prevb,"retro_") ) {
+			if( strchr("aeiou",*word) ) *t = '^';
+		}
+
+/*
+ * dis- unchanged before "di" but loses 's' before 'd' otherwise
  */
 		if( !strcmp(prevb,"dis") && strncmp(word,"di",2)  ) {
 

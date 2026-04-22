@@ -10,16 +10,16 @@ ap	ad
 as	ad
 at	ad
 #
-a	a
+#a	a_
 #
 amb	amb
 #
-ante	ante
+ante	ante^
 #
 circum	circum
 circu	circum
 #
-co	co
+co	co^
 col	con
 com	con
 con	con
@@ -33,14 +33,15 @@ dis	dis
 #
 e	ex
 ex	ex
-#ec	ex
-ec	ec
+ec	ex
 ef	ex
 #
+il	in
 im	in
 in	in
 #
 inter	inter
+intro	intro_
 #
 ob	ob
 oc	ob
@@ -54,15 +55,15 @@ praeter	praeter
 #
 prae	prae
 #
-pro	pro
-prod	pro
+pro	pro_
+prod	pro_
 #
-re	re
-red	re
-ret	re
-retro	retro
+re	re^
+red	re^
+ret	re^
+retro	retro_
 #
-se	se
+se	se_
 #
 sub	sub
 suc	sub
@@ -74,6 +75,6 @@ sur	sub
 #
 super	super
 #
-trans	trans
-tra	trans
-tran	trans
+trans	tra_ns
+tra	tra_ns
+tran	tra_ns
