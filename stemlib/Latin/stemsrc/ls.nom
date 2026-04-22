@@ -11027,7 +11027,6 @@ a^ni^ma_bi^lis
 a^ni^madversi^o		
 :le:animadversio
 :no:a^ni^madversi^	o_oLnis fem
-:no:a^ni^maduersi^	o_oLnis fem
 
 
 a^ni^madversor		
@@ -29398,7 +29397,6 @@ Calvi_na
 Calvi_nus		
 :le:Calvinus
 :no:Calvi_n	us_i masc
-:no:Calui_n	us_i masc
 
 
 Calvi^si^us		
@@ -33262,7 +33260,6 @@ ca^te_na_tus
 ca^terva		
 :le:caterva
 :no:ca^terv	a_ae fem
-:no:ca^teru	a_ae fem
 
 
 ca^terva_ri^us		
@@ -33273,7 +33270,6 @@ ca^terva_ri^us
 ca^terva_tim		
 :le:catervatim
 :wd:ca^terva_tim	adverb
-:wd:ca^terua_tim	adverb
 
 
 ca^tharti^cum		
@@ -46420,7 +46416,6 @@ conserva_ti^o
 conserva_tor		
 :le:conservator
 :no:conserva_t	or_oLris masc
-:no:conserua_t	or_oLris masc
 
 
 conserva_trix		
@@ -49624,7 +49619,6 @@ corvi_nus
 Corvi_nus		
 :le:Corvinus
 :no:Corvi_n	us_i masc
-:no:Corui_n	us_i masc
 
 
 corvus		
@@ -55085,7 +55079,6 @@ decem-scalmus
 de^cemvi^ra_lis		
 :le:decemviralis
 :aj:de^cemvi^ra_l	is_e
-:aj:de^cemui^ra_l	is_e
 
 
 de^cemvi^ra_li^ter	
@@ -55095,14 +55088,12 @@ de^cemvi^ra_li^ter
 de^cemvi^ra_tus		
 :le:decemviratus
 :no:de^cemvi^ra_t	us_us masc
-:no:de^cemui^ra_t	us_us masc
 
 
 de^cem-vi^ri		<gen>m.</gen>
 :le:decemviri
 :no:de^cemvi^r	0_i masc 
-:no:de^cemui^r	0_i masc 
-:no:de^cemui^r	0_i masc pl orth
+
 
 de^cenna_lis		
 :le:decennalis
@@ -61904,7 +61895,6 @@ di_vi_su_ra
 di_vi_sus#2		
 :le:divisus#2
 :no:di_vi_s	us_us masc
-:no:di_ui_s	us_us masc
 
 
 di_vi^ta_ti^o		
@@ -63591,7 +63581,6 @@ du^o^-et-vi_ce_si^ma_ni
 
 :le:duodeviceni
 :aj:du^o^de_vi_ce_n	us_a_um
-:aj:du^o^de_ui_ce_n	us_a_um
 
 du^o^-et-vi_ce_si^mus		
 :le:duoetvicesimus
@@ -69306,7 +69295,7 @@ Euadne		<orth type=alt>Euhadne</orth>	<orth type=alt>Evadne</orth>
 
 Euander		<orth>-drus</orth>	<orth>Evander</orth>	
 :le:Evander
-:no:Evand	er_ri masc orth
+:no:E_vand	er_ri masc orth
 :no:Euand	er_ri masc
 
 
@@ -72762,7 +72751,6 @@ exu_ti^o
 exu^vi^ae		
 :le:exuviae
 :no:exu^vi^	a_ae fem pl
-:no:exu^ui^	a_ae fem pl
 
 
 F		<orth type=alt>f</orth>	<itype>indecl.</itype>	<gen>n.</gen>	<gen>f.</gen>
@@ -109435,7 +109423,6 @@ la_nu^la
 La_nu^vi^um		<orth type=alt>L&auml;ni^v-</orth>	
 :le:Lanuvium
 :no:La_nu^v	ius_i neut
-:no:La_nu^u	ius_i neut
 :no:L&auml;ni^v	ius_i neut orth
 
 
@@ -165337,14 +165324,12 @@ pri_ve^ras		<itype>mulieres privatas dicebant</itype>
 Pri_vernum		
 :le:Privernum
 :no:Pri_vern	us_i neut
-:no:Pri_uern	us_i neut
 
 
 Pri_vernas		<itype>a_tis</itype>	<pos>adj.</pos>
 Pri_verna_tes		
 :le:Privernates
 :aj:Pri_verna_	s_tis is_ethnic
-:aj:Pri_uerna_	s_tis is_ethnic
 
 
 Pri_vernus		
@@ -169924,7 +169909,6 @@ pulvillus
 pulvi_nar		<orth type=alt>polv-</orth>	
 :le:pulvinar
 :no:pulvi_n	ar_aLris neut
-:no:pului_n	ar_aLris neut
 :no:polvi_n	ar_aLris neut orth
 
 
@@ -187613,7 +187597,6 @@ serva_tio
 serva_tor		
 :le:servator
 :no:serva_t	or_oLris masc
-:no:serua_t	or_oLris masc
 
 
 serva_to_ri^um	
@@ -187630,7 +187613,6 @@ servi^cu^lus
 servi_lis		
 :le:servilis
 :aj:servi_l	is_e
-:aj:serui_l	is_e
 
 	<pos>adv.</pos>
 servi_le		<orth>servi_li^ter</orth>	<orth type=alt>class.</orth>	<pos>adj.</pos>	
@@ -187641,7 +187623,6 @@ servi_le		<orth>servi_li^ter</orth>	<orth type=alt>class.</orth>	<pos>adj.</pos>
 Servi_li^us		
 :le:Servilius
 :no:Servi_l	ius_i masc
-:no:Serui_l	ius_i masc
 
 
 Servi_li^a		
@@ -187662,13 +187643,11 @@ Servi_li^a_nus
 servi^ti^um		
 :le:servitium
 :no:servi^t	ius_i neut
-:no:serui^t	ius_i neut
 
 
 servi_tor		
 :le:servitor
 :no:servi_t	or_oLris masc
-:no:serui_t	or_oLris masc
 
 
 servi^tri_ti^us		
@@ -187679,13 +187658,11 @@ servi^tri_ti^us
 servi^tu_do		
 :le:servitudo
 :no:servi^tu_d	o_inis fem
-:no:serui_t	or_oLris masc
 
 
 servi^tu_s		
 :le:servitus
 :no:servi^tu_	s_tis fem
-:no:serui^tu_	s_tis fem
 
 
 Servi^us		
@@ -189191,7 +189168,6 @@ silva_ti^cus		<orth type=alt>sylv-</orth>
 silvestris		<orth>silvester</orth>	<orth>sylv-</orth>	
 :le:silvestris
 :aj:silvestr	is_e
-:aj:siluestr	is_e
 :aj:sylvestr	is_e orth
 
 
@@ -210584,13 +210560,11 @@ tri^umvi^ra_lis
 tri^umvi^ra_tus		
 :le:triumviratus
 :no:tri^umvi^ra_t	us_us masc
-:no:tri^umui^ra_t	us_us masc
 
 
 triumvi^ri		<orth>tresvi^ri</orth>	<orth>IIIvi^ri</orth>	<itype>o_rum or u_m</itype>	<gen>m.</gen>
 :le:triumviri
 :no:triumvi^r	0_i masc 
-:no:triumui^r	0_i masc 
 
 tri^uncis		
 :le:triuncis
@@ -214429,13 +214403,11 @@ Va^cu_na_lis
 va^cu^us		
 :le:vacuus
 :aj:va^cu^	us_a_um
-:aj:ua^cu^	us_a_um
 
 
 va^-cu^um		
 :le:vacuum
 :no:va^-cu^	us_i neut
-:no:ua^-cu^	us_i neut
 
 
 va^cu^um		
@@ -218370,7 +218342,6 @@ vi^du^a_ta
 vi^du^us		
 :le:viduus
 :aj:vi^du^	us_a_um
-:aj:ui^du^	us_a_um
 
 
 vi^du^a		
@@ -219899,7 +219870,6 @@ vi_ventes		<itype>ium</itype>
 vi_vus		
 :le:vivus
 :aj:vi_v	us_a_um
-:aj:ui_u	us_a_um
 
 	<pos>Adj.</pos>
 vi_vus		

@@ -1231,8 +1231,7 @@
 :le:Arrenius
 :no:Arren	ius_i masc pers_name
 
-:le:Aruernus
-:aj:Aruern	us_a_um group
+:le:Arvernus
 :aj:Arvern	us_a_um group
 
 :le:Atrinum
@@ -1503,7 +1502,6 @@
 
 :le:Ovile
 :no:Ovil	is_is neut
-:no:Ouil	is_is neut
 
 :le:Oxeae
 :no:Oxe	a_ae fem pl geog_name
@@ -1556,7 +1554,6 @@
 
 :le:Servilianus
 :aj:Servilian	us_a_um
-:aj:Seruilian	us_a_um
 
 :le:Sicilinus
 :no:Sicilin	us_i masc pers_name
@@ -1596,14 +1593,12 @@
 
 :le:Vibellius
 :no:Vibell	ius_i masc pers_name
-:no:Uibell	ius_i masc pers_name
 
 :le:Uictumulae
 :no:Uictumul	a_ae fem pl geog_name
 
 :le:Vismarus
 :no:Vismar	us_i masc pers_name
-:no:Uismar	us_i masc pers_name
 
 :le:Uoturia
 :no:Uoturi	a_ae fem geog_name
@@ -1636,7 +1631,6 @@
 
 :le:Calvius
 :no:Calv	ius_i masc pers_name
-:no:Calu	ius_i masc pers_name
 
 :le:Camars
 :no:Camars	0_is neut geog_name
@@ -1677,7 +1671,6 @@
 
 :le:Etitovius
 :no:Etitov	ius_i masc pers_name
-:no:Etitou	ius_i masc pers_name
 
 :le:Faesus
 :no:Faes	us_i masc pers_name
@@ -1785,7 +1778,6 @@
 
 :le:Saverrio
 :no:Saverri	o_oLnis masc pers_name
-:no:Sauerri	o_oLnis masc pers_name
 
 :le:Sceleratus
 :no:Scelerat	us_i masc geog_name
@@ -1795,7 +1787,6 @@
 
 :le:Segovesus
 :no:Segoves	us_i masc pers_name
-:no:Segoues	us_i masc pers_name
 
 :le:Semunciarium
 :no:Semunciar	ius_i neut geog_name
@@ -1835,27 +1826,21 @@
 
 :le:Venox
 :no:Veno	x_cis masc pers_name
-:no:Ueno	x_cis masc pers_name
 
 :le:Virginia
 :no:Vergini	a_ae fem pers_name
-:no:Uergini	a_ae fem pers_name
 
 :le:Vetelia
 :no:Veteli	a_ae fem geog_name
-:no:Ueteli	a_ae fem geog_name
 
 :le:Vetusius
 :no:Vetus	ius_i masc
-:no:Uetus	ius_i masc
 
 :le:Viminal
 :no:Viminal	0_is masc
-:no:Uiminal	0_is masc
 
 :le:Volero
 :no:Voler	o_oLnis masc pers_name
-:no:Uoler	o_oLnis masc pers_name
 
 :le:Urbius
 :no:Urb	ius_i masc geog_name

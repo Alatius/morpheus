@@ -110,7 +110,6 @@
 
 :le:duumvir
 :no:duumvir	0_i masc
-:no:duumuir	0_i masc
 
 :le:duodetriginta
 :wd:du^o^de_tri_ginta_ numeral

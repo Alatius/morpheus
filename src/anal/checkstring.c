@@ -23,6 +23,8 @@
 extern int chckend(char *);
 int cntlems(gk_word *);
 int u2v(char *);
+
+#define LatVow(X) (strchr("aeiouAEIOU",X))
 static int checkstring4(gk_word *);
 static void add_apostrvowel(char *, char *, char *);
 /*
@@ -593,12 +595,17 @@ int checkstring3(gk_word *Gkword)
   */
 
   /*
-   * uenio and venio
-   *
-   * grc 12/12/97
-   *
+   * Latin u/v disambiguation. Try u2v's heuristic first (grc 12/12/97);
+   * on failure, enumerate all 2^N subsets of u+vowel positions and try
+   * each.
    */
   if( cur_lang() == LATIN ) {
+    int positions[5];
+    int npos = 0;
+    int wlen = strlen(saveword);
+    int mask, nvariants, k, p;
+    int accrval = 0;
+
     Xstrncpy(workword,saveword,sizeof(workword));
     if( u2v(workword) ) {
       set_workword(Gkword,workword);
@@ -608,7 +615,36 @@ int checkstring3(gk_word *Gkword)
 	return(rval);
       }
     }
-    Xstrncpy(workword,saveword,sizeof(workword));
+
+    for( idx = 0; idx < wlen - 1; idx++ ) {
+      if( (saveword[idx] == 'u' || saveword[idx] == 'U') &&
+	  LatVow(saveword[idx + 1]) ) {
+	if( npos >= (int)(sizeof(positions)/sizeof(positions[0])) ) {
+	  npos = 0;
+	  break;
+	}
+	positions[npos++] = idx;
+      }
+    }
+    if( npos > 0 ) {
+      nvariants = 1 << npos;
+      /* mask=0 would be the original word, already tried above */
+      for( mask = 1; mask < nvariants; mask++ ) {
+	Xstrncpy(workword,saveword,sizeof(workword));
+	for( k = 0; k < npos; k++ ) {
+	  if( mask & (1 << k) ) {
+	    p = positions[k];
+	    workword[p] = (workword[p] == 'U') ? 'V' : 'v';
+	  }
+	}
+	set_workword(Gkword,workword);
+	accrval += checkstring4(Gkword);
+      }
+      set_workword(Gkword,saveword);
+      if( accrval ) {
+	return(accrval);
+      }
+    }
   }
   /* If we're out of ideas in Italian, turn all u's to v's. */
   else if ( (cur_lang() == ITALIAN) && !totanal_of(Gkword)) {
@@ -1030,8 +1066,6 @@ int updateDialect(Dialect dial)
 		return(1);
 	}
 }
-
-#define LatVow(X) (strchr("aeiouAEIOU",X))
 
 int u2v(char *s) {
 	int nchanges = 0;

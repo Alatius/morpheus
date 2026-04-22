@@ -880,11 +880,5 @@
 :le:vindico
 :de:vendic	are_vb
 
-:le:volvo
-:vs:volu	perfstem
-:vs:uolu	conj3
-:vs:uolu	perfstem
-:vs:uolu_t	pp4
-
 :le:vulnero
 :de:volner	are_vb orth

@@ -928,9 +928,6 @@
 :vs:a^ni^madvert	conj3
 :vs:a^ni^madvert perfstem
 :vs:a^ni^madvers pp4
-:vs:a^ni^maduert	conj3
-:vs:a^ni^maduert perfstem
-:vs:a^ni^maduers pp4
 
 :le:animo
 :de:a^ni^m	are_vb
@@ -17093,9 +17090,6 @@
 :vs:va^l	conj2
 :vs:va^lu^ perfstem
 :vs:va^li^t pp4
-:vs:ua^l	conj2
-:vs:ua^lu^ perfstem
-:vs:ua^li^t pp4
 
 :le:valedico
 :vs:va^le^di_c	conj3
@@ -17169,9 +17163,6 @@
 :vs:ve_n perfstem
 :vs:ve_ni perfstem
 :vs:vent pp4
-:vs:ue^n	conj4
-:vs:ue_n perfstem
-:vs:uent pp4
 
 :le:venor
 :de:ve_n	are_vb dep
@@ -17254,9 +17245,6 @@
 :vs:ve^t	conj1
 :vs:ve^tu^ perfstem
 :vs:ve^ti^t pp4
-:vs:ue^t	conj1
-:vs:ue^tu^ perfstem
-:vs:ue^ti^t pp4
 
 :le:vexo
 :de:vex	are_vb
