@@ -522,22 +522,10 @@
 
 :le:nosco
 :vs:no_sc	conj3
-:vs:no_v	perfstem
-:vb:no_sti_	perfstem 2nd sg perf ind act contr	
-:vb:no_stis	perfstem 2nd pl perf ind act contr
-:vb:no_runt	perfstem 3rd pl perf ind act contr
-:vb:no_rim	perfstem 1st sg perf subj act contr
-:vb:no_rit	perfstem 3rd sg perf subj act contr
+:vs:n	ovperf
 :vs:no_t	pp4
-:vb:no_ris	perfstem 2nd sg futperf ind act contr
-:vb:no_ram	perfstem 1st sg plup ind act contr
-:vb:no_ra_s	perfstem 2nd sg plup ind act contr
-:vb:no_rat	perfstem 3rd sg plup ind act contr
-:vb:no_rant	perfstem 3rd pl plup ind act contr
-:vb:no_runt	perfstem 3rd pl futperf ind act contr
-:vb:no_sse	perfstem perf inf act contr
 :vs:gno_sc	conj3 orth
-:vs:gno_v	perfstem orth
+:vs:gn	ovperf orth
 :vs:gno_t	pp4 orth
 
 :le:oboedio

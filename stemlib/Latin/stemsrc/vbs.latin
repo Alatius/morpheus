@@ -736,7 +736,7 @@
 :vs:a-gna_t pp4
 :le:agnosco
 :vs:agno_sc	conj3
-:vs:agno_v perfstem
+:vs:agn ovperf
 :vs:agni^t pp4
 :le:ago
 :vs:a^g	conj3
@@ -2389,17 +2389,8 @@
 :de:cogno_mi^n	are_vb
 :le:cognosco
 :vs:co-gno_sc	conj3
-:vs:co-gno_v perfstem
+:vs:co-gn ovperf
 :vs:co-gni^t pp4
-:vb:cogno_sti_	perfstem 2nd sg perf ind act contr	
-:vb:cogno_stis	perfstem 2nd pl perf ind act contr
-:vb:cogno_runt	perfstem 3rd pl perf ind act contr
-:vb:cogno_rim	perfstem 1st sg perf subj act contr
-:vb:cogno_rit	perfstem 3rd sg perf subj act contr
-:vb:cogno_ris	perfstem 2nd sg futperf ind act contr
-:vb:cogno_ras	perfstem 2nd sg plup ind act contr
-:vb:cogno_runt	perfstem 3rd pl futperf ind act contr
-:vb:cogno_sse	perfstem perf inf act contr
 :le:cogo
 :vs:co_g	conj3
 :vs:co^e_g perfstem
@@ -7557,7 +7548,7 @@
 :de:igno_r	are_vb
 :le:ignosco
 :vs:igno_sc	conj3
-:vs:igno_v perfstem
+:vs:ign ovperf
 :vs:igno_t pp4
 :le:illabor
 :vs:illa_b	conj3 dep
@@ -8849,7 +8840,7 @@
 :vs:inter-ni^t	conj2
 :le:internosco
 :vs:inter-no_sc	conj3
-:vs:inter-no_v perfstem
+:vs:inter-n ovperf
 :vs:inter-no_t pp4
 :le:internuntio
 :de:inter-nu_nti	are_vb
@@ -11326,7 +11317,7 @@
 :vs:per-cla_ru^ perfstem
 :le:percognosco
 :vs:per-cogno_sc	conj3
-:vs:per-cogno_v perfstem
+:vs:per-cogn ovperf
 :vs:per-cogni^t pp4
 :le:percolapho
 :de:per-co^la^ph	are_vb
@@ -13714,7 +13705,7 @@
 :de:re^-aedi^fi^c	are_vb
 :le:reagnosco
 :vs:re^agno_sc	conj3
-:vs:re^agno_v perfstem
+:vs:re^agn ovperf
 :vs:re^agni^t pp4
 :le:rebaptizo
 :de:re^-bapti_z	are_vb
@@ -13801,7 +13792,7 @@
 :de:re^-co_gi^t	are_vb
 :le:recognosco
 :vs:re^-cogno_sc	conj3
-:vs:re^-cogno_v perfstem
+:vs:re^-cogn ovperf
 :vs:re^-cogni^t pp4
 :le:recogo
 :vs:re^-co_g	conj3
