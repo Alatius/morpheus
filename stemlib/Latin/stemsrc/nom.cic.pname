@@ -360,8 +360,8 @@
 #:no:Hypaepen	us_i masc
 #
 
-:le:Ianuarus
-:no:Ia_nua_r	us_i masc
+:le:Januarus
+:no:Ja_nua_r	us_i masc
 
 #
 #:le:Iius
@@ -372,8 +372,8 @@
 #:no:Inste	ius_i masc
 #
 
-:le:Iulius
-:no:Iu_l	ius_i masc
+:le:Julius
+:no:Ju_l	ius_i masc
 
 #
 #:le:Jocutus
@@ -409,7 +409,7 @@
 #
 
 :le:Marcellinus
-:no:Ma_rcellin	us_i masc
+:no:Ma_rcelli_n	us_i masc
 
 #
 #:le:Matrinius
@@ -878,10 +878,10 @@
 #
 
 :le:Apuleia
-:no:A_pulei	a_ae fem
+:no:A_pulej	a_ae fem
 
 :le:Apuleianus
-:aj:A_puleia_n us_a_um
+:aj:A_puleja_n us_a_um
 
 #:le:Aquileiensis
 #:no:Aquileiens	is_e 

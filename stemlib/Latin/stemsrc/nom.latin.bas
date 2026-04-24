@@ -481,8 +481,8 @@
 :wd:de_-super	adverb
 
 :le:deterior
-:aj:de_t		er_era_erum comp
-:aj:de_t		er_era_erum superl
+:aj:de_ter	ior_ius_comp
+:aj:de_terrim	us_a_um irreg_superl
 
 :le:deus
 :wd:di_s	irreg_nom2 masc dat pl
@@ -1032,7 +1032,7 @@
 
 :le:posterus
 :aj:poster	us_a_um no_comp
-:aj:poster	us_a_um comp
+:aj:poster	ior_ius_comp
 :aj:postre_m	us_a_um irreg_superl
 
 :le:postquam

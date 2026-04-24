@@ -617,7 +617,7 @@ da^@imperf	irreg_pp1 imperf ind
 :vb:da^re	irreg_pp1 pres inf act
 :vb:da^ri_	irreg_pp1 pres inf pass
 dui@basvb2	irreg_pp1 pres subj act early
-:vs:de^d perfstem no_comp
+:vs:de^d perfstem
 :vs:di^d perfstem comp_only
 :vs:da^t pp4
 :vs:di^t pp4	comp_only

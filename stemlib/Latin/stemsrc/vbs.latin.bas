@@ -162,10 +162,10 @@
 :vs:bibit	pp4
 
 :le:caedo
-:vs:caed	conj3 no_comp
-:vs:ceci_d	perfstem has_redupl no_comp
-:vs:cecaed	perfstem has_redupl no_comp
-:vs:caes	pp4 has_redupl no_comp
+:vs:caed	conj3 not_in_comp
+:vs:ceci_d	perfstem has_redupl not_in_comp
+:vs:cecaed	perfstem has_redupl not_in_comp
+:vs:caes	pp4 has_redupl not_in_comp
 :vs:ci_d	conj3 comp_only
 :vs:ci_s	perfstem comp_only
 :vs:ci_s	pp4 comp_only
@@ -501,8 +501,8 @@
 :le:neco
 :vs:nec	 	conj1
 :vs:necu	perfstem
-:vs:neca_v	perfstem no_comp
-:vs:neca_t	ppf4 no_comp
+:vs:neca_v	perfstem not_in_comp
+:vs:neca_t	pp4 not_in_comp
 :vs:nect	pp4	comp_only
 
 :le:necto
@@ -593,7 +593,7 @@
 :vs:pa_rit	pp4
 
 :le:pello
-:vs:pepuls	perfstem no_comp
+:vs:pepuls	perfstem not_in_comp
 :vs:pul	perfstem comp_only
 
 :le:pertaedet
@@ -660,7 +660,7 @@
 :le:rapio
 :vs:ri^p	conj3_io comp_only
 :vs:ri^pu	perfstem comp_only
-:vs:rapt	perfstem no_comp
+:vs:rapt	perfstem not_in_comp
 :vs:rept	perfstem comp_only
 
 :le:recido#1
@@ -701,7 +701,7 @@
 :vs:sals	pp4
 
 :le:salio#2
-:de:sa^l	ire_vb no_comp
+:de:sa^l	ire_vb not_in_comp
 :vs:si^l	ire_vb comp_only
 
 :le:sancio

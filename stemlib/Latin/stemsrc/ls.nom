@@ -4371,7 +4371,9 @@ Aene_as
 
 aene^a_tor		
 :le:aeneator
-:no:aene^a_t	or_oLris masc
+:no:ae_ne^a_t	or_oLris masc
+:no:ae_ni^a_t	or_oLris masc orth
+:no:ae_na_t	or_oLris masc orth
 
 
 Aene_is		<itype>i^dis or i^dos</itype>	<gen>f.</gen>
@@ -61775,6 +61777,10 @@ di_ves
 :le:dives
 :aj:di_v	es_itis
 :aj:di_	s_tis_adj orth
+:aj:di_t	ior_ius_comp
+:aj:di_vi^t	ior_ius_comp
+:aj:di_tissi^m	us_a_um irreg_superl
+:aj:di_vi^tissi^m	us_a_um irreg_superl
 
 di_s		<itype>di_te</itype>	<pos>adj.</pos>
 di_ves	
@@ -66090,7 +66096,7 @@ e_me^ri^-tus
 
 emeritus		
 :le:emeritus
-:aj:emerit	us_a_um
+:aj:e_merit	us_a_um
 
 
 E_me^ri^ta		
@@ -73717,9 +73723,7 @@ fa^me_li^cus
 
 fa^me_li^ce	
 fa_mella	
-fa^mes		
-:le:fames
-:aj:fa^m	es_is fem
+fa^mes
 
 
 fa^mescens		<itype>entis</itype>
@@ -154631,11 +154635,12 @@ Phae-sti^us
 Pha^e^thon		
 :le:Phaethon
 :no:Pha^e^th	on_ontis masc
+:no:Pha^e^t	on_ontis masc orth
 
 
 Pha^e^-thonte_us		
 :le:Phaethonteus
-:aj:Pha^e^-thonte_	us_a_um
+:aj:Pha^e^thonte_	us_a_um
 
 
 Pha^e^thonti^as		
@@ -158069,6 +158074,10 @@ Pi^us
 
 pi^e_	
 pix		<itype>pi^cis</itype>	<gen>f.</gen>
+:le:pix
+:no:pi	x_cis fem
+
+
 pla_ca_bi^lis		
 :le:placabilis
 :aj:pla_ca_bi^l	is_e
@@ -216799,6 +216808,11 @@ verni_li^tas
 
 vernisera		<itype>mensalia auguria</itype>
 vernu^la		<itype>ae</itype>	<pos>adj.</pos>
+:le:vernula
+:no:vernu^l	a_ae fem masc
+:aj:vernu^l	us_a_um
+
+
 vernus#2		
 :le:vernus#2
 :aj:vern	us_a_um

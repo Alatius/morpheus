@@ -139,6 +139,11 @@ exhe_re_d@decl3_i	irreg_adj3 masc fem neut
 :wd:fe^mur	irreg_nom3 masc nom sg
 femin@decl3	irreg_nom3 masc
 
+:le:fames
+:wd:fa^me_s	irreg_nom3 fem nom voc sg
+:wd:fa^me_	irreg_nom3 fem abl sg
+fa^m@decl3_i	irreg_nom3 fem
+
 :le:mas
 :wd:ma_s	irreg_adj3 masc nom sg
 #:wd:ma_ris	irreg_adj3 fem nom sg
