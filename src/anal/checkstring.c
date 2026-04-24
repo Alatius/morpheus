@@ -418,6 +418,108 @@ int checkstring3(gk_word *Gkword)
    * per attached to them for now.
    */
 
+  /*
+   * Latin u/v disambiguation. Try u2v's heuristic first (grc 12/12/97);
+   * on failure, enumerate all 2^N subsets of u+vowel positions and try
+   * each. Must run before enclitic stripping: otherwise a word like
+   * "impauidum" gets its trailing "dum" peeled off and the remainder
+   * "impaui" picks up verb analyses via u2v ("impavi" = perf of
+   * impasco/impaveo), hiding the adjective reading "impavidum".
+   */
+  if( cur_lang() == LATIN ) {
+    int positions[5];
+    int npos = 0;
+    int wlen = strlen(saveword);
+    int mask, nvariants, k, p;
+    int accrval = 0;
+
+    Xstrncpy(workword,saveword,sizeof(workword));
+    if( u2v(workword) ) {
+      set_workword(Gkword,workword);
+      rval = checkstring3(Gkword);
+      if( rval ) {
+	set_workword(Gkword,saveword);
+	return(rval);
+      }
+    }
+
+    for( idx = 0; idx < wlen - 1; idx++ ) {
+      if( (saveword[idx] == 'u' || saveword[idx] == 'U') &&
+	  LatVow(saveword[idx + 1]) ) {
+	if( npos >= (int)(sizeof(positions)/sizeof(positions[0])) ) {
+	  npos = 0;
+	  break;
+	}
+	positions[npos++] = idx;
+      }
+    }
+    if( npos > 0 ) {
+      nvariants = 1 << npos;
+      /* mask=0 would be the original word, already tried above */
+      for( mask = 1; mask < nvariants; mask++ ) {
+	Xstrncpy(workword,saveword,sizeof(workword));
+	for( k = 0; k < npos; k++ ) {
+	  if( mask & (1 << k) ) {
+	    p = positions[k];
+	    workword[p] = (workword[p] == 'U') ? 'V' : 'v';
+	  }
+	}
+	set_workword(Gkword,workword);
+	accrval += checkstring4(Gkword);
+      }
+      set_workword(Gkword,saveword);
+      if( accrval ) {
+	return(accrval);
+      }
+    }
+  }
+
+  /*
+   * Latin i/j disambiguation. Lewis and Short stores "jubeo" rather
+   * than "iubeo"; likewise sub-iectus vs. sub-jectus for medial 'i'.
+   * Must run before enclitic stripping, for the same reason as the
+   * u/v block above: a word like "adiuvandum" otherwise has "dum"
+   * peeled off first, and the prodelision "n"-handler rescues the
+   * remainder as "adiuvas"/"adiuva" (pres ind/imper of adjuvo),
+   * hiding the gerundive reading that i->j at position 2 would find.
+   */
+  if( cur_lang() == LATIN ) {
+    char * a = workword;
+    Xstrncpy(workword,saveword,sizeof(workword));
+
+    if( *a == 'I' ) {
+      *a = 'J';
+      set_workword(Gkword,workword);
+      rval = checkstring3(Gkword);
+      if( rval ) {
+	set_workword(Gkword,saveword);
+	return(rval);
+      }
+    }
+
+    while(*a) {
+      /*
+       * don't look for "cupjo"
+       * but DO look for "ajo"
+       */
+      if( *a == 'i' && ( *(a+2) || (a > workword && *(a-1) && strchr("aeiou",*(a-1)) && *(a+1)) ) && strchr("aeiou",*(a+1)) ) {
+	*a = 'j';
+
+	set_workword(Gkword,workword);
+	rval = checkstring3(Gkword);
+	if( rval ) {
+	  set_workword(Gkword,saveword);
+	  return(rval);
+	}
+	else
+	{
+	  *a = 'i';
+	}
+      }
+      a++;
+    }
+  }
+
   while ( !totanal_of(Gkword) && (*EnclitArr->enclitic != '\0') ) {
     if ( cmpend(workword_of(Gkword), EnclitArr->enclitic, workword) ) {
       set_workword(Gkword, workword);
@@ -594,60 +696,8 @@ int checkstring3(gk_word *Gkword)
    }
   */
 
-  /*
-   * Latin u/v disambiguation. Try u2v's heuristic first (grc 12/12/97);
-   * on failure, enumerate all 2^N subsets of u+vowel positions and try
-   * each.
-   */
-  if( cur_lang() == LATIN ) {
-    int positions[5];
-    int npos = 0;
-    int wlen = strlen(saveword);
-    int mask, nvariants, k, p;
-    int accrval = 0;
-
-    Xstrncpy(workword,saveword,sizeof(workword));
-    if( u2v(workword) ) {
-      set_workword(Gkword,workword);
-      rval = checkstring3(Gkword);
-      if( rval ) {
-	set_workword(Gkword,saveword);
-	return(rval);
-      }
-    }
-
-    for( idx = 0; idx < wlen - 1; idx++ ) {
-      if( (saveword[idx] == 'u' || saveword[idx] == 'U') &&
-	  LatVow(saveword[idx + 1]) ) {
-	if( npos >= (int)(sizeof(positions)/sizeof(positions[0])) ) {
-	  npos = 0;
-	  break;
-	}
-	positions[npos++] = idx;
-      }
-    }
-    if( npos > 0 ) {
-      nvariants = 1 << npos;
-      /* mask=0 would be the original word, already tried above */
-      for( mask = 1; mask < nvariants; mask++ ) {
-	Xstrncpy(workword,saveword,sizeof(workword));
-	for( k = 0; k < npos; k++ ) {
-	  if( mask & (1 << k) ) {
-	    p = positions[k];
-	    workword[p] = (workword[p] == 'U') ? 'V' : 'v';
-	  }
-	}
-	set_workword(Gkword,workword);
-	accrval += checkstring4(Gkword);
-      }
-      set_workword(Gkword,saveword);
-      if( accrval ) {
-	return(accrval);
-      }
-    }
-  }
   /* If we're out of ideas in Italian, turn all u's to v's. */
-  else if ( (cur_lang() == ITALIAN) && !totanal_of(Gkword)) {
+  if ( (cur_lang() == ITALIAN) && !totanal_of(Gkword)) {
     char *a;
 
     Xstrncpy(workword,saveword,sizeof(workword));
@@ -673,53 +723,6 @@ int checkstring3(gk_word *Gkword)
     }
 
     Xstrncpy(workword,saveword,sizeof(workword));
-  }
-
-  /*
-   * Lewis and Short stores "jubeo" rather than "iubeo".
-   *
-   * grc 1/28/97
-   *
-   * grc 2/7/97
-   *
-   * also, deal with sub-iectus --> sub-jectus, i.e., 'i'-'j' in middle of word
-
-   */
-  if( cur_lang() == LATIN ) {
-    char * a = workword;
-    Xstrncpy(workword,saveword,sizeof(workword));
-
-    if( *a == 'I' ) {
-      *a = 'J';
-      set_workword(Gkword,workword);
-      rval = checkstring3(Gkword);
-      if( rval ) {
-	set_workword(Gkword,saveword);
-	return(rval);
-      }
-    }
-
-    while(*a) {
-      /*
-       * don't look for "cupjo"
-       * but DO look for "ajo"
-       */
-      if( *a == 'i' && ( *(a+2) || (a > workword && *(a-1) && strchr("aeiou",*(a-1)) && *(a+1)) ) && strchr("aeiou",*(a+1)) ) {
-	*a = 'j';
-
-	set_workword(Gkword,workword);
-	rval = checkstring3(Gkword);
-	if( rval ) {
-	  set_workword(Gkword,saveword);
-	  return(rval);
-	}
-	else
-	{
-	  *a = 'i';
-	}
-      }
-      a++;
-    }
   }
 
 /* Latin exsT as alternate spelling for exT, T an unvoiced stop;
