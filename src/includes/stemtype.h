@@ -40,7 +40,7 @@ typedef unsigned int Stemtype;
 #define	INDEF_REL_PRON		(040012)
 #define PARTICLE		(040013)
 #define CONJUNCT		(040014)
-#define ADVERB			(040005)
+#define ADVERB			(040015)  /* was 040005, collided with ARTICLE */
 
 #define VERBSTEM 		   (01000000)
 #define REG_DERIV  	 	   (02000000)
