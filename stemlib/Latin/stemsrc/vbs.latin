@@ -2365,6 +2365,10 @@
 :de:co^ax	are_vb
 :le:cocionor
 :de:co_ci^o_n	are_vb dep
+:le:coeo
+:vs:co^-	conj4
+:vs:co^-i^	perfstem
+:vs:co^-i^t	pp4
 :le:coemo
 :vs:co^-e^m	conj3
 :vs:co^-e_m perfstem
@@ -4959,6 +4963,13 @@
 :de:dict	are_vb
 :le:dicturio
 :de:dictu^r	ire_vb
+:le:dido#1
+:vs:di_-d	conj3
+:vs:dis-d	conj3 orth
+:vs:di_-di^d	perfstem
+:vs:dis-di^d	perfstem orth
+:vs:di_-di^t	pp4
+:vs:dis-di^t	pp4 orth
 :le:diduco
 :vs:di_-du_c	conj3
 :vs:di_-du_x perfstem

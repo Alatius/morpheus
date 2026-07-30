@@ -30181,9 +30181,8 @@ ca_ni^pa
 :no:ca_ni^p	a_ae fem
 
 
-ca^nis#1		<orth>ca^nes</orth>	<gen>comm.</gen>
 Ca^nis#2		
-:le:Canis
+:le:Canis#2
 :no:Ca^n	is_is masc
 
 
@@ -32885,9 +32884,8 @@ ca_sus#1		<orth>cassus</orth>
 
 
 
-casu		<itype>adverbially</itype>
 Ca_sus#2		
-:le:Casus
+:le:Casus#2
 :no:Ca_s	us_i masc
 
 
@@ -34256,10 +34254,8 @@ Ce^lende^ri_-tis
 :no:Ce^lende^ri_-ti	s_dis fem
 
 
-ce^ler#1		<itype>e^ris, e</itype>
-ce^leris		<orth>ce^le^re^</orth>	<orth>ce^le^ri^ter</orth>
 Ce^ler#2		
-:le:Celer
+:le:Celer#2
 :no:Ce^l	er_eris masc
 
 
@@ -34273,9 +34269,8 @@ ce^le^ra_tim
 :wd:ce^le^ra_tim	adverb
 
 
-Ce^le^res		<itype>um</itype>
-Ce^ler		
-:le:Celer
+Ce^le^res
+:le:Celer#3
 :no:Ce^l	er_eris masc
 
 
@@ -34401,9 +34396,8 @@ celsi^tu_do
 :no:celsi^tu_d	o_inis fem
 
 
-celse_	
 Celsus#2		
-:le:Celsus
+:le:Celsus#2
 :no:Cels	us_i masc
 
 
@@ -41211,6 +41205,10 @@ co^i^ti^o
 :le:coitio
 :no:co^i^ti^	o_oLnis fem
 
+
+co^i^tus#1		
+:le:coitus#1
+:aj:co^i^t	us_a_um
 
 co^i^tus#2		<orth>coetus</orth>	
 :le:coitus#2
@@ -61773,18 +61771,19 @@ di_versi^tas
 
 
 di_-verse		<orth>di_vorse</orth>
+
 di_ves		
 :le:dives
 :aj:di_v	es_itis
-:aj:di_	s_tis_adj orth
-:aj:di_t	ior_ius_comp
 :aj:di_vi^t	ior_ius_comp
-:aj:di_tissi^m	us_a_um irreg_superl
 :aj:di_vi^tissi^m	us_a_um irreg_superl
 
-di_s		<itype>di_te</itype>	<pos>adj.</pos>
-di_ves	
-di_s#II		<orth>di_vi^-tior</orth>	<orth>di_tior</orth>	<orth>di_vi^tissi-mus</orth>	<orth>di_tissimus</orth>	<orth>di_ti^us</orth>
+di_s	
+:le:dis#1
+:aj:di_	s_tis_adj no_comp
+:aj:di_t	ior_ius_comp
+:aj:di_tissi^m	us_a_um irreg_superl
+
 di_vexus		
 :le:divexus
 :aj:di_vex	us_a_um
@@ -77814,13 +77813,8 @@ Fo^ru^li#2
 :no:Fo^ru^l	us_i masc pl
 
 
-fo^rum#1		
-:le:forum#1
-:no:fo^r	us_i neut
-
-
 fo^rus		
-:le:forus
+:le:forus#1
 :no:fo^r	us_i masc
 
 	<gen>n.</gen>
@@ -77830,7 +77824,7 @@ Forum A^lie_ni		<orth>Forum Appii</orth>	<orth>Forum Aure_lium</orth>	<orth>Foru
 Forum Gallo_rum		<orth>Forum Ju_lii</orth>	<orth>Forojulien-sis</orth>	<itype>e</itype>	<pos>adj.</pos>
 Forojulien-ses		<orth>Forum Vo^co_nii</orth>
 fo^rus#1		
-:le:forus#1
+:le:forus#2
 :no:fo^r	us_i masc
 
 
@@ -78142,8 +78136,10 @@ fraudu^lo_sus
 :aj:fraudu^lo_s	us_a_um
 
 
-fraus		<itype>fraudis</itype>	<gen>f.</gen>
-Fraus#III		<itype>personified</itype>
+Fraus
+:le:Fraus#2
+:no:Frau	s_dis fem
+
 fraxa_re		<itype>vigiliam circuire</itype>
 fraxi^ne^us		
 :le:fraxineus
@@ -89255,11 +89251,6 @@ Hortensi^us#2		<gen>n.</gen>
 Hortensi^a		
 :le:Hortensia
 :no:Hortensi^	a_ae fem
-
-
-Hortensi^us		
-:le:Hortensius
-:aj:Hortens	ius_ia_ium
 
 
 Hortensi^a_nus		
@@ -118501,7 +118492,7 @@ maxi^me_		<orth type=alt>maxu^me_</orth>	<orth>magi^s</orth>	<orth>ma^ge^</orth>
 
 
 Magnus#2		
-:le:Magnus
+:le:Magnus#2
 :no:Magn	us_i masc
 
 
@@ -134288,14 +134279,17 @@ Ni^gellus#2
 
 
 Ni^gella	
-ni^ger#1		<itype>gra, grum</itype>
-ni^grum		
-:le:nigrum
-:no:ni^gr	us_i neut
 
 
-Ni^ger#2		<itype>gri</itype>	<gen>m.</gen>
-Ni^ger#3		<itype>gris</itype>	<gen>m.</gen>
+Ni^ger#2
+:le:Niger#2
+:no:Ni^g	er_ri masc
+
+Ni^ger#3
+:le:Niger#3
+:no:Ni^g	er_ris masc
+
+
 Ni^gi^di^us		
 :le:Nigidius
 :no:Ni^gi^d	ius_i masc
@@ -140298,8 +140292,8 @@ olla
 :no:o_ll	a_ae fem
 
 
-aula		
-:le:aula
+aula#2		
+:le:aula#2
 :no:aul	a_ae fem
 
 
@@ -148443,12 +148437,12 @@ paulus#1		<orth type=alt>paull-</orth>
 
 pau-lum		
 :le:paulum
-:no:pau-l	us_i neut
+:wd:paulu^m	adverb
 
 
 paulo		<orth>paulum</orth>
 Paulus#2		<orth type=alt>Paull-</orth>	
-:le:Paulus
+:le:Paulus#2
 :no:Paul	us_i masc
 :no:Paull	us_i masc orth
 
@@ -148694,8 +148688,11 @@ pa^vor
 
 
 Pa^vor		<itype>personified</itype>
-pax#1		<itype>pa_cis</itype>	<gen>f.</gen>
-Pax#2		<itype>Pa_cis</itype>	<gen>m.</gen>
+
+Pax#2
+:le:Pax#2
+:no:Pa_ 	x_cis masc
+
 paxillus		
 :le:paxillus
 :no:paxill	us_i masc
@@ -148958,10 +148955,6 @@ pe^cu_ni^o_sus
 :aj:pe^cu_ni^o_s	us_a_um
 
 
-pe^cus#1		<itype>peco^ris</itype>	<gen>n.</gen>
-pe^cus#1	<itype>pecus</itype>	<gen>f.</gen>
-pe^cus#1	<itype>pecus</itype>	<gen>n.</gen>
-pe^cus#2		<itype>u^dis</itype>	<gen>f.</gen>
 pe^cus#3		
 :le:pecus#3
 :no:pe^c	us_us masc
@@ -159878,7 +159871,7 @@ po^lus#1
 
 
 Po^lus#2		
-:le:Polus
+:le:Polus#2
 :no:Po^l	us_i masc pers_name
 
 
@@ -165186,14 +165179,12 @@ pri_mo_		<orth>pri_mum</orth>	<orth>pri-mumdum</orth>
 
 
 pri_me_		<orth>pri_mi^ter</orth>
-princeps#1		<itype>ci^pis</itype>	<pos>adj.</pos>
-princeps		<itype>ci^pis</itype>	<gen>m.</gen>
-princi^pes		
-:le:principes
-:no:pri_nci^p	0_is masc pl
 
 
-Princeps#2		<itype>ci^pis</itype>	<gen>m.</gen>
+:le:Princeps#2
+:no:Pri_nc	eps_ipis masc
+
+
 princi^pa_lis		
 :le:principalis
 :aj:pri_nci^pa_l	is_e
@@ -172312,12 +172303,10 @@ qui^dem
 :wd:qui^dem	adverb
 
 
-qui^es#1		
-:le:quies#1
-:no:qui^	es_eLtis fem
+:le:quies#2
+:aj:qui^e_	s_tis_adj
 
 
-qui^es#2		<itype>e_tis</itype>	<pos>adj.</pos>
 qui^escenti^a		
 :le:quiescentia
 :no:qui^escenti^	a_ae fem
@@ -172777,14 +172766,6 @@ quintus#1		<orth>quinctus</orth>
 
 	<pos>num. adj.</pos>
 quintum		<orth>quinto_</orth>
-Quintus#2		
-:le:Quintus
-:no:Qui_nt	us_i masc pers_name
-
-
-Quinta		
-:le:Quinta
-:no:Qui_nt	a_ae fem
 
 
 quintus-de^ci^mus		
@@ -176883,6 +176864,8 @@ re^vulsi^o		<orth type=alt>re^vols-</orth>
 
 rex#1		<itype>re_gis</itype>	<gen>m.</gen>	<pos>adj.</pos>
 Rex#2		<itype>re_gis</itype>	<gen>m.</gen>
+
+
 Rha		<itype>indecl.</itype>
 rhabdo^s		
 :le:rhabdos
@@ -184748,8 +184731,13 @@ se_-cu_rus
 :aj:se_-cu_r	us_a_um
 
 
+:le:secus#2
+:aj:se^qui^	or_us_comp irreg_comp
+:wd:se^cus	adverb
+:wd:se^cus	prep
+
+
 se_-cu_re_		<orth>se_cu_ri^ter</orth>
-se^cus#2		<pos>Adj.</pos>
 se^qui^or		<itype>us, o_ris</itype>
 se^qui^us		<itype>but with negatives or quo, eo, nihilo</itype>
 se_ti^us		<orth>se_-ci^us</orth>	<orth>secti^us</orth>
@@ -198668,6 +198656,9 @@ su^pellex
 :no:suppellectil	is_is fem orth
 :no:suppellectil	0_is fem abl orth
 
+		
+:le:super#1
+:wd:su^per	irreg_adj1
 
 su^per#2		
 :le:super#2
@@ -206620,7 +206611,7 @@ ti_^gri_nus
 
 ti_^gris#1		<itype>is or i^dis</itype>
 Ti_^gris#2		
-:le:Tigris
+:le:Tigris#2
 :no:Ti_^gr	is_idis masc
 
 

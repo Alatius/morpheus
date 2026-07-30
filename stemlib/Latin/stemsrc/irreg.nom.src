@@ -776,6 +776,10 @@ se_	pron3 masc fem abl pl
 se_se_	pron3 masc fem abl pl
 se_cum	pron3 masc fem abl pl
 
+:le:sed#3
+:wd:se_d	pron3 masc fem acc sg
+:wd:se_d	pron3 masc fem abl sg
+
 :le:lac
 lac	irreg_nom3 neut nom voc acc sg
 lact@decl3	irreg_nom3 neut

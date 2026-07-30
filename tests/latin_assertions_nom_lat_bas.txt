@@ -1,0 +1,149 @@
+# form	required lemma
+
+acer	acer#1 (maple-tree)
+acer	acer#2 (m. acris, Enn.)
+
+an  an#1
+
+assiduus	assiduus#1 (from as-do)
+assiduus	assiduus#2 (from assideo)
+
+aula	aula#1 (front court of a Grecian house)
+aula	aula#2 (old form for 'olla', 'pot')
+
+canibus	canis#1 
+Canibus Canis#2 (a small river tributary to the Po)
+Canis   Canis#2 Cana Canae
+
+casuum	casus#1
+Casus	Casus#2 (a river of Albania)
+
+celer	celo (to hide)
+celer	celer#1
+Celer	Celer#2 (Roman cognomen)
+Celer	Celer#3 (v. Celeres)
+
+celsus	celsus#1 (of old cello "to rise high")
+Celsus	Celsus#2 (Roman cognomen)
+
+coitus	coeo (to assemble/meet)
+coitus	coitus#1 (assembled)
+coitus	coitus#2 (a meeting)
+
+congeries	congeries
+
+disdo	dido#1 (to give out, spread abroad)
+dido	dido#1 (to give out, spread abroad)
+Dido	Dido#2 (foundress of Carthage)
+
+#dis#3, the inseparable particule is not analyzed on its own
+Dis	Dis#2 (name)
+dis deus (god)
+dis	dis#1 (rich, alternate of 'dives')
+ditior  dis#1
+ditissimus  dis#1 
+dives   dives
+divitior    dives
+divitissimus    dives
+
+fides	fido 
+fides	fides#1 
+fides	fides#2 (instrument)
+
+foris   forio (to defecate/shit)
+foris	foris#1 (door)
+foris	foris#2 (outdoors)
+foris   forum (open space)
+foris   forus#2 (old form for 'forum')
+foris	fori (another form for 'forus')
+foris   forus#1 (nautical gangway)
+
+fraudis fraus#1 (fraud)
+Fraus Fraus#2 (goddess mentioned once in Cicero)
+
+hortensius  hortensis (belonging to a garden)
+hortensius  hortensius#1 (belonging to a garden)
+Hortensius  Hortensius#2 (Roman gens)
+
+in  in#1 (preposition; in#2 the negation prefix is not analyzed copying the -ne behavior and others)
+
+inter   inter#1 (there is no inter2 in the L&S dictionary, it's a source file error)
+
+laus    laus#1 (praise)
+Laus    Laus#2 (name of a few cities)
+
+lupus	lupus#1
+Lupus	Lupus#2 (surname in gens Rutilia)
+
+magnus	magnus#1
+Magnus	Magnus#2 (Roman surname)
+
+ne	ne#1 (adv.; interrogative/enclitic particle not analyzed)
+ne	ne#3 (incorrect for 'nae')
+ne  neo#1 (to spin)
+
+nigrum  niger#1 (black)
+Niger   Niger#2 (Roman surname)
+Niger   Niger#3 (African river)
+
+parens  pareo
+parens	parens#1 (appearing)
+parens	parens#2 (parent)
+
+paulum  paulum (adverb 'a little')
+paulum  paulus#1 (small)
+Paulum  Paulus#2 (Roman surname)
+
+pacis   pax#1 (peace)
+Pax Pax#2 (a slave in Plautus' Trinummus)
+
+pecus	pecus#1 (cattle)
+pecus	pecus#2 (herd animal)
+pecus	pecus#3 (= pecus#1, rare masc. u-stem variant)
+
+per per#1 (there is no per2 in the L&S dictionary, it's a source file error)
+
+polus	polus#1
+Polus	Polus#2 (Greek tragic actor)
+
+princeps    princeps#1 (foremost)
+Princeps    Princeps#2 (flute player in Phaedr.)
+
+pro	pro#1 (for)
+pro	pro#2 (alas!)
+
+promptus	promptus#1 (manifest)
+promptus	promptus#2 (readiness)
+
+pubes	pubes#1 (adult)
+pubes	pubes#2 (adulthood)
+
+quies	quies#1 (quietness)
+quies	quies#2 (quiet, alternative of 'quietus')
+
+quinque	quinque#1 (L&S quinque#2 for Plautus' Casina meaning 'et quin', probably better NOT added as analysis)
+
+quintus	quintus#1
+Quintus	Quintus#2 (Roman praenomen)
+Quinta  Quintus#2
+
+rex rex#1 (king)
+Rex Rex#2 (Roman surname)
+
+secus   secus#1 (indeclinable for 'sexus')
+secus   secus#2 (adverb and prep)
+
+sed sed#1 (conj)
+sed sed#2 (prep. 'without')
+sed sed#3 (alternative form of pronoun 'sē')
+
+super   supo (to throw/scatter)
+super	super#1 (L&S refers to superus)
+super	super#2 (on top)
+
+tigridis tigris#1 (tiger)
+tigris tigris#1 (tiger)
+Tigridis Tigris#2 (the Asian river)
+
+uber	uber#1 (lactating breast)
+uber	uber#2 (fruitful)
