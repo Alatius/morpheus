@@ -98,6 +98,7 @@ eps_ipitis	020	adj3
 ex_icis_adj	021	adj3
 s_dis_adj	022	adj3
 irreg_adj3	040	adj3
+x_gis_adj   041 adj3
 conj1 01 pp_pr
 conj2 02 pp_pr
 conj3 03 pp_pr

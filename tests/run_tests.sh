@@ -69,6 +69,70 @@ run_cruncher_test() {
     rm -f /tmp/morpheus_test_$$.txt
 }
 
+run_assert_test() {
+    local flags="$1" file="$2"
+    [ -f "$file" ] || return
+    
+    local filename
+    filename=$(basename "$file")
+    echo "=== Assertions: $filename ==="
+    
+    # AWK: Group lemmas, skip comments, chop '(', and handle "" for empty sets
+    local aggregated
+    aggregated=$(awk '/^#|^$/ {next} {
+        
+        # 1. Ignore everything from "(" to the end of the line
+        sub(/\(.*/, "")
+        
+        if (NF < 2) next
+        
+        word = $1
+        if (!(word in map)) {
+            order[++count] = word
+            map[word] = "" # Initialize empty in case it is just ""
+        }
+        for(i=2; i<=NF; i++) {
+            # Skip arrow and our empty set marker
+            if ($i == "->") continue
+            if ($i == "\"\"") continue
+            
+            map[word] = map[word] " " $i
+        }
+    } END {
+        for(i=1; i<=count; i++) {
+            print order[i] map[order[i]]
+        }
+    }' "$file")
+
+    # Loop through the grouped data
+    while read -r form expected_str; do
+        [ -z "$form" ] && continue
+        
+        # Get actual output, remove 'form:', sort alphabetically, format as one line
+        actual=$(echo "$form" | "$CRUNCHER" $flags 2>/dev/null | grep -v '^form:' | sort | tr '\n' ' ' | sed 's/ *$//')
+        
+        # Format the expected string (sort alphabetically and remove duplicates)
+        expected=$(echo "$expected_str" | tr ' ' '\n' | sort | uniq | tr '\n' ' ' | sed 's/ *$//')
+        
+        # Format for display so empty strings show up as "" in the terminal logs
+        disp_expected=${expected:-\"\"}
+        disp_actual=${actual:-\"\"}
+        
+        if [ "$actual" = "$expected" ]; then
+            echo "PASS: '$form' -> $disp_expected"
+        else
+            echo "FAIL: $form"
+            echo "      expected: [$disp_expected]"
+            echo "      got:      [$disp_actual]"
+            FAILURES=$((FAILURES + 1))
+        fi
+    done <<< "$aggregated"
+    echo ""
+}
+
+for assert_file in "$SCRIPT_DIR"/latin_assertions*.txt; do
+    run_assert_test "-Ll" "$assert_file"
+done
 GP="$SCRIPT_DIR/greek_probe.txt"
 LP="$SCRIPT_DIR/latin_probe.txt"
 

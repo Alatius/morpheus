@@ -11068,8 +11068,8 @@
 :le:Priapatius
 :no:Priapat ius_i masc pers_name
 
-:le:Primus
-:no:Pri_m us_i masc pers_name
+#:le:Primus
+#:no:Pri_m us_i masc pers_name
 
 :le:Prisca
 :no:Pri_sc a_ae fem pers_name
@@ -11191,8 +11191,8 @@
 :le:Proxenus
 :no:Proxen us_i masc pers_name
 
-:le:Proximus
-:no:Proxim us_i masc pers_name
+#:le:Proximus
+#:no:Proxim us_i masc pers_name
 
 :le:Psamatosiris
 :no:Psamatosir is_is fem pers_name
@@ -11248,8 +11248,8 @@
 
 #noanalysis:Pulfio
 
-:le:Pullus
-:no:Pull us_i masc pers_name
+#:le:Pullus
+#:no:Pull us_i masc pers_name
 
 :le:Pulvillus
 :no:Pulvill us_i masc pers_name
@@ -11354,8 +11354,8 @@
 :le:Querquetulanae
 :no:Querquetulan a_ae fem pl pers_name
 
-:le:Quies
-:no:Qui es_is fem pers_name
+#:le:Quies
+#:no:Qui es_is fem pers_name
 
 :le:Quietus
 :no:Quiet us_i masc pers_name
@@ -11408,8 +11408,8 @@
 :le:Receptus
 :no:Recept us_i masc pers_name
 
-:le:Rectus
-:no:Rect us_i masc pers_name
+#:le:Rectus
+#:no:Rect us_i masc pers_name
 
 #noanalysis:Redux
 

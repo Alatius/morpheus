@@ -1,3 +1,7 @@
+##de-cieo decies
+##de-cio decies
+##pro-fateor profiteor
+##re-fero refert
 #a-blatio ablatio
 #a-caedo acide
 #a-cieo acieris
@@ -172,7 +176,6 @@
 #ad-uto adutor
 #ad-utor adutor
 #ad-vereor advereor
-#ad-verro adverro
 #amb-ago ambages
 #amb-ago ambago
 #amb-edo ambedo
@@ -210,7 +213,6 @@
 #circum-tondeo circumtondeo
 #circum-tremo circumtremo
 #circum-vento circumventor
-#circum-verro circumverro
 #co-adjuto coadjutor
 #co-adjutor#1 coadjutor
 #co-alesco coalesco
@@ -331,8 +333,6 @@
 #de-carmino#1 decarmino
 #de-carmino#2 decarmino
 #de-cesso decessor
-##de-cieo decies
-##de-cio decies
 #de-co decas
 #de-co deceris
 #de-co decor
@@ -403,7 +403,6 @@
 #de-utor deutor
 #de-vasto devasto
 #de-vello devello
-#de-verso devorsor
 #de-vesco devescor
 #dis-bucino dibucino
 #dis-colo#1 discolor
@@ -439,9 +438,9 @@
 #dis-suo dissuo
 #dis-taedeo distaedet
 #dis-tracto distractor
-#dis-verto divorto
 #dis-viso divisor
 #dis-vitio divitia
+#ec-freno effreno
 #ex-cieo excio
 #ex-consulo exconsularis
 #ex-creo excreo
@@ -458,7 +457,6 @@
 #ex-fio effio
 #ex-fleo effleo
 #ex-fodio effodio
-#ec-freno effreno
 #ex-freno effreno
 #ex-frico effrico
 #ex-gestio#2 egestio
@@ -503,8 +501,6 @@
 #ex-torto extortor
 #ex-tremo extremo
 #ex-ungo exungo
-#ex-verso eversor
-#ex-versor eversor
 #ex-video evideor
 #in-acerbo inacerbo
 #in-aresco inaresco
@@ -525,8 +521,8 @@
 #in-como#1 incomis
 #in-credo incredendus
 #in-credo incredundus
-#in-cubo incubo
 #in-cresco incresco
+#in-cubo incubo
 #in-doleo indoles
 #in-dolo#1 indoles
 #in-ducto inductor
@@ -565,7 +561,6 @@
 #in-pulso impulsor
 #in-punior impunis
 #in-rado inrado
-#in-rideo irrideo
 #in-rumpo irrumpo
 #in-saepio insaepio
 #in-saluto insalutaris
@@ -610,11 +605,9 @@
 #inter-no#1 internas
 #inter-polio#1 interpolis
 #inter-premo interpremo
-#inter-sileo intersileo
 #inter-sum#1 intersum
 #inter-trituro intertritura
 #inter-vento interventor
-#inter-verto intervorto
 #intro-eo#1 introeo
 #ob-acerbo obacerbat
 #ob-caedo occaedes
@@ -775,13 +768,12 @@
 #pro-creo procreo
 #pro-dito proditor
 #pro-emineo proemineo
-##pro-fateor profiteor
 #pro-fero profero
 #pro-fluento profluenter
 #pro-fugo profuga
 #pro-fundito profunditas
-#pro-gigno progigno
 #pro-geniculo progeniculo
+#pro-gigno progigno
 #pro-lugeo prolugeo
 #pro-mello promellere
 #pro-monstro promonstra
@@ -806,7 +798,6 @@
 #pro-vecto provector
 #pro-vegeo provegeo
 #pro-vendo provendo
-#pro-verto proverto
 #prod-eo#1 prodeo
 #prod-ito proditor
 #re-bullio rebullio
@@ -819,7 +810,6 @@
 #re-creo recreo
 #re-eo#1 redeo
 #re-fero refero
-##re-fero refert
 #re-frico refrico
 #re-fugo refuga
 #re-galeo regales
@@ -846,8 +836,6 @@
 #re-vereor reverendus
 #re-vereor revereor
 #re-vero revera
-#re-verto reverto
-#re-verto revorto
 #re-vivisco revivisco
 #re-volvo revolvo
 #red-dito redditor
@@ -959,4 +947,15 @@
 #trans-sumo transsumo
 #trans-supplodo transsero
 #trans-vendo transvendo
-
+ad-salio#2 assilio
+ad-tribuo attribuo
+circum-salio#2 circumsilio
+de-salio#2 desilio
+ex-creo#1 exscreo
+ex-salio#2 exsilio
+in-rideo irrideo
+in-salio#2 insilio
+per-salio#2 persilio
+pro-salio#2 prosilio
+re-salio#2 resilio
+trans-salio#2 transilio

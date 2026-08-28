@@ -11193,11 +11193,11 @@
 :le:Nosalene
 :no:Nosalen e_es fem
 
-:le:Nova
-:no:Nov a_ae fem
+#:le:Nova
+#:no:Nov a_ae fem
 
-:le:Novae
-:no:Nov a_ae fem pl
+#:le:Novae
+#:no:Nov a_ae fem pl
 
 :le:Novana
 :no:Novan a_ae fem
@@ -11230,8 +11230,8 @@
 :le:Novum
 :no:Nov us_i neut
 
-:le:Novus
-:no:Nov us_i masc
+#:le:Novus
+#:no:Nov us_i masc
 
 :le:Ntia
 :no:Nti a_ae fem
@@ -18317,14 +18317,14 @@
 :le:Veteranorum
 :no:Veteranor us_i neut
 
-:le:Veteres
-:no:Veter es_is fem
+#:le:Veteres
+#:no:Veter es_is fem
 
 :le:Vettona
 :no:Vetton a_ae fem
 
-:le:Vetus
-:no:Vet us_i masc
+#:le:Vetus
+#:no:Vet us_i masc
 
 :le:Vexalla
 :no:Vexall a_ae fem

@@ -479,8 +479,8 @@
 :le:Plataeensis
 :aj:Plataeens	is_e
 
-:le:Pulcher
-:aj:Pulch	er_ra_rum
+#:le:Pulcher
+#:aj:Pulch	er_ra_rum
 
 :le:Scotusaeus
 :aj:Scotusae	us_a_um
@@ -768,8 +768,8 @@
 :le:Palensis
 :aj:Palens	is_e
 
-:le:Phryx
-:no:Phry	x_gis masc fem
+#:le:Phryx
+#:no:Phry	x_gis masc fem
 
 :le:Pleminianum
 :no:Pleminian	us_i neut geog_name
@@ -1614,8 +1614,8 @@
 :le:Aequicolus
 :aj:Aequicol	us_a_um
 
-:le:Aequus
-:no:Aequ	us_i pers_name
+#:le:Aequus
+#:no:Aequ	us_i pers_name
 
 :le:Alfaterna
 :no:Alfatern	a_ae fem geog_name

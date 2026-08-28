@@ -82,9 +82,6 @@
 :le:hucine
 :wd:hu_cine	adverb
 
-:le:humaniter
-:wd:hu_ma_ni^ter	adverb
-
 :le:Iesus
 :wd:I^e_sus	irreg_nom2 masc nom sg pers_name
 :wd:I^e_sum	irreg_nom2 masc acc sg pers_name
@@ -252,9 +249,6 @@
 
 :le:nonageni
 :aj:no_na_ge_n	us_a_um
-
-:le:centeni
-:aj:cente_n	us_a_um
 
 :le:duceni
 :aj:duce_n	us_a_um

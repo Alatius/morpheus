@@ -7,12 +7,6 @@
 :le:puer
 :no:puer 0_i masc
 
-:le:pulcher#1
-:no:pulch er_ra_rum
-
-:le:rex
-:no:re_ x_gis masc
-
 :le:corpus
 :no:corp or_oris neut
 
@@ -24,9 +18,6 @@
 
 :le:dies
 :no:di es_eLi masc fem
-
-:le:potens
-:aj:pot ens_adj
 
 :le:solus#1
 :aj:so_l us_ius_adj
@@ -44,29 +35,67 @@
 :aj:nu_ll us_ius_adj
 
 :le:bonus
-:aj:mel ior_ius_comp 
-:aj:optim us_a_um irreg_superl
+:aj:me^li^	or_us_comp
+:aj:opti^m us_a_um irreg_superl
+:aj:optu^m us_a_um irreg_superl
 
 :le:magnus#1
 :aj:maj	or_us_comp
-:aj:maxim	us_a_um irreg_superl
+:aj:maxi^m	us_a_um irreg_superl
+:aj:maxu^m	us_a_um irreg_superl orth
 
 :le:malus#1
 :aj:pej	or_us_comp
 :aj:pessim	us_a_um irreg_superl
-:aj:pessum	us_a_um irreg_superl
+:aj:pessum	us_a_um irreg_superl orth
 
 :le:multus
-:aj:plu_rim us_a_um irreg_superl
+:aj:plu_ri^m	us_a_um irreg_superl
+:aj:plu_ru^m	us_a_um orth
+:wd:plu_ri^mum adverb
 
 :le:parvus
 :aj:min  or_us_comp
 :aj:minim us_a_um irreg_superl
 
+:le:posterus
+:aj:poster	ior_ius_comp
+:aj:postre_m	us_a_um irreg_superl
+:aj:postu^m	us_a_um irreg_superl
+:no:postu^m	us_i masc
+:wd:poste^ri^us adverb
+
 :le:prior
 :aj:pr ior_ius_comp
 
+:le:propior
+:aj:pro^p ior_ius_comp
+:aj:proxi^m	us_a_um irreg_superl
+:aj:proxu^m	us_a_um orth irreg_superl
+
 :le:superus
 :aj:super ior_ius_comp
-:aj:summ us_a_um irreg_superl
+:wd:su^pe^ri^us	adverb
 :aj:supre_m us_a_um irreg_superl
+:no:supre_m	a_ae fem
+:no:supre_m	us_i neut pl
+:wd:supre_mum	adverb
+:wd:supre_mo_	adverb
+:aj:summ us_a_um irreg_superl
+:wd:summum	adverb
+:aj:su^perri^m us_a_um irreg_superl
+
+:le:ulter
+:aj:ulter ior_ius_comp
+:aj:ulti^m us_a_um irreg_superl
+:wd:ulti^mu^m adverb
+:wd:ulti^mo_ adverb
+
+:le:ultra
+:wd:ulte^ri^u^s adverb
+:wd:ulti^me_ adverb
+
+:le:vetus
+:aj:ve^tust	ior_ius_comp
+:aj:ve^ter	ior_ius_comp archaic
+:aj:ve^terrim	us_a_um irreg_superl

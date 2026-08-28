@@ -1,0 +1,1321 @@
+# form	required lemma
+
+#A   A#1 (the letter)
+#A.  A#2 (abbreviation for 'Aulus')
+#a   a#3 (spelling for 'ab')
+a   ab
+ab  ab
+abs ab
+ah   ah (inter.)
+a   ah (spelling for 'ah')
+
+acerbum acerbus (calamity + harsh to the taste)
+acerbe  acerbus (adv.)
+
+Adiatorix   Adiatorix (king of the Comani)
+
+adultera    adultero
+adultera    adulter#1
+adultera    adulter#2
+
+aegrum   aeger (ill + suffering)
+aegre   aeger (adv.)
+aegre   aegreo
+
+aequus	aequus (even + a friend)
+aequum	aequus (a plain + fariness)
+aeque	aequus (adv.)
+aequiter	aequiter (equally)
+
+age ago (imperative or interjection)
+agedum  agedum (interjection)
+
+alienum alienus (stranger + a stranger)
+
+Allobrox    Allobrox (the Allobroges)
+Allobroges    Allobrox (the Allobroges)
+Allobrogicus    Allobrox (Allobrogian)
+
+Ambiorix    Ambiorix (chief of the Eburones in Gallia Belgica)
+
+angustum    angustus
+anguste angustus (adv.)
+
+antiqui antiquus
+antiquum    antiquus
+antique antiquus (adv.)
+antiquitus   antiquus (adv.)
+
+aridum  aridus (dry)
+aridum  aris#1 (dragon-root)
+
+artum   ars (skill)
+artum   artus#1
+artum   artus#2 (joint)
+arte    artus#1
+arte    ars
+
+arvix   arvix (a ram for offering)
+harvix   arvix (spelling)
+arviga   arviga (alternative)
+harviga   arviga (spelling)
+
+asperum asper#1 (rough + a rough place)
+asperiter   asper#1 (adv.)
+aspere  asper#1 (adv.)
+Asper   Asper#2
+Aspri   Asper#2
+
+attributum  attribuo
+adtributum  attribuo
+
+auxilia auxilium
+auxilia auxilio 
+
+avium   avis (bird)
+avium   avius (remote + a desert)
+avia    avius
+avia    avia#1 (grandmother)
+avia    avia#2 (groundsel)
+
+baculus baculum (staff)
+
+bonae   bonus
+duonus  bonus
+
+Boiorix Boiorix (a person)
+
+breve   brevis
+brevi   brevis
+breviter    brevis
+brevia  brevis
+brevia  brevio
+
+calceandus	calceo (to put on shoes)
+
+calcis    calx#1 (heel)
+calcis    calx#2 (a small stone used in gaming)
+
+calumnio    ""
+calumnior   calumnior
+kalumnior   calumnior
+
+calumniosus calumniosus
+calumniose  calumniosus (adv.)
+
+calvor  calvor (to devise tricks)
+calvo   calvor (act.)
+calvo   calvus#1 (without hair)
+calvio  calvio (alternative for 'calvo')
+
+canceres	cancer (alternative acc. pl.)
+canceris	cancer (alternative gen. sg.)
+
+caseum  caseus (cheese; acc. masc. and nom. neut.)
+
+cauta   caveo (part. + "the provisions")
+caute   caveo
+caute   cautes
+cautus  caveo
+
+centena centeni (hundred + dignity)
+centenum    centeni (secale grain)
+
+caeterus ceterus
+ceterus ceterus
+cetera  cetera (adv.)
+cetera  ceterus
+cetero  cetera (adv.)
+cetero  ceterus
+ceterum cetera (adv.)
+ceterum  ceterus
+
+cibarius    cibarius (pertaining to food)
+cibaria cibaria (food)
+cibaria cibarius
+cibarium    cibaria
+cibarium    cibarius
+
+Ciceromastix    Ciceromastix (a lampoon of Largius Licinius against Cicero)
+
+Cingetorix Cingetorix (a person)
+
+circumstantes   circumsto (by-standers)
+circumstantia   circumsto
+circumstantia   circumstantia
+
+clementer   clemens#1 (adv.)
+
+coacte  cogo
+coactu  coactus#2
+coactu  cogo
+coactum cogo (part. + 'a matress')
+
+coccyx  coccyx (a cuckoo)
+
+corcodilus	corcodilus (alternative of 'crocodilus')
+
+conceptus   conceptus#2 (collecting)
+conceptus   concipio (to take hold of)
+concepta    concipio
+concepta    concepto (to conceive)
+concepta    conceptum
+conceptum   conceptum (subs. of part.)
+conceptum   conceptus#2 
+conceptum   concipio
+
+condita    condo (to put together + secret + the laid up store)
+condita    condio (to preserve)
+conditu conditus#3 (a founding)
+conditu conditus#4 (a preserving of fruits)
+conditu condio
+conditu condo
+
+congrex congrex (of the same herd or flock)
+
+conjugatum conjugo (part.)
+conjuga conjugo (to join together)
+conjuga conjuga (a woman who is united in marriage)
+
+conjunx conjunx (one who is united in marriage)
+conjux conjunx (spelling)
+
+conspirati  conspiro#2
+conspirati  conspiro#1
+conspirate  conspiro#1 (adv.)
+conspirate  conspiro#2 (adv.)
+
+corius  corium (hide, leather)
+corium  corium
+corium  corion
+
+creata  creo#1 (part. + 'things made')
+Creon   Creo#2
+
+culta   colo#1 (part. + 'cultivated land')
+culte   colo#1 (elegantly)
+cultuum cultus#2 (labor)
+colatus colo#2 (to filter)
+
+Cybele	Cybele (a goddess)
+Cybebe	Cybele (spelling)
+Cybela 	Cybele (alternative)
+Cybeleius	Cybele (pertaining to Cybele)
+Cybelista	Cybele (a priest of Cybele)
+Cybelus	Cybele (a mountain in Phrygia)
+
+data    do (part. + 'gifts')
+
+decoriter   decoris (elegantly)
+decore  decor (what is seemly)
+decore  decoris (ornamented)
+decore  decus#1 (ornament)
+decore  decorus (properly or elegantly)
+decorum decorus (fitting + 'that which is seemly')
+decorum decor
+decorum decus#1
+
+delicius    delicus (weaned)
+delicius    deliciae (variant for 'deliciae')
+delicium    deliciae (variant for 'deliciae')
+delicium    delicium (variant for 'deliciae')
+delicia deliciae (variant for 'deliciae')
+delicia delicia#2
+delicia delicium
+deliquia    delicia#2
+deliquia    deliquium#1
+deliquia    deliquium#2
+
+destinatum  destinatum (an aim)
+destinatum  destino
+destinata   destino (part. + 'bride')
+destinata   destinatum
+destinate   destinate (resolutely)
+destinate   destino 
+destinate   destinatum
+
+devia   devius (out of the way + lonely)
+devia   devio (to turn from the road)
+
+dispargo	dispargo (variant of 'dispergo')
+dispergo	dispergo (to scatter on all sides)
+dispersus	dispergo (part.)
+disperse	dispergo (dispersedly) 
+dispersim	disperse (dispersedly) 
+
+divinum divinus (belonging to a deity + the deity + prophet)
+divine  divinus (adv.)
+
+dulcia	dulcia (sweet cakes)
+dulcia	dulcis (sweet)
+dulciter	dulcis (adv.)
+dulce	dulcis (neut. + adv.)
+dulcis	dulcis (sweet)
+
+Dumnorix    Dumnorix (an Aeduan)
+
+dubium  dubius (moving in two directions + subst.)
+dubie   dubius (adv.)
+dubio   dubius (abl. + adv.)
+
+durum   durus (hard + the hardened wood of the vine)
+dura    durus (hard + hardships)
+dura    duro (to make hard)
+duriter durus (adv.)
+dure    durus (adv.)
+dure    dureo (to be hard)
+
+ecfundo effundo
+effusa  effundo (part. + 'the urine')
+effuse  effundo (adv.)
+
+egregie egregius (adv.)
+egregium    egregius (distinguished + subst.)
+Egregius    egregius (a title of public officers in high station)
+
+elephans    elephantus
+elephas elephantus
+elephans elephantus
+elephantus  elephantus
+
+elephantiosus   elephantiasis (alternative for 'elephantiacus')
+elephantiasis   elephantiasis (form of leprosy)
+elephantiosis   elephantiosis (spelling for 'elephantiasis')
+elephantiosis   elephantiasis (who labors under 'elephantiasis')
+elephantia  elephantia (alternative for 'elephantiasis')
+elephantiacus   elephantia (who labors under 'elephantiasis')
+elephanticus    elephanticus (alternative for 'elephantiacus')
+
+Eporedorix  Eporedorix (a person)
+
+exiguum exiguus (scanty + a little + a poor man + adv.)
+exigue  exiguus (adv.)
+exiguo  exiguus (scanty + a little + a poor man + adv.)
+
+exlegia   exlex (beyond the law)
+
+exscreo	exscreo (to hawk or cough)
+excreo	exscreo (spelling)
+
+extremum    extremus (postclas. variant for 'exter')
+extremum    extremo (for the last time)
+#extremo    extremo (?)
+extimus exter (sup.; TODO: mark it as superlative)
+extumus exter (sup.; TODO: mark it as superlative)
+exterior    exter (comp.)
+exter   exter (outward)
+exterus exter (variant for 'exter')
+
+false   fallo (adv.)
+falso   fallo (part. + 'liar' + 'falsehood' + adv.)
+falso   falso#1
+
+fictum  fingo (part. + 'deception')
+ficte   fingo (adv.)
+
+fimum   fimus (acc. + spelling)
+
+fores   foro
+fores   sum#1
+fores   foris#1
+foris   foris#1
+foris   foris#2
+foris   forio
+foris   fori
+foris   forum 
+foris   forus#1 
+foris   forus#2 (variant for 'forum')
+forum   forum (something outdoors)
+forum   forus#1 (spelling for forus#1)
+forum   forus#2 (variant for 'forum')
+forum   fori (poetic gen.)
+forus   forus#1
+forus   forus#2 (variant for 'forum')
+fori    forus#1
+fori    fori 
+fori    forio 
+fori    foris#1 
+fori    forum 
+fori    forus#1 
+fori    forus#2
+
+frena   freno
+frena   frenum
+fraena  frenum (spelling for 'frenum')
+freni   freni (alternative for 'frenum')
+freni   frenum 
+
+frivola    frivolus (trifling + triffles)
+frivole frivolus (adv.)
+
+frux    frux (fruits of the earth)
+frugi    frux (fruits of the earth)
+frugi   frugi (useful)
+frugalior   frugi (comp. of 'frugi')
+frugalior   frugalis (comp.)
+frugalissimus   frugi (superl. of 'frugi')
+frugalissimus   frugalis (superl.)
+
+fucus   fucus#1 (rock-lichen)
+fucus   fucus#2 (a drone)
+
+furfures    furfur (bran)
+furfur  furfur (bran)
+
+gelus   gelum
+gelum   gelum (chill)
+gelu    gelum
+
+grammaticomastix    grammaticomastix (a scourge of grammarians)
+
+gratus	gratus (pleasing + a favorite)
+
+grex    grex (a flock)
+
+halmyrrhax  halmyrrhax (a kind of saltpetre)
+
+harpax    harpax#1 (drawing to itself)
+Harpax    Harpax#2 (the name of a slave)
+
+heu heu
+heus    heus
+
+hircus	hircus (a he-goat)
+hircuus	hircus (a he-goat)
+ircus	hircus (a he-goat)
+
+honestum    honestus (honorable + honorable conduct + honesty + beauty)
+honeste honestus (adv.)
+honestiores honestus (men of noble birth)
+
+horae   hora#1 (an hour + a horologe)
+Horae   hora#1 (the Hours, daughters of Jupiter and Themis)
+Horae   Hora#2 (the wife of Quirinus)
+Horae   Ora#2 (spelling for 'Ora')
+
+Homeromastix    Homeromastix (the censurer of Homer)
+
+horto   hortor (act.)
+horto   hortus (a garden)
+
+hostile hostilis (belonging to an enemy)
+hostiliter  hostilis (adv.)
+
+humana  humano (to make human)
+humana  humanus (belonging to man + neut. subst.)
+humani  humanus (belonging to man + masc. subst.)
+humane  humanus (adv.)
+humaniter   humanus (adv.)
+
+ignotum ignosco (to pardon)
+ignotum ignotus#2 ('unknown' + subst.)
+
+inpius  impius (spelling)
+impii   impius ('without reverence for the gods' + subst.)
+impia   impius (without reverence for the gods + profane words)
+impia   impio (to render impious)
+inpiaveram  impio (spelling for 'impio')
+impie   impius (adv.)
+inpie   impius (adv.)
+
+inane   inanis ('empty' + subst. + adv.)
+inaniter    inanis (adv.)
+
+inermis inermis (unarmed)
+inermus inermis (variant for 'inermis')
+
+injustum    injustus ('unjust' + subst.)
+injuste injustus (adv.)
+
+insueta insuesco (to accustom one's self)
+insueta insuetus#2 (part. + adv.)
+insuete insuesco (to accustom one's self)
+insuete insuetus#2 (part. + adv.)
+insuetius   insuetus#2 (adv. comp. + comp.)
+insuetius   insuesco (part.)
+
+intritum    intero (to rub into)
+intritum    intritus#2 (not worn away + paste)
+intrita intrita (paste)
+intrita intero
+intrita intritus#2
+
+intuor  intueor (variant for 'intueor')
+intueor   intueor (to look at)
+intuo   intueor (act.)
+
+Iapyx   Iapyx (a son of Daedalus)
+Iapygia Iapyx (that part of Southern Italy over which Iapyx ruled)
+Iapygius    Iapyx (Iapygian)
+Iapyx   Iapyx (Iapygian)
+
+Iapygeus    Iapygeus (the wind usually called Iapyx)
+
+illex   illex#1 (without law)
+inlex   illex#1 (spelling)
+illex   illex#2 (alluring)
+inlex   illex#2 (spelling)
+illix   illex#2 (alternative nom. sg.)
+
+infans  infans (that cannot speak)
+infas   infans (spelling)
+
+interrex    interrex (one who held the regal office between the death of one king and the election of another)
+
+irasco  irascor (act.)
+irascor irascor (to be angry)
+irate   irascor (adv.)
+
+inridenter  irrideo (adv.)
+irridenter  irrideo (adv.)
+irrido  irrideo (variant)
+inrideo irrideo (spelling)
+
+hirritus    hirritus (a snarling of dogs)
+irritum irritus#2 (spelling for 'hirritus')
+irritum irritus#1 (invalid + nothingness)
+inritum irritus#1 (spelling for irritus#1)
+irrite  irritus#1 (adv. + imp. pl.)
+irrite  hirrio (imp. pl.)
+inrite  irritus#1 (adv.)
+
+iynx   iynx (the wryneck)
+
+jamque	jam (now)
+
+justa   justa (rights/formalities)
+justa   justus (fair)
+justum  justus ('fair' + subst.)
+justum  justa (poetic gen. pl.)
+juste   justus (adv.)
+
+lanifica    lanificus (wool-working + a wool-spinner)
+
+laudabile   laudabilis ('praiseworthy' + subst.)
+laudabiliter    laudabilis (adv.)
+
+lectum  lego#2 (part.)
+lectum  lectus#2 (a couch or bed)
+lectum  lectus#3 (a reading)
+lecte   lego#2 (adv. from part.)
+lecte   lectus#2 (a couch or bed)
+
+leptorax    leptorax (a kind of grape-vine with very small berries)
+
+lex lex (a proposition or motion for a law made to the people by a magistrate)
+
+libet	libo#1 (to take a little from any thing)
+libet	libet (it pleases)
+lubet	libet (spelling for 'libet')
+libuit	libet (perf.)
+lubuit	""
+libitus	libet (part.)
+lubitus	libet (spelling for part.)
+libens	libet (part.)
+lubens	libet (spelling for part.)
+libenter	libenter (willingly)
+lubenter	libenter (spelling for 'libenter')
+libita	libita (the things that please)
+libita	libet (part.)
+
+ligatus ligo#1 (to tie)
+
+locum   locus (a place; acc. masc. + nom. neut.)
+
+maleficum	maleficus (nefarious + a magician + a charm)
+malefious	maleficus (an evil-doer)
+malefice	maleficus (adv.)
+
+magis   magus#1 (a Magian)
+magis   magus#2 (magical)
+magis   magis#2 (a dish)
+magis   magnus#1 (adv.)
+maior   magnus#1 (comp.)
+maximus magnus#1 (superl.)
+maxime  magnus#1 (adv.)
+maxume  magnus#1 (adv.)
+mage    magnus#1 (alternative of the adv. 'magis')
+mage    magus#1 (voc.)
+mage    magus#2 (adv.)
+majores magnus#1 (comp.)
+
+manifesta   manifesto#2 (to make public)
+manifesta   manifestus ('palpable' + subst.)
+manufestus  manifestus (spelling)
+manifeste   manifestus (adv.)
+manifesto   manifestus ('palpable' + adv.)
+manifesto   manifesto#2 (to make public)
+
+manos   manon (alternative for 'manon')
+
+meliores    melioro (to make better)
+meliores    bonus (comp.)
+melius  bonus (comp. + adv.)
+optimus bonus (superl.)
+optime  bonus (adv.)
+optumus bonus (superl.)
+optume  bonus (adv.)
+
+Meninx  Meninx (an island off the coast of Africa)
+
+merito	merito#1 (deservedly)
+merito	merito#2 (to earn)
+merito	mereo (to deserve)
+merito	mereor (to deserve)
+merito	meritum (worth)
+meritissime mereo (adv.)
+meritissime mereor (adv.)
+meritissimo mereo (dat/abl. + adv.)
+meritissimo mereor (dat/abl. + adv.)
+
+merthryx    merthryx (a false reading for myrtis)
+
+meus	meus (mine)
+meum	meus (mine)
+meum	meum (an umbelliferous plant)
+meum	meus (my property)
+mei	meus (my friends or relatives)
+mei	meum (an umbelliferous plant)
+mei	ego (me)
+
+minutum minuo (part. 'to make smaller' + 'the smallest piece of money')
+minute  minuo (part. + adv.)
+minutim minuo (adv.)
+
+miratus miror (part. 'to wonder')
+miratus miro (part. 'to wonder')
+mirandus    miror (part.)
+mirandus    miro (part.)
+miror    miror (to wonder)
+miror    miro (alternative to 'miror')
+
+misere  misereo (to feel pity)
+misere  mitto (to cause to go)
+misere  miser (adv.)
+miseriter   miser (adv.)
+miserum miser ('wretched' + subst.)
+
+molle   molleo (to be soft)
+molle   mollis (easily movable + softness)
+mollia  mollis (easily movable + a kind of fishes)
+molliter    mollis (adv.)
+
+mora    morum (a mulberry/blackberry)
+mora    mora#1 (a delay)
+mora    mora#2 (the fish echeneis)
+mora    mora#3 (a division of the Spartan army)
+mora    morus#1 ('foolish' + subst.)
+morum   morus#1 (foolish)
+morum   morus#2 (a mulberry/blackberry tree)
+morum   morum (a mulberry/blackberry)
+morum   mos (manner)
+more    morus#1 (adv.)
+more    morum (a mulberry/blackberry)
+more    morus#2 (a mulberry/blackberry tree)
+more    mos (manner)
+
+mortalis	mortalis (mortal + a mortal)
+mortalia	mortalis (human affairs)
+mortaliter	mortalis (adv.)
+
+multi   multus (much + the many)
+multa   multa#1 (a penalty involving loss of property, i.e. a fine)
+multa   multus (much + many things)
+multa   multo#2 (to punish one with any thing)
+multum  multus ('much' + adv.)
+moltus  multus (spelling for 'multus')
+plus    multus (comp. + adv)
+plurimum    multus (superl. + adv.)
+plurumum    multus (superl. + adv.)
+
+myrtus	myrtus (a myrtle)
+murtus	myrtus (spelling)
+
+necopinans  necopinans (not expecting)
+necopinante necopinans (alt. abl. sg.)
+necopinanter    necopinans (adv.)
+
+nescium nescius (ignorant + subst.)
+
+nihil	nihil (nothing)
+nihilum	nihilum (subst.)
+nihilominus	nihilominus (none the less)
+nil	nil (spelling for 'nihil')
+nilum	nilum (spelling of 'nihilum')
+
+novercae    noverca (a step-mother + ditches which drain off the waler imperfectly and slowly)
+
+novies	novies (nine times)
+noviens	novies (spelling)
+
+novissimum  novus (superl. + 'the end')
+novi    nosco (perf. of 'nosco')
+novi    novus (new + recent writers)
+novum   novus ('new' + subst.)
+nove    novus (adv.)
+noviter novus (adv.)
+novissime   novus (adv.)
+novissima   novus (superl. + 'the bottom')
+novissimi   novus (superl. + 'the rear of an army')
+Novae   novus (the new shops, as opposed to vestustae tabernae)
+
+nuntium nuntius ('that announces' + 'an announcement' + acc. of 'a bearer of news')
+nuntia  nuntius (that announces + an announcement)
+nuntia  nuntia (a female messenger)
+nuntia  nuntio (to announce)
+nuncia  nuncia (spelling for 'nuntia')
+nuncia  nuntio (spelling of 'nuncio')
+
+obscaena obscenus (spelling)
+obscoena obscenus (spelling)
+obscena obscenus ('unfavorable/repulsive' + 'a lewd person' + something obscenus like 'excrements'/'urine'/'the private parts')
+obscene obscenus (adv.)
+
+obscurum    obscurus ('dark' + 'dim light' + adv.)
+obscure  obscurus (adv.)
+
+obculta occulto#2 (spelling)
+occulta occulto#2 (to hide)
+obculta occulo (spelling)
+occulta occulo (part. + 'secrets')
+occultum    occulo (part. + 'secrecy')
+occulte occulo (part. + adv.)
+occultim occulo (adv.)
+occulto occulo (part. + adv.)
+occulto occulto#2 (to hide)
+
+olfacio olfacio (to smell)
+olefacio	olfacio (spelling)
+
+omnia   omnis ('every' + subst.)
+omnes   omnis (every + all persons)
+omnino  omnino (altogether)
+
+orba    orbo (to deprive of dear persons)
+orba    orbus (bereft of parents or children + an orphan)
+
+Orgetorix   Orgetorix (chief of the Helvetii)
+
+ortyx   ortyx (a plant)
+
+oryx    oryx (a kind of wild goat or gazelle)
+
+partus   partus#2 (a bearing)
+parta   pario#2 (to bring forth + acquisitions)
+partus  pario#2 (to bring forth)
+partus  pars (alternative gen. sg.)
+pars	pars (a part)
+partim	pars (acc. sg. + adv.)
+partem  pars (acc. sg.)
+parti   partio#2 ('to share' imp.)
+parti  pario#2 (to bring forth)
+parti   pars (abl. sg. + dat. sg.)
+partis  partio#2 (to share)
+partis  pario#2 (to bring forth)
+partis  pars (acc. pl.)
+partes  pars (acc. pl.)
+parte   pars (abl. sg.)
+parte   pario#2 (to bring forth)
+partio  partio#1 (a bearing)
+partio  partio#2 (to share)
+partior partio#2 (to share)
+partior pario#2 ('to bring forth' part.)
+partite partio#2 ('to share' imp. + part. adv.)
+partito partio#2 ('to share' imp. + part. adv.)
+partito pario#2 (to bring forth)
+
+parturiens  parturio (to desire to bring forth)
+
+paterfamilias	paterfamilias (the master of a house)
+
+patria  patrius#1 (belonging to a father + one's native place + a patronymic)
+patria  patrius#2 (belonging to one's native place) 
+patrie  patrius#1 (adv.)
+patrie  patrius#2 (adv.)
+
+pauci   paucus (few + a few)
+pauca   paucus (few + a few words)
+
+pauper  pauper ('poor' + subst.)
+
+pelagium    pelagium (purple color)
+pelagium    pelagius#1 (belonging to the sea)
+pelagia pelagia (a kind of pearl-mussel)
+pelagia pelagius#1 (belonging to the sea)
+pelagia pelagium (purple color)
+Pelagius    Pelagius#2 (a famous heretic of the fifth century)
+Pelagianus  Pelagius#2 (a follower of Pelagius)
+
+penite	penitus#1 (inward + internally)
+penite	penitus#2 (furnished with or having a tail)
+penitus	penitus#1 (inward + internally)
+penitus	penitus#2 (furnished with or having a tail)
+penita	penitus#1 (the inmost parts)
+penita	penitus#2 (furnished with or having a tail)
+
+penuum   penus (store or provision of food provisions)
+peno    penus (alternative)
+penoris penus (alternative)
+
+peregrina   peregrinus (that comes from foreign parts)
+
+perpasco	perpasco (to graze)
+perpascor	perpasco (to graze)
+
+perturbata  perturbo (to throw into confusion or disorder)
+perturbate  perturbo (adv.)
+
+phalanx phalanx (a band of soldiers)
+falanx phalanx (spelling)
+
+phlox   phlox (a flower)
+
+pompholyx   pompholyx (a substance deposited from the smoke of smelting-furnaces)
+
+Phryx   Phryx#1 (a river in Ionia)
+Phryx   Phryx#2 (Phrygian)
+Phryx   Phryges (a Phrygian)
+Phryges Phryges (the Phrygians)
+Phryges Phryx#1 (a river in Ionia)
+Phryges Phryx#2 (Phrygian)
+Phrygia Phryges (the country of Phrygia)
+Phrygia Phryx#2 (Phrygian)
+Phrygianus  Phryges (= 'Phrixianus')
+phrygio Phryges (an embroiderer in gold)
+phrygionius Phryges (embroidered)
+Phrygiscus  Phryges (Phrygian)
+Phrygius    Phryges (Phrygian)
+Phrygicus   Phryges (a false read. for 'Phrygius')
+
+plenum  plenus (full + space occupied by matter)
+plene   plenus (adv.)
+
+pleraque    plerusque (very many)
+pleraque    pleraque (mostly)
+plerumque    plerusque (very many)
+plerumque    plerumque (for the most part)
+
+porrum  porrum (a leek, scallion)
+porrus  porrum (alternative for 'porrum')
+
+posteri posteri (descendants)
+posteri posterus (following, next)
+posterius   posterus ('following, next' + adv.)
+posterior   posterus (comp.)
+postremo   posterus (superl. + adv.)
+postumus   posterus (superl.)
+
+potente	possum (to be able)
+
+praetervolitans praetervolito (to fly by or past)
+evolito evolito
+intervolito intervolito
+obvolito    obvolito
+pervolito   pervolito
+supervolito supervolito
+transvolito transvolito
+volito  volito
+volitavi    volito
+
+pratum  pratum (a meadow)
+pratus  pratum (a meadow)
+
+praesaepe	praesaepe (an enclosure of any kind)
+praesepe	praesaepe (spelling)
+praesaepes	praesaepe (spelling)
+praesepes	praesaepe (spelling)
+praesaepis	praesaepe (spelling)
+praesaepis	praesaepio (to fence in front)
+praesepis	praesaepe (spelling)
+praesepis	praesaepio (to fence in front)
+praesaepium	praesaepe (spelling)
+praesepium	praesaepe (spelling)
+praesaepia	praesaepia
+praesaepia	praesaepe (spelling)
+praesepia	praesaepia
+praesepia	praesaepe (spelling)
+praesaepio	praesaepio (to fence in front)
+praesaepio	praesaepe (an enclosure of any kind)
+praesepio	praesaepio (spelling)
+praesepio	praesaepe (spelling)
+
+prima   primus (the first + the beginning)
+primo   primus ('the first' + adv.)
+primum   primus ('the first' + adv.)
+prime   primus ('the first' + adv.)
+primiter   primus (at first)
+primumdum   primus (in the first place)
+imprimis    imprimis (at first)
+inprimis    imprimis (spelling for 'imprimis')
+imprimis    imprimo (to press into)
+impresse    imprimo (part.)
+impresse    impresse (forcefully) 
+impresse    impressus#2 (not milked)
+impressuum  impressus#3 (a pressing upon) 
+
+priores prior (previous + forefathers)
+prius   prior (previous + adv.)
+
+pristinum   pristinus#1 (former)
+pristinum   pristinus#2 (belonging to the constellation of the Whale)
+pistrinus   pristinus#2 (spelling for pristinus#2)
+
+proprium    proprius (particular + a posession)
+proprie proprius (adv.)
+
+propediem   propediem (at an early day)
+prope   prope (adv. + prep.)
+propiora    propior (nearer)
+propius propior ('nearer' + adv.)
+proximi propior (superl.)
+proxime propior (adv.)
+proximo propior
+proximo proximo#1 (very lately)
+proximo proximo#2 (to come near)
+
+pulchrum    pulcher#1 (beautiful)
+pulcrum    pulcher#1 (beautiful)
+pulchre pulcher#1 (adv.)
+Pulcher Pulcher#2 (a Roman surname of the Claudii)
+
+pullum  pullus#1 (a young animal)
+pullum  pullus#2 (pure)
+pullum  pullus#3 (dark-colored + a dark-gray garmen)
+
+putea   puteus (alternative for 'puteus')
+puteus  puteus (a well)
+
+quadriga	quadrigae (variant for 'quadrigae')
+
+qualus  qualum (variant for 'qualum')
+qualum  qualum (a wicker basket or hamper)
+
+quies   quies#1 (rest)
+quies   quies#2 (peaceful)
+quietum quies#1 (rest)
+quietum quiesco (to rest or keep quiet)
+quiete  quiesco (adv.)
+quiete  quies#1 (rest)
+quiete  quies#2 (peaceful)
+Quieta  Quieta (a woman)
+
+quodam	quidam (a certain)
+
+quodammodo quodammodo (in a specified manner)
+
+rectum  rego (to lead straight)
+regens  rego (to lead straight)
+recta   rego (adv.)
+recto   rego (adv.)
+recte   rego (adv.)
+
+regales regalis (belonging to a king)
+regalia regalis (belonging to a king + the residence of the king)
+regaliter   regalis (adv.)
+
+reliqua reliquus (remaining + the remainder of a debt)
+relicuus    reliquus (spelling)
+relliquus   reliquus (spelling)
+reliqus   reliquus (spelling)
+
+remex   remex (a rower)
+
+repperio	""
+reperio	reperio (to procure again)
+repperi	reperio (perf.)
+reperi	reperio (alternative perf.)
+reperta reperio (part.)
+
+retundo retundo (to blunt)
+retusus retundo (part.)
+retudi retundo (alternative perf.)
+rettudi retundo (alternative perf.)
+
+reverto reverto (to turn back)
+revertor    reverto (spelling for 'reverto')
+revorto reverto (spelling for 'reverto')
+revertor    reverto (spelling for 'reverto')
+
+rex rex#1 (a ruler of a country)
+Rex Rex#2 ( surname in the gens Marcia)
+
+ridicula    ridicula (a little stake)
+ridicula    ridiculus (that excites laughter)
+ridiculum   ridiculus (that excites laughter)
+ridicule    ridiculus (adv.)
+
+salio   salio#1 (to salt)
+salitus salio#1 (part.)
+salsus sallo (part.)
+salsus salo#1 (part.)
+sallio   salio#1 (spelling)
+sallo   sallo (variant)
+salo   salo#1 (variant)
+salo   salum (the open sea)
+salse   salse (wittily)
+salse   sallo (part.)
+salse   salo#1 (part.)
+salsissime   salse (superl.)
+salsissime   sallo (part.)
+salsissime   salo#1 (part.)
+salio   salio#2 (to leap)
+saluit  salio#2 (perf.)
+assiluit    assilio (to leap to)
+adsiluit    assilio (spelling)
+assultus    assilio (part.)
+assultus    assultus (a leaping to)
+circumsilio circumsilio (to spring around)
+desilio desilio (to leap down)
+exsilio exsilio (to spring out)
+exilio exsilio (spelling)
+exsilui exsilio (perf.)
+exsilivi exsilio (perf.)
+exsilii exsilio (perf.)
+exsilii exsilium (banishment)
+exsilio exsilium (banishment)
+exilio  exsilium (spelling)
+insilio insilio (to leap into)
+insilui insilio (perf.)
+insilivi insilio (perf.)
+insilii insilio (perf.)
+persilio    persilio (to leap through)
+prosilio    prosilio (to leap forth)
+resilio resilio (to leap back)
+resilui resilio (perf.)
+resilii resilio (perf.)
+resilivi resilio (perf.)
+subsilio    subsilio (to spring upwards)
+transilio   transilio (to leap over)
+transsilio   transilio (spelling)
+transilivi  transilio (perf.)
+transilui  transilio (perf.)
+transilii  transilio (perf.)
+
+sanctum sancio (to render sacred)
+sancte  sancio (adv.)
+
+sarcophagum sarcophagus (a kind of limestone used for coffins + a grave)
+
+scaturex    scaturex (a bubbling or gushing spring)
+
+secretum    secerno (to put apart + something secret)
+secreto secerno (adv.)
+secrete secerno (adv.)
+secretim secerno (adv.)
+
+segregatus  segrego (to set apart from the flock)
+
+segrex  segrex (apart)
+
+semianimus  semianimis (half-alive, half-dead)
+semanimis  semianimis (spelling for the synizesis)
+
+sileo   sileo (to be noiseless)
+intersileo  intersileo (to be silent in the meanwhile)
+
+sinistrum   sinister (on the left)
+sinistre    sinister (adv.)
+sinistra    sinister (on the left)
+sinistra    sinistra (the left hand)
+
+sollers	sollers (skilled)
+solers	sollers (spelling for 'sollers')
+sollerter	sollerter (adv.)
+solerter	sollerter (spelling for 'sollerter')
+
+solidum solidus (firm + a gold coin + soundly)
+soldus  solidus (spelling)
+solide  solidus (adv.)
+
+solutum solvo (to loosen an object from any thing)
+solute  solvo (adv.)
+
+Sphinx  Sphinx (a fabulous monster near Thebes that used to propose riddles to travellers)
+Sphingos  Sphinx (alternative gen. sg.)
+
+sterquilinium    sterquilinium (a dung-pit)
+sterquilinum    sterquilinium (spelling)
+sterculinium   sterculinium (spelling)
+stercilinium   sterquilinium (spelling)
+
+sto sto
+adsto   asto
+asto    asto astus#1
+antesto antesto
+antisto antesto
+circumsto   circumsto
+consto  consto
+disto   disto
+exsto   exsto 
+insto   insto
+obsto   obsto
+persto  persto
+praesto praesto#2 praestus
+resto   resto
+supersto    supersto
+
+strix   strix#1 (a screech-owl)
+strix   strix#2 (a furrow)
+
+suum    suus (belonging to him/her/itself)
+sua suus (belonging to him/her/itself + a mistress)
+sui suus (belonging to him/her/itself)
+sui sui (to sew)
+sui suo (to sew)
+sui sus (a swine)
+suta    suo (to sew + a coat of mail)
+
+supra   supra (on the upper side)
+supera  supero (to go over)
+supera  supra (spelling for 'supra')
+supera  superus (that is above)
+super   supo (to throw about)
+super   super#2 (above)
+super superus (alternative nom. sg.)
+superius    superus (comp.)
+superius    supra (comp.)
+Superi  superi (the ones above)
+superrimus  superus (superl. + adv.)
+supremum    superus (superl. + adv.)
+supremo    superus (superl. + adv.)
+suprema superus (superl. + the last part of the day + the last moments of life)
+supreme superus (adv.)
+supreme supra (adv.)
+summum  superus (superl. + adv.)
+summe   superus (superl. + adv.)
+summe   supra (superl.)
+summopere   summopere (exceedingly)
+
+Syrinx  Syrinx (a nymph changed into a reed)
+Syringa Syrinx (alternative for 'Syrinx')
+syringes    Syrinx (caverns or subterraneous passages)
+
+tacitum taceo (part. 'to be or make quiet/content')
+tacenda taceo (part. 'to be or make quiet/content')
+tacite  taceo (adv. part. 'to be or make quiet/content')
+tacito  taceo (adv. part. 'to be or make quiet/content')
+Tacita  Tacita (the goddess of Silence)
+
+tenebra tenebro (to make dark)
+tenebra tenebrae (sg. alternative of 'tenebrae')
+
+teneri  teneo (to hold)
+teneri  tener (tender)
+teneriter   tener (adv.)
+tenere  tener (adv.)
+tenere  teneo (to hold)
+
+tenue   tenuis (thin)
+tenuiter   tenuis (adv.)
+tenvia  tenuis (dissyllabic alternative)
+
+tergus	tergus (variant for 'tergum')
+
+testor   testor ('to be a witness')
+testo   testor (act.)
+testato testor (part. + adv.)
+
+transversum transverto (to turn across)
+transvorsus transverto
+traversus transverto
+transversim transverto (adv.)
+
+utilis	utilis (useful)
+utile	utilis (what is useful)
+utiliter	utilis (adv.)
+
+vafer	vafer (cunning)
+vafre	vafre (cunningly)
+
+veneo	veneo (to go to sale)
+
+Vercingetorix   Vercingetorix (a commander of the Gauls in the Gallic War)
+
+verro   verro (to scrape)
+averro  averro (to sweep/brush off/away)
+circumverris    ""
+circumversus    circumverro ('to brush/sweep around', only part.)
+converro    converro (to sweep/brush together)
+conversus   converro (part.)
+deverro deverro (to sweep away/out)
+everro  everro (to sweep out)
+eversus everro (part.)
+praeverro   praeverro (to sweep/brush before)
+reverro reverro (to sweep back again)
+
+versat   verso (to turn)
+versor  verso (pass.)
+versor   versor (to dwell)
+adversat adverso (to turn to)
+advorsat adverso (spelling)
+adversor    adversor (to stand opposite to)
+adversor    adverso (pass.)
+advorsor    adversor (spelling)
+advorsor    adverso (pass.)
+aversor aversor#1 (to turn one's self from)
+circumversat circumverso (to turn around)
+circumvorsat circumverso (to turn around)
+controversor    controversor (to be at variance one with another)
+conversat    converso (to turn round)
+conversor    converso (to abide)
+deversor    deversor#1 (to be tarrying as a guest)
+devorsor    deversor#1 (spelling)
+deversor    deversor#2 (one who lodges anywhere)
+interversor  interversor#1 (to turn hither and thither)
+inversor inversor (to be among)
+obversor    obversor (to take position opposite)
+reversat reverso (to turn round)
+subversat    subverso (to overturn)
+subvorsat    subverso (spelling)
+tergiversor tergiversor (to turn one's back)
+
+verto   verto (to turn)
+vorto   verto (spelling)
+adverto adverto (to turn to)
+advorto adverto (spelling)
+adversus    adverto (part.)
+exadverso   adverto (adv.)
+adversus    adversus#2 (adv.)
+exadversum   exadversum (adv.)
+animadverto animadverto (to direct the mind to)
+animadvorto animadverto (spelling)
+anteverto   anteverto (to place one's self before)
+antevorto   anteverto (spelling)
+antevortar  anteverto (dep. alternative + pass.)
+averto  averto (to turn something away)
+avorto  averto (spelling)
+abverto averto (spelling)
+aversus averto (part.)
+aversor aversor#2 (a thief)
+circumverto circumverto (to turn around)
+circumvorto circumverto (spelling)
+controversus    controversus (turned against)
+converto    converto (to turn round/back)
+convorto    converto (spelling)
+conversus   converto (part.)
+conversus   conversus#3 (a turning/twisting round)
+deverto deverto (to turn away)
+devorto deverto (spelling)
+deversus    deverto (part.)
+deversus    deversus (deorsum versus)
+diverto diverto (to turn different ways)
+divorto diverto (spelling)
+diversus    diverto (part.)
+everto  everto (to overturn)
+evorto  everto (spelling)
+eversus everto (part.)
+interverto  interverto (to turn aside)
+intervorto  interverto (spelling)
+interversor  interversor#2 (a purloiner)
+interversus interverto (part.)
+inverto inverto (to turn upside down)
+invorto inverto (spelling)
+inversus    inverto (part.)
+obverto obverto (to turn towards/against)
+obvorto obverto (spelling)
+obversus    obverto (part.)
+perverto    perverto (to turn around/about)
+pervorto    perverto (spelling)
+perversus   perverto (part.)
+praeterverto    praeterverto (to go/pass by)
+praeverto   praeverto (to go before)
+praevorto   praeverto (spelling)
+praevertor   praeverto (alternative)
+praevortor   praeverto (spelling)
+proverto    proverto (to turn forwards)
+provorto    proverto (spelling)
+proversus   proverto (part.)
+reverto reverto (to come back)
+revorto reverto (spelling)
+revertor reverto (alternative)
+revortor reverto (spelling)
+reversus    reverto (part.)
+reconverto  reconverto (to turn back again)
+subverto  subverto (to turn upside down)
+subvorto  subverto (to turn upside down)
+subversus   subverto (part.)
+transverto  transverto (to turn across)
+transvorto  transverto (spelling)
+transversus transverto (part.)
+traversus transverto (part.)
+
+turpe   turpis (ugly + adv.)
+turpiter    turpis (adv.)
+
+tueo    tueo (act. variant of 'tueor')
+tueor   tueo (pass.)
+tueor   tueor (to look at)
+tuitus   tueor (part.)
+tuto   tueor (alternative part. + adv.)
+tuto    tuto#2 (act. of tutor#2)
+tutatus tutor#2 (to watch)
+tutatus tueor (alternative part.)
+tuor    tuor#1 (variant for 'tueor')
+tuor    tuor#2 (the sight)
+
+ultra   ulter (that is beyond)
+ultro   ulter (that is beyond)
+ulterius    ulter (comp.)
+ulterius    ultra (adv. comp.)
+ultra   ultra (adv.)
+ultro   ultro (adv.)
+ulterius    ultra (comp.)
+ultime  ulter (superl.)
+ultime  ultra (adv. superl.)
+
+universum   universus (all together + the whole world)
+universi    universus (all together + the whole body of citizens)
+universe    universus (adv.)
+universe    universe (adv.)
+
+uxorium uxorius (belonging to a wife + a tax laid on old-bachelors)
+
+vacuum  vacuus (empty)
+
+vanum   vanus (that contains nothing)
+vane    vanus (adv.)
+
+vepres	vepres (a thorn-bush)
+vepris	vepres (alternative nom.)
+veper	vepres (alternative nom.)
+
+verenda vereor (part.)
+verenter vereor (adv.)
+
+Vetera  Vetera (a town of Gallia Belgica)
+veteratus   vetero (part.)
+vetera  vetero (to make old)
+vetera  vetus (old)
+veter   vetus (nom. sg. of 'vetus')
+veter   veto (not to permit)
+vetitum veto (part.)
+voto    veto (spelling of 'veto')
+voto    voveo (to promise solemnly)
+voto    votum (a solemn promise)
+vetustior   vetus (comp.)
+vetustior   vetustus (comp.)
+veterrimus  vetus (superl.)
+vetustissimus   vetustus (superl.)
+veterior   vetus (comp.)
+Veteres vetus (the old booths on the south side of the Forum Romanum, as opposed to novae tabernae)
+
+vicina  vicinus (neighboring)
+vicine  vicinus (adv.)
+
+vidua   viduus (bereft of a husband or wife)
+vidua   viduo (to bereave of any thing)
+viduata viduo (part.)
+
+vinum   vinum (wine)
+vinus   vinum (variant for 'vinum')
+
+virginale   virginalis (belonging to a maiden)
+
+vivum   vivus (alive)
+vive    vivus (adv.)
+vive    vivo (to live)
+viventes    vivo (part.)
+
+Zeuxidem    Zeuxis (a person)
+Zeuxidim    Zeuxis (alt. acc.)
+Zeuxidin    Zeuxis (alt. acc.)

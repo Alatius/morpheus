@@ -1,16 +1,7 @@
-:le:insilio
-:de:insil ire_vb
-
 :le:aboleo
 :vs:a^bo^l	conj2
 :vs:a^bo^le_v	perfstem
 :vs:a^bo^li^t	pp4
-
-:le:resilio
-:vs:re^si^l	conj4
-:vs:re^si^lu^	perfstem
-:vs:re^si^li^	perfstem
-:vs:re^si^li_v	perfstem
 
 :le:licet
 :wd:li^center	adverb
@@ -48,11 +39,6 @@
 :vs:aspers	pp4
 :vs:asspers	pp4 orth
 :vs:adspers	pp4 orth
-
-:le:transilio
-:de:transi^l	ire_vb
-:vs:transi^l	conj3_io
-:vs:transi^li	perfstem
 
 :le:comminiscor
 :vs:com-mi^ni_sc	conj3 dep
@@ -170,8 +156,9 @@
 :vs:ci_s	perfstem comp_only
 :vs:ci_s	pp4 comp_only
 
-:le:calumnio
-:de:calumni	are_vb
+:le:calumnior 
+:de:calumni	are_vb dep
+:de:kalumni	are_vb dep orth
 
 :le:capesso
 :vs:capess	conj3
@@ -286,12 +273,6 @@
 :vs:exper	conj4 dep
 :vs:expert	pp4
 
-:le:exsilio
-:vs:exsi^l	conj4
-:vs:exi^l	conj4
-:vs:exsi^lu^	perfstem
-:vs:exi^lu^	perfstem
-
 :le:exsisto
 :vs:exsist conj3
 :vs:exste^t perfstem
@@ -301,10 +282,10 @@
 :vs:exte^t pp4
 
 :le:exsto
-:vs:exst	conj1
+:vs:exst	conj1 act
 :vs:exstet	perfstem
 :vs:exstat	pp4
-:vs:ext	conj1
+:vs:ext	conj1 act
 :vs:extet	perfstem
 :vs:extit	perfstem
 :vs:extat	pp4
@@ -429,10 +410,6 @@
 :le:intellego
 :vs:intelli^g	conj3
 
-:le:irascor
-:vs:i_ra_sc	conj3 dep
-:vs:i_ra_t	pp4
-
 :le:Iris
 :no:I_r	is_is fem
 :no:I_r	is_idis fem
@@ -448,10 +425,6 @@
 :le:labor#1
 :vs:la_b	conj3 dep
 :vs:la_ps	pp4 dep
-
-:le:libet
-:vs:libu	perfstem
-:vs:libit	pp4
 
 :le:licet
 :vs:licu	perfstem
@@ -694,16 +667,6 @@
 :le:saevio
 :vb:saevisse perfstem inf act per syncope
 
-:le:salio#1
-:vs:sa^l 	conj4
-:vs:sall 	conj3 late
-:vs:sa^li_t	pp4
-:vs:sals	pp4
-
-:le:salio#2
-:de:sa^l	ire_vb not_in_comp
-:vs:si^l	ire_vb comp_only
-
 :le:sancio
 :vs:sanc	conj4
 :vs:sanx	perfstem
@@ -814,9 +777,6 @@
 :vs:tra_ve_x	perfstem
 :vs:tra_vect	pp4
 
-:le:tueor
-:vs:tu_t pp4
-
 :le:obtueor
 :vs:ob-tu^	conj2 dep
 :vs:optu^	conj2 dep orth
@@ -848,25 +808,17 @@
 :vs:u_t	conj3 dep
 :vs:u_s	pp4
 
-:le:verso
-:de:vors 	are_vb
-
-:le:verto
-:vs:vort	conj3
-:vs:vort	perfstem
-:vs:vors	pp4
-
 :le:vereor
 :vs:ver		conj2 dep
 :vs:verit	pp4
-
-:le:veto
-:vs:vo^t conj1 old
-:vs:vo^tu perfstem old
-:vs:vo^tit pp4 old
 
 :le:vindico
 :de:vendic	are_vb
 
 :le:vulnero
 :de:volner	are_vb orth
+
+
+:le:intersileo
+:vs:inter-si^l conj2
+:vs:inter-si^lu^ perfstem

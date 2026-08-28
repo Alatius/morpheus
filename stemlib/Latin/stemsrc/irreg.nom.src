@@ -828,9 +828,10 @@ plu_r@decl3_i irreg_adj3 neut gen pl irreg_comp
 plu_r@decl3 irreg_adj3 neut dat pl irreg_comp
 plu_r@decl3 irreg_adj3 neut abl pl irreg_comp
 plu_r@decl3 irreg_adj3 neut nom/acc pl irreg_comp
+:wd:plu_s adverb irreg_comp
 
 :le:os#1
-o_s		irreg_nom3 neut nom/voc/acc
+o_s		irreg_nom3 neut sg nom/voc/acc
 o_r@decl3	irreg_nom3 neut sg
 o_r@decl3	irreg_nom3 neut pl nom/voc/acc
 o_r@decl3	irreg_nom3 neut pl dat
@@ -895,11 +896,7 @@ utrum 	irreg_adj2 neut nom/voc sg
 utr@ille	irreg_adj2
 
 :le:vetus
-:wd:vetus	irreg_adj3 masc fem neut nom voc sg
-:wd:vetus	irreg_adj3 neut acc sg
-veter@decl3	irreg_adj3 masc fem neut
-:aj:vetust	or_us_comp irreg_comp
-:aj:vet	er_ris_re superl
+:wd:veter	irreg_adj3 masc nom voc sg
 
 :le:virus
 vi_rus		irreg_nom2 neut nom voc acc sg
