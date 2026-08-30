@@ -504,6 +504,10 @@ int checkstring3(gk_word *Gkword)
 	set_workword(Gkword,saveword);
 	return(rval);
       }
+      else {
+      *a = 'I';
+      set_workword(Gkword,workword);
+    }
     }
 
     while(*a) {
@@ -523,6 +527,7 @@ int checkstring3(gk_word *Gkword)
 	else
 	{
 	  *a = 'i';
+	  set_workword(Gkword,workword);
 	}
       }
       a++;
