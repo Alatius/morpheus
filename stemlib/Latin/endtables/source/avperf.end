@@ -27,3 +27,10 @@ a_ri@basvb2	are_vb perf subj act contr
 a_ss@emsub	are_vb plup subj act contr
 
 a_sse	are_vb perf inf act contr
+
+a_ro_	are_vb futperf ind act 1st sg contr
+a_ri_s	are_vb futperf ind act 2nd sg contr
+a_rit	are_vb futperf ind act 3rd sg contr
+a_ri_mus	are_vb futperf ind act 1st pl contr
+a_ri_tis	are_vb futperf ind act 2nd pl contr
+a_rint	are_vb futperf ind act 3rd pl contr
