@@ -4,6 +4,7 @@ bin
 src/anal/cruncher
 src/anal/deverbal
 src/anal/findbase
+src/anal/morpheus
 src/anal/pname
 src/gener/checkstype
 src/gener/do_conj

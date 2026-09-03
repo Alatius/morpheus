@@ -3,6 +3,7 @@
 
 
 /* prntanal.c */
+int GoodAnals(gk_word *, int);
 void PrntAnalyses(gk_word *, PrntFlags, FILE *);
 char *anal_buf(void);
 void PrntOneAnalysis(gk_analysis *, PrntFlags, FILE *);
